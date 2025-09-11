@@ -1,0 +1,103 @@
+{
+  "version": "1.0.0",
+  "description": "環境変数テンプレートファイル - 実際の値はシステム環境変数または.envファイルで設定してください",
+  "required_variables": {
+    "TRIPO_API_KEY": {
+      "description": "Tripo AI APIキー",
+      "type": "string",
+      "required": true,
+      "sensitive": true,
+      "example": "tripo_xxxxxxxxxxxxxxxx",
+      "where_to_get": "https://platform.tripo3d.ai/api-keys"
+    },
+    "BLENDER_PATH": {
+      "description": "Blenderインストールパス",
+      "type": "path",
+      "required": false,
+      "sensitive": false,
+      "example_windows": "C:/Program Files/Blender Foundation/Blender 3.6/blender.exe",
+      "example_macos": "/Applications/Blender.app/Contents/MacOS/Blender",
+      "example_linux": "/usr/bin/blender"
+    },
+    "BLENDER_HOST": {
+      "description": "BlenderMCPアドオンのホストアドレス",
+      "type": "string",
+      "required": false,
+      "sensitive": false,
+      "default": "localhost",
+      "example": "localhost"
+    },
+    "BLENDER_PORT": {
+      "description": "BlenderMCPアドオンのポート番号",
+      "type": "number",
+      "required": false,
+      "sensitive": false,
+      "default": 9876,
+      "example": 9876
+    }
+  },
+  "optional_variables": {
+    "MCP_LOG_LEVEL": {
+      "description": "MCPサーバーのログレベル",
+      "type": "string",
+      "default": "INFO",
+      "options": ["DEBUG", "INFO", "WARN", "ERROR"]
+    },
+    "MCP_TEMP_DIR": {
+      "description": "一時ファイルディレクトリ",
+      "type": "path",
+      "default": "./temp"
+    },
+    "MCP_MAX_CONCURRENT": {
+      "description": "最大同時実行数",
+      "type": "number",
+      "default": 3,
+      "min": 1,
+      "max": 10
+    }
+  },
+  "unity_specific": {
+    "UNITY_EDITOR_PATH": {
+      "description": "Unity Editorのパス（自動検出される場合は不要）",
+      "type": "path",
+      "required": false,
+      "example_windows": "C:/Program Files/Unity/Hub/Editor/2022.3.15f1/Editor/Unity.exe"
+    },
+    "UNITY_PROJECT_PATH": {
+      "description": "Unity プロジェクトのパス",
+      "type": "path",
+      "required": false,
+      "example": "./MyUnityProject"
+    }
+  },
+  "setup_instructions": {
+    "windows": [
+      "1. PowerShellを管理者として実行",
+      "2. 環境変数を設定:",
+      "   $env:TRIPO_API_KEY='your_api_key_here'",
+      "   $env:BLENDER_PATH='C:/Program Files/Blender Foundation/Blender 3.6/blender.exe'",
+      "3. または.envファイルを作成してconfig/ディレクトリに配置"
+    ],
+    "macos_linux": [
+      "1. ターミナルを開く",
+      "2. ~/.bashrc または ~/.zshrc に追加:",
+      "   export TRIPO_API_KEY='your_api_key_here'",
+      "   export BLENDER_PATH='/Applications/Blender.app/Contents/MacOS/Blender'",
+      "3. source ~/.bashrc (または ~/.zshrc) を実行"
+    ],
+    "dotenv_file": [
+      "1. config/.env ファイルを作成",
+      "2. 以下の形式で記述:",
+      "   TRIPO_API_KEY=your_api_key_here",
+      "   BLENDER_PATH=/path/to/blender",
+      "3. .envファイルを.gitignoreに追加（セキュリティのため）"
+    ]
+  },
+  "validation": {
+    "scripts": {
+      "check_tripo_api": "python tools/setup-tripo.py",
+      "check_blender": "python tools/setup-blender.py",
+      "check_all": "python tools/setup-all.py"
+    }
+  }
+}

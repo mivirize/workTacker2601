@@ -1,0 +1,99 @@
+{
+  "version": "1.0.0",
+  "metadata": {
+    "created": "2025-08-26",
+    "description": "統合MCP サーバー設定ファイル",
+    "author": "Unity MCP Integration Project"
+  },
+  "servers": {
+    "unity-mcp": {
+      "enabled": true,
+      "type": "python",
+      "command": "uv",
+      "args": ["run", "--directory", "./servers/unity-mcp/UnityMcpServer/src", "server.py"],
+      "port": 27182,
+      "autostart": true,
+      "description": "Unity Editor統合MCPサーバー",
+      "env": {},
+      "config": {
+        "timeout": 30,
+        "retry_count": 3
+      }
+    },
+    "tripo-mcp": {
+      "enabled": true,
+      "type": "python_package",
+      "command": "uvx",
+      "args": ["tripo-mcp"],
+      "port": 27183,
+      "autostart": false,
+      "description": "Tripo AI 3D生成MCPサーバー (Python package via uvx)",
+      "env": {
+        "TRIPO_API_KEY": "${TRIPO_API_KEY}"
+      },
+      "config": {
+        "timeout": 120,
+        "retry_count": 2,
+        "api_timeout": 300
+      },
+      "requirements": {
+        "python_version": "3.10+",
+        "dependencies": ["uv"]
+      }
+    },
+    "blender-mcp": {
+      "enabled": true,
+      "type": "python_package",
+      "command": "uv",
+      "args": ["run", "--directory", "./servers/blender-mcp", "python", "-m", "blender_mcp.server"],
+      "port": 27184,
+      "autostart": false,
+      "description": "Blender 3Dモデリング統合MCPサーバー",
+      "env": {
+        "BLENDER_HOST": "${BLENDER_HOST:-localhost}",
+        "BLENDER_PORT": "${BLENDER_PORT:-9876}"
+      },
+      "config": {
+        "timeout": 60,
+        "retry_count": 3,
+        "blender_path": "${BLENDER_PATH}",
+        "blender_host": "localhost",
+        "blender_port": 9876
+      },
+      "requirements": {
+        "blender_version": "3.0+",
+        "python_packages": ["mcp", "fastmcp"],
+        "dependencies": ["uv"]
+      },
+      "addon_info": {
+        "addon_file": "./servers/blender-mcp/addon.py",
+        "description": "Blender側のアドオンファイル。Blender内でソケットサーバーを起動します。",
+        "installation": "Edit > Preferences > Add-ons > Install でaddon.pyを追加"
+      }
+    }
+  },
+  "workflows": {
+    "ai_to_unity_pipeline": {
+      "description": "AIからUnityまでの完全3D制作パイプライン",
+      "steps": ["tripo-mcp", "blender-mcp", "unity-mcp"],
+      "timeout": 600,
+      "retry_count": 3,
+      "parallel": false
+    },
+    "simple_3d_generation": {
+      "description": "シンプルな3D生成（Tripo → Unity直接）",
+      "steps": ["tripo-mcp", "unity-mcp"],
+      "timeout": 300,
+      "retry_count": 2,
+      "parallel": false
+    }
+  },
+  "global_settings": {
+    "log_level": "INFO",
+    "log_file": "logs/mcp-servers.log",
+    "health_check_interval": 30,
+    "max_concurrent_operations": 3,
+    "temp_directory": "temp/",
+    "backup_directory": "backups/"
+  }
+}

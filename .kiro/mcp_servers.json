@@ -1,0 +1,176 @@
+{
+  "servers": {
+    "unity-mcp-python": {
+      "type": "stdio",
+      "command": "C:/Users/owner/Dev/unity-mcp-integrated/servers/unity-mcp/UnityMcpServer/src/.venv/Scripts/python.exe",
+      "args": ["server.py"],
+      "cwd": "C:/Users/owner/Dev/unity-mcp-integrated/servers/unity-mcp/UnityMcpServer/src",
+      "description": "Unity MCP Python Server - Unity Editor操作、ゲームオブジェクト管理、スクリプト作成、シーン操作",
+      "enabled": true,
+      "timeout": 30000,
+      "retryAttempts": 3,
+      "tools": [
+        "manage_script",
+        "manage_scene", 
+        "manage_editor",
+        "manage_gameobject",
+        "manage_asset",
+        "manage_shader",
+        "read_console",
+        "execute_menu_item"
+      ]
+    },
+    "unity-mcp-ts": {
+      "type": "stdio",
+      "command": "node",
+      "args": ["build/index.js"],
+      "cwd": "C:/Users/owner/Dev/_repos/UnityMCP/unity-mcp-ts",
+      "description": "Unity MCP TypeScript Server - Unity Editorメニュー実行、高性能コマンド処理",
+      "enabled": true,
+      "timeout": 30000,
+      "retryAttempts": 3,
+      "tools": [
+        "menu_execute"
+      ]
+    },
+    "tripo-mcp": {
+      "type": "stdio", 
+      "command": "uvx",
+      "args": ["tripo-mcp"],
+      "description": "Tripo 3D AI Server - テキストから3Dモデル生成、3Dアセット管理",
+      "enabled": true,
+      "timeout": 60000,
+      "retryAttempts": 3,
+      "env": {
+        "TRIPO_API_KEY": "${TRIPO_API_KEY:-demo_key}"
+      },
+      "tools": [
+        "generate_3d_model",
+        "refine_model",
+        "get_model_status",
+        "download_model"
+      ]
+    },
+    "blender-mcp": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "C:/Users/owner/Dev/unity-mcp-integrated/servers/blender-mcp",
+        "python",
+        "-m", 
+        "blender_mcp.server"
+      ],
+      "description": "Blender MCP Server - Blender操作、3Dモデル編集、最適化、レンダリング",
+      "enabled": true,
+      "timeout": 45000,
+      "retryAttempts": 3,
+      "env": {
+        "BLENDER_HOST": "localhost",
+        "BLENDER_PORT": "9876", 
+        "BLENDER_PATH": "${BLENDER_PATH:-C:/Program Files/Blender Foundation/Blender 4.0/blender.exe}"
+      },
+      "tools": [
+        "create_object",
+        "modify_object",
+        "render_scene",
+        "export_model",
+        "import_model",
+        "optimize_mesh"
+      ]
+    }
+  },
+  "global": {
+    "logging": {
+      "level": "info",
+      "file": "C:/Users/owner/Dev/unity-mcp-integrated/logs/roo-mcp.log"
+    },
+    "timeout": 30000,
+    "retryAttempts": 3,
+    "maxConcurrentConnections": 4
+  },
+  "workflows": {
+    "ai_3d_pipeline": {
+      "name": "AI-driven 3D Creation Pipeline", 
+      "description": "Complete AI-driven 3D creation pipeline from text to Unity",
+      "servers": ["tripo-mcp", "blender-mcp", "unity-mcp-python"],
+      "sequence": [
+        {
+          "server": "tripo-mcp",
+          "description": "Generate 3D model from text prompt",
+          "timeout": 120000
+        },
+        {
+          "server": "blender-mcp",
+          "description": "Refine and optimize the 3D model", 
+          "timeout": 60000
+        },
+        {
+          "server": "unity-mcp-python",
+          "description": "Import to Unity and set up scene",
+          "timeout": 30000
+        }
+      ]
+    },
+    "simple_3d_generation": {
+      "name": "Direct 3D Generation",
+      "description": "Direct 3D generation from text to Unity",
+      "servers": ["tripo-mcp", "unity-mcp-python"],
+      "sequence": [
+        {
+          "server": "tripo-mcp", 
+          "description": "Generate 3D model from text prompt",
+          "timeout": 120000
+        },
+        {
+          "server": "unity-mcp-python",
+          "description": "Import directly to Unity",
+          "timeout": 30000
+        }
+      ]
+    },
+    "unity_development": {
+      "name": "Unity Development Workflow",
+      "description": "Unity game development with script management",
+      "servers": ["unity-mcp-python", "unity-mcp-ts"],
+      "sequence": [
+        {
+          "server": "unity-mcp-python",
+          "description": "Create and manage Unity scenes and objects",
+          "timeout": 30000
+        },
+        {
+          "server": "unity-mcp-ts", 
+          "description": "Execute Unity Editor commands",
+          "timeout": 15000
+        }
+      ]
+    }
+  },
+  "environment": {
+    "required_vars": [
+    ],
+    "optional_vars": [
+      "TRIPO_API_KEY",
+      "BLENDER_PATH",
+      "BLENDER_HOST",
+      "BLENDER_PORT"
+    ],
+    "paths": {
+      "unity_mcp_python": "C:/Users/owner/Dev/unity-mcp-integrated/servers/unity-mcp/UnityMcpServer/src",
+      "unity_mcp_ts": "C:/Users/owner/Dev/_repos/UnityMCP/unity-mcp-ts",
+      "blender_mcp": "C:/Users/owner/Dev/unity-mcp-integrated/servers/blender-mcp",
+      "logs": "C:/Users/owner/Dev/unity-mcp-integrated/logs"
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-26",
+    "description": "Complete Unity + Tripo + Blender MCP integration for Roo (Claude Code)",
+    "author": "Unity MCP Integration Project",
+    "roo_version": ">=1.0.0",
+    "platform": "Windows",
+    "last_updated": "2025-08-26T09:52:00Z"
+  }
+}

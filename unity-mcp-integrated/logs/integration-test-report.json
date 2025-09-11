@@ -1,0 +1,101 @@
+{
+  "timestamp": "2025-08-26T18:59:18.993007",
+  "summary": {
+    "total_servers": 3,
+    "completed_servers": 2,
+    "failed_servers": 0,
+    "skipped_servers": 1,
+    "total_tests": 12,
+    "passed_tests": 10,
+    "failed_tests": 2,
+    "success_rate": 83.33
+  },
+  "server_results": {
+    "unity-mcp": {
+      "status": "completed",
+      "tests": {
+        "ディレクトリ確認": {
+          "success": true,
+          "details": "サーバースクリプトが存在します",
+          "timestamp": "2025-08-26T18:35:24.140820"
+        },
+        "Python環境確認": {
+          "success": true,
+          "details": "モジュールのimportが成功",
+          "timestamp": "2025-08-26T18:35:25.589834"
+        },
+        "MCPプロトコル確認": {
+          "success": false,
+          "details": "テスト失敗: Command '['C:\\\\Users\\\\owner\\\\Dev\\\\unity-mcp-integrated\\\\servers\\\\unity-mcp\\\\UnityMcpServer\\\\src\\\\.venv\\\\Scripts\\\\python.exe', 'C:\\\\Users\\\\owner\\\\Dev\\\\unity-mcp-integrated\\\\servers\\\\unity-mcp\\\\UnityMcpServer\\\\src\\\\server.py', '--help']' timed out after 15 seconds",
+          "timestamp": "2025-08-26T18:35:40.713154"
+        }
+      },
+      "errors": [
+        "MCPプロトコル確認: テスト失敗: Command '['C:\\\\Users\\\\owner\\\\Dev\\\\unity-mcp-integrated\\\\servers\\\\unity-mcp\\\\UnityMcpServer\\\\src\\\\.venv\\\\Scripts\\\\python.exe', 'C:\\\\Users\\\\owner\\\\Dev\\\\unity-mcp-integrated\\\\servers\\\\unity-mcp\\\\UnityMcpServer\\\\src\\\\server.py', '--help']' timed out after 15 seconds"
+      ]
+    },
+    "tripo-mcp": {
+      "status": "skipped",
+      "tests": {
+        "環境変数確認": {
+          "success": false,
+          "details": "TRIPO_API_KEY環境変数が設定されていません",
+          "timestamp": "2025-08-26T18:35:40.713154"
+        }
+      },
+      "errors": [
+        "環境変数確認: TRIPO_API_KEY環境変数が設定されていません"
+      ]
+    },
+    "blender-mcp": {
+      "status": "completed",
+      "tests": {
+        "ディレクトリ確認": {
+          "success": true,
+          "details": "blender-mcpディレクトリが存在",
+          "timestamp": "2025-08-26T18:35:40.714535"
+        },
+        "ファイル確認 (pyproject.toml)": {
+          "success": true,
+          "details": "ファイルが存在",
+          "timestamp": "2025-08-26T18:35:40.714535"
+        },
+        "ファイル確認 (src/blender_mcp/server.py)": {
+          "success": true,
+          "details": "ファイルが存在",
+          "timestamp": "2025-08-26T18:35:40.714535"
+        },
+        "ファイル確認 (addon.py)": {
+          "success": true,
+          "details": "ファイルが存在",
+          "timestamp": "2025-08-26T18:35:40.715543"
+        },
+        "Python環境確認": {
+          "success": true,
+          "details": "モジュールのimportが成功",
+          "timestamp": "2025-08-26T18:35:42.178969"
+        },
+        "サーバー起動確認": {
+          "success": true,
+          "details": "サーバーが起動（タイムアウトは正常）",
+          "timestamp": "2025-08-26T18:59:18.963193"
+        },
+        "アドオンファイル確認": {
+          "success": true,
+          "details": "Blenderアドオンの構造が正常",
+          "timestamp": "2025-08-26T18:59:18.982699"
+        },
+        "ポート確認": {
+          "success": true,
+          "details": "ポート9876が利用可能",
+          "timestamp": "2025-08-26T18:59:18.992011"
+        }
+      },
+      "errors": []
+    }
+  },
+  "recommendations": [
+    "unity-mcp: 1個のエラーがあります。詳細を確認してください",
+    "Tripo MCP: TRIPO_API_KEY環境変数を設定してください"
+  ]
+}

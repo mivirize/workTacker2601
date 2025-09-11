@@ -1,0 +1,91 @@
+{
+  "mcpServers": {
+    "unity-mcp-python": {
+      "command": "C:/Users/owner/Dev/unity-mcp-integrated/servers/unity-mcp/UnityMcpServer/src/.venv/Scripts/python.exe",
+      "args": [
+        "server.py"
+      ],
+      "cwd": "C:/Users/owner/Dev/unity-mcp-integrated/servers/unity-mcp/UnityMcpServer/src"
+    },
+    "unity-mcp-ts": {
+      "command": "node",
+      "args": [
+        "build/index.js"
+      ],
+      "cwd": "C:/Users/owner/Dev/_repos/UnityMCP/unity-mcp-ts"
+    },
+    "tripo-mcp": {
+      "command": "uvx",
+      "args": [
+        "tripo-mcp"
+      ],
+      "env": {
+        "TRIPO_API_KEY": "${TRIPO_API_KEY:-demo_key}"
+      }
+    },
+    "blender-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "--directory",
+        "C:/Users/owner/Dev/unity-mcp-integrated/servers/blender-mcp",
+        "python",
+        "-m",
+        "blender_mcp.server"
+      ],
+      "env": {
+        "BLENDER_HOST": "localhost",
+        "BLENDER_PORT": "9876",
+        "BLENDER_PATH": "${BLENDER_PATH:-C:/Program Files/Blender Foundation/Blender 4.0/blender.exe}"
+      }
+    }
+  },
+  "global": {
+    "logging": {
+      "level": "info",
+      "file": "C:/Users/owner/Dev/unity-mcp-integrated/logs/claude-desktop.log"
+    },
+    "timeout": 30000,
+    "retryAttempts": 3
+  },
+  "workflows": {
+    "ai_3d_pipeline": {
+      "description": "Complete AI-driven 3D creation pipeline from text to Unity",
+      "servers": ["tripo-mcp", "blender-mcp", "unity-mcp-python"],
+      "sequence": [
+        {
+          "server": "tripo-mcp",
+          "description": "Generate 3D model from text prompt"
+        },
+        {
+          "server": "blender-mcp", 
+          "description": "Refine and optimize the 3D model"
+        },
+        {
+          "server": "unity-mcp-python",
+          "description": "Import to Unity and set up scene"
+        }
+      ]
+    },
+    "simple_3d_generation": {
+      "description": "Direct 3D generation from text to Unity",
+      "servers": ["tripo-mcp", "unity-mcp-python"],
+      "sequence": [
+        {
+          "server": "tripo-mcp",
+          "description": "Generate 3D model from text prompt"
+        },
+        {
+          "server": "unity-mcp-python",
+          "description": "Import directly to Unity"
+        }
+      ]
+    }
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created": "2025-08-26",
+    "description": "Complete Unity + Tripo + Blender MCP integration for Claude Desktop",
+    "author": "Unity MCP Integration Project"
+  }
+}

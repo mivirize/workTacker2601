@@ -1,0 +1,33 @@
+[2025-08-26 17:59:34,617] [INFO] Unity MCPサーバーのテストを開始...
+[2025-08-26 17:59:34,618] [INFO] ✅ PASS unity-mcp: ディレクトリ確認 - サーバースクリプトが存在します
+[2025-08-26 17:59:36,657] [INFO] ✅ PASS unity-mcp: Python環境確認 - モジュールのimportが成功
+[2025-08-26 17:59:51,760] [ERROR] ❌ FAIL unity-mcp: MCPプロトコル確認 - テスト失敗: Command '['C:\\Users\\owner\\Dev\\unity-mcp-integrated\\servers\\unity-mcp\\UnityMcpServer\\src\\.venv\\Scripts\\python.exe', 'C:\\Users\\owner\\Dev\\unity-mcp-integrated\\servers\\unity-mcp\\UnityMcpServer\\src\\server.py', '--help']' timed out after 15 seconds
+[2025-08-26 17:59:51,761] [INFO] Tripo MCPサーバーのテストを開始...
+[2025-08-26 17:59:51,761] [ERROR] ❌ FAIL tripo-mcp: 環境変数確認 - TRIPO_API_KEY環境変数が設定されていません
+[2025-08-26 17:59:51,761] [INFO] Blender MCPサーバーのテストを開始...
+[2025-08-26 17:59:51,762] [INFO] ✅ PASS blender-mcp: ディレクトリ確認 - blender-mcpディレクトリが存在
+[2025-08-26 17:59:51,762] [INFO] ✅ PASS blender-mcp: ファイル確認 (pyproject.toml) - ファイルが存在
+[2025-08-26 17:59:51,763] [INFO] ✅ PASS blender-mcp: ファイル確認 (src/blender_mcp/server.py) - ファイルが存在
+[2025-08-26 17:59:51,763] [INFO] ✅ PASS blender-mcp: ファイル確認 (addon.py) - ファイルが存在
+[2025-08-26 18:00:10,164] [INFO] ✅ PASS blender-mcp: Python環境確認 - モジュールのimportが成功
+[2025-08-26 18:35:24,140] [INFO] Unity MCPサーバーのテストを開始...
+[2025-08-26 18:35:24,140] [INFO] ✅ PASS unity-mcp: ディレクトリ確認 - サーバースクリプトが存在します
+[2025-08-26 18:35:25,589] [INFO] ✅ PASS unity-mcp: Python環境確認 - モジュールのimportが成功
+[2025-08-26 18:35:40,713] [ERROR] ❌ FAIL unity-mcp: MCPプロトコル確認 - テスト失敗: Command '['C:\\Users\\owner\\Dev\\unity-mcp-integrated\\servers\\unity-mcp\\UnityMcpServer\\src\\.venv\\Scripts\\python.exe', 'C:\\Users\\owner\\Dev\\unity-mcp-integrated\\servers\\unity-mcp\\UnityMcpServer\\src\\server.py', '--help']' timed out after 15 seconds
+[2025-08-26 18:35:40,713] [INFO] Tripo MCPサーバーのテストを開始...
+[2025-08-26 18:35:40,713] [ERROR] ❌ FAIL tripo-mcp: 環境変数確認 - TRIPO_API_KEY環境変数が設定されていません
+[2025-08-26 18:35:40,713] [INFO] Blender MCPサーバーのテストを開始...
+[2025-08-26 18:35:40,714] [INFO] ✅ PASS blender-mcp: ディレクトリ確認 - blender-mcpディレクトリが存在
+[2025-08-26 18:35:40,714] [INFO] ✅ PASS blender-mcp: ファイル確認 (pyproject.toml) - ファイルが存在
+[2025-08-26 18:35:40,714] [INFO] ✅ PASS blender-mcp: ファイル確認 (src/blender_mcp/server.py) - ファイルが存在
+[2025-08-26 18:35:40,715] [INFO] ✅ PASS blender-mcp: ファイル確認 (addon.py) - ファイルが存在
+[2025-08-26 18:35:42,178] [INFO] ✅ PASS blender-mcp: Python環境確認 - モジュールのimportが成功
+[2025-08-26 18:59:18,960] [INFO] ✅ PASS blender-mcp: サーバー起動確認 - サーバーが起動（タイムアウトは正常）
+[2025-08-26 18:59:18,982] [INFO] ✅ PASS blender-mcp: アドオンファイル確認 - Blenderアドオンの構造が正常
+[2025-08-26 18:59:18,990] [INFO] ✅ PASS blender-mcp: ポート確認 - ポート9876が利用可能
+[2025-08-26 18:59:18,992] [INFO] 統合ワークフローテストを開始...
+[2025-08-26 18:59:18,993] [INFO] ✅ AI-to-Unity パイプライン設定が正常
+[2025-08-26 18:59:18,993] [INFO] ✅ Simple 3D Generation ワークフロー設定が正常
+[2025-08-26 18:59:18,993] [WARNING] ⚠️ Claude Desktop統合設定ファイルが見つかりません
+[2025-08-26 18:59:18,993] [INFO] テストレポートを生成しています...
+[2025-08-26 18:59:18,995] [INFO] テストレポートを保存: C:\Users\owner\Dev\unity-mcp-integrated\logs\integration-test-report.json
