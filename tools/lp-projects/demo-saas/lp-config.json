@@ -1,0 +1,76 @@
+{
+  "name": "CloudSync Pro LP",
+  "client": "TechSolution株式会社",
+  "version": "1.0.0",
+  "entry": "src/index.html",
+  "pages": [
+    {
+      "id": "index",
+      "path": "src/index.html",
+      "label": "トップページ"
+    },
+    {
+      "id": "contact",
+      "path": "src/contact.html",
+      "label": "お問い合わせ"
+    }
+  ],
+  "output": {
+    "appName": "CloudSync LP Editor",
+    "fileName": "cloudsync-lp-editor"
+  },
+  "editables": {
+    "hero-headline": {
+      "type": "text",
+      "label": "メインキャッチ",
+      "group": "hero"
+    },
+    "hero-subheadline": {
+      "type": "text",
+      "label": "サブキャッチ",
+      "group": "hero"
+    },
+    "hero-cta": {
+      "type": "link",
+      "label": "CTAボタン",
+      "group": "hero"
+    },
+    "features-title": {
+      "type": "text",
+      "label": "特徴セクションタイトル",
+      "group": "features"
+    },
+    "cta-headline": {
+      "type": "text",
+      "label": "CTA見出し",
+      "group": "cta"
+    },
+    "cta-button": {
+      "type": "link",
+      "label": "CTAボタン",
+      "group": "cta"
+    }
+  },
+  "colors": {
+    "primary": {
+      "value": "#2563EB",
+      "label": "プライマリカラー",
+      "description": "ヘッダー・ボタンの基本色"
+    },
+    "secondary": {
+      "value": "#1E40AF",
+      "label": "セカンダリカラー",
+      "description": "ホバー状態・強調表示"
+    },
+    "accent": {
+      "value": "#F59E0B",
+      "label": "アクセントカラー",
+      "description": "CTAボタン・重要な要素"
+    }
+  },
+  "groups": {
+    "hero": { "label": "ヒーローセクション", "order": 1 },
+    "features": { "label": "特徴セクション", "order": 2 },
+    "cta": { "label": "CTAセクション", "order": 3 }
+  }
+}

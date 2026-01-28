@@ -1,0 +1,62 @@
+{
+  "name": "test-client LP",
+  "client": "test-client",
+  "version": "1.0.0",
+  "entry": "src/index.html",
+  "output": {
+    "appName": "LP-Editor",
+    "fileName": "test-client-lp-editor"
+  },
+  "editables": {
+    "hero-headline": {
+      "type": "text",
+      "label": "メインキャッチ",
+      "group": "hero"
+    },
+    "hero-subheadline": {
+      "type": "text",
+      "label": "サブキャッチ",
+      "group": "hero"
+    },
+    "hero-cta": {
+      "type": "link",
+      "label": "CTAボタン",
+      "group": "hero"
+    }
+  },
+  "colors": {
+    "primary": {
+      "value": "#3B82F6",
+      "label": "メインカラー",
+      "description": "ヘッダー、リンク、ボタンの基本色"
+    },
+    "secondary": {
+      "value": "#1E40AF",
+      "label": "サブカラー",
+      "description": "ホバー状態、強調表示"
+    },
+    "accent": {
+      "value": "#F59E0B",
+      "label": "アクセントカラー",
+      "description": "CTAボタン、重要な要素の強調"
+    }
+  },
+  "groups": {
+    "hero": {
+      "label": "ヒーローセクション",
+      "order": 1
+    },
+    "features": {
+      "label": "特徴セクション",
+      "order": 2
+    },
+    "contact": {
+      "label": "お問い合わせ",
+      "order": 3
+    },
+    "footer": {
+      "label": "フッター",
+      "order": 4
+    }
+  }
+}

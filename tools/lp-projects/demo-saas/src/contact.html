@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CloudSync Pro - お問い合わせ">
+
+  <title data-editable="contact-page-title" data-type="text" data-label="ページタイトル" data-group="seo">お問い合わせ | CloudSync Pro</title>
+
+  <style>
+    :root {
+      /* カラーパレット */
+      --color-primary: #2563EB;
+      --color-primary-dark: #1D4ED8;
+      --color-secondary: #1E40AF;
+      --color-accent: #F59E0B;
+      --color-accent-dark: #D97706;
+
+      /* テキストカラー */
+      --color-text: #1F2937;
+      --color-text-light: #6B7280;
+      --color-text-inverse: #FFFFFF;
+
+      /* 背景カラー */
+      --color-background: #FFFFFF;
+      --color-background-alt: #F3F4F6;
+
+      /* その他 */
+      --color-border: #E5E7EB;
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__logo">
+          <a href="index.html" style="text-decoration: none; color: inherit;">
+            <span
+              data-editable="contact-logo-text"
+              data-type="text"
+              data-label="ロゴテキスト"
+              data-group="header"
+            >CloudSync Pro</span>
+          </a>
+        </div>
+        <nav class="header__nav">
+          <a href="index.html#features">機能</a>
+          <a href="index.html#pricing">料金</a>
+          <a href="contact.html">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- お問い合わせセクション -->
+  <section class="contact-section">
+    <div class="container">
+      <h1
+        data-editable="contact-headline"
+        data-type="text"
+        data-label="見出し"
+        data-group="contact"
+        class="contact-section__title"
+      >
+        お問い合わせ
+      </h1>
+
+      <p
+        data-editable="contact-description"
+        data-type="richtext"
+        data-label="説明文"
+        data-group="contact"
+        class="contact-section__text"
+      >
+        ご質問やお見積もりのご依頼など、お気軽にお問い合わせください。<br>
+        担当者より2営業日以内にご連絡いたします。
+      </p>
+
+      <div class="contact-form-wrapper">
+        <form
+          class="contact-form"
+          action="https://example.com/api/contact"
+          method="POST"
+        >
+          <div class="form-group">
+            <label
+              for="company"
+              data-editable="contact-label-company"
+              data-type="text"
+              data-label="会社名ラベル"
+              data-group="contact-form"
+            >会社名</label>
+            <input type="text" id="company" name="company" required>
+          </div>
+
+          <div class="form-group">
+            <label
+              for="name"
+              data-editable="contact-label-name"
+              data-type="text"
+              data-label="お名前ラベル"
+              data-group="contact-form"
+            >お名前</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+
+          <div class="form-group">
+            <label
+              for="email"
+              data-editable="contact-label-email"
+              data-type="text"
+              data-label="メールラベル"
+              data-group="contact-form"
+            >メールアドレス</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+
+          <div class="form-group">
+            <label
+              for="phone"
+              data-editable="contact-label-phone"
+              data-type="text"
+              data-label="電話番号ラベル"
+              data-group="contact-form"
+            >電話番号</label>
+            <input type="tel" id="phone" name="phone">
+          </div>
+
+          <div class="form-group">
+            <label
+              for="inquiry-type"
+              data-editable="contact-label-type"
+              data-type="text"
+              data-label="お問い合わせ種別ラベル"
+              data-group="contact-form"
+            >お問い合わせ種別</label>
+            <select id="inquiry-type" name="inquiry_type" required>
+              <option value="">選択してください</option>
+              <option value="demo">デモ・導入のご相談</option>
+              <option value="quote">お見積もり</option>
+              <option value="support">サポート</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label
+              for="message"
+              data-editable="contact-label-message"
+              data-type="text"
+              data-label="メッセージラベル"
+              data-group="contact-form"
+            >お問い合わせ内容</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+
+          <div class="form-group form-group--checkbox">
+            <input type="checkbox" id="privacy" name="privacy" required>
+            <label for="privacy">
+              <span
+                data-editable="contact-privacy-text"
+                data-type="richtext"
+                data-label="プライバシーポリシー文"
+                data-group="contact-form"
+              >プライバシーポリシーに同意する</span>
+            </label>
+          </div>
+
+          <button
+            type="submit"
+            class="btn btn--accent btn--large contact-form__submit"
+            data-editable="contact-submit-button"
+            data-type="text"
+            data-label="送信ボタン"
+            data-group="contact"
+          >
+            送信する
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- 会社情報 -->
+  <section class="company-info">
+    <div class="container">
+      <h2
+        data-editable="company-info-title"
+        data-type="text"
+        data-label="会社情報タイトル"
+        data-group="company"
+        class="section-title"
+      >
+        会社情報
+      </h2>
+
+      <div class="company-info__content">
+        <div class="company-info__item">
+          <h3>会社名</h3>
+          <p
+            data-editable="company-name"
+            data-type="text"
+            data-label="会社名"
+            data-group="company"
+          >TechSolution株式会社</p>
+        </div>
+
+        <div class="company-info__item">
+          <h3>所在地</h3>
+          <p
+            data-editable="company-address"
+            data-type="richtext"
+            data-label="住所"
+            data-group="company"
+          >〒100-0001<br>東京都千代田区千代田1-1-1<br>サンプルビル 10F</p>
+        </div>
+
+        <div class="company-info__item">
+          <h3>電話番号</h3>
+          <p
+            data-editable="company-phone"
+            data-type="text"
+            data-label="電話番号"
+            data-group="company"
+          >03-1234-5678</p>
+        </div>
+
+        <div class="company-info__item">
+          <h3>営業時間</h3>
+          <p
+            data-editable="company-hours"
+            data-type="text"
+            data-label="営業時間"
+            data-group="company"
+          >平日 9:00 - 18:00（土日祝日休業）</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <p
+        data-editable="contact-copyright"
+        data-type="text"
+        data-label="コピーライト"
+        data-group="footer"
+      >
+        &copy; 2024 TechSolution株式会社 All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

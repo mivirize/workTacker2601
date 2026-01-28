@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://lp-cms.example.com/schema/lp-config.json",
+  "title": "LP Config",
+  "description": "Configuration file for LP-CMS packages",
+  "type": "object",
+  "required": ["name", "client", "version", "entry", "output"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Display name of the LP package"
+    },
+    "client": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Client name"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "description": "Version in semver format (e.g., 1.0.0)"
+    },
+    "entry": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Path to the entry HTML file"
+    },
+    "output": {
+      "type": "object",
+      "required": ["appName", "fileName"],
+      "properties": {
+        "appName": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Application name for the editor"
+        },
+        "fileName": {
+          "type": "string",
+          "pattern": "^[a-z0-9-]+$",
+          "description": "Output file name (lowercase alphanumeric with hyphens)"
+        }
+      }
+    },
+    "editables": {
+      "type": "object",
+      "description": "Editable field configurations",
+      "additionalProperties": {
+        "$ref": "#/$defs/editableConfig"
+      }
+    },
+    "repeatBlocks": {
+      "type": "object",
+      "description": "Repeat block configurations",
+      "additionalProperties": {
+        "$ref": "#/$defs/repeatBlockConfig"
+      }
+    },
+    "colors": {
+      "type": "object",
+      "description": "Color variable configurations",
+      "additionalProperties": {
+        "$ref": "#/$defs/colorConfig"
+      }
+    },
+    "groups": {
+      "type": "object",
+      "description": "Field group configurations",
+      "additionalProperties": {
+        "$ref": "#/$defs/groupConfig"
+      }
+    }
+  },
+  "$defs": {
+    "markerType": {
+      "type": "string",
+      "enum": ["text", "richtext", "image", "link", "background-image"]
+    },
+    "editableConfig": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "$ref": "#/$defs/markerType"
+        },
+        "label": {
+          "type": "string",
+          "description": "Display label for the field"
+        },
+        "group": {
+          "type": "string",
+          "description": "Group name for organizing fields"
+        },
+        "recommendedSize": {
+          "type": "string",
+          "description": "Recommended image size (for image type)"
+        }
+      }
+    },
+    "repeatBlockConfig": {
+      "type": "object",
+      "required": ["label", "fields"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Display label for the repeat block"
+        },
+        "min": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Minimum number of items"
+        },
+        "max": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "Maximum number of items"
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/editableConfig"
+          }
+        }
+      }
+    },
+    "colorConfig": {
+      "type": "object",
+      "required": ["value"],
+      "properties": {
+        "value": {
+          "type": "string",
+          "pattern": "^#[0-9A-Fa-f]{3,6}$|^rgb",
+          "description": "Color value in hex or rgb format"
+        },
+        "label": {
+          "type": "string",
+          "description": "Display label for the color"
+        },
+        "description": {
+          "type": "string",
+          "description": "Description of the color's purpose"
+        }
+      }
+    },
+    "groupConfig": {
+      "type": "object",
+      "required": ["label"],
+      "properties": {
+        "label": {
+          "type": "string",
+          "description": "Display label for the group"
+        },
+        "order": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Sort order for the group"
+        }
+      }
+    }
+  }
+}

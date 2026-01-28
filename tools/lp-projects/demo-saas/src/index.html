@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CloudSync Pro - チームのファイル共有を革新するクラウドストレージ">
+
+  <title data-editable="page-title" data-type="text" data-label="ページタイトル" data-group="seo">CloudSync Pro | TechSolution株式会社</title>
+
+  <style>
+    :root {
+      /* カラーパレット */
+      --color-primary: #2563EB;
+      --color-primary-dark: #1D4ED8;
+      --color-secondary: #1E40AF;
+      --color-accent: #F59E0B;
+      --color-accent-dark: #D97706;
+
+      /* テキストカラー */
+      --color-text: #1F2937;
+      --color-text-light: #6B7280;
+      --color-text-inverse: #FFFFFF;
+
+      /* 背景カラー */
+      --color-background: #FFFFFF;
+      --color-background-alt: #F3F4F6;
+
+      /* その他 */
+      --color-border: #E5E7EB;
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <div class="header__logo">
+          <span
+            data-editable="logo-text"
+            data-type="text"
+            data-label="ロゴテキスト"
+            data-group="header"
+          >CloudSync Pro</span>
+        </div>
+        <nav class="header__nav">
+          <a href="#features">機能</a>
+          <a href="#pricing">料金</a>
+          <a href="#contact">お問い合わせ</a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="container">
+      <h1
+        data-editable="hero-headline"
+        data-type="text"
+        data-label="メインキャッチ"
+        data-group="hero"
+        class="hero__title"
+      >
+        チームのファイル共有を革新する
+      </h1>
+
+      <p
+        data-editable="hero-subheadline"
+        data-type="text"
+        data-label="サブキャッチ"
+        data-group="hero"
+        class="hero__subtitle"
+      >
+        CloudSync Proで、どこからでも安全にファイルにアクセス。<br>
+        チームコラボレーションを次のレベルへ。
+      </p>
+
+      <div class="hero__actions">
+        <a
+          data-editable="hero-cta"
+          data-type="link"
+          data-label="CTAボタン"
+          data-group="hero"
+          href="#contact"
+          class="btn btn--accent btn--large"
+        >
+          無料トライアルを始める
+        </a>
+        <a href="#features" class="btn btn--outline btn--large">詳しく見る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特徴セクション -->
+  <section id="features" class="features">
+    <div class="container">
+      <h2
+        data-editable="features-title"
+        data-type="text"
+        data-label="セクションタイトル"
+        data-group="features"
+        class="section-title"
+      >
+        CloudSync Proが選ばれる理由
+      </h2>
+
+      <div
+        class="features__grid"
+        data-repeat="features"
+        data-min="1"
+        data-max="6"
+      >
+        <div class="feature-card" data-repeat-item>
+          <div class="feature-card__icon">🔒</div>
+          <h3
+            data-editable="features.title"
+            data-type="text"
+            data-label="特徴タイトル"
+            class="feature-card__title"
+          >
+            エンタープライズ級セキュリティ
+          </h3>
+          <p
+            data-editable="features.description"
+            data-type="richtext"
+            data-label="特徴説明"
+            class="feature-card__text"
+          >
+            AES-256暗号化とゼロ知識プライバシーで、あなたのデータを完全に保護します。
+          </p>
+        </div>
+
+        <div class="feature-card" data-repeat-item>
+          <div class="feature-card__icon">⚡</div>
+          <h3
+            data-editable="features.title"
+            data-type="text"
+            data-label="特徴タイトル"
+            class="feature-card__title"
+          >
+            高速同期
+          </h3>
+          <p
+            data-editable="features.description"
+            data-type="richtext"
+            data-label="特徴説明"
+            class="feature-card__text"
+          >
+            独自の差分同期技術で、大容量ファイルも瞬時にアップロード・ダウンロード。
+          </p>
+        </div>
+
+        <div class="feature-card" data-repeat-item>
+          <div class="feature-card__icon">👥</div>
+          <h3
+            data-editable="features.title"
+            data-type="text"
+            data-label="特徴タイトル"
+            class="feature-card__title"
+          >
+            チームコラボレーション
+          </h3>
+          <p
+            data-editable="features.description"
+            data-type="richtext"
+            data-label="特徴説明"
+            class="feature-card__text"
+          >
+            リアルタイム共同編集、コメント機能、バージョン管理でチームワークを加速。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金セクション -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <h2
+        data-editable="pricing-title"
+        data-type="text"
+        data-label="料金タイトル"
+        data-group="pricing"
+        class="section-title"
+      >
+        シンプルな料金プラン
+      </h2>
+
+      <div class="pricing__grid">
+        <div class="pricing-card">
+          <h3 class="pricing-card__name">スタータープラン</h3>
+          <div class="pricing-card__price">
+            <span
+              data-editable="price-starter"
+              data-type="text"
+              data-label="スタータープラン価格"
+              data-group="pricing"
+            >¥980</span>
+            <span class="pricing-card__period">/月</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>100GB ストレージ</li>
+            <li>5ユーザーまで</li>
+            <li>基本サポート</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary">選択する</a>
+        </div>
+
+        <div class="pricing-card pricing-card--featured">
+          <div class="pricing-card__badge">人気</div>
+          <h3 class="pricing-card__name">ビジネスプラン</h3>
+          <div class="pricing-card__price">
+            <span
+              data-editable="price-business"
+              data-type="text"
+              data-label="ビジネスプラン価格"
+              data-group="pricing"
+            >¥2,980</span>
+            <span class="pricing-card__period">/月</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>1TB ストレージ</li>
+            <li>無制限ユーザー</li>
+            <li>優先サポート</li>
+            <li>高度な分析</li>
+          </ul>
+          <a href="#contact" class="btn btn--accent">選択する</a>
+        </div>
+
+        <div class="pricing-card">
+          <h3 class="pricing-card__name">エンタープライズ</h3>
+          <div class="pricing-card__price">
+            <span
+              data-editable="price-enterprise"
+              data-type="text"
+              data-label="エンタープライズ価格"
+              data-group="pricing"
+            >お問い合わせ</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>無制限ストレージ</li>
+            <li>専用サーバー</li>
+            <li>24/7 専任サポート</li>
+            <li>カスタム連携</li>
+          </ul>
+          <a href="#contact" class="btn btn--primary">お問い合わせ</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTAセクション -->
+  <section id="contact" class="cta">
+    <div class="container">
+      <h2
+        data-editable="cta-headline"
+        data-type="text"
+        data-label="CTA見出し"
+        data-group="cta"
+        class="cta__title"
+      >
+        今すぐ始めましょう
+      </h2>
+
+      <p
+        data-editable="cta-description"
+        data-type="text"
+        data-label="CTA説明文"
+        data-group="cta"
+        class="cta__text"
+      >
+        14日間の無料トライアルで、CloudSync Proの全機能をお試しください。<br>
+        クレジットカード不要。いつでもキャンセル可能。
+      </p>
+
+      <a
+        data-editable="cta-button"
+        data-type="link"
+        data-label="CTAボタン"
+        data-group="cta"
+        href="https://example.com/signup"
+        class="btn btn--accent btn--large"
+      >
+        無料で始める
+      </a>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <p
+        data-editable="copyright"
+        data-type="text"
+        data-label="コピーライト"
+        data-group="footer"
+      >
+        © 2024 TechSolution株式会社 All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

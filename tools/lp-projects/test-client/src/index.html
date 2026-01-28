@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="test-clientのランディングページ">
+
+  <!-- OGP -->
+  <meta property="og:title" content="test-client">
+  <meta property="og:description" content="test-clientのランディングページ">
+  <meta property="og:type" content="website">
+
+  <title data-editable="page-title" data-type="text">test-client</title>
+
+  <style>
+    :root {
+      /* カラーパレット */
+      --color-primary: #3B82F6;
+      --color-primary-dark: #2563EB;
+      --color-secondary: #1E40AF;
+      --color-accent: #F59E0B;
+      --color-accent-dark: #D97706;
+
+      /* テキストカラー */
+      --color-text: #1F2937;
+      --color-text-light: #6B7280;
+      --color-text-inverse: #FFFFFF;
+
+      /* 背景カラー */
+      --color-background: #FFFFFF;
+      --color-background-alt: #F3F4F6;
+
+      /* その他 */
+      --color-border: #E5E7EB;
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="container">
+      <img
+        data-editable="logo"
+        data-type="image"
+        data-label="ロゴ"
+        data-group="header"
+        src="images/logo.png"
+        alt="test-client ロゴ"
+        class="header__logo"
+      >
+    </div>
+  </header>
+
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="container">
+      <h1
+        data-editable="hero-headline"
+        data-type="text"
+        data-label="メインキャッチ"
+        data-group="hero"
+        class="hero__title"
+      >
+        あなたのビジネスを次のレベルへ
+      </h1>
+
+      <p
+        data-editable="hero-subheadline"
+        data-type="text"
+        data-label="サブキャッチ"
+        data-group="hero"
+        class="hero__subtitle"
+      >
+        私たちのソリューションで課題を解決します
+      </p>
+
+      <a
+        data-editable="hero-cta"
+        data-type="link"
+        data-label="CTAボタン"
+        data-group="hero"
+        href="#contact"
+        class="btn btn--accent"
+      >
+        今すぐ始める
+      </a>
+    </div>
+  </section>
+
+  <!-- 特徴セクション -->
+  <section class="features">
+    <div class="container">
+      <h2
+        data-editable="features-title"
+        data-type="text"
+        data-label="セクションタイトル"
+        data-group="features"
+        class="section-title"
+      >
+        選ばれる3つの理由
+      </h2>
+
+      <div
+        class="features__grid"
+        data-repeat="features"
+        data-min="1"
+        data-max="6"
+      >
+        <div class="feature-card" data-repeat-item>
+          <div class="feature-card__icon">
+            <img
+              data-editable="features.icon"
+              data-type="image"
+              src="images/icon-feature.svg"
+              alt=""
+            >
+          </div>
+          <h3
+            data-editable="features.title"
+            data-type="text"
+            class="feature-card__title"
+          >
+            特徴タイトル
+          </h3>
+          <p
+            data-editable="features.description"
+            data-type="text"
+            class="feature-card__text"
+          >
+            特徴の説明文がここに入ります。
+          </p>
+        </div>
+
+        <div class="feature-card" data-repeat-item>
+          <div class="feature-card__icon">
+            <img
+              data-editable="features.icon"
+              data-type="image"
+              src="images/icon-feature.svg"
+              alt=""
+            >
+          </div>
+          <h3
+            data-editable="features.title"
+            data-type="text"
+            class="feature-card__title"
+          >
+            特徴タイトル
+          </h3>
+          <p
+            data-editable="features.description"
+            data-type="text"
+            class="feature-card__text"
+          >
+            特徴の説明文がここに入ります。
+          </p>
+        </div>
+
+        <div class="feature-card" data-repeat-item>
+          <div class="feature-card__icon">
+            <img
+              data-editable="features.icon"
+              data-type="image"
+              src="images/icon-feature.svg"
+              alt=""
+            >
+          </div>
+          <h3
+            data-editable="features.title"
+            data-type="text"
+            class="feature-card__title"
+          >
+            特徴タイトル
+          </h3>
+          <p
+            data-editable="features.description"
+            data-type="text"
+            class="feature-card__text"
+          >
+            特徴の説明文がここに入ります。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTAセクション -->
+  <section id="contact" class="cta">
+    <div class="container">
+      <h2
+        data-editable="cta-headline"
+        data-type="text"
+        data-label="見出し"
+        data-group="cta"
+        class="cta__title"
+      >
+        今すぐ始めましょう
+      </h2>
+
+      <p
+        data-editable="cta-description"
+        data-type="text"
+        data-label="説明文"
+        data-group="cta"
+        class="cta__text"
+      >
+        まずは無料でお試しください。
+      </p>
+
+      <a
+        data-editable="cta-button"
+        data-type="link"
+        data-label="ボタン"
+        data-group="cta"
+        href="#"
+        class="btn btn--accent btn--large"
+      >
+        無料で試す
+      </a>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <p
+        data-editable="copyright"
+        data-type="text"
+        data-label="コピーライト"
+        data-group="footer"
+      >
+        © 2024 test-client All Rights Reserved.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
