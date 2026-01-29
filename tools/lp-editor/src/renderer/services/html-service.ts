@@ -8,13 +8,20 @@ import * as cheerio from 'cheerio'
 
 export interface ParsedMarker {
   id: string
-  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image'
+  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
   label?: string
   group?: string
   value: string | null
   href?: string
   src?: string
   order: number
+  // Number-specific attributes
+  min?: number
+  max?: number
+  step?: number
+  suffix?: string
+  // Icon-specific attributes
+  iconSet?: string
 }
 
 export interface ParsedColor {
@@ -45,12 +52,17 @@ export interface ParsedRepeatItem {
 /**
  * Parse HTML and extract editable markers
  * Excludes fields inside repeat blocks (data-repeat-item)
+ * Also auto-detects counters (data-target) and icons (.icon svg)
  */
 export function parseHtmlMarkers(html: string): ParsedMarker[] {
   const $ = cheerio.load(html)
   const markers: ParsedMarker[] = []
   let order = 0
 
+  // Track processed elements to avoid duplicates
+  const processedElements = new Set<cheerio.Element>()
+
+  // 1. Parse explicit data-editable markers
   $('[data-editable]').each((_, element) => {
     const $el = $(element)
 
@@ -61,6 +73,8 @@ export function parseHtmlMarkers(html: string): ParsedMarker[] {
     const type = $el.attr('data-type') as ParsedMarker['type']
 
     if (!id || !type) return
+
+    processedElements.add(element)
 
     const marker: ParsedMarker = {
       id,
@@ -78,11 +92,125 @@ export function parseHtmlMarkers(html: string): ParsedMarker[] {
     if (type === 'image') {
       marker.src = $el.attr('src')
     }
+    if (type === 'number') {
+      // Get number value from data-target if available, otherwise from text
+      const dataTarget = $el.attr('data-target')
+      if (dataTarget) {
+        marker.value = dataTarget
+      }
+      // Get number constraints
+      marker.min = parseFloat($el.attr('data-min') || '0')
+      marker.max = parseFloat($el.attr('data-max') || '999999')
+      marker.step = parseFloat($el.attr('data-step') || '1')
+      marker.suffix = $el.attr('data-suffix')
+    }
+    if (type === 'icon') {
+      marker.iconSet = $el.attr('data-icon-set')
+      // Get current icon SVG
+      const $svg = $el.find('svg')
+      if ($svg.length > 0) {
+        marker.value = $.html($svg)
+      }
+    }
+
+    markers.push(marker)
+  })
+
+  // 2. Auto-detect counters (elements with data-target but no data-editable)
+  $('[data-target]').each((idx, element) => {
+    const $el = $(element)
+
+    // Skip if already processed or inside repeat block
+    if (processedElements.has(element)) return
+    if ($el.closest('[data-repeat-item]').length > 0) return
+    if ($el.attr('data-editable')) return
+
+    processedElements.add(element)
+
+    const dataTarget = $el.attr('data-target')
+    const section = findSectionName($, $el)
+    const id = `auto-counter-${section}-${idx}`
+
+    // Try to find label from sibling or parent text
+    const labelEl = $el.siblings().first()
+    const labelText = labelEl.text().trim() || `カウンター ${idx + 1}`
+
+    const marker: ParsedMarker = {
+      id,
+      type: 'number',
+      label: `${labelText} (${dataTarget})`,
+      group: section ? `${section}` : 'カウンター',
+      value: dataTarget || '0',
+      order: order++,
+      min: 0,
+      max: 999999,
+      step: 1,
+    }
+
+    markers.push(marker)
+  })
+
+  // 3. Auto-detect icons (.icon elements containing svg, without data-editable)
+  // Track SVG elements that have already been processed to avoid duplicates
+  const processedSvgs = new Set<cheerio.Element>()
+  let iconIndex = 0
+
+  $('.icon, .feature-card__icon, .stat-card__icon, [class*="icon"]').each((_, element) => {
+    const $el = $(element)
+    const $svg = $el.find('svg').first()
+
+    // Skip if no svg, already processed, or inside repeat block
+    if ($svg.length === 0) return
+    if (processedElements.has(element)) return
+    if ($el.closest('[data-repeat-item]').length > 0) return
+    if ($el.attr('data-editable')) return
+
+    // Skip if this SVG was already processed (avoids parent/child duplicates)
+    const svgElement = $svg.get(0)
+    if (svgElement && processedSvgs.has(svgElement)) return
+    if (svgElement) processedSvgs.add(svgElement)
+
+    processedElements.add(element)
+
+    const section = findSectionName($, $el)
+    const id = `auto-icon-${section}-${iconIndex}`
+    iconIndex++
+
+    // Try to find label from nearby heading or parent
+    const parentCard = $el.closest('.feature-card, .stat-card, [class*="card"]')
+    const cardTitle = parentCard.find('h3, h4, .title').first().text().trim()
+    const labelText = cardTitle || `アイコン ${iconIndex}`
+
+    const marker: ParsedMarker = {
+      id,
+      type: 'icon',
+      label: `${labelText} アイコン`,
+      group: section ? `${section}` : 'アイコン',
+      value: $.html($svg),
+      order: order++,
+    }
 
     markers.push(marker)
   })
 
   return markers
+}
+
+/**
+ * Find the section name for an element
+ */
+function findSectionName($: cheerio.CheerioAPI, $el: cheerio.Cheerio<cheerio.Element>): string {
+  const $section = $el.closest('section')
+  if ($section.length > 0) {
+    const sectionId = $section.attr('id')
+    if (sectionId) return sectionId
+    const sectionClass = $section.attr('class')
+    if (sectionClass) {
+      const firstClass = sectionClass.split(' ')[0]
+      return firstClass
+    }
+  }
+  return 'other'
 }
 
 /**
@@ -97,36 +225,91 @@ export function parseRepeatBlocks(html: string): ParsedRepeatBlock[] {
     const id = $container.attr('data-repeat')
     if (!id) return
 
-    const min = parseInt($container.attr('data-min') || '1', 10)
-    const max = parseInt($container.attr('data-max') || '10', 10)
+    const min = parseInt($container.attr('data-repeat-min') || '1', 10)
+    const max = parseInt($container.attr('data-repeat-max') || '10', 10)
     const items: ParsedRepeatItem[] = []
 
     // Get first repeat item as template
     const $firstItem = $container.find('[data-repeat-item]').first()
     const templateHtml = $firstItem.length > 0 ? $.html($firstItem) : ''
 
+    // Extract field keys from template (in order)
+    const templateFieldKeys: string[] = []
+    if ($firstItem.length > 0) {
+      $firstItem.find('[data-editable]').each((_, fieldEl) => {
+        const fieldId = $(fieldEl).attr('data-editable')
+        if (fieldId) {
+          // Use normalized field ID as key
+          const normalizedKey = normalizeFieldIdForKey(fieldId)
+          templateFieldKeys.push(normalizedKey)
+        }
+      })
+    }
+
     // Parse all repeat items
     $container.find('[data-repeat-item]').each((index, itemEl) => {
       const $item = $(itemEl)
       const fields: ParsedRepeatItem['fields'] = {}
+      let fieldIndex = 0
 
-      // Find all editable fields within this item
+      // Find all editable fields within this item (in order)
       $item.find('[data-editable]').each((_, fieldEl) => {
         const $field = $(fieldEl)
         const fieldId = $field.attr('data-editable')
         const fieldType = $field.attr('data-type') as ParsedMarker['type']
         if (!fieldId || !fieldType) return
 
-        // Use base field id (without index suffix)
-        const baseFieldId = fieldId.replace(/\.\d+$/, '')
+        // Use normalized field ID as key (consistent across all items)
+        const fieldKey = fieldIndex < templateFieldKeys.length
+          ? templateFieldKeys[fieldIndex]
+          : normalizeFieldIdForKey(fieldId)
 
-        fields[baseFieldId] = {
-          id: `${id}.${index}.${baseFieldId}`,
+        fields[fieldKey] = {
+          id: `${id}.${index}.${fieldKey}`,
           type: fieldType,
           label: $field.attr('data-label'),
           value: fieldType === 'richtext' ? $field.html() : $field.text().trim(),
           href: fieldType === 'link' ? $field.attr('href') : undefined,
           src: fieldType === 'image' ? $field.attr('src') : undefined,
+        }
+        fieldIndex++
+      })
+
+      // Auto-detect icons within this item (avoid duplicates by tracking SVGs)
+      const itemProcessedSvgs = new Set<cheerio.Element>()
+      let itemIconIdx = 0
+      $item.find('.icon, .feature-card__icon, .stat-card__icon, [class*="icon"]').each((_, iconEl) => {
+        const $iconEl = $(iconEl)
+        const $svg = $iconEl.find('svg').first()
+        if ($svg.length === 0 || $iconEl.attr('data-editable')) return
+
+        // Skip if this SVG was already processed
+        const svgElement = $svg.get(0)
+        if (svgElement && itemProcessedSvgs.has(svgElement)) return
+        if (svgElement) itemProcessedSvgs.add(svgElement)
+
+        const fieldKey = `icon-${itemIconIdx}`
+        itemIconIdx++
+        fields[fieldKey] = {
+          id: `${id}.${index}.${fieldKey}`,
+          type: 'icon',
+          label: 'アイコン',
+          value: $.html($svg),
+        }
+      })
+
+      // Auto-detect counters within this item
+      $item.find('[data-target]').each((counterIdx, counterEl) => {
+        const $counterEl = $(counterEl)
+        if ($counterEl.attr('data-editable')) return
+
+        const fieldKey = `counter-${counterIdx}`
+        const dataTarget = $counterEl.attr('data-target')
+        fields[fieldKey] = {
+          id: `${id}.${index}.${fieldKey}`,
+          type: 'number',
+          label: 'カウンター',
+          value: dataTarget || '0',
         }
       })
 
@@ -137,6 +320,22 @@ export function parseRepeatBlocks(html: string): ParsedRepeatBlock[] {
   })
 
   return blocks
+}
+
+/**
+ * Normalize field ID for use as a consistent key across items
+ * e.g., "042-feature-1-title" -> "title"
+ * e.g., "043-feature-1-desc" -> "desc"
+ */
+function normalizeFieldIdForKey(id: string): string {
+  // Remove leading number prefix and item number, keep last part
+  const parts = id.split('-')
+  // Filter out pure number parts
+  const meaningfulParts = parts.filter(p => !/^\d+$/.test(p))
+  // Return last meaningful part, or full id if nothing left
+  return meaningfulParts.length > 0
+    ? meaningfulParts[meaningfulParts.length - 1]
+    : id
 }
 
 /**
@@ -171,7 +370,55 @@ export function applyEditablesToHtml(
 ): string {
   const $ = cheerio.load(html)
 
+  // Build index maps for auto-detected elements
+  const counterElements: cheerio.Element[] = []
+  const iconElements: cheerio.Element[] = []
+
+  $('[data-target]').each((_, el) => {
+    if (!$(el).attr('data-editable')) {
+      counterElements.push(el)
+    }
+  })
+
+  $('.icon, .feature-card__icon, [class*="icon"]').each((_, el) => {
+    const $el = $(el)
+    if ($el.find('svg').length > 0 && !$el.attr('data-editable')) {
+      iconElements.push(el)
+    }
+  })
+
   for (const [id, data] of Object.entries(editables)) {
+    // Handle auto-detected counters
+    if (id.startsWith('auto-counter-')) {
+      const match = id.match(/auto-counter-[^-]+-(\d+)$/)
+      if (match) {
+        const idx = parseInt(match[1], 10)
+        if (idx < counterElements.length) {
+          const $el = $(counterElements[idx])
+          if (data.value !== null) {
+            $el.attr('data-target', data.value)
+          }
+        }
+      }
+      continue
+    }
+
+    // Handle auto-detected icons
+    if (id.startsWith('auto-icon-')) {
+      const match = id.match(/auto-icon-[^-]+-(\d+)$/)
+      if (match) {
+        const idx = parseInt(match[1], 10)
+        if (idx < iconElements.length) {
+          const $el = $(iconElements[idx])
+          if (data.value) {
+            $el.find('svg').replaceWith(data.value)
+          }
+        }
+      }
+      continue
+    }
+
+    // Handle explicit data-editable elements
     const $el = $(`[data-editable="${id}"]`)
 
     if ($el.length === 0) continue
@@ -186,6 +433,16 @@ export function applyEditablesToHtml(
       }
       if (data.value !== null) {
         $el.text(data.value)
+      }
+    } else if (data.type === 'number') {
+      // Update data-target attribute for counter animations
+      if (data.value !== null) {
+        $el.attr('data-target', data.value)
+      }
+    } else if (data.type === 'icon') {
+      // Replace SVG content
+      if (data.value) {
+        $el.find('svg').replaceWith(data.value)
       }
     } else if (data.value !== null) {
       $el.text(data.value)
@@ -236,15 +493,47 @@ export function applyRepeatBlocksToHtml(
     // Clear existing items
     $container.find('[data-repeat-item]').remove()
 
+    // Get field keys in order from template
+    const $template = $(block.templateHtml)
+    const templateFields = $template.find('[data-editable]').toArray()
+    const fieldOrder = templateFields.map(el => $(el).attr('data-editable'))
+
     // Add items based on block data
     for (const item of block.items) {
       // Create new item from template
       const $newItem = $(block.templateHtml)
 
-      // Update field values
-      for (const [fieldBaseId, fieldData] of Object.entries(item.fields)) {
-        const $field = $newItem.find(`[data-editable="${fieldBaseId}"]`)
-        if ($field.length === 0) continue
+      // Update field values by normalized key (not by order)
+      const $editableFields = $newItem.find('[data-editable]')
+
+      $editableFields.each((_, el) => {
+        const $field = $(el)
+        const fieldId = $field.attr('data-editable')
+        if (!fieldId) return
+
+        // Find matching field data by normalized key
+        let fieldData: ParsedRepeatItem['fields'][string] | undefined
+
+        // Get normalized key for this field
+        const normalizedKey = normalizeFieldIdForKey(fieldId)
+
+        // Try exact key match first
+        fieldData = item.fields[normalizedKey]
+
+        // If not found, try matching by checking all field keys
+        if (!fieldData) {
+          for (const [key, value] of Object.entries(item.fields)) {
+            // Skip auto-detected fields (icons, counters)
+            if (key.startsWith('icon-') || key.startsWith('counter-')) continue
+            // Check if this key matches
+            if (key === normalizedKey || normalizeFieldIdForKey(key) === normalizedKey) {
+              fieldData = value
+              break
+            }
+          }
+        }
+
+        if (!fieldData) return
 
         if (fieldData.type === 'richtext') {
           $field.html(fieldData.value || '')
@@ -256,13 +545,52 @@ export function applyRepeatBlocksToHtml(
         } else if (fieldData.value !== null) {
           $field.text(fieldData.value)
         }
-      }
+      })
+
+      // Apply auto-detected icons
+      $newItem.find('.icon, .feature-card__icon, [class*="icon"]').each((iconIdx, iconEl) => {
+        const $iconEl = $(iconEl)
+        const $svg = $iconEl.find('svg')
+        if ($svg.length === 0 || $iconEl.attr('data-editable')) return
+
+        const fieldKey = `icon-${iconIdx}`
+        const fieldData = item.fields[fieldKey]
+        if (fieldData && fieldData.value) {
+          $svg.replaceWith(fieldData.value)
+        }
+      })
+
+      // Apply auto-detected counters
+      $newItem.find('[data-target]').each((counterIdx, counterEl) => {
+        const $counterEl = $(counterEl)
+        if ($counterEl.attr('data-editable')) return
+
+        const fieldKey = `counter-${counterIdx}`
+        const fieldData = item.fields[fieldKey]
+        if (fieldData && fieldData.value !== null) {
+          $counterEl.attr('data-target', fieldData.value)
+        }
+      })
+
+      // Update repeat-item attribute with new index
+      $newItem.attr('data-repeat-item', String(item.index + 1))
 
       $container.append($newItem)
     }
   }
 
   return $.html()
+}
+
+/**
+ * Normalize field ID by removing number prefixes and suffixes
+ * e.g., "042-feature-1-title" -> "feature-title"
+ */
+function normalizeFieldId(id: string): string {
+  return id
+    .replace(/^\d+-/, '') // Remove leading number prefix like "042-"
+    .replace(/-\d+(-|$)/g, '$1') // Remove number segments like "-1-" or "-1" at end
+    .replace(/\.\d+$/, '') // Remove dot-number suffix like ".0"
 }
 
 /**
@@ -285,8 +613,8 @@ export function removeMarkers(html: string): string {
     'data-css-var',
     'data-repeat',
     'data-repeat-item',
-    'data-min',
-    'data-max',
+    'data-repeat-min',
+    'data-repeat-max',
   ]
 
   $('*').each((_, element) => {

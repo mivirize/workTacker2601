@@ -1,18 +1,89 @@
+<!--
+================================================================================
+LP制作フローガイド - Production Checklist
+================================================================================
+
+【1. コーディングルール】
+- 絵文字は使用しない（SVGアイコンまたはテキストで代用）
+- data-editable属性には番号プレフィックスを付ける（例: 042-feature-1-title）
+- data-order属性で編集パネルの表示順を制御
+- data-group属性でセクションごとにグループ化
+
+【2. 編集可能要素の命名規則】
+- 形式: [番号]-[セクション]-[アイテム番号]-[要素]
+- 例: 042-feature-1-title, 071-testimonial-1-text
+- 番号はセクション単位で10刻み（01x, 02x, 03x...）
+- アイテム内は1刻み（041, 042, 043...）
+
+【3. リピートブロックのルール】
+- data-repeat="ブロック名" でリピート可能エリアを指定
+- data-repeat-min / data-repeat-max で最小・最大数を設定
+- data-repeat-item="番号" で各アイテムを識別
+- 追加・削除後もデザインが崩れないようCSSでauto-fitを使用
+★ リピートアイテム内のdata-editable命名は統一パターンにする
+  （各アイテムで同じ構造: xxx-item-N-title, xxx-item-N-desc）
+
+【4. ボタン・リンクのチェック】
+□ すべてのボタンにhref属性があるか
+□ リンク先が存在するか（#のみは避ける）
+□ CTAボタンはcontact.htmlまたは適切なURLにリンク
+□ アンカーリンク（#features等）の対象セクションが存在するか
+□ リンクテキストが編集可能（data-type="link"）か
+
+【5. デザイン破綻チェック】
+□ テキストが長くなった場合のレイアウト確認
+□ テキストが短くなった場合のレイアウト確認
+□ リピートアイテム数が1-2個の場合のレイアウト
+□ リピートアイテム数が最大の場合のレイアウト
+□ 画像がない場合のプレースホルダー表示
+□ モバイル表示での崩れ確認
+
+【6. リピートブロック検証（★重要★）】
+□ 各リピートアイテムのフィールド順序が同一か
+□ 各リピートアイテムの値が独立して編集できるか
+□ アイテム追加時にテンプレート値が正しく複製されるか
+□ アイテム削除後も他アイテムの値が維持されるか
+□ リピート内のdata-monthly/data-yearly等の属性が保持されるか
+□ 価格など数値フィールドが各アイテムで独立しているか
+
+【7. スライダー/ページネーション検証（★重要★）】
+□ スライダー初期化がカード数と同期しているか
+□ ドット数がカード数と一致するか
+□ リピート編集後にスライダーが再初期化されるか
+□ 前/次ボタンが正しく動作するか
+□ タッチスワイプが正しく動作するか
+
+【8. 最終確認】
+□ すべての編集可能要素がLP-Editorに表示されるか
+□ 編集パネルの順序がページの順序と一致しているか
+□ カラー変数がすべて編集可能か
+□ プレビューと編集内容が同期しているか
+□ HTML出力が正しく動作するか
+□ 出力HTMLでスライダーが正しく動作するか
+
+================================================================================
+-->
 <!DOCTYPE html>
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CloudSync Pro - チームのファイル共有を革新するクラウドストレージ">
+  <meta name="description" content="CloudSync Pro - あなたのビジネスをクラウドで加速">
 
-  <title data-editable="page-title" data-type="text" data-label="ページタイトル" data-group="seo">CloudSync Pro | TechSolution株式会社</title>
+  <title
+    data-editable="010-page-title"
+    data-type="text"
+    data-label="010: ページタイトル"
+    data-group="01-SEO"
+    data-order="010"
+  >CloudSync Pro | クラウド同期ソリューション</title>
 
   <style>
     :root {
       /* カラーパレット */
-      --color-primary: #2563EB;
-      --color-primary-dark: #1D4ED8;
-      --color-secondary: #1E40AF;
+      --color-primary: #6366F1;
+      --color-primary-dark: #4F46E5;
+      --color-secondary: #8B5CF6;
       --color-accent: #F59E0B;
       --color-accent-dark: #D97706;
 
@@ -23,284 +94,1115 @@
 
       /* 背景カラー */
       --color-background: #FFFFFF;
-      --color-background-alt: #F3F4F6;
+      --color-background-alt: #F9FAFB;
+      --color-background-dark: #111827;
 
       /* その他 */
       --color-border: #E5E7EB;
+      --color-success: #10B981;
+      --color-glass: rgba(255, 255, 255, 0.1);
     }
   </style>
 
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
+  <!-- プログレスバー -->
+  <div class="scroll-progress"></div>
+
   <!-- ヘッダー -->
   <header class="header">
     <div class="container">
       <div class="header__inner">
         <div class="header__logo">
-          <span
-            data-editable="logo-text"
-            data-type="text"
-            data-label="ロゴテキスト"
-            data-group="header"
-          >CloudSync Pro</span>
+          <a href="#" class="logo-link">
+            <span class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </span>
+            <span
+              data-editable="020-logo-text"
+              data-type="text"
+              data-label="020: ロゴテキスト"
+              data-group="02-Header"
+              data-order="020"
+            >CloudSync Pro</span>
+          </a>
         </div>
         <nav class="header__nav">
-          <a href="#features">機能</a>
-          <a href="#pricing">料金</a>
-          <a href="#contact">お問い合わせ</a>
+          <a href="#features" class="nav-link">機能</a>
+          <a href="#stats" class="nav-link">実績</a>
+          <a href="#testimonials" class="nav-link">お客様の声</a>
+          <a href="#pricing" class="nav-link">料金</a>
+          <a href="#faq" class="nav-link">FAQ</a>
         </nav>
+        <div class="header__cta">
+          <a href="contact.html" class="btn btn--primary btn--glow">無料で始める</a>
+        </div>
+        <button class="hamburger" aria-label="メニュー">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
     </div>
   </header>
 
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <nav class="mobile-menu__nav">
+      <a href="#features">機能</a>
+      <a href="#stats">実績</a>
+      <a href="#testimonials">お客様の声</a>
+      <a href="#pricing">料金</a>
+      <a href="#faq">FAQ</a>
+      <a href="contact.html" class="btn btn--primary">無料で始める</a>
+    </nav>
+  </div>
+
   <!-- ヒーローセクション -->
   <section class="hero">
-    <div class="container">
-      <h1
-        data-editable="hero-headline"
-        data-type="text"
-        data-label="メインキャッチ"
-        data-group="hero"
-        class="hero__title"
-      >
-        チームのファイル共有を革新する
-      </h1>
+    <div class="hero__background">
+      <div class="hero__gradient"></div>
+      <div class="hero__particles" id="particles"></div>
+      <div class="hero__grid"></div>
+    </div>
 
-      <p
-        data-editable="hero-subheadline"
-        data-type="text"
-        data-label="サブキャッチ"
-        data-group="hero"
-        class="hero__subtitle"
-      >
-        CloudSync Proで、どこからでも安全にファイルにアクセス。<br>
-        チームコラボレーションを次のレベルへ。
-      </p>
+    <div class="container hero__container">
+      <div class="hero__content">
+        <div class="hero__badge animate-on-scroll" data-animation="fade-down">
+          <span class="badge badge--glass">
+            <span class="badge__dot"></span>
+            <span
+              data-editable="030-hero-badge"
+              data-type="text"
+              data-label="030: バッジテキスト"
+              data-group="03-Hero"
+              data-order="030"
+            >AWARD 2024年 最も革新的なSaaSに選出</span>
+          </span>
+        </div>
 
-      <div class="hero__actions">
-        <a
-          data-editable="hero-cta"
-          data-type="link"
-          data-label="CTAボタン"
-          data-group="hero"
-          href="#contact"
-          class="btn btn--accent btn--large"
+        <h1 class="hero__title animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <span
+            data-editable="031-hero-headline"
+            data-type="text"
+            data-label="031: メインキャッチ"
+            data-group="03-Hero"
+            data-order="031"
+          >ビジネスを</span>
+          <span class="text-gradient"
+            data-editable="032-hero-headline-gradient"
+            data-type="text"
+            data-label="032: グラデーション部分"
+            data-group="03-Hero"
+            data-order="032"
+          >クラウドで加速</span>
+        </h1>
+
+        <p class="hero__subtitle animate-on-scroll" data-animation="fade-up" data-delay="200"
+          data-editable="033-hero-subheadline"
+          data-type="richtext"
+          data-label="033: サブキャッチ"
+          data-group="03-Hero"
+          data-order="033"
         >
-          無料トライアルを始める
-        </a>
-        <a href="#features" class="btn btn--outline btn--large">詳しく見る</a>
+          リアルタイム同期、高度なセキュリティ、シームレスな連携。<br>
+          CloudSync Proで、チームの生産性を最大化しましょう。
+        </p>
+
+        <div class="hero__actions animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <a
+            href="#pricing"
+            class="btn btn--accent btn--large btn--shine"
+            data-editable="034-hero-cta-primary"
+            data-type="link"
+            data-label="034: プライマリCTA"
+            data-group="03-Hero"
+            data-order="034"
+          >14日間無料トライアル</a>
+          <a href="#features" class="btn btn--glass btn--large btn--icon"
+            data-editable="035-hero-cta-secondary"
+            data-type="link"
+            data-label="035: セカンダリCTA"
+            data-group="03-Hero"
+            data-order="035"
+          >
+            <span class="play-icon">&#9654;</span>
+            <span>デモを見る</span>
+          </a>
+        </div>
+
+        <div class="hero__stats animate-on-scroll" data-animation="fade-up" data-delay="400">
+          <div class="hero-stat">
+            <span class="hero-stat__number counter" data-target="10000">0</span>
+            <span class="hero-stat__label">+社が導入</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__number counter" data-target="99.9">0</span>
+            <span class="hero-stat__label">% 稼働率</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__number counter" data-target="4.9">0</span>
+            <span class="hero-stat__label">/ 5.0 評価</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero__visual animate-on-scroll" data-animation="fade-left" data-delay="200">
+        <div class="hero__mockup">
+          <div class="mockup-browser">
+            <div class="mockup-browser__header">
+              <span class="dot red"></span>
+              <span class="dot yellow"></span>
+              <span class="dot green"></span>
+            </div>
+            <div class="mockup-browser__content">
+              <div class="dashboard-preview">
+                <div class="dashboard-sidebar"></div>
+                <div class="dashboard-main">
+                  <div class="dashboard-card animate-float"></div>
+                  <div class="dashboard-card animate-float" style="animation-delay: 0.2s"></div>
+                  <div class="dashboard-chart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="floating-card floating-card--1 animate-float">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+            </span>
+            リアルタイム分析
+          </div>
+          <div class="floating-card floating-card--2 animate-float" style="animation-delay: 0.5s">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+            </span>
+            暗号化済み
+          </div>
+          <div class="floating-card floating-card--3 animate-float" style="animation-delay: 1s">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </span>
+            高速同期
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-indicator">
+      <div class="mouse">
+        <div class="mouse__wheel"></div>
+      </div>
+      <span>スクロール</span>
+    </div>
+  </section>
+
+  <!-- ロゴバナー -->
+  <section class="logo-banner">
+    <div class="container">
+      <p class="logo-banner__text">10,000社以上の企業に信頼されています</p>
+      <div class="logo-banner__logos">
+        <div class="logo-item">TechCorp</div>
+        <div class="logo-item">InnovateTech</div>
+        <div class="logo-item">FutureLabs</div>
+        <div class="logo-item">DataFlow</div>
+        <div class="logo-item">CloudNine</div>
+        <div class="logo-item">NextGen</div>
       </div>
     </div>
   </section>
 
-  <!-- 特徴セクション -->
+  <!-- 機能セクション -->
   <section id="features" class="features">
     <div class="container">
-      <h2
-        data-editable="features-title"
-        data-type="text"
-        data-label="セクションタイトル"
-        data-group="features"
-        class="section-title"
-      >
-        CloudSync Proが選ばれる理由
-      </h2>
+      <div class="section-header animate-on-scroll" data-animation="fade-up">
+        <span class="section-tag">Features</span>
+        <h2 class="section-title"
+          data-editable="040-features-title"
+          data-type="text"
+          data-label="040: 機能セクションタイトル"
+          data-group="04-Features"
+          data-order="040"
+        >すべてを一つのプラットフォームで</h2>
+        <p class="section-subtitle"
+          data-editable="041-features-subtitle"
+          data-type="text"
+          data-label="041: 機能セクション説明"
+          data-group="04-Features"
+          data-order="041"
+        >シンプルで強力な機能が、あなたのワークフローを変革します</p>
+      </div>
 
-      <div
-        class="features__grid"
-        data-repeat="features"
-        data-min="1"
-        data-max="6"
-      >
-        <div class="feature-card" data-repeat-item>
-          <div class="feature-card__icon">🔒</div>
-          <h3
-            data-editable="features.title"
+      <div class="features__grid" data-repeat="features" data-repeat-min="1" data-repeat-max="9">
+        <!-- 機能1: 同期 -->
+        <div class="feature-card animate-on-scroll" data-animation="fade-up" data-delay="0" data-repeat-item="1">
+          <div class="feature-card__icon">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 4V1L8 5l4 4V6c3.31 0 6 2.69 6 6 0 1.01-.25 1.97-.7 2.8l1.46 1.46C19.54 15.03 20 13.57 20 12c0-4.42-3.58-8-8-8zm0 14c-3.31 0-6-2.69-6-6 0-1.01.25-1.97.7-2.8L5.24 7.74C4.46 8.97 4 10.43 4 12c0 4.42 3.58 8 8 8v3l4-4-4-4v3z"/></svg>
+            </span>
+          </div>
+          <h3 class="feature-card__title"
+            data-editable="042-feature-1-title"
             data-type="text"
-            data-label="特徴タイトル"
-            class="feature-card__title"
-          >
-            エンタープライズ級セキュリティ
-          </h3>
-          <p
-            data-editable="features.description"
+            data-label="042: 機能1タイトル"
+            data-group="04-Features"
+            data-order="042"
+          >リアルタイム同期</h3>
+          <p class="feature-card__text"
+            data-editable="043-feature-1-desc"
             data-type="richtext"
-            data-label="特徴説明"
-            class="feature-card__text"
-          >
-            AES-256暗号化とゼロ知識プライバシーで、あなたのデータを完全に保護します。
-          </p>
+            data-label="043: 機能1説明"
+            data-group="04-Features"
+            data-order="043"
+          >複数デバイス間でデータを即座に同期。オフライン時も自動的にキューイングして再接続時に同期します。</p>
+          <a href="contact.html" class="feature-card__link"
+            data-editable="043b-feature-1-link"
+            data-type="link"
+            data-label="043b: 機能1リンク"
+            data-group="04-Features"
+            data-order="043"
+          >詳しく見る</a>
         </div>
 
-        <div class="feature-card" data-repeat-item>
-          <div class="feature-card__icon">⚡</div>
-          <h3
-            data-editable="features.title"
+        <!-- 機能2: セキュリティ -->
+        <div class="feature-card animate-on-scroll" data-animation="fade-up" data-delay="100" data-repeat-item="2">
+          <div class="feature-card__icon">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/></svg>
+            </span>
+          </div>
+          <h3 class="feature-card__title"
+            data-editable="044-feature-2-title"
             data-type="text"
-            data-label="特徴タイトル"
-            class="feature-card__title"
-          >
-            高速同期
-          </h3>
-          <p
-            data-editable="features.description"
+            data-label="044: 機能2タイトル"
+            data-group="04-Features"
+            data-order="044"
+          >エンタープライズセキュリティ</h3>
+          <p class="feature-card__text"
+            data-editable="045-feature-2-desc"
             data-type="richtext"
-            data-label="特徴説明"
-            class="feature-card__text"
-          >
-            独自の差分同期技術で、大容量ファイルも瞬時にアップロード・ダウンロード。
-          </p>
+            data-label="045: 機能2説明"
+            data-group="04-Features"
+            data-order="045"
+          >AES-256暗号化とゼロ知識認証。SOC2 Type II、ISO27001認証取得済み。</p>
+          <a href="contact.html" class="feature-card__link"
+            data-editable="045b-feature-2-link"
+            data-type="link"
+            data-label="045b: 機能2リンク"
+            data-group="04-Features"
+            data-order="045"
+          >詳しく見る</a>
         </div>
 
-        <div class="feature-card" data-repeat-item>
-          <div class="feature-card__icon">👥</div>
-          <h3
-            data-editable="features.title"
+        <!-- 機能3: 高速 -->
+        <div class="feature-card animate-on-scroll" data-animation="fade-up" data-delay="200" data-repeat-item="3">
+          <div class="feature-card__icon">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </span>
+          </div>
+          <h3 class="feature-card__title"
+            data-editable="046-feature-3-title"
             data-type="text"
-            data-label="特徴タイトル"
-            class="feature-card__title"
-          >
-            チームコラボレーション
-          </h3>
-          <p
-            data-editable="features.description"
+            data-label="046: 機能3タイトル"
+            data-group="04-Features"
+            data-order="046"
+          >高速パフォーマンス</h3>
+          <p class="feature-card__text"
+            data-editable="047-feature-3-desc"
             data-type="richtext"
-            data-label="特徴説明"
-            class="feature-card__text"
-          >
-            リアルタイム共同編集、コメント機能、バージョン管理でチームワークを加速。
-          </p>
+            data-label="047: 機能3説明"
+            data-group="04-Features"
+            data-order="047"
+          >グローバルCDNで超低遅延を実現。大容量ファイルも差分同期で高速処理。</p>
+          <a href="contact.html" class="feature-card__link"
+            data-editable="047b-feature-3-link"
+            data-type="link"
+            data-label="047b: 機能3リンク"
+            data-group="04-Features"
+            data-order="047"
+          >詳しく見る</a>
+        </div>
+
+        <!-- 機能4: 連携 -->
+        <div class="feature-card animate-on-scroll" data-animation="fade-up" data-delay="300" data-repeat-item="4">
+          <div class="feature-card__icon">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+            </span>
+          </div>
+          <h3 class="feature-card__title"
+            data-editable="048-feature-4-title"
+            data-type="text"
+            data-label="048: 機能4タイトル"
+            data-group="04-Features"
+            data-order="048"
+          >シームレスな連携</h3>
+          <p class="feature-card__text"
+            data-editable="049-feature-4-desc"
+            data-type="richtext"
+            data-label="049: 機能4説明"
+            data-group="04-Features"
+            data-order="049"
+          >Slack、Teams、Notionなど200以上のアプリと連携。APIで独自の統合も構築可能。</p>
+          <a href="contact.html" class="feature-card__link"
+            data-editable="049b-feature-4-link"
+            data-type="link"
+            data-label="049b: 機能4リンク"
+            data-group="04-Features"
+            data-order="049"
+          >詳しく見る</a>
+        </div>
+
+        <!-- 機能5: 分析 -->
+        <div class="feature-card animate-on-scroll" data-animation="fade-up" data-delay="400" data-repeat-item="5">
+          <div class="feature-card__icon">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+            </span>
+          </div>
+          <h3 class="feature-card__title"
+            data-editable="050-feature-5-title"
+            data-type="text"
+            data-label="050: 機能5タイトル"
+            data-group="04-Features"
+            data-order="050"
+          >高度な分析</h3>
+          <p class="feature-card__text"
+            data-editable="051-feature-5-desc"
+            data-type="richtext"
+            data-label="051: 機能5説明"
+            data-group="04-Features"
+            data-order="051"
+          >チームの利用状況を可視化。AIによるインサイトで業務改善を提案。</p>
+          <a href="contact.html" class="feature-card__link"
+            data-editable="051b-feature-5-link"
+            data-type="link"
+            data-label="051b: 機能5リンク"
+            data-group="04-Features"
+            data-order="051"
+          >詳しく見る</a>
+        </div>
+
+        <!-- 機能6: コラボレーション -->
+        <div class="feature-card animate-on-scroll" data-animation="fade-up" data-delay="500" data-repeat-item="6">
+          <div class="feature-card__icon">
+            <span class="icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/></svg>
+            </span>
+          </div>
+          <h3 class="feature-card__title"
+            data-editable="052-feature-6-title"
+            data-type="text"
+            data-label="052: 機能6タイトル"
+            data-group="04-Features"
+            data-order="052"
+          >チームコラボレーション</h3>
+          <p class="feature-card__text"
+            data-editable="053-feature-6-desc"
+            data-type="richtext"
+            data-label="053: 機能6説明"
+            data-group="04-Features"
+            data-order="053"
+          >リアルタイム共同編集、コメント、バージョン管理。権限設定も柔軟にカスタマイズ。</p>
+          <a href="contact.html" class="feature-card__link"
+            data-editable="053b-feature-6-link"
+            data-type="link"
+            data-label="053b: 機能6リンク"
+            data-group="04-Features"
+            data-order="053"
+          >詳しく見る</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 料金セクション -->
+  <!-- 統計セクション -->
+  <section id="stats" class="stats">
+    <div class="stats__background">
+      <div class="stats__gradient"></div>
+    </div>
+    <div class="container">
+      <div class="stats__grid" data-repeat="stats" data-repeat-min="1" data-repeat-max="6">
+        <div class="stat-card animate-on-scroll" data-animation="zoom-in" data-delay="0" data-repeat-item="1">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/></svg>
+          </div>
+          <div class="stat-card__number counter" data-target="300">0</div>
+          <div class="stat-card__suffix">%</div>
+          <div class="stat-card__label"
+            data-editable="060-stat-1-label"
+            data-type="text"
+            data-label="060: 統計1ラベル"
+            data-group="05-Stats"
+            data-order="060"
+          >生産性向上</div>
+        </div>
+
+        <div class="stat-card animate-on-scroll" data-animation="zoom-in" data-delay="100" data-repeat-item="2">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/></svg>
+          </div>
+          <div class="stat-card__number counter" data-target="50">0</div>
+          <div class="stat-card__suffix">%</div>
+          <div class="stat-card__label"
+            data-editable="061-stat-2-label"
+            data-type="text"
+            data-label="061: 統計2ラベル"
+            data-group="05-Stats"
+            data-order="061"
+          >時間削減</div>
+        </div>
+
+        <div class="stat-card animate-on-scroll" data-animation="zoom-in" data-delay="200" data-repeat-item="3">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+          </div>
+          <div class="stat-card__number counter" data-target="40">0</div>
+          <div class="stat-card__suffix">%</div>
+          <div class="stat-card__label"
+            data-editable="062-stat-3-label"
+            data-type="text"
+            data-label="062: 統計3ラベル"
+            data-group="05-Stats"
+            data-order="062"
+          >コスト削減</div>
+        </div>
+
+        <div class="stat-card animate-on-scroll" data-animation="zoom-in" data-delay="300" data-repeat-item="4">
+          <div class="stat-card__icon">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+          </div>
+          <div class="stat-card__number counter" data-target="98">0</div>
+          <div class="stat-card__suffix">%</div>
+          <div class="stat-card__label"
+            data-editable="063-stat-4-label"
+            data-type="text"
+            data-label="063: 統計4ラベル"
+            data-group="05-Stats"
+            data-order="063"
+          >顧客満足度</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- お客様の声 -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-up">
+        <span class="section-tag">Testimonials</span>
+        <h2 class="section-title"
+          data-editable="070-testimonials-title"
+          data-type="text"
+          data-label="070: お客様の声タイトル"
+          data-group="06-Testimonials"
+          data-order="070"
+        >お客様の声</h2>
+        <p class="section-subtitle">実際にご利用いただいているお客様からのフィードバック</p>
+      </div>
+
+      <div class="testimonials__slider">
+        <div class="testimonials__track" data-repeat="testimonials" data-repeat-min="1" data-repeat-max="6">
+          <!-- お客様1 -->
+          <div class="testimonial-card" data-repeat-item="1">
+            <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-card__text"
+              data-editable="071-testimonial-1-text"
+              data-type="richtext"
+              data-label="071: お客様1の声"
+              data-group="06-Testimonials"
+              data-order="071"
+            >"CloudSync Proを導入してから、チームのコラボレーションが劇的に改善しました。リモートワークでも、まるで同じオフィスにいるかのようにスムーズに作業できています。"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+              <div class="testimonial-card__info">
+                <div class="testimonial-card__name"
+                  data-editable="072-testimonial-1-name"
+                  data-type="text"
+                  data-label="072: お客様1名前"
+                  data-group="06-Testimonials"
+                  data-order="072"
+                >田中 太郎</div>
+                <div class="testimonial-card__role"
+                  data-editable="073-testimonial-1-role"
+                  data-type="text"
+                  data-label="073: お客様1役職"
+                  data-group="06-Testimonials"
+                  data-order="073"
+                >TechCorp株式会社 CTO</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- お客様2 -->
+          <div class="testimonial-card" data-repeat-item="2">
+            <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-card__text"
+              data-editable="074-testimonial-2-text"
+              data-type="richtext"
+              data-label="074: お客様2の声"
+              data-group="06-Testimonials"
+              data-order="074"
+            >"セキュリティ面で不安があったクラウド移行ですが、CloudSync Proの暗号化とコンプライアンス対応のおかげで安心して導入できました。"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+              <div class="testimonial-card__info">
+                <div class="testimonial-card__name"
+                  data-editable="075-testimonial-2-name"
+                  data-type="text"
+                  data-label="075: お客様2名前"
+                  data-group="06-Testimonials"
+                  data-order="075"
+                >佐藤 花子</div>
+                <div class="testimonial-card__role"
+                  data-editable="076-testimonial-2-role"
+                  data-type="text"
+                  data-label="076: お客様2役職"
+                  data-group="06-Testimonials"
+                  data-order="076"
+                >FinanceFirst 情報セキュリティ部長</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- お客様3 -->
+          <div class="testimonial-card" data-repeat-item="3">
+            <div class="testimonial-card__stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+            <p class="testimonial-card__text"
+              data-editable="077-testimonial-3-text"
+              data-type="richtext"
+              data-label="077: お客様3の声"
+              data-group="06-Testimonials"
+              data-order="077"
+            >"APIが充実していて、既存システムとの連携が簡単でした。開発チームも大満足です。サポートの対応も迅速で素晴らしいです。"</p>
+            <div class="testimonial-card__author">
+              <div class="testimonial-card__avatar">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+              </div>
+              <div class="testimonial-card__info">
+                <div class="testimonial-card__name"
+                  data-editable="078-testimonial-3-name"
+                  data-type="text"
+                  data-label="078: お客様3名前"
+                  data-group="06-Testimonials"
+                  data-order="078"
+                >鈴木 一郎</div>
+                <div class="testimonial-card__role"
+                  data-editable="079-testimonial-3-role"
+                  data-type="text"
+                  data-label="079: お客様3役職"
+                  data-group="06-Testimonials"
+                  data-order="079"
+                >StartupX 共同創業者</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonials__nav">
+          <button class="slider-btn slider-btn--prev" aria-label="前へ">&#8592;</button>
+          <div class="slider-dots"></div>
+          <button class="slider-btn slider-btn--next" aria-label="次へ">&#8594;</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 料金プラン -->
   <section id="pricing" class="pricing">
     <div class="container">
-      <h2
-        data-editable="pricing-title"
-        data-type="text"
-        data-label="料金タイトル"
-        data-group="pricing"
-        class="section-title"
-      >
-        シンプルな料金プラン
-      </h2>
+      <div class="section-header animate-on-scroll" data-animation="fade-up">
+        <span class="section-tag">Pricing</span>
+        <h2 class="section-title"
+          data-editable="080-pricing-title"
+          data-type="text"
+          data-label="080: 料金セクションタイトル"
+          data-group="07-Pricing"
+          data-order="080"
+        >シンプルな料金体系</h2>
+        <p class="section-subtitle">ビジネスの規模に合わせて選べる柔軟なプラン</p>
+      </div>
 
-      <div class="pricing__grid">
-        <div class="pricing-card">
-          <h3 class="pricing-card__name">スタータープラン</h3>
-          <div class="pricing-card__price">
-            <span
-              data-editable="price-starter"
+      <div class="pricing__toggle">
+        <span class="pricing__toggle-label">月額</span>
+        <label class="toggle">
+          <input type="checkbox" id="billing-toggle">
+          <span class="toggle__slider"></span>
+        </label>
+        <span class="pricing__toggle-label">年額 <span class="badge badge--success">20% OFF</span></span>
+      </div>
+
+      <div class="pricing__grid" data-repeat="pricing" data-repeat-min="1" data-repeat-max="4">
+        <!-- プラン1: Starter -->
+        <div class="pricing-card animate-on-scroll" data-animation="fade-up" data-delay="0" data-repeat-item="1">
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name"
+              data-editable="081-plan-1-name"
               data-type="text"
-              data-label="スタータープラン価格"
-              data-group="pricing"
-            >¥980</span>
+              data-label="081: プラン1名"
+              data-group="07-Pricing"
+              data-order="081"
+            >Starter</h3>
+            <p class="pricing-card__description"
+              data-editable="082-plan-1-desc"
+              data-type="text"
+              data-label="082: プラン1説明"
+              data-group="07-Pricing"
+              data-order="082"
+            >小規模チーム向け</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__currency">&#165;</span>
+            <span class="pricing-card__amount" data-monthly="980" data-yearly="784"
+              data-editable="083-plan-1-price"
+              data-type="text"
+              data-label="083: プラン1価格"
+              data-group="07-Pricing"
+              data-order="083"
+            >980</span>
             <span class="pricing-card__period">/月</span>
           </div>
           <ul class="pricing-card__features">
-            <li>100GB ストレージ</li>
-            <li>5ユーザーまで</li>
-            <li>基本サポート</li>
+            <li class="included">5ユーザーまで</li>
+            <li class="included">10GBストレージ</li>
+            <li class="included">基本的な同期機能</li>
+            <li class="included">メールサポート</li>
+            <li class="not-included">API アクセス</li>
+            <li class="not-included">カスタム連携</li>
           </ul>
-          <a href="#contact" class="btn btn--primary">選択する</a>
+          <a href="contact.html" class="btn btn--outline btn--full">無料で始める</a>
         </div>
 
-        <div class="pricing-card pricing-card--featured">
-          <div class="pricing-card__badge">人気</div>
-          <h3 class="pricing-card__name">ビジネスプラン</h3>
-          <div class="pricing-card__price">
-            <span
-              data-editable="price-business"
+        <!-- プラン2: Professional -->
+        <div class="pricing-card pricing-card--featured animate-on-scroll" data-animation="fade-up" data-delay="100" data-repeat-item="2">
+          <div class="pricing-card__badge">人気No.1</div>
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name"
+              data-editable="084-plan-2-name"
               data-type="text"
-              data-label="ビジネスプラン価格"
-              data-group="pricing"
-            >¥2,980</span>
+              data-label="084: プラン2名"
+              data-group="07-Pricing"
+              data-order="084"
+            >Professional</h3>
+            <p class="pricing-card__description"
+              data-editable="085-plan-2-desc"
+              data-type="text"
+              data-label="085: プラン2説明"
+              data-group="07-Pricing"
+              data-order="085"
+            >成長中のチーム向け</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__currency">&#165;</span>
+            <span class="pricing-card__amount" data-monthly="2980" data-yearly="2384"
+              data-editable="086-plan-2-price"
+              data-type="text"
+              data-label="086: プラン2価格"
+              data-group="07-Pricing"
+              data-order="086"
+            >2980</span>
             <span class="pricing-card__period">/月</span>
           </div>
           <ul class="pricing-card__features">
-            <li>1TB ストレージ</li>
-            <li>無制限ユーザー</li>
-            <li>優先サポート</li>
-            <li>高度な分析</li>
+            <li class="included">25ユーザーまで</li>
+            <li class="included">100GBストレージ</li>
+            <li class="included">高度な同期機能</li>
+            <li class="included">優先サポート</li>
+            <li class="included">API アクセス</li>
+            <li class="not-included">カスタム連携</li>
           </ul>
-          <a href="#contact" class="btn btn--accent">選択する</a>
+          <a href="contact.html" class="btn btn--accent btn--full btn--shine">14日間無料トライアル</a>
         </div>
 
-        <div class="pricing-card">
-          <h3 class="pricing-card__name">エンタープライズ</h3>
-          <div class="pricing-card__price">
-            <span
-              data-editable="price-enterprise"
+        <!-- プラン3: Enterprise -->
+        <div class="pricing-card animate-on-scroll" data-animation="fade-up" data-delay="200" data-repeat-item="3">
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name"
+              data-editable="087-plan-3-name"
               data-type="text"
-              data-label="エンタープライズ価格"
-              data-group="pricing"
+              data-label="087: プラン3名"
+              data-group="07-Pricing"
+              data-order="087"
+            >Enterprise</h3>
+            <p class="pricing-card__description"
+              data-editable="088-plan-3-desc"
+              data-type="text"
+              data-label="088: プラン3説明"
+              data-group="07-Pricing"
+              data-order="088"
+            >大規模組織向け</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__amount"
+              data-editable="089-plan-3-price"
+              data-type="text"
+              data-label="089: プラン3価格"
+              data-group="07-Pricing"
+              data-order="089"
             >お問い合わせ</span>
           </div>
           <ul class="pricing-card__features">
-            <li>無制限ストレージ</li>
-            <li>専用サーバー</li>
-            <li>24/7 専任サポート</li>
-            <li>カスタム連携</li>
+            <li class="included">無制限ユーザー</li>
+            <li class="included">無制限ストレージ</li>
+            <li class="included">すべての機能</li>
+            <li class="included">24/7 専用サポート</li>
+            <li class="included">API アクセス</li>
+            <li class="included">カスタム連携</li>
           </ul>
-          <a href="#contact" class="btn btn--primary">お問い合わせ</a>
+          <a href="contact.html" class="btn btn--outline btn--full">お問い合わせ</a>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- CTAセクション -->
-  <section id="contact" class="cta">
+  <!-- FAQ -->
+  <section id="faq" class="faq">
     <div class="container">
-      <h2
-        data-editable="cta-headline"
-        data-type="text"
-        data-label="CTA見出し"
-        data-group="cta"
-        class="cta__title"
-      >
-        今すぐ始めましょう
-      </h2>
+      <div class="section-header animate-on-scroll" data-animation="fade-up">
+        <span class="section-tag">FAQ</span>
+        <h2 class="section-title"
+          data-editable="090-faq-title"
+          data-type="text"
+          data-label="090: FAQタイトル"
+          data-group="08-FAQ"
+          data-order="090"
+        >よくある質問</h2>
+      </div>
 
-      <p
-        data-editable="cta-description"
-        data-type="text"
-        data-label="CTA説明文"
-        data-group="cta"
-        class="cta__text"
-      >
-        14日間の無料トライアルで、CloudSync Proの全機能をお試しください。<br>
-        クレジットカード不要。いつでもキャンセル可能。
-      </p>
+      <div class="faq__list" data-repeat="faq" data-repeat-min="1" data-repeat-max="10">
+        <!-- FAQ1 -->
+        <div class="faq-item animate-on-scroll" data-animation="fade-up" data-delay="0" data-repeat-item="1">
+          <button class="faq-item__question">
+            <span
+              data-editable="091-faq-1-question"
+              data-type="text"
+              data-label="091: FAQ1質問"
+              data-group="08-FAQ"
+              data-order="091"
+            >無料トライアル期間中に料金は発生しますか？</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p
+              data-editable="092-faq-1-answer"
+              data-type="richtext"
+              data-label="092: FAQ1回答"
+              data-group="08-FAQ"
+              data-order="092"
+            >いいえ、14日間の無料トライアル期間中は一切料金は発生しません。クレジットカードの登録も不要です。トライアル終了後、お好きなプランをお選びいただけます。</p>
+          </div>
+        </div>
 
-      <a
-        data-editable="cta-button"
-        data-type="link"
-        data-label="CTAボタン"
-        data-group="cta"
-        href="https://example.com/signup"
-        class="btn btn--accent btn--large"
-      >
-        無料で始める
-      </a>
+        <!-- FAQ2 -->
+        <div class="faq-item animate-on-scroll" data-animation="fade-up" data-delay="50" data-repeat-item="2">
+          <button class="faq-item__question">
+            <span
+              data-editable="093-faq-2-question"
+              data-type="text"
+              data-label="093: FAQ2質問"
+              data-group="08-FAQ"
+              data-order="093"
+            >データのセキュリティはどのように保護されていますか？</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p
+              data-editable="094-faq-2-answer"
+              data-type="richtext"
+              data-label="094: FAQ2回答"
+              data-group="08-FAQ"
+              data-order="094"
+            >すべてのデータはAES-256で暗号化され、転送中も保存中も保護されています。また、SOC2 Type II、ISO27001、GDPRに準拠しており、定期的な第三者監査も受けています。</p>
+          </div>
+        </div>
+
+        <!-- FAQ3 -->
+        <div class="faq-item animate-on-scroll" data-animation="fade-up" data-delay="100" data-repeat-item="3">
+          <button class="faq-item__question">
+            <span
+              data-editable="095-faq-3-question"
+              data-type="text"
+              data-label="095: FAQ3質問"
+              data-group="08-FAQ"
+              data-order="095"
+            >既存のツールと連携できますか？</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p
+              data-editable="096-faq-3-answer"
+              data-type="richtext"
+              data-label="096: FAQ3回答"
+              data-group="08-FAQ"
+              data-order="096"
+            >はい、Slack、Microsoft Teams、Notion、Google Workspace、Salesforceなど200以上のアプリとネイティブ連携が可能です。また、RESTful APIとWebhookを使用して独自の連携を構築することもできます。</p>
+          </div>
+        </div>
+
+        <!-- FAQ4 -->
+        <div class="faq-item animate-on-scroll" data-animation="fade-up" data-delay="150" data-repeat-item="4">
+          <button class="faq-item__question">
+            <span
+              data-editable="097-faq-4-question"
+              data-type="text"
+              data-label="097: FAQ4質問"
+              data-group="08-FAQ"
+              data-order="097"
+            >プランの変更やキャンセルは可能ですか？</span>
+            <span class="faq-item__icon">+</span>
+          </button>
+          <div class="faq-item__answer">
+            <p
+              data-editable="098-faq-4-answer"
+              data-type="richtext"
+              data-label="098: FAQ4回答"
+              data-group="08-FAQ"
+              data-order="098"
+            >はい、いつでもプランの変更やキャンセルが可能です。アップグレードは即時反映され、ダウングレードは次の請求サイクルから適用されます。キャンセル後もデータは30日間保持されます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA セクション -->
+  <section class="cta">
+    <div class="cta__background">
+      <div class="cta__gradient"></div>
+      <div class="cta__pattern"></div>
+    </div>
+    <div class="container">
+      <div class="cta__content animate-on-scroll" data-animation="zoom-in">
+        <h2 class="cta__title"
+          data-editable="100-cta-headline"
+          data-type="text"
+          data-label="100: CTA見出し"
+          data-group="09-CTA"
+          data-order="100"
+        >今すぐ始めましょう</h2>
+        <p class="cta__text"
+          data-editable="101-cta-subheadline"
+          data-type="text"
+          data-label="101: CTA説明"
+          data-group="09-CTA"
+          data-order="101"
+        >14日間の無料トライアルで、CloudSync Proの全機能をお試しください。</p>
+        <div class="cta__actions">
+          <a href="contact.html" class="btn btn--white btn--large btn--shine"
+            data-editable="102-cta-button"
+            data-type="link"
+            data-label="102: CTAボタン"
+            data-group="09-CTA"
+            data-order="102"
+          >無料トライアルを開始</a>
+          <a href="contact.html" class="btn btn--glass-dark btn--large"
+            data-editable="103-cta-button-secondary"
+            data-type="link"
+            data-label="103: CTAボタン2"
+            data-group="09-CTA"
+            data-order="103"
+          >お問い合わせ</a>
+        </div>
+        <p class="cta__note">クレジットカード不要 - いつでもキャンセル可能</p>
+      </div>
     </div>
   </section>
 
   <!-- フッター -->
   <footer class="footer">
     <div class="container">
-      <p
-        data-editable="copyright"
-        data-type="text"
-        data-label="コピーライト"
-        data-group="footer"
-      >
-        © 2024 TechSolution株式会社 All Rights Reserved.
-      </p>
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <div class="footer__logo">
+            <span class="logo-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+              </svg>
+            </span>
+            <span
+              data-editable="110-footer-logo"
+              data-type="text"
+              data-label="110: フッターロゴ"
+              data-group="10-Footer"
+              data-order="110"
+            >CloudSync Pro</span>
+          </div>
+          <p class="footer__tagline"
+            data-editable="111-footer-tagline"
+            data-type="text"
+            data-label="111: フッタータグライン"
+            data-group="10-Footer"
+            data-order="111"
+          >ビジネスをクラウドで加速</p>
+          <div class="footer__social">
+            <a href="#" class="social-link" aria-label="Twitter"
+              data-editable="112-social-1"
+              data-type="link"
+              data-label="112: SNS1"
+              data-group="10-Footer"
+              data-order="112"
+            >X</a>
+            <a href="#" class="social-link" aria-label="LinkedIn"
+              data-editable="113-social-2"
+              data-type="link"
+              data-label="113: SNS2"
+              data-group="10-Footer"
+              data-order="113"
+            >in</a>
+            <a href="#" class="social-link" aria-label="GitHub"
+              data-editable="114-social-3"
+              data-type="link"
+              data-label="114: SNS3"
+              data-group="10-Footer"
+              data-order="114"
+            >GH</a>
+          </div>
+        </div>
+
+        <!-- フッターリンク1: 製品 -->
+        <div class="footer__links">
+          <h4
+            data-editable="120-footer-col1-title"
+            data-type="text"
+            data-label="120: フッター列1タイトル"
+            data-group="10-Footer"
+            data-order="120"
+          >製品</h4>
+          <ul data-repeat="footer-links-1" data-repeat-min="1" data-repeat-max="6">
+            <li data-repeat-item="1"><a href="#features"
+              data-editable="121-footer-col1-link1"
+              data-type="link"
+              data-label="121: 製品リンク1"
+              data-group="10-Footer"
+              data-order="121"
+            >機能</a></li>
+            <li data-repeat-item="2"><a href="#pricing"
+              data-editable="122-footer-col1-link2"
+              data-type="link"
+              data-label="122: 製品リンク2"
+              data-group="10-Footer"
+              data-order="122"
+            >料金</a></li>
+            <li data-repeat-item="3"><a href="#"
+              data-editable="123-footer-col1-link3"
+              data-type="link"
+              data-label="123: 製品リンク3"
+              data-group="10-Footer"
+              data-order="123"
+            >セキュリティ</a></li>
+            <li data-repeat-item="4"><a href="#"
+              data-editable="124-footer-col1-link4"
+              data-type="link"
+              data-label="124: 製品リンク4"
+              data-group="10-Footer"
+              data-order="124"
+            >ロードマップ</a></li>
+          </ul>
+        </div>
+
+        <!-- フッターリンク2: リソース -->
+        <div class="footer__links">
+          <h4
+            data-editable="130-footer-col2-title"
+            data-type="text"
+            data-label="130: フッター列2タイトル"
+            data-group="10-Footer"
+            data-order="130"
+          >リソース</h4>
+          <ul data-repeat="footer-links-2" data-repeat-min="1" data-repeat-max="6">
+            <li data-repeat-item="1"><a href="#"
+              data-editable="131-footer-col2-link1"
+              data-type="link"
+              data-label="131: リソースリンク1"
+              data-group="10-Footer"
+              data-order="131"
+            >ドキュメント</a></li>
+            <li data-repeat-item="2"><a href="#"
+              data-editable="132-footer-col2-link2"
+              data-type="link"
+              data-label="132: リソースリンク2"
+              data-group="10-Footer"
+              data-order="132"
+            >APIリファレンス</a></li>
+            <li data-repeat-item="3"><a href="#"
+              data-editable="133-footer-col2-link3"
+              data-type="link"
+              data-label="133: リソースリンク3"
+              data-group="10-Footer"
+              data-order="133"
+            >ブログ</a></li>
+            <li data-repeat-item="4"><a href="#"
+              data-editable="134-footer-col2-link4"
+              data-type="link"
+              data-label="134: リソースリンク4"
+              data-group="10-Footer"
+              data-order="134"
+            >ケーススタディ</a></li>
+          </ul>
+        </div>
+
+        <!-- フッターリンク3: 会社情報 -->
+        <div class="footer__links">
+          <h4
+            data-editable="140-footer-col3-title"
+            data-type="text"
+            data-label="140: フッター列3タイトル"
+            data-group="10-Footer"
+            data-order="140"
+          >会社情報</h4>
+          <ul data-repeat="footer-links-3" data-repeat-min="1" data-repeat-max="6">
+            <li data-repeat-item="1"><a href="#"
+              data-editable="141-footer-col3-link1"
+              data-type="link"
+              data-label="141: 会社リンク1"
+              data-group="10-Footer"
+              data-order="141"
+            >会社概要</a></li>
+            <li data-repeat-item="2"><a href="#"
+              data-editable="142-footer-col3-link2"
+              data-type="link"
+              data-label="142: 会社リンク2"
+              data-group="10-Footer"
+              data-order="142"
+            >採用情報</a></li>
+            <li data-repeat-item="3"><a href="contact.html"
+              data-editable="143-footer-col3-link3"
+              data-type="link"
+              data-label="143: 会社リンク3"
+              data-group="10-Footer"
+              data-order="143"
+            >お問い合わせ</a></li>
+            <li data-repeat-item="4"><a href="#"
+              data-editable="144-footer-col3-link4"
+              data-type="link"
+              data-label="144: 会社リンク4"
+              data-group="10-Footer"
+              data-order="144"
+            >パートナー</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p
+          data-editable="150-copyright"
+          data-type="text"
+          data-label="150: コピーライト"
+          data-group="10-Footer"
+          data-order="150"
+        >&copy; 2024 CloudSync Pro. All rights reserved.</p>
+      </div>
     </div>
   </footer>
+
+  <!-- スクリプト -->
+  <script src="js/main.js"></script>
 </body>
 </html>
