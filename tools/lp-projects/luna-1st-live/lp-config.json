@@ -1,0 +1,96 @@
+{
+  "name": "Luna 1st LIVE - Lunar Eclipse",
+  "client": "Stellar Production",
+  "version": "1.0.0",
+  "entry": "src/index.html",
+  "output": {
+    "appName": "Luna 1st LIVE",
+    "fileName": "luna-1st-live"
+  },
+  "groups": {
+    "01-Meta": {
+      "label": "メタ情報",
+      "order": 1
+    },
+    "02-Header": {
+      "label": "ヘッダー",
+      "order": 2
+    },
+    "03-FV": {
+      "label": "ファーストビュー",
+      "order": 3
+    },
+    "04-News": {
+      "label": "ニュース",
+      "order": 4
+    },
+    "05-Tickets": {
+      "label": "チケット",
+      "order": 5
+    },
+    "06-Release": {
+      "label": "リリース",
+      "order": 6
+    },
+    "07-Goods": {
+      "label": "グッズ",
+      "order": 7
+    },
+    "08-Profile": {
+      "label": "プロフィール",
+      "order": 8
+    },
+    "09-Footer": {
+      "label": "フッター",
+      "order": 9
+    }
+  },
+  "repeatBlocks": {
+    "news": {
+      "label": "ニュース記事",
+      "min": 1,
+      "max": 10,
+      "fields": {
+        "date": {
+          "type": "text",
+          "label": "日付"
+        },
+        "title": {
+          "type": "link",
+          "label": "タイトル"
+        }
+      }
+    },
+    "goods": {
+      "label": "グッズアイテム",
+      "min": 1,
+      "max": 8,
+      "fields": {
+        "image": {
+          "type": "image",
+          "label": "商品画像"
+        },
+        "name": {
+          "type": "text",
+          "label": "商品名"
+        },
+        "price": {
+          "type": "text",
+          "label": "価格"
+        }
+      }
+    }
+  },
+  "colors": {
+    "primary": {
+      "value": "#ffd700",
+      "label": "ゴールド",
+      "description": "メインカラー"
+    },
+    "secondary": {
+      "value": "#1a1a40",
+      "label": "ミッドナイトブルー",
+      "description": "背景色"
+    }
+  }
+}

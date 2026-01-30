@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-editable="001-meta-title" data-type="text" data-label="ページタイトル" data-group="01-Meta">星宮ルナ 1st SOLO LIVE「Lunar Eclipse ～月蝕の夜に～」</title>
+  <meta name="description" content="2024.03.21 横浜アリーナにて開催" data-editable="002-meta-description" data-type="text" data-label="ページ説明" data-group="01-Meta">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div class="splash" id="splash">
+    <div class="splash__bg">
+      <div class="splash__stars"></div>
+      <div class="splash__moon"></div>
+    </div>
+    <div class="splash__content">
+      <div class="splash__logo">
+        <svg class="splash__moon-icon" viewBox="0 0 100 100">
+          <defs>
+            <linearGradient id="moonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#ffd700"/>
+              <stop offset="50%" style="stop-color:#fff8dc"/>
+              <stop offset="100%" style="stop-color:#ffd700"/>
+            </linearGradient>
+          </defs>
+          <circle cx="50" cy="50" r="40" fill="url(#moonGrad)" class="splash__moon-circle"/>
+          <circle cx="65" cy="45" r="30" fill="#0a0a20" class="splash__moon-shadow"/>
+        </svg>
+      </div>
+      <h1 class="splash__title">LUNAR ECLIPSE</h1>
+      <p class="splash__subtitle">～月蝕の夜に～</p>
+      <div class="splash__loading">
+        <div class="splash__loading-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Particles -->
+  <div class="particles" id="particles"></div>
+
+  <!-- Header / Navigation -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <svg class="header__logo-icon" viewBox="0 0 50 50" width="40" height="40">
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#ffd700"/>
+              <stop offset="100%" style="stop-color:#c9a227"/>
+            </linearGradient>
+          </defs>
+          <circle cx="25" cy="25" r="20" fill="none" stroke="url(#logoGrad)" stroke-width="2"/>
+          <circle cx="25" cy="25" r="8" fill="url(#logoGrad)"/>
+          <path d="M25 5 L25 15 M25 35 L25 45 M5 25 L15 25 M35 25 L45 25" stroke="url(#logoGrad)" stroke-width="1.5"/>
+        </svg>
+        <span class="header__logo-text"
+          data-editable="010-header-logo-text"
+          data-type="text"
+          data-label="ロゴテキスト"
+          data-group="02-Header"
+        >LUNA</span>
+      </a>
+      <nav class="header__nav">
+        <ul class="header__nav-list">
+          <li><a href="#fv" class="header__nav-link">TOP</a></li>
+          <li><a href="#news" class="header__nav-link">NEWS</a></li>
+          <li><a href="#tickets" class="header__nav-link">TICKETS</a></li>
+          <li><a href="#release" class="header__nav-link">RELEASE</a></li>
+          <li><a href="#goods" class="header__nav-link">GOODS</a></li>
+          <li><a href="#profile" class="header__nav-link">PROFILE</a></li>
+        </ul>
+      </nav>
+      <button class="header__menu-btn" id="menuBtn" aria-label="Menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation -->
+  <div class="mobile-nav" id="mobileNav">
+    <div class="mobile-nav__bg"></div>
+    <ul class="mobile-nav__list">
+      <li><a href="#fv" class="mobile-nav__link">TOP</a></li>
+      <li><a href="#news" class="mobile-nav__link">NEWS</a></li>
+      <li><a href="#tickets" class="mobile-nav__link">TICKETS</a></li>
+      <li><a href="#release" class="mobile-nav__link">RELEASE</a></li>
+      <li><a href="#goods" class="mobile-nav__link">GOODS</a></li>
+      <li><a href="#profile" class="mobile-nav__link">PROFILE</a></li>
+    </ul>
+  </div>
+
+  <!-- First View / Hero -->
+  <section class="fv" id="fv">
+    <div class="fv__bg">
+      <div class="fv__stars"></div>
+      <div class="fv__aurora"></div>
+      <div class="fv__gradient"></div>
+    </div>
+
+    <div class="fv__content">
+      <div class="fv__catch animate-on-scroll" data-animation="fade-in">
+        <p class="fv__catch-text"
+          data-editable="020-fv-catch"
+          data-type="text"
+          data-label="キャッチコピー"
+          data-group="03-FV"
+        >月が満ちる、その瞬間に——</p>
+      </div>
+
+      <div class="fv__title-area animate-on-scroll" data-animation="scale-in" data-delay="300">
+        <p class="fv__label">1st SOLO LIVE</p>
+        <h1 class="fv__title"
+          data-editable="021-fv-title"
+          data-type="text"
+          data-label="ライブタイトル"
+          data-group="03-FV"
+        >Lunar Eclipse</h1>
+        <p class="fv__title-sub"
+          data-editable="022-fv-title-sub"
+          data-type="text"
+          data-label="サブタイトル"
+          data-group="03-FV"
+        >～月蝕の夜に～</p>
+      </div>
+
+      <div class="fv__info animate-on-scroll" data-animation="fade-up" data-delay="600">
+        <div class="fv__date-wrap">
+          <span class="fv__date"
+            data-editable="023-fv-date"
+            data-type="text"
+            data-label="開催日"
+            data-group="03-FV"
+          >2024.03.21</span>
+          <span class="fv__day">THU</span>
+        </div>
+        <p class="fv__venue"
+          data-editable="024-fv-venue"
+          data-type="text"
+          data-label="会場名"
+          data-group="03-FV"
+        >横浜アリーナ</p>
+        <p class="fv__time"
+          data-editable="025-fv-time"
+          data-type="text"
+          data-label="開場・開演時間"
+          data-group="03-FV"
+        >OPEN 17:00 / START 18:00</p>
+      </div>
+
+      <div class="fv__artist animate-on-scroll" data-animation="float-up" data-delay="900">
+        <div class="fv__artist-glow"></div>
+        <svg class="fv__artist-img" viewBox="0 0 300 400" data-editable="026-fv-artist" data-type="image" data-label="アーティスト画像" data-group="03-FV">
+          <!-- Artist Silhouette -->
+          <defs>
+            <linearGradient id="artistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.8"/>
+              <stop offset="50%" style="stop-color:#c9a227;stop-opacity:0.6"/>
+              <stop offset="100%" style="stop-color:#1a1a40;stop-opacity:0.3"/>
+            </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge>
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
+          </defs>
+          <!-- Dress/Body silhouette -->
+          <ellipse cx="150" cy="350" rx="80" ry="30" fill="url(#artistGrad)" opacity="0.5"/>
+          <path d="M150 80 Q120 120 100 200 Q80 300 70 380 L230 380 Q220 300 200 200 Q180 120 150 80" fill="url(#artistGrad)" filter="url(#glow)"/>
+          <!-- Head -->
+          <circle cx="150" cy="70" r="35" fill="url(#artistGrad)" filter="url(#glow)"/>
+          <!-- Hair flowing -->
+          <path d="M115 60 Q90 100 70 180 Q60 220 80 250" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.6"/>
+          <path d="M185 60 Q210 100 230 180 Q240 220 220 250" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.6"/>
+          <!-- Crown/Tiara -->
+          <path d="M120 45 L130 25 L140 40 L150 15 L160 40 L170 25 L180 45" stroke="#ffd700" stroke-width="2" fill="none" filter="url(#glow)"/>
+          <!-- Stars around -->
+          <circle cx="60" cy="100" r="2" fill="#ffd700" class="twinkle"/>
+          <circle cx="240" cy="120" r="3" fill="#ffd700" class="twinkle" style="animation-delay: 0.5s"/>
+          <circle cx="80" cy="200" r="2" fill="#ffd700" class="twinkle" style="animation-delay: 1s"/>
+          <circle cx="220" cy="220" r="2" fill="#ffd700" class="twinkle" style="animation-delay: 1.5s"/>
+        </svg>
+      </div>
+    </div>
+
+    <div class="fv__scroll">
+      <span>SCROLL</span>
+      <div class="fv__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- News Section -->
+  <section class="news" id="news">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-animation="fade-in">
+        <span class="section-title__en">NEWS</span>
+        <span class="section-title__ja">最新情報</span>
+        <span class="section-title__line"></span>
+      </h2>
+
+      <div class="news__list" data-repeat="news" data-repeat-min="1" data-repeat-max="10">
+        <article class="news__item animate-on-scroll" data-animation="slide-right" data-repeat-item="1">
+          <time class="news__date"
+            data-editable="030-news-1-date"
+            data-type="text"
+            data-label="日付"
+            data-group="04-News"
+          >2024.03.01</time>
+          <span class="news__tag">INFO</span>
+          <a href="#" class="news__link"
+            data-editable="031-news-1-title"
+            data-type="link"
+            data-label="タイトル"
+            data-group="04-News"
+          >チケット一般販売開始のお知らせ</a>
+        </article>
+
+        <article class="news__item animate-on-scroll" data-animation="slide-right" data-delay="100" data-repeat-item="2">
+          <time class="news__date"
+            data-editable="032-news-2-date"
+            data-type="text"
+            data-label="日付"
+            data-group="04-News"
+          >2024.02.21</time>
+          <span class="news__tag">GOODS</span>
+          <a href="#" class="news__link"
+            data-editable="033-news-2-title"
+            data-type="link"
+            data-label="タイトル"
+            data-group="04-News"
+          >オフィシャルグッズ情報公開</a>
+        </article>
+
+        <article class="news__item animate-on-scroll" data-animation="slide-right" data-delay="200" data-repeat-item="3">
+          <time class="news__date"
+            data-editable="034-news-3-date"
+            data-type="text"
+            data-label="日付"
+            data-group="04-News"
+          >2024.02.14</time>
+          <span class="news__tag">RELEASE</span>
+          <a href="#" class="news__link"
+            data-editable="035-news-3-title"
+            data-type="link"
+            data-label="タイトル"
+            data-group="04-News"
+          >1stアルバム「Moonlight Serenade」発売決定</a>
+        </article>
+
+        <article class="news__item animate-on-scroll" data-animation="slide-right" data-delay="300" data-repeat-item="4">
+          <time class="news__date"
+            data-editable="036-news-4-date"
+            data-type="text"
+            data-label="日付"
+            data-group="04-News"
+          >2024.01.21</time>
+          <span class="news__tag">LIVE</span>
+          <a href="#" class="news__link"
+            data-editable="037-news-4-title"
+            data-type="link"
+            data-label="タイトル"
+            data-group="04-News"
+          >1st SOLO LIVE開催決定！</a>
+        </article>
+      </div>
+
+      <div class="news__more animate-on-scroll" data-animation="fade-in">
+        <a href="#" class="btn btn--outline"
+          data-editable="038-news-more"
+          data-type="link"
+          data-label="もっと見るボタン"
+          data-group="04-News"
+        >VIEW ALL NEWS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tickets Section -->
+  <section class="tickets" id="tickets">
+    <div class="tickets__bg">
+      <div class="tickets__particles"></div>
+    </div>
+    <div class="container">
+      <h2 class="section-title section-title--light animate-on-scroll" data-animation="fade-in">
+        <span class="section-title__en">TICKETS</span>
+        <span class="section-title__ja">チケット情報</span>
+        <span class="section-title__line"></span>
+      </h2>
+
+      <div class="tickets__content">
+        <div class="tickets__card animate-on-scroll" data-animation="scale-in">
+          <div class="tickets__card-header">
+            <span class="tickets__card-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 10V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v4c1.1 0 2 .9 2 2s-.9 2-2 2v4c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2v-4c-1.1 0-2-.9-2-2s.9-2 2-2z"/></svg>
+            </span>
+            <h3>TICKET</h3>
+          </div>
+          <div class="tickets__info">
+            <div class="tickets__row">
+              <span class="tickets__label">会場</span>
+              <span class="tickets__value"
+                data-editable="040-tickets-venue"
+                data-type="text"
+                data-label="会場"
+                data-group="05-Tickets"
+              >横浜アリーナ</span>
+            </div>
+            <div class="tickets__row">
+              <span class="tickets__label">日時</span>
+              <span class="tickets__value"
+                data-editable="041-tickets-datetime"
+                data-type="text"
+                data-label="日時"
+                data-group="05-Tickets"
+              >2024年3月21日(木・祝) 開場17:00 / 開演18:00</span>
+            </div>
+            <div class="tickets__row">
+              <span class="tickets__label">料金</span>
+              <span class="tickets__value tickets__value--price"
+                data-editable="042-tickets-price"
+                data-type="text"
+                data-label="料金"
+                data-group="05-Tickets"
+              >全席指定 ¥9,900 (税込)</span>
+            </div>
+          </div>
+          <div class="tickets__cta">
+            <a href="#" class="btn btn--gold btn--large btn--glow"
+              data-editable="043-tickets-btn"
+              data-type="link"
+              data-label="チケット購入ボタン"
+              data-group="05-Tickets"
+            >
+              <span>チケットを購入する</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Release Section -->
+  <section class="release" id="release">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-animation="fade-in">
+        <span class="section-title__en">RELEASE</span>
+        <span class="section-title__ja">リリース情報</span>
+        <span class="section-title__line"></span>
+      </h2>
+
+      <div class="release__content">
+        <div class="release__visual animate-on-scroll" data-animation="float-up">
+          <div class="release__jacket">
+            <div class="release__jacket-glow"></div>
+            <svg class="release__jacket-img" viewBox="0 0 300 300" data-editable="050-release-jacket" data-type="image" data-label="ジャケット画像" data-group="06-Release">
+              <defs>
+                <linearGradient id="jacketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" style="stop-color:#1a1a40"/>
+                  <stop offset="50%" style="stop-color:#0a0a20"/>
+                  <stop offset="100%" style="stop-color:#1a1a40"/>
+                </linearGradient>
+                <radialGradient id="moonGlow" cx="70%" cy="30%">
+                  <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.8"/>
+                  <stop offset="100%" style="stop-color:#ffd700;stop-opacity:0"/>
+                </radialGradient>
+              </defs>
+              <rect width="300" height="300" fill="url(#jacketGrad)"/>
+              <!-- Stars -->
+              <circle cx="50" cy="50" r="1" fill="#fff"/>
+              <circle cx="100" cy="80" r="1.5" fill="#fff"/>
+              <circle cx="200" cy="60" r="1" fill="#fff"/>
+              <circle cx="250" cy="100" r="2" fill="#fff"/>
+              <circle cx="80" cy="150" r="1" fill="#fff"/>
+              <circle cx="220" cy="180" r="1.5" fill="#fff"/>
+              <!-- Moon -->
+              <circle cx="200" cy="100" r="50" fill="url(#moonGlow)"/>
+              <circle cx="200" cy="100" r="35" fill="#ffd700" opacity="0.9"/>
+              <circle cx="215" cy="90" r="25" fill="#1a1a40"/>
+              <!-- Title text area -->
+              <rect x="20" y="220" width="260" height="60" fill="rgba(0,0,0,0.3)"/>
+              <text x="150" y="250" text-anchor="middle" fill="#ffd700" font-family="Cinzel" font-size="16">Moonlight Serenade</text>
+              <text x="150" y="270" text-anchor="middle" fill="#fff" font-family="Noto Sans JP" font-size="10">星宮ルナ</text>
+            </svg>
+            <div class="release__disc">
+              <div class="release__disc-inner"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="release__info animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <p class="release__type"
+            data-editable="051-release-type"
+            data-type="text"
+            data-label="リリース種別"
+            data-group="06-Release"
+          >1st ALBUM</p>
+          <h3 class="release__name"
+            data-editable="052-release-name"
+            data-type="text"
+            data-label="アルバム名"
+            data-group="06-Release"
+          >Moonlight Serenade</h3>
+          <p class="release__date"
+            data-editable="053-release-date"
+            data-type="text"
+            data-label="発売日"
+            data-group="06-Release"
+          >2024.03.21 ON SALE</p>
+
+          <div class="release__tracklist">
+            <h4>TRACK LIST</h4>
+            <ol class="release__tracks"
+              data-editable="054-release-tracks"
+              data-type="richtext"
+              data-label="収録曲リスト"
+              data-group="06-Release"
+            >
+              <li>Lunar Eclipse</li>
+              <li>Moonlight Serenade</li>
+              <li>星降る夜に</li>
+              <li>Celestial Dance</li>
+              <li>月の涙</li>
+              <li>Eternal Night</li>
+            </ol>
+          </div>
+
+          <a href="#" class="btn btn--outline"
+            data-editable="055-release-btn"
+            data-type="link"
+            data-label="購入ボタン"
+            data-group="06-Release"
+          >詳細・購入はこちら</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Goods Section -->
+  <section class="goods" id="goods">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-animation="fade-in">
+        <span class="section-title__en">GOODS</span>
+        <span class="section-title__ja">オフィシャルグッズ</span>
+        <span class="section-title__line"></span>
+      </h2>
+
+      <div class="goods__grid" data-repeat="goods" data-repeat-min="1" data-repeat-max="8">
+        <div class="goods__item animate-on-scroll" data-animation="zoom-in" data-repeat-item="1">
+          <div class="goods__img-wrap">
+            <svg class="goods__img" viewBox="0 0 200 200" data-editable="060b-goods-1-image" data-type="image" data-label="商品画像" data-group="07-Goods">
+              <rect width="200" height="200" fill="#1a1a40"/>
+              <rect x="40" y="60" width="120" height="80" rx="5" fill="#2a2a50"/>
+              <text x="100" y="105" text-anchor="middle" fill="#ffd700" font-size="14">T-SHIRT</text>
+              <circle cx="100" cy="140" r="15" fill="none" stroke="#ffd700" stroke-width="1"/>
+            </svg>
+            <div class="goods__overlay">
+              <span>DETAIL</span>
+            </div>
+          </div>
+          <div class="goods__info">
+            <h3 class="goods__name"
+              data-editable="061-goods-1-name"
+              data-type="text"
+              data-label="商品名"
+              data-group="07-Goods"
+            >オフィシャルTシャツ</h3>
+            <p class="goods__price"
+              data-editable="062-goods-1-price"
+              data-type="text"
+              data-label="価格"
+              data-group="07-Goods"
+            >¥4,500</p>
+          </div>
+        </div>
+
+        <div class="goods__item animate-on-scroll" data-animation="zoom-in" data-delay="100" data-repeat-item="2">
+          <div class="goods__img-wrap">
+            <svg class="goods__img" viewBox="0 0 200 200" data-editable="063b-goods-2-image" data-type="image" data-label="商品画像" data-group="07-Goods">
+              <rect width="200" height="200" fill="#1a1a40"/>
+              <rect x="85" y="40" width="30" height="120" rx="15" fill="#ffd700"/>
+              <circle cx="100" cy="60" r="10" fill="#fff"/>
+              <text x="100" y="180" text-anchor="middle" fill="#fff" font-size="12">PENLIGHT</text>
+            </svg>
+            <div class="goods__overlay">
+              <span>DETAIL</span>
+            </div>
+          </div>
+          <div class="goods__info">
+            <h3 class="goods__name"
+              data-editable="064-goods-2-name"
+              data-type="text"
+              data-label="商品名"
+              data-group="07-Goods"
+            >ペンライト</h3>
+            <p class="goods__price"
+              data-editable="065-goods-2-price"
+              data-type="text"
+              data-label="価格"
+              data-group="07-Goods"
+            >¥3,500</p>
+          </div>
+        </div>
+
+        <div class="goods__item animate-on-scroll" data-animation="zoom-in" data-delay="200" data-repeat-item="3">
+          <div class="goods__img-wrap">
+            <svg class="goods__img" viewBox="0 0 200 200" data-editable="066b-goods-3-image" data-type="image" data-label="商品画像" data-group="07-Goods">
+              <rect width="200" height="200" fill="#1a1a40"/>
+              <rect x="60" y="50" width="80" height="100" rx="3" fill="#2a2a50" stroke="#ffd700" stroke-width="2"/>
+              <circle cx="100" cy="100" r="25" fill="none" stroke="#ffd700" stroke-width="1"/>
+              <text x="100" y="180" text-anchor="middle" fill="#fff" font-size="12">ACRYLIC STAND</text>
+            </svg>
+            <div class="goods__overlay">
+              <span>DETAIL</span>
+            </div>
+          </div>
+          <div class="goods__info">
+            <h3 class="goods__name"
+              data-editable="067-goods-3-name"
+              data-type="text"
+              data-label="商品名"
+              data-group="07-Goods"
+            >アクリルスタンド</h3>
+            <p class="goods__price"
+              data-editable="068-goods-3-price"
+              data-type="text"
+              data-label="価格"
+              data-group="07-Goods"
+            >¥1,800</p>
+          </div>
+        </div>
+
+        <div class="goods__item animate-on-scroll" data-animation="zoom-in" data-delay="300" data-repeat-item="4">
+          <div class="goods__img-wrap">
+            <svg class="goods__img" viewBox="0 0 200 200" data-editable="069b-goods-4-image" data-type="image" data-label="商品画像" data-group="07-Goods">
+              <rect width="200" height="200" fill="#1a1a40"/>
+              <rect x="30" y="70" width="140" height="60" rx="3" fill="#2a2a50"/>
+              <path d="M50 100 L150 100" stroke="#ffd700" stroke-width="2"/>
+              <circle cx="100" cy="100" r="20" fill="none" stroke="#ffd700" stroke-width="1"/>
+              <text x="100" y="180" text-anchor="middle" fill="#fff" font-size="12">MUFFLER TOWEL</text>
+            </svg>
+            <div class="goods__overlay">
+              <span>DETAIL</span>
+            </div>
+          </div>
+          <div class="goods__info">
+            <h3 class="goods__name"
+              data-editable="070-goods-4-name"
+              data-type="text"
+              data-label="商品名"
+              data-group="07-Goods"
+            >マフラータオル</h3>
+            <p class="goods__price"
+              data-editable="071-goods-4-price"
+              data-type="text"
+              data-label="価格"
+              data-group="07-Goods"
+            >¥2,500</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="goods__more animate-on-scroll" data-animation="fade-in">
+        <a href="#" class="btn btn--outline"
+          data-editable="072-goods-more"
+          data-type="link"
+          data-label="もっと見るボタン"
+          data-group="07-Goods"
+        >VIEW ALL GOODS</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Profile Section -->
+  <section class="profile" id="profile">
+    <div class="profile__bg">
+      <div class="profile__aurora"></div>
+    </div>
+    <div class="container">
+      <h2 class="section-title section-title--light animate-on-scroll" data-animation="fade-in">
+        <span class="section-title__en">PROFILE</span>
+        <span class="section-title__ja">プロフィール</span>
+        <span class="section-title__line"></span>
+      </h2>
+
+      <div class="profile__content">
+        <div class="profile__visual animate-on-scroll" data-animation="float-up">
+          <div class="profile__frame">
+            <div class="profile__frame-glow"></div>
+            <svg class="profile__img" viewBox="0 0 300 400" data-editable="080-profile-image" data-type="image" data-label="プロフィール画像" data-group="08-Profile">
+              <defs>
+                <linearGradient id="profileGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.9"/>
+                  <stop offset="50%" style="stop-color:#c9a227;stop-opacity:0.7"/>
+                  <stop offset="100%" style="stop-color:#1a1a40;stop-opacity:0.5"/>
+                </linearGradient>
+              </defs>
+              <rect width="300" height="400" fill="#0a0a20"/>
+              <!-- Character silhouette -->
+              <ellipse cx="150" cy="370" rx="60" ry="20" fill="rgba(255,215,0,0.2)"/>
+              <path d="M150 100 Q130 130 120 180 Q100 280 90 360 L210 360 Q200 280 180 180 Q170 130 150 100" fill="url(#profileGrad)"/>
+              <circle cx="150" cy="85" r="30" fill="url(#profileGrad)"/>
+              <!-- Hair -->
+              <path d="M120 75 Q100 100 85 160" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.7"/>
+              <path d="M180 75 Q200 100 215 160" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.7"/>
+              <!-- Crown -->
+              <path d="M125 60 L135 40 L145 55 L150 30 L155 55 L165 40 L175 60" stroke="#ffd700" stroke-width="2" fill="none"/>
+              <!-- Sparkles -->
+              <circle cx="80" cy="120" r="2" fill="#ffd700" class="twinkle"/>
+              <circle cx="220" cy="140" r="2" fill="#ffd700" class="twinkle" style="animation-delay:0.5s"/>
+              <circle cx="100" cy="250" r="2" fill="#ffd700" class="twinkle" style="animation-delay:1s"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="profile__info animate-on-scroll" data-animation="fade-up" data-delay="300">
+          <div class="profile__name-area">
+            <h3 class="profile__name"
+              data-editable="081-profile-name"
+              data-type="text"
+              data-label="名前"
+              data-group="08-Profile"
+            >星宮ルナ</h3>
+            <p class="profile__name-en"
+              data-editable="082-profile-name-en"
+              data-type="text"
+              data-label="英語名"
+              data-group="08-Profile"
+            >Hoshimiya Luna</p>
+          </div>
+
+          <p class="profile__catch"
+            data-editable="083-profile-catch"
+            data-type="text"
+            data-label="キャッチコピー"
+            data-group="08-Profile"
+          >「月が見守る限り、あなたのそばに」</p>
+
+          <div class="profile__details">
+            <div class="profile__row">
+              <span class="profile__label">誕生日</span>
+              <span class="profile__value"
+                data-editable="084-profile-birthday"
+                data-type="text"
+                data-label="誕生日"
+                data-group="08-Profile"
+              >3月21日</span>
+            </div>
+            <div class="profile__row">
+              <span class="profile__label">身長</span>
+              <span class="profile__value"
+                data-editable="085-profile-height"
+                data-type="text"
+                data-label="身長"
+                data-group="08-Profile"
+              >158cm</span>
+            </div>
+            <div class="profile__row">
+              <span class="profile__label">所属</span>
+              <span class="profile__value"
+                data-editable="086-profile-unit"
+                data-type="text"
+                data-label="所属"
+                data-group="08-Profile"
+              >Stellar Production</span>
+            </div>
+            <div class="profile__row">
+              <span class="profile__label">デビュー</span>
+              <span class="profile__value"
+                data-editable="087-profile-debut"
+                data-type="text"
+                data-label="デビュー日"
+                data-group="08-Profile"
+              >2021年9月15日</span>
+            </div>
+          </div>
+
+          <p class="profile__bio"
+            data-editable="088-profile-bio"
+            data-type="richtext"
+            data-label="プロフィール文"
+            data-group="08-Profile"
+          >月の女神に仕える巫女として転生したバーチャルアイドル。神秘的な雰囲気と透き通る歌声で多くのファンを魅了している。趣味は星空観察と作曲。「月が満ちる時、奇跡は起きる」を信条に活動中。</p>
+
+          <div class="profile__social">
+            <a href="#" class="profile__social-link"
+              data-editable="089-profile-youtube"
+              data-type="link"
+              data-label="YouTube"
+              data-group="08-Profile"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+            </a>
+            <a href="#" class="profile__social-link"
+              data-editable="090-profile-twitter"
+              data-type="link"
+              data-label="X (Twitter)"
+              data-group="08-Profile"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__bg">
+      <div class="footer__stars"></div>
+    </div>
+    <div class="container">
+      <div class="footer__main">
+        <div class="footer__logo">
+          <svg class="footer__logo-icon" viewBox="0 0 60 60" width="60" height="60">
+            <defs>
+              <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#ffd700"/>
+                <stop offset="100%" style="stop-color:#c9a227"/>
+              </linearGradient>
+            </defs>
+            <circle cx="30" cy="30" r="25" fill="none" stroke="url(#footerLogoGrad)" stroke-width="2"/>
+            <circle cx="30" cy="30" r="10" fill="url(#footerLogoGrad)"/>
+          </svg>
+          <span class="footer__logo-text"
+            data-editable="100-footer-logo-text"
+            data-type="text"
+            data-label="フッターロゴテキスト"
+            data-group="09-Footer"
+          >LUNA 1st LIVE</span>
+        </div>
+        <p class="footer__copyright"
+          data-editable="101-footer-copyright"
+          data-type="text"
+          data-label="コピーライト"
+          data-group="09-Footer"
+        >&copy; 2024 Stellar Production. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
