@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 600" width="1920" height="600">
+  <defs>
+    <linearGradient id="bannerGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0a0a1a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1920" height="600" fill="url(#bannerGrad)"/>
+  <!-- Scattered sakura petals -->
+  <ellipse cx="100" cy="100" rx="10" ry="7" fill="#ffd6e0" opacity="0.2" transform="rotate(30 100 100)"/>
+  <ellipse cx="300" cy="450" rx="8" ry="5" fill="#ffd6e0" opacity="0.15" transform="rotate(-40 300 450)"/>
+  <ellipse cx="600" cy="200" rx="12" ry="8" fill="#ffe4e9" opacity="0.2" transform="rotate(60 600 200)"/>
+  <ellipse cx="900" cy="500" rx="9" ry="6" fill="#ffd6e0" opacity="0.15" transform="rotate(20 900 500)"/>
+  <ellipse cx="1200" cy="150" rx="11" ry="7" fill="#ffe4e9" opacity="0.2" transform="rotate(-30 1200 150)"/>
+  <ellipse cx="1500" cy="400" rx="8" ry="5" fill="#ffd6e0" opacity="0.15" transform="rotate(45 1500 400)"/>
+  <ellipse cx="1800" cy="250" rx="10" ry="6" fill="#ffe4e9" opacity="0.2" transform="rotate(-15 1800 250)"/>
+  <!-- Golden line -->
+  <line x1="760" y1="300" x2="1160" y2="300" stroke="#c9a962" stroke-width="1" opacity="0.3"/>
+  <!-- Diamond sparkle center -->
+  <g transform="translate(960, 300)">
+    <line x1="-30" y1="0" x2="30" y2="0" stroke="#c9a962" stroke-width="1" opacity="0.5"/>
+    <line x1="0" y1="-30" x2="0" y2="30" stroke="#c9a962" stroke-width="1" opacity="0.5"/>
+    <line x1="-20" y1="-20" x2="20" y2="20" stroke="#c9a962" stroke-width="1" opacity="0.3"/>
+    <line x1="20" y1="-20" x2="-20" y2="20" stroke="#c9a962" stroke-width="1" opacity="0.3"/>
+    <circle cx="0" cy="0" r="3" fill="#c9a962"/>
+  </g>
+</svg>

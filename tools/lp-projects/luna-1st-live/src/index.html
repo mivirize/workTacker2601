@@ -152,38 +152,15 @@
 
       <div class="fv__artist animate-on-scroll" data-animation="float-up" data-delay="900">
         <div class="fv__artist-glow"></div>
-        <svg class="fv__artist-img" viewBox="0 0 300 400" data-editable="026-fv-artist" data-type="image" data-label="アーティスト画像" data-group="03-FV">
-          <!-- Artist Silhouette -->
-          <defs>
-            <linearGradient id="artistGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-              <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.8"/>
-              <stop offset="50%" style="stop-color:#c9a227;stop-opacity:0.6"/>
-              <stop offset="100%" style="stop-color:#1a1a40;stop-opacity:0.3"/>
-            </linearGradient>
-            <filter id="glow">
-              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-              <feMerge>
-                <feMergeNode in="coloredBlur"/>
-                <feMergeNode in="SourceGraphic"/>
-              </feMerge>
-            </filter>
-          </defs>
-          <!-- Dress/Body silhouette -->
-          <ellipse cx="150" cy="350" rx="80" ry="30" fill="url(#artistGrad)" opacity="0.5"/>
-          <path d="M150 80 Q120 120 100 200 Q80 300 70 380 L230 380 Q220 300 200 200 Q180 120 150 80" fill="url(#artistGrad)" filter="url(#glow)"/>
-          <!-- Head -->
-          <circle cx="150" cy="70" r="35" fill="url(#artistGrad)" filter="url(#glow)"/>
-          <!-- Hair flowing -->
-          <path d="M115 60 Q90 100 70 180 Q60 220 80 250" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.6"/>
-          <path d="M185 60 Q210 100 230 180 Q240 220 220 250" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.6"/>
-          <!-- Crown/Tiara -->
-          <path d="M120 45 L130 25 L140 40 L150 15 L160 40 L170 25 L180 45" stroke="#ffd700" stroke-width="2" fill="none" filter="url(#glow)"/>
-          <!-- Stars around -->
-          <circle cx="60" cy="100" r="2" fill="#ffd700" class="twinkle"/>
-          <circle cx="240" cy="120" r="3" fill="#ffd700" class="twinkle" style="animation-delay: 0.5s"/>
-          <circle cx="80" cy="200" r="2" fill="#ffd700" class="twinkle" style="animation-delay: 1s"/>
-          <circle cx="220" cy="220" r="2" fill="#ffd700" class="twinkle" style="animation-delay: 1.5s"/>
-        </svg>
+        <img
+          class="fv__artist-img"
+          data-editable="026-fv-artist"
+          data-type="image"
+          data-label="アーティスト画像"
+          data-group="03-FV"
+          src="images/placeholder-artist.svg"
+          alt="アーティスト画像"
+        />
       </div>
     </div>
 
@@ -357,35 +334,15 @@
         <div class="release__visual animate-on-scroll" data-animation="float-up">
           <div class="release__jacket">
             <div class="release__jacket-glow"></div>
-            <svg class="release__jacket-img" viewBox="0 0 300 300" data-editable="050-release-jacket" data-type="image" data-label="ジャケット画像" data-group="06-Release">
-              <defs>
-                <linearGradient id="jacketGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                  <stop offset="0%" style="stop-color:#1a1a40"/>
-                  <stop offset="50%" style="stop-color:#0a0a20"/>
-                  <stop offset="100%" style="stop-color:#1a1a40"/>
-                </linearGradient>
-                <radialGradient id="moonGlow" cx="70%" cy="30%">
-                  <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.8"/>
-                  <stop offset="100%" style="stop-color:#ffd700;stop-opacity:0"/>
-                </radialGradient>
-              </defs>
-              <rect width="300" height="300" fill="url(#jacketGrad)"/>
-              <!-- Stars -->
-              <circle cx="50" cy="50" r="1" fill="#fff"/>
-              <circle cx="100" cy="80" r="1.5" fill="#fff"/>
-              <circle cx="200" cy="60" r="1" fill="#fff"/>
-              <circle cx="250" cy="100" r="2" fill="#fff"/>
-              <circle cx="80" cy="150" r="1" fill="#fff"/>
-              <circle cx="220" cy="180" r="1.5" fill="#fff"/>
-              <!-- Moon -->
-              <circle cx="200" cy="100" r="50" fill="url(#moonGlow)"/>
-              <circle cx="200" cy="100" r="35" fill="#ffd700" opacity="0.9"/>
-              <circle cx="215" cy="90" r="25" fill="#1a1a40"/>
-              <!-- Title text area -->
-              <rect x="20" y="220" width="260" height="60" fill="rgba(0,0,0,0.3)"/>
-              <text x="150" y="250" text-anchor="middle" fill="#ffd700" font-family="Cinzel" font-size="16">Moonlight Serenade</text>
-              <text x="150" y="270" text-anchor="middle" fill="#fff" font-family="Noto Sans JP" font-size="10">星宮ルナ</text>
-            </svg>
+            <img
+              class="release__jacket-img"
+              data-editable="050-release-jacket"
+              data-type="image"
+              data-label="ジャケット画像"
+              data-group="06-Release"
+              src="images/placeholder-jacket.svg"
+              alt="アルバムジャケット"
+            />
             <div class="release__disc">
               <div class="release__disc-inner"></div>
             </div>
@@ -452,12 +409,15 @@
       <div class="goods__grid" data-repeat="goods" data-repeat-min="1" data-repeat-max="8">
         <div class="goods__item animate-on-scroll" data-animation="zoom-in" data-repeat-item="1">
           <div class="goods__img-wrap">
-            <svg class="goods__img" viewBox="0 0 200 200" data-editable="060b-goods-1-image" data-type="image" data-label="商品画像" data-group="07-Goods">
-              <rect width="200" height="200" fill="#1a1a40"/>
-              <rect x="40" y="60" width="120" height="80" rx="5" fill="#2a2a50"/>
-              <text x="100" y="105" text-anchor="middle" fill="#ffd700" font-size="14">T-SHIRT</text>
-              <circle cx="100" cy="140" r="15" fill="none" stroke="#ffd700" stroke-width="1"/>
-            </svg>
+            <img
+              class="goods__img"
+              data-editable="060b-goods-1-image"
+              data-type="image"
+              data-label="商品画像"
+              data-group="07-Goods"
+              src="images/placeholder-goods.svg"
+              alt="商品画像"
+            />
             <div class="goods__overlay">
               <span>DETAIL</span>
             </div>
@@ -480,12 +440,15 @@
 
         <div class="goods__item animate-on-scroll" data-animation="zoom-in" data-delay="100" data-repeat-item="2">
           <div class="goods__img-wrap">
-            <svg class="goods__img" viewBox="0 0 200 200" data-editable="063b-goods-2-image" data-type="image" data-label="商品画像" data-group="07-Goods">
-              <rect width="200" height="200" fill="#1a1a40"/>
-              <rect x="85" y="40" width="30" height="120" rx="15" fill="#ffd700"/>
-              <circle cx="100" cy="60" r="10" fill="#fff"/>
-              <text x="100" y="180" text-anchor="middle" fill="#fff" font-size="12">PENLIGHT</text>
-            </svg>
+            <img
+              class="goods__img"
+              data-editable="063b-goods-2-image"
+              data-type="image"
+              data-label="商品画像"
+              data-group="07-Goods"
+              src="images/placeholder-goods.svg"
+              alt="商品画像"
+            />
             <div class="goods__overlay">
               <span>DETAIL</span>
             </div>
@@ -508,12 +471,15 @@
 
         <div class="goods__item animate-on-scroll" data-animation="zoom-in" data-delay="200" data-repeat-item="3">
           <div class="goods__img-wrap">
-            <svg class="goods__img" viewBox="0 0 200 200" data-editable="066b-goods-3-image" data-type="image" data-label="商品画像" data-group="07-Goods">
-              <rect width="200" height="200" fill="#1a1a40"/>
-              <rect x="60" y="50" width="80" height="100" rx="3" fill="#2a2a50" stroke="#ffd700" stroke-width="2"/>
-              <circle cx="100" cy="100" r="25" fill="none" stroke="#ffd700" stroke-width="1"/>
-              <text x="100" y="180" text-anchor="middle" fill="#fff" font-size="12">ACRYLIC STAND</text>
-            </svg>
+            <img
+              class="goods__img"
+              data-editable="066b-goods-3-image"
+              data-type="image"
+              data-label="商品画像"
+              data-group="07-Goods"
+              src="images/placeholder-goods.svg"
+              alt="商品画像"
+            />
             <div class="goods__overlay">
               <span>DETAIL</span>
             </div>
@@ -536,13 +502,15 @@
 
         <div class="goods__item animate-on-scroll" data-animation="zoom-in" data-delay="300" data-repeat-item="4">
           <div class="goods__img-wrap">
-            <svg class="goods__img" viewBox="0 0 200 200" data-editable="069b-goods-4-image" data-type="image" data-label="商品画像" data-group="07-Goods">
-              <rect width="200" height="200" fill="#1a1a40"/>
-              <rect x="30" y="70" width="140" height="60" rx="3" fill="#2a2a50"/>
-              <path d="M50 100 L150 100" stroke="#ffd700" stroke-width="2"/>
-              <circle cx="100" cy="100" r="20" fill="none" stroke="#ffd700" stroke-width="1"/>
-              <text x="100" y="180" text-anchor="middle" fill="#fff" font-size="12">MUFFLER TOWEL</text>
-            </svg>
+            <img
+              class="goods__img"
+              data-editable="069b-goods-4-image"
+              data-type="image"
+              data-label="商品画像"
+              data-group="07-Goods"
+              src="images/placeholder-goods.svg"
+              alt="商品画像"
+            />
             <div class="goods__overlay">
               <span>DETAIL</span>
             </div>
@@ -591,29 +559,15 @@
         <div class="profile__visual animate-on-scroll" data-animation="float-up">
           <div class="profile__frame">
             <div class="profile__frame-glow"></div>
-            <svg class="profile__img" viewBox="0 0 300 400" data-editable="080-profile-image" data-type="image" data-label="プロフィール画像" data-group="08-Profile">
-              <defs>
-                <linearGradient id="profileGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                  <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.9"/>
-                  <stop offset="50%" style="stop-color:#c9a227;stop-opacity:0.7"/>
-                  <stop offset="100%" style="stop-color:#1a1a40;stop-opacity:0.5"/>
-                </linearGradient>
-              </defs>
-              <rect width="300" height="400" fill="#0a0a20"/>
-              <!-- Character silhouette -->
-              <ellipse cx="150" cy="370" rx="60" ry="20" fill="rgba(255,215,0,0.2)"/>
-              <path d="M150 100 Q130 130 120 180 Q100 280 90 360 L210 360 Q200 280 180 180 Q170 130 150 100" fill="url(#profileGrad)"/>
-              <circle cx="150" cy="85" r="30" fill="url(#profileGrad)"/>
-              <!-- Hair -->
-              <path d="M120 75 Q100 100 85 160" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.7"/>
-              <path d="M180 75 Q200 100 215 160" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.7"/>
-              <!-- Crown -->
-              <path d="M125 60 L135 40 L145 55 L150 30 L155 55 L165 40 L175 60" stroke="#ffd700" stroke-width="2" fill="none"/>
-              <!-- Sparkles -->
-              <circle cx="80" cy="120" r="2" fill="#ffd700" class="twinkle"/>
-              <circle cx="220" cy="140" r="2" fill="#ffd700" class="twinkle" style="animation-delay:0.5s"/>
-              <circle cx="100" cy="250" r="2" fill="#ffd700" class="twinkle" style="animation-delay:1s"/>
-            </svg>
+            <img
+              class="profile__img"
+              data-editable="080-profile-image"
+              data-type="image"
+              data-label="プロフィール画像"
+              data-group="08-Profile"
+              src="images/placeholder-profile.svg"
+              alt="プロフィール画像"
+            />
           </div>
         </div>
 

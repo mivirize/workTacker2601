@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0a0a1a"/>
+      <stop offset="50%" style="stop-color:#1a1a2e"/>
+      <stop offset="100%" style="stop-color:#0a0a1a"/>
+    </linearGradient>
+    <radialGradient id="moonGlow" cx="80%" cy="20%">
+      <stop offset="0%" style="stop-color:#ffd6e0;stop-opacity:0.3"/>
+      <stop offset="100%" style="stop-color:#ffd6e0;stop-opacity:0"/>
+    </radialGradient>
+    <filter id="blur">
+      <feGaussianBlur stdDeviation="2"/>
+    </filter>
+  </defs>
+  <rect width="1920" height="1080" fill="url(#heroGrad)"/>
+  <circle cx="1500" cy="200" r="300" fill="url(#moonGlow)"/>
+  <!-- Stars -->
+  <circle cx="200" cy="100" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="400" cy="200" r="1.5" fill="#fff" opacity="0.7"/>
+  <circle cx="600" cy="150" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="800" cy="80" r="1" fill="#fff" opacity="0.6"/>
+  <circle cx="1000" cy="250" r="1.5" fill="#fff" opacity="0.5"/>
+  <circle cx="1200" cy="120" r="1" fill="#fff" opacity="0.7"/>
+  <circle cx="1400" cy="300" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="1600" cy="180" r="1.5" fill="#fff" opacity="0.6"/>
+  <circle cx="1800" cy="100" r="1" fill="#fff" opacity="0.5"/>
+  <circle cx="300" cy="400" r="1" fill="#fff" opacity="0.4"/>
+  <circle cx="500" cy="350" r="1" fill="#fff" opacity="0.6"/>
+  <circle cx="1100" cy="400" r="1" fill="#fff" opacity="0.5"/>
+  <!-- Sakura petals hint -->
+  <ellipse cx="150" cy="300" rx="8" ry="6" fill="#ffd6e0" opacity="0.3" transform="rotate(30 150 300)"/>
+  <ellipse cx="1750" cy="500" rx="6" ry="4" fill="#ffd6e0" opacity="0.2" transform="rotate(-20 1750 500)"/>
+  <ellipse cx="300" cy="700" rx="7" ry="5" fill="#ffd6e0" opacity="0.25" transform="rotate(45 300 700)"/>
+  <!-- Diamond ring silhouette -->
+  <g transform="translate(960, 540)" opacity="0.8">
+    <ellipse cx="0" cy="80" rx="100" ry="20" fill="rgba(201,169,98,0.1)"/>
+    <path d="M-30 80 L-20 0 L0 -60 L20 0 L30 80 Z" fill="none" stroke="#c9a962" stroke-width="1" opacity="0.5"/>
+    <polygon points="0,-60 -15,-30 15,-30" fill="#c9a962" opacity="0.3"/>
+  </g>
+  <!-- Text placeholder -->
+  <text x="960" y="900" text-anchor="middle" fill="#c9a962" font-family="serif" font-size="14" letter-spacing="8" opacity="0.5">SPRING BLOSSOM COLLECTION</text>
+</svg>

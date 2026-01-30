@@ -2,6 +2,18 @@
  * Preview Panel Component
  *
  * Displays a live preview of the LP with applied edits.
+ *
+ * IMPORTANT: CSP (Content-Security-Policy) MUST NOT be added to preview iframe.
+ * The preview loads local CSS/JS files via file:// protocol, which is blocked by CSP.
+ * Security is handled by Electron's webSecurity: false setting in main/index.ts.
+ *
+ * If preview shows unstyled content or JS doesn't work:
+ * 1. Check DevTools Console for CSP errors
+ * 2. Ensure no CSP meta tags are injected into the iframe
+ * 3. Verify index.html has no CSP meta tag
+ *
+ * Common error: "Refused to load the stylesheet/script 'file://...' because it violates CSP"
+ * Solution: Remove any CSP meta tags from index.html and this file
  */
 
 import { useEffect, useRef, useState, useMemo } from 'react'
@@ -25,7 +37,6 @@ export function PreviewPanel() {
     if (!modifiedHtml) return ''
 
     let result = modifiedHtml
-    const cspMeta = '<meta http-equiv="Content-Security-Policy" content="default-src * \'unsafe-inline\' \'unsafe-eval\' data: blob:; img-src * data: blob:; font-src * data:;">'
 
     // Script to handle link clicks in preview
     // - Allow anchor links (#xxx) for smooth scrolling
@@ -59,13 +70,9 @@ export function PreviewPanel() {
 
     if (basePath) {
       if (result.includes('<head>')) {
-        result = result.replace('<head>', `<head><base href="${basePath}">${cspMeta}`)
+        result = result.replace('<head>', `<head><base href="${basePath}">`)
       } else if (result.includes('<html>')) {
-        result = result.replace('<html>', `<html><head><base href="${basePath}">${cspMeta}</head>`)
-      }
-    } else {
-      if (result.includes('<head>')) {
-        result = result.replace('<head>', `<head>${cspMeta}`)
+        result = result.replace('<html>', `<html><head><base href="${basePath}"></head>`)
       }
     }
 

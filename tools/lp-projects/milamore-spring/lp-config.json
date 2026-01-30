@@ -1,0 +1,12 @@
+{
+  "name": "MILAMORE Spring Blossom Collection 2026",
+  "version": "1.0.0",
+  "description": "高級ジュエリーブランドの春コレクション特設サイト",
+  "author": "LP-Editor",
+  "template": "premium-luxury",
+  "settings": {
+    "primaryColor": "#c9a962",
+    "secondaryColor": "#0a0a1a",
+    "accentColor": "#f8e8e8"
+  }
+}

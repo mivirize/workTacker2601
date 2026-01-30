@@ -33,36 +33,33 @@
   // Splash Screen
   // ============================================================
   function initSplash() {
-    // Skip splash in LP-Editor environment
-    if (isLpEditor) {
-      if (splash) {
-        splash.classList.add('hidden');
-      }
-      // Immediately show all animated elements
-      animatedElements.forEach(function(el) {
-        el.classList.add('animated');
-      });
-      return;
-    }
+    if (!splash) return;
 
+    // Show splash in all environments
     document.body.classList.add('splash-active');
+
+    // Shorter splash time in LP-Editor environment
+    var splashDuration = isLpEditor ? 1500 : 3500;
 
     // Hide splash after loading animation completes
     setTimeout(function () {
-      if (splash) {
-        splash.classList.add('hidden');
-      }
+      splash.classList.add('hidden');
       document.body.classList.remove('splash-active');
 
-      // Enable scroll animations
-      document.documentElement.classList.add('scroll-animation-enabled');
+      // Show all animated elements
+      animatedElements.forEach(function(el) {
+        el.classList.add('animated');
+      });
 
-      // Initialize animations after splash
-      setTimeout(function () {
-        initScrollAnimations();
-        checkVisibleElements();
-      }, 300);
-    }, 3500);
+      // Enable scroll animations only in normal browser
+      if (!isLpEditor) {
+        document.documentElement.classList.add('scroll-animation-enabled');
+        setTimeout(function () {
+          initScrollAnimations();
+          checkVisibleElements();
+        }, 300);
+      }
+    }, splashDuration);
   }
 
   // ============================================================
@@ -216,12 +213,19 @@
       anchor.addEventListener('click', function (e) {
         var href = this.getAttribute('href');
 
-        if (href === '#') return;
+        // Prevent default for placeholder links (href="#")
+        if (href === '#') {
+          e.preventDefault();
+          return;
+        }
 
         var target = document.querySelector(href);
 
         if (target) {
           e.preventDefault();
+
+          // Skip smooth scroll in LP-Editor to avoid issues
+          if (isLpEditor) return;
 
           var headerHeight = header.offsetHeight;
           var targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;

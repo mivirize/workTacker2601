@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 400" width="300" height="400">
+  <defs>
+    <linearGradient id="profileGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffd700;stop-opacity:0.9"/>
+      <stop offset="50%" style="stop-color:#c9a227;stop-opacity:0.7"/>
+      <stop offset="100%" style="stop-color:#1a1a40;stop-opacity:0.5"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="400" fill="#0a0a20"/>
+  <ellipse cx="150" cy="370" rx="60" ry="20" fill="rgba(255,215,0,0.2)"/>
+  <path d="M150 100 Q130 130 120 180 Q100 280 90 360 L210 360 Q200 280 180 180 Q170 130 150 100" fill="url(#profileGrad)"/>
+  <circle cx="150" cy="85" r="30" fill="url(#profileGrad)"/>
+  <path d="M120 75 Q100 100 85 160" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M180 75 Q200 100 215 160" stroke="#ffd700" stroke-width="2" fill="none" opacity="0.7"/>
+  <path d="M125 60 L135 40 L145 55 L150 30 L155 55 L165 40 L175 60" stroke="#ffd700" stroke-width="2" fill="none"/>
+  <circle cx="80" cy="120" r="2" fill="#ffd700"/>
+  <circle cx="220" cy="140" r="2" fill="#ffd700"/>
+  <circle cx="100" cy="250" r="2" fill="#ffd700"/>
+</svg>
