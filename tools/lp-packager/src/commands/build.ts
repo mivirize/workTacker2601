@@ -4,16 +4,20 @@
  * Packages LP project into a distributable ZIP with Electron editor.
  */
 
-import { readFile, mkdir, copyFile, writeFile, readdir } from 'node:fs/promises'
-import { resolve, join, basename, dirname } from 'node:path'
+import { readFile, mkdir, copyFile, writeFile, readdir, stat } from 'node:fs/promises'
+import { resolve, join, basename, dirname, relative } from 'node:path'
 import { createWriteStream, existsSync } from 'node:fs'
 import { fileURLToPath } from 'node:url'
+import { randomUUID } from 'node:crypto'
 import archiver from 'archiver'
 import chalk from 'chalk'
 import ora from 'ora'
-import type { BuildOptions, LpConfig } from '../types'
+import type { BuildOptions, LpConfig, PackageManifest, BuildRecord } from '../types'
 import { parseHtml } from '../utils/marker-parser'
 import { validateLpConfig } from '../utils/config-validator'
+
+const HISTORY_DIR = '.lp-history'
+const MANIFEST_FILE = 'manifest.json'
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url)
@@ -27,6 +31,91 @@ interface BuildResult {
   outputPath: string
   files: string[]
   errors: string[]
+  buildRecord?: BuildRecord
+}
+
+/**
+ * Load or create package manifest
+ */
+async function loadOrCreateManifest(projectPath: string, config: LpConfig): Promise<PackageManifest> {
+  const manifestPath = join(projectPath, HISTORY_DIR, MANIFEST_FILE)
+
+  if (existsSync(manifestPath)) {
+    const content = await readFile(manifestPath, 'utf-8')
+    return JSON.parse(content)
+  }
+
+  // Create new manifest
+  return {
+    projectId: randomUUID(),
+    projectName: config.name,
+    client: config.client,
+    createdAt: new Date().toISOString(),
+    updatedAt: new Date().toISOString(),
+    builds: [],
+  }
+}
+
+/**
+ * Save package manifest
+ */
+async function saveManifest(projectPath: string, manifest: PackageManifest): Promise<void> {
+  const historyDir = join(projectPath, HISTORY_DIR)
+  const manifestPath = join(historyDir, MANIFEST_FILE)
+
+  if (!existsSync(historyDir)) {
+    await mkdir(historyDir, { recursive: true })
+  }
+
+  await writeFile(manifestPath, JSON.stringify(manifest, null, 2), 'utf-8')
+}
+
+/**
+ * Calculate directory size
+ */
+async function calculateDirSize(dirPath: string): Promise<number> {
+  let size = 0
+  const entries = await readdir(dirPath, { withFileTypes: true })
+
+  for (const entry of entries) {
+    const entryPath = join(dirPath, entry.name)
+    if (entry.isDirectory()) {
+      size += await calculateDirSize(entryPath)
+    } else {
+      const entryStat = await stat(entryPath)
+      size += entryStat.size
+    }
+  }
+
+  return size
+}
+
+/**
+ * Generate build ID (YYYYMMDD-HHMMSS)
+ */
+function generateBuildId(): string {
+  const now = new Date()
+  const year = now.getFullYear()
+  const month = String(now.getMonth() + 1).padStart(2, '0')
+  const day = String(now.getDate()).padStart(2, '0')
+  const hours = String(now.getHours()).padStart(2, '0')
+  const minutes = String(now.getMinutes()).padStart(2, '0')
+  const seconds = String(now.getSeconds()).padStart(2, '0')
+  return `${year}${month}${day}-${hours}${minutes}${seconds}`
+}
+
+/**
+ * Get next version from manifest
+ */
+function getNextVersion(manifest: PackageManifest): string {
+  if (manifest.builds.length === 0) {
+    return '1.0.0'
+  }
+
+  const latest = manifest.builds[manifest.builds.length - 1]
+  const parts = latest.version.split('.').map(Number)
+  parts[2] = (parts[2] || 0) + 1
+  return parts.join('.')
 }
 
 /**
@@ -162,17 +251,43 @@ export async function buildCommand(
     await createZip(packageDir, zipPath)
     result.outputPath = zipPath
 
+    spinner.text = 'Recording build history...'
+
+    // Record build in history
+    const manifest = await loadOrCreateManifest(absolutePath, config)
+    const packageSize = await calculateDirSize(packageDir)
+    const buildId = generateBuildId()
+    const version = getNextVersion(manifest)
+
+    const buildRecord: BuildRecord = {
+      buildId,
+      version,
+      buildDate: new Date().toISOString(),
+      outputPath: relative(absolutePath, zipPath),
+      size: packageSize,
+      markers: markers.length,
+      repeatBlocks: repeatBlocks.length,
+      colors: colors.length,
+    }
+
+    manifest.builds.push(buildRecord)
+    manifest.updatedAt = new Date().toISOString()
+    await saveManifest(absolutePath, manifest)
+    result.buildRecord = buildRecord
+
     spinner.succeed(chalk.green('Build completed successfully!'))
 
     // Print summary
     console.log()
     console.log(chalk.bold('Build Summary:'))
     console.log(`  Package: ${chalk.cyan(config.output.fileName)}`)
+    console.log(`  Version: ${chalk.cyan(version)} (${buildId})`)
     console.log(`  Markers: ${chalk.cyan(markers.length)}`)
     console.log(`  Repeat Blocks: ${chalk.cyan(repeatBlocks.length)}`)
     console.log(`  Colors: ${chalk.cyan(colors.length)}`)
     console.log()
     console.log(`Output: ${chalk.green(zipPath)}`)
+    console.log(`History: ${chalk.gray(join(absolutePath, HISTORY_DIR, MANIFEST_FILE))}`)
     console.log()
 
     result.success = true

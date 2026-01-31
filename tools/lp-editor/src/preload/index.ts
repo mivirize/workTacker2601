@@ -28,6 +28,12 @@ contextBridge.exposeInMainWorld('electronAPI', {
   loadContent: () => ipcRenderer.invoke('load-content'),
   saveContent: (content: object) => ipcRenderer.invoke('save-content', content),
 
+  // Page-specific content operations (for multi-page support)
+  loadPageContent: (pageId: string) => ipcRenderer.invoke('load-page-content', pageId),
+  savePageContent: (pageId: string, content: object) =>
+    ipcRenderer.invoke('save-page-content', pageId, content),
+  listPageContents: () => ipcRenderer.invoke('list-page-contents'),
+
   // Image operations
   selectImage: () => ipcRenderer.invoke('select-image'),
   copyImage: (sourcePath: string, targetName: string) =>
@@ -40,6 +46,12 @@ contextBridge.exposeInMainWorld('electronAPI', {
   selectExportFolder: () => ipcRenderer.invoke('select-export-folder'),
   exportHtml: (htmlContent: string, outputDir?: string) => ipcRenderer.invoke('export-html', htmlContent, outputDir),
   showOutputFolder: (outputDir?: string) => ipcRenderer.invoke('show-output-folder', outputDir),
+
+  // Admin mode operations
+  isAdminMode: () => ipcRenderer.invoke('is-admin-mode'),
+  listProjects: (baseDir: string) => ipcRenderer.invoke('list-projects', baseDir),
+  getProjectStats: (projectPath: string) => ipcRenderer.invoke('get-project-stats', projectPath),
+  selectProjectsDir: () => ipcRenderer.invoke('select-projects-dir'),
 })
 
 // Page configuration
@@ -72,6 +84,8 @@ export interface ProjectValidation {
   hasConfig: boolean
   hasHtml: boolean
   error?: string
+  needsSelection?: boolean
+  source?: 'arg' | 'env' | 'cwd' | 'last' | 'packaged' | 'none'
 }
 
 // Type declaration for window.electronAPI
@@ -102,6 +116,15 @@ export interface ElectronAPI {
     colors: Record<string, string>
   } | null>
   saveContent: (content: object) => Promise<boolean>
+
+  // Page-specific content (for multi-page support)
+  loadPageContent: (pageId: string) => Promise<{
+    editables: Record<string, { type: string; value: string | null; label?: string; group?: string; href?: string; src?: string }>
+    repeatBlocks: Record<string, { min: number; max: number; items: Array<Record<string, { type: string; value: string | null }>> }>
+  } | null>
+  savePageContent: (pageId: string, content: object) => Promise<boolean>
+  listPageContents: () => Promise<string[]>
+
   selectImage: () => Promise<string | null>
   copyImage: (sourcePath: string, targetName: string) => Promise<string>
   getImageInfo: (filePath: string) => Promise<ImageInfo>
@@ -109,6 +132,32 @@ export interface ElectronAPI {
   selectExportFolder: () => Promise<string | null>
   exportHtml: (htmlContent: string, outputDir?: string) => Promise<string | null>
   showOutputFolder: (outputDir?: string) => Promise<void>
+
+  // Admin mode operations
+  isAdminMode: () => Promise<boolean>
+  listProjects: (baseDir: string) => Promise<ProjectListItem[]>
+  getProjectStats: (projectPath: string) => Promise<ProjectStats>
+  selectProjectsDir: () => Promise<string | null>
+}
+
+// Project list item (for admin mode)
+export interface ProjectListItem {
+  id: string
+  name: string
+  client: string
+  path: string
+  lastModified: string
+  hasHistory: boolean
+  buildCount: number
+}
+
+// Project statistics
+export interface ProjectStats {
+  markers: number
+  repeatBlocks: number
+  colors: number
+  images: number
+  pages: number
 }
 
 declare global {

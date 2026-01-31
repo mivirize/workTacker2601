@@ -32,6 +32,8 @@ interface ProjectValidation {
   hasConfig: boolean
   hasHtml: boolean
   error?: string
+  needsSelection?: boolean
+  source?: 'arg' | 'env' | 'cwd' | 'last' | 'packaged' | 'none'
 }
 
 // Settings file path
@@ -113,40 +115,98 @@ function getAppBasePath(): string {
   return process.cwd()
 }
 
+// Get project path from command line arguments
+function getArgProjectPath(): string | null {
+  // Look for --project=path or -p path
+  const args = process.argv
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i]
+    if (arg.startsWith('--project=')) {
+      return arg.substring('--project='.length)
+    }
+    if ((arg === '--project' || arg === '-p') && args[i + 1]) {
+      return args[i + 1]
+    }
+  }
+  return null
+}
+
+// Check if current working directory contains a valid LP project
+function getCwdProjectPath(): string | null {
+  const cwd = process.cwd()
+  const configPath = join(cwd, 'lp-config.json')
+  if (existsSync(configPath)) {
+    return cwd
+  }
+  return null
+}
+
+// Get packaged app directory
+function getPackagedAppPath(): string | null {
+  if (app.isPackaged) {
+    return dirname(app.getPath('exe'))
+  }
+  return null
+}
+
 // Initialize project path with validation
+// Priority: 1. CLI args, 2. Env var, 3. CWD, 4. Last opened, 5. Packaged app path
 async function initializeProject(): Promise<ProjectValidation> {
-  // Priority: 1. Environment variable, 2. Last opened project, 3. Packaged app path
-  let projectPath = process.env.LP_PROJECT_PATH
+  type ProjectSource = 'arg' | 'env' | 'cwd' | 'last' | 'packaged'
 
-  if (!projectPath) {
-    const settings = await loadSettings()
-    if (settings.lastProjectPath && existsSync(settings.lastProjectPath)) {
-      projectPath = settings.lastProjectPath
-    }
+  // Build candidates list with sources
+  const candidates: Array<{ path: string; source: ProjectSource }> = []
+
+  // 1. Command line arguments (--project=path)
+  const argPath = getArgProjectPath()
+  if (argPath) {
+    candidates.push({ path: argPath, source: 'arg' })
   }
 
-  if (!projectPath && app.isPackaged) {
-    projectPath = dirname(app.getPath('exe'))
+  // 2. Environment variable
+  if (process.env.LP_PROJECT_PATH) {
+    candidates.push({ path: process.env.LP_PROJECT_PATH, source: 'env' })
   }
 
-  if (projectPath) {
-    const validation = validateProject(projectPath)
+  // 3. Current working directory
+  const cwdPath = getCwdProjectPath()
+  if (cwdPath) {
+    candidates.push({ path: cwdPath, source: 'cwd' })
+  }
+
+  // 4. Last opened project from settings
+  const settings = await loadSettings()
+  if (settings.lastProjectPath && existsSync(settings.lastProjectPath)) {
+    candidates.push({ path: settings.lastProjectPath, source: 'last' })
+  }
+
+  // 5. Packaged app directory
+  const packagedPath = getPackagedAppPath()
+  if (packagedPath) {
+    candidates.push({ path: packagedPath, source: 'packaged' })
+  }
+
+  // Try each candidate in priority order
+  for (const { path, source } of candidates) {
+    const validation = validateProject(path)
     if (validation.valid) {
-      currentProjectPath = projectPath
-      await saveSettings({ lastProjectPath: projectPath })
-      console.log(`Project loaded: ${projectPath}`)
-      return validation
+      currentProjectPath = path
+      await saveSettings({ lastProjectPath: path })
+      console.log(`Project loaded from ${source}: ${path}`)
+      return { ...validation, source }
     }
-    console.warn(`Project validation failed: ${validation.error}`)
-    return validation
+    console.log(`Project candidate (${source}) failed: ${path} - ${validation.error}`)
   }
 
+  // No valid project found - signal that selection is needed
   return {
     valid: false,
     path: '',
     hasConfig: false,
     hasHtml: false,
-    error: 'No project path specified'
+    error: 'No valid project found. Please select a project folder.',
+    needsSelection: true,
+    source: 'none'
   }
 }
 
@@ -316,6 +376,48 @@ ipcMain.handle('save-content', async (_event: IpcMainInvokeEvent, content: objec
 
   await writeFile(contentPath, JSON.stringify(content, null, 2), 'utf-8')
   return true
+})
+
+// Load page-specific content (for multi-page support)
+ipcMain.handle('load-page-content', async (_event: IpcMainInvokeEvent, pageId: string) => {
+  const basePath = getAppBasePath()
+  const pageContentPath = join(basePath, 'data', 'pages', `${pageId}.json`)
+
+  if (!existsSync(pageContentPath)) {
+    return null
+  }
+
+  const content = await readFile(pageContentPath, 'utf-8')
+  return JSON.parse(content)
+})
+
+// Save page-specific content (for multi-page support)
+ipcMain.handle('save-page-content', async (_event: IpcMainInvokeEvent, pageId: string, content: object) => {
+  const basePath = getAppBasePath()
+  const pagesDir = join(basePath, 'data', 'pages')
+  const pageContentPath = join(pagesDir, `${pageId}.json`)
+
+  if (!existsSync(pagesDir)) {
+    await mkdir(pagesDir, { recursive: true })
+  }
+
+  await writeFile(pageContentPath, JSON.stringify(content, null, 2), 'utf-8')
+  return true
+})
+
+// List all page content files
+ipcMain.handle('list-page-contents', async () => {
+  const basePath = getAppBasePath()
+  const pagesDir = join(basePath, 'data', 'pages')
+
+  if (!existsSync(pagesDir)) {
+    return []
+  }
+
+  const files = await readdir(pagesDir)
+  return files
+    .filter(f => f.endsWith('.json'))
+    .map(f => f.replace('.json', ''))
 })
 
 // Select image file
@@ -532,3 +634,137 @@ async function copyDirectory(src: string, dest: string): Promise<void> {
     }
   }
 }
+
+// ===========================================
+// Admin Mode IPC Handlers
+// ===========================================
+
+// Project info for admin list
+interface ProjectListItem {
+  id: string
+  name: string
+  client: string
+  path: string
+  lastModified: string
+  hasHistory: boolean
+  buildCount: number
+}
+
+// Scan directory for LP projects
+async function scanForProjects(baseDir: string): Promise<ProjectListItem[]> {
+  const projects: ProjectListItem[] = []
+
+  if (!existsSync(baseDir)) {
+    return projects
+  }
+
+  const entries = await readdir(baseDir, { withFileTypes: true })
+
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue
+
+    const projectPath = join(baseDir, entry.name)
+    const configPath = join(projectPath, 'lp-config.json')
+
+    if (existsSync(configPath)) {
+      try {
+        const configContent = await readFile(configPath, 'utf-8')
+        const config = JSON.parse(configContent)
+        const stats = await stat(configPath)
+
+        // Check for build history
+        const historyPath = join(projectPath, '.lp-history', 'manifest.json')
+        let buildCount = 0
+        if (existsSync(historyPath)) {
+          try {
+            const historyContent = await readFile(historyPath, 'utf-8')
+            const history = JSON.parse(historyContent)
+            buildCount = history.builds?.length || 0
+          } catch {
+            // Ignore history parse errors
+          }
+        }
+
+        projects.push({
+          id: entry.name,
+          name: config.name || entry.name,
+          client: config.client || 'Unknown',
+          path: projectPath,
+          lastModified: stats.mtime.toISOString(),
+          hasHistory: buildCount > 0,
+          buildCount,
+        })
+      } catch {
+        // Skip invalid config files
+      }
+    }
+  }
+
+  return projects.sort((a, b) =>
+    new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime()
+  )
+}
+
+// List projects in a directory
+ipcMain.handle('list-projects', async (_event: IpcMainInvokeEvent, baseDir: string) => {
+  return await scanForProjects(baseDir)
+})
+
+// Get project statistics
+ipcMain.handle('get-project-stats', async (_event: IpcMainInvokeEvent, projectPath: string) => {
+  const stats = {
+    markers: 0,
+    repeatBlocks: 0,
+    colors: 0,
+    images: 0,
+    pages: 1,
+  }
+
+  // Count from lp-config.json if available
+  const configPath = join(projectPath, 'lp-config.json')
+  if (existsSync(configPath)) {
+    try {
+      const configContent = await readFile(configPath, 'utf-8')
+      const config = JSON.parse(configContent)
+      if (config.pages) {
+        stats.pages = config.pages.length
+      }
+    } catch {
+      // Ignore errors
+    }
+  }
+
+  // Count images in src/images
+  const imagesPath = join(projectPath, 'src', 'images')
+  if (existsSync(imagesPath)) {
+    try {
+      const images = await readdir(imagesPath)
+      stats.images = images.filter(f =>
+        /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(f)
+      ).length
+    } catch {
+      // Ignore errors
+    }
+  }
+
+  return stats
+})
+
+// Check if admin mode is requested
+ipcMain.handle('is-admin-mode', async () => {
+  return process.argv.includes('--admin')
+})
+
+// Select projects directory
+ipcMain.handle('select-projects-dir', async () => {
+  const result = await dialog.showOpenDialog(mainWindow!, {
+    properties: ['openDirectory'],
+    title: 'プロジェクトフォルダを選択',
+  })
+
+  if (result.canceled || result.filePaths.length === 0) {
+    return null
+  }
+
+  return result.filePaths[0]
+})

@@ -136,3 +136,31 @@ export interface BuildOptions {
 export interface InitOptions {
   template?: 'basic' | 'full'
 }
+
+// Package History / Version Management
+export interface BuildRecord {
+  buildId: string          // YYYYMMDD-HHMMSS format
+  version: string          // semver
+  buildDate: string        // ISO 8601
+  outputPath: string       // Relative path to output
+  size: number             // Total size in bytes
+  thumbnail?: string       // Path to thumbnail image
+  notes?: string           // Build notes
+  markers: number          // Number of markers
+  repeatBlocks: number     // Number of repeat blocks
+  colors: number           // Number of colors
+}
+
+export interface PackageManifest {
+  projectId: string
+  projectName: string
+  client: string
+  createdAt: string
+  updatedAt: string
+  builds: BuildRecord[]
+}
+
+export interface HistoryOptions {
+  json?: boolean
+  limit?: number
+}

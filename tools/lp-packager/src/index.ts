@@ -11,6 +11,8 @@ import chalk from 'chalk'
 import { validateCommand, listMarkersCommand, listColorsCommand } from './commands/validate'
 import { buildCommand } from './commands/build'
 import { initCommand } from './commands/init'
+import { verifyCommand } from './commands/verify'
+import { historyCommand } from './commands/history'
 
 const program = new Command()
 
@@ -65,6 +67,28 @@ program
   .option('--include-source', 'Include source files in package')
   .action(async (projectPath: string = '.', options: { client?: string; output?: string; editorPath?: string; includeSource?: boolean }) => {
     const result = await buildCommand(projectPath, options)
+    process.exit(result.success ? 0 : 1)
+  })
+
+// Verify command
+program
+  .command('verify [output-path]')
+  .description('Verify LP package integrity and quality')
+  .option('--json', 'Output result as JSON')
+  .option('--fix', 'Attempt to fix common issues (not implemented yet)')
+  .action(async (outputPath: string = '.', options: { json?: boolean; fix?: boolean }) => {
+    const result = await verifyCommand(outputPath, options)
+    process.exit(result.success ? 0 : 1)
+  })
+
+// History command
+program
+  .command('history [project-path]')
+  .description('View package build history')
+  .option('--json', 'Output result as JSON')
+  .option('-n, --limit <number>', 'Limit number of builds to show', parseInt)
+  .action(async (projectPath: string = '.', options: { json?: boolean; limit?: number }) => {
+    const result = await historyCommand(projectPath, options)
     process.exit(result.success ? 0 : 1)
   })
 
