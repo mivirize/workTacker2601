@@ -1,0 +1,10 @@
+{
+  "name": "CDJ Style LP",
+  "client": "Sample Client",
+  "version": "1.0.0",
+  "entry": "src/index.html",
+  "output": {
+    "appName": "CDJ-Style-LP",
+    "fileName": "cdj-style-lp"
+  }
+}

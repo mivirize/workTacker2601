@@ -1,9 +1,10 @@
 /**
  * Toolbar Component
  *
- * Top toolbar with save and export actions.
+ * Top toolbar with save, export, and undo/redo actions.
  */
 
+import { useStore } from 'zustand'
 import { useEditorStore } from '../stores/editor-store'
 
 interface PageConfig {
@@ -15,13 +16,23 @@ interface PageConfig {
 interface ToolbarProps {
   onSave: () => void
   onExport: () => void
+  onUndo: () => void
+  onRedo: () => void
   pages: PageConfig[]
   currentPageId: string | null
   onPageChange: (pageId: string) => void
 }
 
-export function Toolbar({ onSave, onExport, pages, currentPageId, onPageChange }: ToolbarProps) {
+export function Toolbar({ onSave, onExport, onUndo, onRedo, pages, currentPageId, onPageChange }: ToolbarProps) {
   const { projectInfo, isDirty, isExporting } = useEditorStore()
+
+  // Subscribe to temporal state for undo/redo availability
+  const { pastStates, futureStates } = useStore(useEditorStore.temporal, (state) => ({
+    pastStates: state.pastStates,
+    futureStates: state.futureStates,
+  }))
+  const canUndo = pastStates.length > 0
+  const canRedo = futureStates.length > 0
 
   return (
     <header className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-4">
@@ -55,9 +66,64 @@ export function Toolbar({ onSave, onExport, pages, currentPageId, onPageChange }
 
       {/* Right: Actions */}
       <div className="flex items-center gap-2">
+        {/* Undo/Redo Buttons */}
+        <div className="flex items-center gap-1 mr-2 border-r border-gray-200 pr-4">
+          <button
+            onClick={onUndo}
+            disabled={!canUndo}
+            title="元に戻す (Ctrl+Z)"
+            className={`p-2 rounded-md transition-colors ${
+              canUndo
+                ? 'text-gray-700 hover:bg-gray-100'
+                : 'text-gray-300 cursor-not-allowed'
+            }`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M3 7v6h6" />
+              <path d="M21 17a9 9 0 0 0-9-9 9 9 0 0 0-6 2.3L3 13" />
+            </svg>
+          </button>
+          <button
+            onClick={onRedo}
+            disabled={!canRedo}
+            title="やり直す (Ctrl+Y / Ctrl+Shift+Z)"
+            className={`p-2 rounded-md transition-colors ${
+              canRedo
+                ? 'text-gray-700 hover:bg-gray-100'
+                : 'text-gray-300 cursor-not-allowed'
+            }`}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M21 7v6h-6" />
+              <path d="M3 17a9 9 0 0 1 9-9 9 9 0 0 1 6 2.3l3 2.7" />
+            </svg>
+          </button>
+        </div>
+
         <button
           onClick={onSave}
           disabled={!isDirty}
+          title="保存 (Ctrl+S)"
           className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
             isDirty
               ? 'bg-blue-600 text-white hover:bg-blue-700'
@@ -69,6 +135,7 @@ export function Toolbar({ onSave, onExport, pages, currentPageId, onPageChange }
         <button
           onClick={onExport}
           disabled={isExporting}
+          title="HTML出力 (Ctrl+E)"
           className="px-4 py-2 bg-green-600 text-white rounded-md text-sm font-medium hover:bg-green-700 transition-colors disabled:bg-green-300 disabled:cursor-not-allowed"
         >
           {isExporting ? '出力中...' : 'HTML出力'}

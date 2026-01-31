@@ -9,6 +9,12 @@ const { contextBridge, ipcRenderer } = require('electron')
 // Expose protected methods that allow the renderer process to use
 // ipcRenderer without exposing the entire object
 contextBridge.exposeInMainWorld('electronAPI', {
+  // Project initialization and validation
+  initProject: () => ipcRenderer.invoke('init-project'),
+  getProjectPath: () => ipcRenderer.invoke('get-project-path'),
+  selectProject: () => ipcRenderer.invoke('select-project'),
+  openProject: (projectPath: string) => ipcRenderer.invoke('open-project', projectPath),
+
   // Project info
   getProjectInfo: () => ipcRenderer.invoke('get-project-info'),
 
@@ -26,10 +32,14 @@ contextBridge.exposeInMainWorld('electronAPI', {
   selectImage: () => ipcRenderer.invoke('select-image'),
   copyImage: (sourcePath: string, targetName: string) =>
     ipcRenderer.invoke('copy-image', sourcePath, targetName),
+  getImageInfo: (filePath: string) => ipcRenderer.invoke('get-image-info', filePath),
+  optimizeImage: (sourcePath: string, options: ImageOptimizeOptions) =>
+    ipcRenderer.invoke('optimize-image', sourcePath, options),
 
   // Export operations
-  exportHtml: (htmlContent: string) => ipcRenderer.invoke('export-html', htmlContent),
-  showOutputFolder: () => ipcRenderer.invoke('show-output-folder'),
+  selectExportFolder: () => ipcRenderer.invoke('select-export-folder'),
+  exportHtml: (htmlContent: string, outputDir?: string) => ipcRenderer.invoke('export-html', htmlContent, outputDir),
+  showOutputFolder: (outputDir?: string) => ipcRenderer.invoke('show-output-folder', outputDir),
 })
 
 // Page configuration
@@ -39,8 +49,39 @@ export interface PageConfig {
   label: string
 }
 
+// Image optimization options
+export interface ImageOptimizeOptions {
+  quality?: number  // 1-100
+  maxWidth?: number
+  maxHeight?: number
+  format?: 'jpeg' | 'png' | 'webp'
+}
+
+// Image info
+export interface ImageInfo {
+  size: number
+  width: number | undefined
+  height: number | undefined
+  format: string | undefined
+}
+
+// Project validation result
+export interface ProjectValidation {
+  valid: boolean
+  path: string
+  hasConfig: boolean
+  hasHtml: boolean
+  error?: string
+}
+
 // Type declaration for window.electronAPI
 export interface ElectronAPI {
+  // Project management
+  initProject: () => Promise<ProjectValidation>
+  getProjectPath: () => Promise<string>
+  selectProject: () => Promise<ProjectValidation | null>
+  openProject: (projectPath: string) => Promise<ProjectValidation>
+
   getProjectInfo: () => Promise<{
     name: string
     client: string
@@ -63,8 +104,11 @@ export interface ElectronAPI {
   saveContent: (content: object) => Promise<boolean>
   selectImage: () => Promise<string | null>
   copyImage: (sourcePath: string, targetName: string) => Promise<string>
-  exportHtml: (htmlContent: string) => Promise<string>
-  showOutputFolder: () => Promise<void>
+  getImageInfo: (filePath: string) => Promise<ImageInfo>
+  optimizeImage: (sourcePath: string, options: ImageOptimizeOptions) => Promise<string>
+  selectExportFolder: () => Promise<string | null>
+  exportHtml: (htmlContent: string, outputDir?: string) => Promise<string | null>
+  showOutputFolder: (outputDir?: string) => Promise<void>
 }
 
 declare global {

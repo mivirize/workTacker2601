@@ -5,17 +5,149 @@
 import { app, BrowserWindow, ipcMain, dialog, shell } from 'electron'
 import type { IpcMainInvokeEvent } from 'electron'
 import { join, dirname } from 'path'
-import { readFile, writeFile, mkdir, copyFile, readdir, rm } from 'fs/promises'
+import { readFile, writeFile, mkdir, copyFile, readdir, rm, stat } from 'fs/promises'
 import { existsSync } from 'fs'
+import sharp from 'sharp'
+
+// Image optimization options type
+interface ImageOptimizeOptions {
+  quality?: number  // 1-100
+  maxWidth?: number
+  maxHeight?: number
+  format?: 'jpeg' | 'png' | 'webp'
+}
+
+// Image info type
+interface ImageInfo {
+  size: number
+  width: number | undefined
+  height: number | undefined
+  format: string | undefined
+}
+
+// Project validation result
+interface ProjectValidation {
+  valid: boolean
+  path: string
+  hasConfig: boolean
+  hasHtml: boolean
+  error?: string
+}
+
+// Settings file path
+const SETTINGS_DIR = join(app.getPath('userData'), 'lp-editor')
+const SETTINGS_FILE = join(SETTINGS_DIR, 'settings.json')
 
 let mainWindow: typeof BrowserWindow.prototype | null = null
+let currentProjectPath: string | null = null
 
-// Get the app's base directory (where the exe is located)
+// Load settings from file
+async function loadSettings(): Promise<{ lastProjectPath?: string }> {
+  try {
+    if (existsSync(SETTINGS_FILE)) {
+      const content = await readFile(SETTINGS_FILE, 'utf-8')
+      return JSON.parse(content)
+    }
+  } catch (e) {
+    console.error('Failed to load settings:', e)
+  }
+  return {}
+}
+
+// Save settings to file
+async function saveSettings(settings: { lastProjectPath?: string }): Promise<void> {
+  try {
+    if (!existsSync(SETTINGS_DIR)) {
+      await mkdir(SETTINGS_DIR, { recursive: true })
+    }
+    await writeFile(SETTINGS_FILE, JSON.stringify(settings, null, 2), 'utf-8')
+  } catch (e) {
+    console.error('Failed to save settings:', e)
+  }
+}
+
+// Validate a project path
+function validateProject(projectPath: string): ProjectValidation {
+  const result: ProjectValidation = {
+    valid: false,
+    path: projectPath,
+    hasConfig: false,
+    hasHtml: false,
+  }
+
+  if (!existsSync(projectPath)) {
+    result.error = `Project path does not exist: ${projectPath}`
+    return result
+  }
+
+  // Check for lp-config.json
+  const configPath = join(projectPath, 'lp-config.json')
+  result.hasConfig = existsSync(configPath)
+
+  // Check for src/index.html
+  const htmlPath = join(projectPath, 'src', 'index.html')
+  result.hasHtml = existsSync(htmlPath)
+
+  if (!result.hasHtml) {
+    result.error = `HTML file not found: src/index.html`
+    return result
+  }
+
+  result.valid = true
+  return result
+}
+
+// Get the app's base directory (where the exe is located or LP project path)
 function getAppBasePath(): string {
+  // Use current project path if set
+  if (currentProjectPath) {
+    return currentProjectPath
+  }
+  // Check for LP_PROJECT_PATH environment variable (for development)
+  if (process.env.LP_PROJECT_PATH) {
+    return process.env.LP_PROJECT_PATH
+  }
   if (app.isPackaged) {
     return dirname(app.getPath('exe'))
   }
   return process.cwd()
+}
+
+// Initialize project path with validation
+async function initializeProject(): Promise<ProjectValidation> {
+  // Priority: 1. Environment variable, 2. Last opened project, 3. Packaged app path
+  let projectPath = process.env.LP_PROJECT_PATH
+
+  if (!projectPath) {
+    const settings = await loadSettings()
+    if (settings.lastProjectPath && existsSync(settings.lastProjectPath)) {
+      projectPath = settings.lastProjectPath
+    }
+  }
+
+  if (!projectPath && app.isPackaged) {
+    projectPath = dirname(app.getPath('exe'))
+  }
+
+  if (projectPath) {
+    const validation = validateProject(projectPath)
+    if (validation.valid) {
+      currentProjectPath = projectPath
+      await saveSettings({ lastProjectPath: projectPath })
+      console.log(`Project loaded: ${projectPath}`)
+      return validation
+    }
+    console.warn(`Project validation failed: ${validation.error}`)
+    return validation
+  }
+
+  return {
+    valid: false,
+    path: '',
+    hasConfig: false,
+    hasHtml: false,
+    error: 'No project path specified'
+  }
 }
 
 // Create the main window
@@ -71,6 +203,52 @@ app.on('window-all-closed', () => {
 })
 
 // IPC Handlers
+
+// Initialize project and validate
+ipcMain.handle('init-project', async () => {
+  return await initializeProject()
+})
+
+// Get current project path
+ipcMain.handle('get-project-path', async () => {
+  return currentProjectPath || getAppBasePath()
+})
+
+// Select and open project folder
+ipcMain.handle('select-project', async () => {
+  const result = await dialog.showOpenDialog(mainWindow!, {
+    properties: ['openDirectory'],
+    title: 'Select LP Project Folder',
+  })
+
+  if (result.canceled || result.filePaths.length === 0) {
+    return null
+  }
+
+  const projectPath = result.filePaths[0]
+  const validation = validateProject(projectPath)
+
+  if (validation.valid) {
+    currentProjectPath = projectPath
+    await saveSettings({ lastProjectPath: projectPath })
+    console.log(`Project selected: ${projectPath}`)
+  }
+
+  return validation
+})
+
+// Open specific project path
+ipcMain.handle('open-project', async (_event: IpcMainInvokeEvent, projectPath: string) => {
+  const validation = validateProject(projectPath)
+
+  if (validation.valid) {
+    currentProjectPath = projectPath
+    await saveSettings({ lastProjectPath: projectPath })
+    console.log(`Project opened: ${projectPath}`)
+  }
+
+  return validation
+})
 
 // Get project info
 ipcMain.handle('get-project-info', async () => {
@@ -171,10 +349,90 @@ ipcMain.handle('copy-image', async (_event: IpcMainInvokeEvent, sourcePath: stri
   return `images/${targetName}`
 })
 
-// Export HTML
-ipcMain.handle('export-html', async (_event: IpcMainInvokeEvent, htmlContent: string) => {
+// Get image info
+ipcMain.handle('get-image-info', async (_event: IpcMainInvokeEvent, filePath: string): Promise<ImageInfo> => {
+  const stats = await stat(filePath)
+  const metadata = await sharp(filePath).metadata()
+  return {
+    size: stats.size,
+    width: metadata.width,
+    height: metadata.height,
+    format: metadata.format
+  }
+})
+
+// Optimize image
+ipcMain.handle('optimize-image', async (_event: IpcMainInvokeEvent, sourcePath: string, options: ImageOptimizeOptions) => {
   const basePath = getAppBasePath()
-  const outputDir = join(basePath, 'output')
+  const outputDir = join(basePath, 'src', 'images')
+  const outputFormat = options.format || 'webp'
+  const fileName = `optimized-${Date.now()}.${outputFormat}`
+  const outputPath = join(outputDir, fileName)
+
+  // Ensure output directory exists
+  if (!existsSync(outputDir)) {
+    await mkdir(outputDir, { recursive: true })
+  }
+
+  let pipeline = sharp(sourcePath)
+
+  // Resize if dimensions specified
+  if (options.maxWidth || options.maxHeight) {
+    pipeline = pipeline.resize(options.maxWidth, options.maxHeight, { fit: 'inside' })
+  }
+
+  // Apply format-specific options
+  const quality = options.quality || 80
+  if (outputFormat === 'webp') {
+    pipeline = pipeline.webp({ quality })
+  } else if (outputFormat === 'jpeg') {
+    pipeline = pipeline.jpeg({ quality })
+  } else if (outputFormat === 'png') {
+    pipeline = pipeline.png({ quality })
+  }
+
+  await pipeline.toFile(outputPath)
+  return `images/${fileName}`
+})
+
+// Select export folder
+ipcMain.handle('select-export-folder', async () => {
+  const basePath = getAppBasePath()
+  const defaultPath = join(basePath, 'output')
+
+  const result = await dialog.showOpenDialog(mainWindow!, {
+    properties: ['openDirectory', 'createDirectory'],
+    title: '出力先フォルダを選択',
+    defaultPath: defaultPath,
+    buttonLabel: 'このフォルダに出力',
+  })
+
+  if (result.canceled || result.filePaths.length === 0) {
+    return null
+  }
+
+  return result.filePaths[0]
+})
+
+// Export HTML
+ipcMain.handle('export-html', async (_event: IpcMainInvokeEvent, htmlContent: string, outputDir?: string) => {
+  const basePath = getAppBasePath()
+
+  // If no output directory specified, prompt user to select one
+  if (!outputDir) {
+    const result = await dialog.showOpenDialog(mainWindow!, {
+      properties: ['openDirectory', 'createDirectory'],
+      title: '出力先フォルダを選択',
+      defaultPath: join(basePath, 'output'),
+      buttonLabel: 'このフォルダに出力',
+    })
+
+    if (result.canceled || result.filePaths.length === 0) {
+      return null // User cancelled
+    }
+
+    outputDir = result.filePaths[0]
+  }
 
   // Clean output directory
   if (existsSync(outputDir)) {
@@ -216,9 +474,11 @@ ipcMain.handle('export-html', async (_event: IpcMainInvokeEvent, htmlContent: st
 })
 
 // Show output folder
-ipcMain.handle('show-output-folder', async () => {
-  const basePath = getAppBasePath()
-  const outputDir = join(basePath, 'output')
+ipcMain.handle('show-output-folder', async (_event: IpcMainInvokeEvent, outputDir?: string) => {
+  if (!outputDir) {
+    const basePath = getAppBasePath()
+    outputDir = join(basePath, 'output')
+  }
 
   shell.openPath(outputDir)
 })
@@ -239,8 +499,8 @@ function removeMarkers(html: string): string {
     'data-css-var',
     'data-repeat',
     'data-repeat-item',
-    'data-min',
-    'data-max',
+    'data-repeat-min',
+    'data-repeat-max',
   ]
 
   let result = html

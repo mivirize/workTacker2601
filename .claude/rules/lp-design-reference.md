@@ -414,7 +414,201 @@ LP作成時に必ず確認：
 
 ---
 
-## 10. 参考リソース
+## 10. 日本LP特有パターン（SANKOU!分析）
+
+### 10.1 ファーストビュー構成要素
+
+日本のLPで効果的なファーストビューの5大要素：
+
+| 要素 | 説明 | ベストプラクティス |
+|------|------|-------------------|
+| **メインキャッチコピー** | 訪問者の心を掴む一言 | 15文字以内（3秒×5文字/秒）|
+| **リード文（サブコピー）** | キャッチを補足 | 2行以内、具体的なベネフィット |
+| **メイン画像** | 商品・サービスのビジュアル | 高品質、感情に訴える |
+| **ブレットポイント** | 3つの特徴 | アイコン付き、簡潔に |
+| **CTA** | 行動喚起ボタン | 画面内に必ず配置 |
+
+### 10.2 キャッチコピー8つの型
+
+| 型 | 説明 | 例 |
+|---|------|-----|
+| **呼びかけ型** | ターゲットに直接語りかけ | 「〇〇でお悩みの方へ」 |
+| **疑問型** | 問いかけで興味喚起 | 「まだ〇〇で消耗してるの？」 |
+| **数字型** | 具体的数値で信頼性 | 「累計10万人が体験」 |
+| **限定型** | 希少性・緊急性 | 「本日限定」「残り3名」 |
+| **権威型** | 専門家・実績で信頼 | 「医師監修」「受賞歴」 |
+| **ベネフィット型** | 得られる結果を提示 | 「たった3日で〇〇に」 |
+| **共感型** | 悩みに寄り添う | 「私もそうでした」 |
+| **比較型** | 従来との違いを強調 | 「従来比120%」 |
+
+### 10.3 信頼構築要素（権威付け）
+
+効果的な信頼要素の配置：
+
+```html
+<!-- 実績数値セクション -->
+<div class="trust-numbers">
+  <div class="trust-item">
+    <span class="number" data-count="50000">0</span>
+    <span class="label">累計販売数</span>
+  </div>
+  <div class="trust-item">
+    <span class="number">98.5</span>
+    <span class="unit">%</span>
+    <span class="label">顧客満足度</span>
+  </div>
+  <div class="trust-item">
+    <span class="number">15</span>
+    <span class="unit">年</span>
+    <span class="label">の実績</span>
+  </div>
+</div>
+
+<!-- メディア掲載 -->
+<div class="media-logos">
+  <p class="media-label">メディア掲載実績</p>
+  <div class="logo-grid">
+    <!-- TV局、雑誌、Webメディアのロゴ -->
+  </div>
+</div>
+```
+
+### 10.4 日本LP業界別トレンド（SANKOU! 4,288件分析）
+
+| 業界 | 主要トレンド | 注目ポイント |
+|------|-------------|-------------|
+| **美容・コスメ** | ビフォーアフター、成分訴求 | 肌質改善の数値化 |
+| **健康食品** | 医師監修、成分表示 | エビデンスの可視化 |
+| **教育・スクール** | 合格実績、卒業生の声 | 具体的な数字 |
+| **BtoB** | 導入事例、ROI提示 | 業務効率化の数値 |
+| **不動産** | 360°ビュー、周辺情報 | 没入感のある体験 |
+| **イベント** | カウントダウン、残席表示 | 緊急性の演出 |
+| **EC** | レビュー、ランキング | 社会的証明 |
+
+### 10.5 日本市場向けCTA設計
+
+```css
+/* 日本向けCTAボタン - 大きめ、目立つ色 */
+.cta-japanese {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  background: linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%);
+  color: white;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cta-japanese:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.5);
+}
+
+/* マイクロコピー（ボタン下の補足文） */
+.cta-microcopy {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+```
+
+**効果的なCTAマイクロコピー例：**
+- 「今すぐ無料で始める」
+- 「30秒で完了」
+- 「クレジットカード不要」
+- 「いつでも解約可能」
+
+### 10.6 LP構造テンプレート（日本標準）
+
+```
+1. ファーストビュー
+   - キャッチコピー
+   - メインビジュアル
+   - CTA
+
+2. 問題提起
+   - ターゲットの悩み3つ
+   - 共感を得る
+
+3. 解決策提示
+   - 商品・サービス紹介
+   - 特徴3つ（アイコン付き）
+
+4. 実績・権威
+   - 数字で示す実績
+   - メディア掲載
+   - 資格・認定
+
+5. 商品詳細
+   - スペック
+   - 使い方
+   - 成分・素材
+
+6. お客様の声
+   - 3-5件のレビュー
+   - 顔写真付き（可能なら）
+   - 具体的な数字を含む
+
+7. 比較表（オプション）
+   - 他社との比較
+   - プラン比較
+
+8. よくある質問
+   - 5-7項目
+   - 不安解消
+
+9. 料金・プラン
+   - シンプルに提示
+   - お得感の演出
+
+10. 最終CTA
+    - 限定感
+    - 保証・特典
+    - 緊急性
+```
+
+### 10.7 モバイルファースト設計
+
+日本市場：モバイルトラフィック70%以上
+
+```css
+/* モバイル最適化 */
+@media (max-width: 768px) {
+  .hero__title {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    line-height: 1.4;
+  }
+
+  /* タップしやすいCTA */
+  .cta-button {
+    min-height: 56px; /* iOS推奨 */
+    font-size: 1.125rem;
+  }
+
+  /* 固定フッターCTA */
+  .fixed-cta {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    background: white;
+    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+  }
+}
+```
+
+---
+
+## 11. 参考リソース
 
 - [Figma Web Design Trends](https://www.figma.com/resource-library/web-design-trends/)
 - [UX Design Trends 2026](https://uxdesign.cc/10-ux-design-shifts-you-cant-ignore-in-2026-8f0da1c6741d)
@@ -422,3 +616,5 @@ LP作成時に必ず確認：
 - [CSS Scroll-Driven Animations](https://developer.chrome.com/blog/scroll-triggered-animations)
 - [Motion UI Trends 2026](https://lomatechnology.com/blog/motion-ui-trends-2026/2911)
 - [eCommerce Design Trends](https://gempages.net/blogs/shopify/ecommerce-design-trends)
+- [SANKOU! LP Collection](https://sankoudesign.com/category/lp/) - 日本LP 4,288件のギャラリー
+- [LPアーカイブ](https://rdlp.jp/lp-archive) - 業界別日本LPコレクション

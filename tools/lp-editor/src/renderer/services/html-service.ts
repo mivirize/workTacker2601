@@ -486,9 +486,20 @@ export function applyRepeatBlocksToHtml(
 ): string {
   const $ = cheerio.load(html)
 
+  console.log('[applyRepeatBlocksToHtml] Processing blocks:', Object.keys(repeatBlocks))
+
   for (const [blockId, block] of Object.entries(repeatBlocks)) {
     const $container = $(`[data-repeat="${blockId}"]`)
-    if ($container.length === 0) continue
+    if ($container.length === 0) {
+      console.warn('[applyRepeatBlocksToHtml] Container not found:', blockId)
+      continue
+    }
+
+    console.log('[applyRepeatBlocksToHtml] Processing block:', {
+      blockId,
+      itemCount: block.items.length,
+      templateHtmlLength: block.templateHtml?.length || 0,
+    })
 
     // Clear existing items
     $container.find('[data-repeat-item]').remove()
@@ -533,7 +544,14 @@ export function applyRepeatBlocksToHtml(
           }
         }
 
-        if (!fieldData) return
+        if (!fieldData) {
+          console.warn('[applyRepeatBlocksToHtml] Field not found:', {
+            fieldId,
+            normalizedKey,
+            availableKeys: Object.keys(item.fields),
+          })
+          return
+        }
 
         if (fieldData.type === 'richtext') {
           $field.html(fieldData.value || '')

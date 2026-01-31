@@ -4,8 +4,8 @@
  * Main application component.
  */
 
-import { useEffect, useCallback } from 'react'
-import { useEditorStore } from './stores/editor-store'
+import { useEffect, useCallback, useMemo, useState } from 'react'
+import { useEditorStore, useTemporalStore } from './stores/editor-store'
 import { EditorPanel } from './components/EditorPanel'
 import { PreviewPanel } from './components/PreviewPanel'
 import { Toolbar } from './components/Toolbar'
@@ -43,10 +43,55 @@ export function App() {
     setExporting,
   } = useEditorStore()
 
-  // Load project on mount
+  // Project selection state
+  const [needsProjectSelect, setNeedsProjectSelect] = useState(false)
+  const [projectPath, setProjectPath] = useState<string>('')
+
+  // Initialize project on mount
   useEffect(() => {
-    loadProject()
+    initializeProject()
   }, [])
+
+  // Initialize and validate project
+  const initializeProject = async () => {
+    setLoading(true)
+    setError(null)
+    setNeedsProjectSelect(false)
+
+    try {
+      const validation = await window.electronAPI.initProject()
+
+      if (validation.valid) {
+        setProjectPath(validation.path)
+        await loadProject()
+      } else {
+        console.warn('Project validation failed:', validation.error)
+        setNeedsProjectSelect(true)
+        setLoading(false)
+      }
+    } catch (err) {
+      console.error('Failed to initialize project:', err)
+      setNeedsProjectSelect(true)
+      setLoading(false)
+    }
+  }
+
+  // Handle project selection
+  const handleSelectProject = async () => {
+    try {
+      const validation = await window.electronAPI.selectProject()
+
+      if (validation && validation.valid) {
+        setProjectPath(validation.path)
+        setNeedsProjectSelect(false)
+        await loadProject()
+      } else if (validation) {
+        alert(`プロジェクトが無効です: ${validation.error}`)
+      }
+    } catch (err) {
+      console.error('Failed to select project:', err)
+    }
+  }
 
   // Update modified HTML when editables, colors, or repeatBlocks change
   useEffect(() => {
@@ -181,14 +226,28 @@ export function App() {
               index: idx,
               fields: Object.fromEntries(
                 Object.entries(item.fields || {}).map(([fieldKey, fieldData]) => {
-                  const fd = fieldData as { type?: string; value?: string | null; label?: string; href?: string; src?: string }
+                  const fd = fieldData as {
+                    type?: string
+                    value?: string | null
+                    label?: string
+                    href?: string
+                    src?: string
+                    min?: number
+                    max?: number
+                    step?: number
+                    suffix?: string
+                  }
                   return [fieldKey, {
                     id: `${blockId}.${idx}.${fieldKey}`,
-                    type: (fd.type || 'text') as 'text' | 'richtext' | 'image' | 'link' | 'background-image',
+                    type: (fd.type || 'text') as 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon',
                     label: fd.label,
                     value: fd.value ?? null,
                     href: fd.href,
                     src: fd.src,
+                    min: fd.min,
+                    max: fd.max,
+                    step: fd.step,
+                    suffix: fd.suffix,
                   }]
                 })
               ),
@@ -290,6 +349,11 @@ export function App() {
                       label: field.label,
                       href: field.href,
                       src: field.src,
+                      // Number-specific attributes
+                      min: field.min,
+                      max: field.max,
+                      step: field.step,
+                      suffix: field.suffix,
                     },
                   ])
                 ),
@@ -315,11 +379,17 @@ export function App() {
       // Save first
       await handleSave()
 
-      // Apply edits and export
+      // Apply edits and export (including repeat blocks)
       let html = applyEditablesToHtml(originalHtml, editables)
       html = applyColorsToHtml(html, colors)
+      html = applyRepeatBlocksToHtml(html, repeatBlocks)
 
       const outputPath = await window.electronAPI.exportHtml(html)
+
+      // User cancelled folder selection
+      if (!outputPath) {
+        return
+      }
 
       // Show success dialog
       const result = confirm(
@@ -327,7 +397,7 @@ export function App() {
       )
 
       if (result) {
-        await window.electronAPI.showOutputFolder()
+        await window.electronAPI.showOutputFolder(outputPath)
       }
     } catch (err) {
       console.error('Failed to export:', err)
@@ -335,7 +405,65 @@ export function App() {
     } finally {
       setExporting(false)
     }
-  }, [originalHtml, editables, colors, handleSave, setExporting])
+  }, [originalHtml, editables, colors, repeatBlocks, handleSave, setExporting])
+
+  // Get temporal store for undo/redo
+  const temporalStore = useMemo(() => useTemporalStore(), [])
+
+  // Undo handler
+  const handleUndo = useCallback(() => {
+    temporalStore.undo()
+    setDirty(true)
+  }, [temporalStore, setDirty])
+
+  // Redo handler
+  const handleRedo = useCallback(() => {
+    temporalStore.redo()
+    setDirty(true)
+  }, [temporalStore, setDirty])
+
+  // Keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Check if target is an input or textarea (don't intercept shortcuts)
+      const target = e.target as HTMLElement
+      const isInput = target.tagName === 'INPUT' || target.tagName === 'TEXTAREA' || target.isContentEditable
+
+      if (e.ctrlKey || e.metaKey) {
+        switch (e.key.toLowerCase()) {
+          case 's':
+            e.preventDefault()
+            handleSave()
+            break
+          case 'z':
+            // Don't intercept if in input field (let native undo work)
+            if (!isInput) {
+              e.preventDefault()
+              if (e.shiftKey) {
+                handleRedo()
+              } else {
+                handleUndo()
+              }
+            }
+            break
+          case 'y':
+            // Don't intercept if in input field
+            if (!isInput) {
+              e.preventDefault()
+              handleRedo()
+            }
+            break
+          case 'e':
+            e.preventDefault()
+            handleExport()
+            break
+        }
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [handleSave, handleExport, handleUndo, handleRedo])
 
   // Loading state
   if (isLoading) {
@@ -349,20 +477,66 @@ export function App() {
     )
   }
 
+  // Project selection screen
+  if (needsProjectSelect) {
+    return (
+      <div className="h-screen flex items-center justify-center bg-gradient-to-br from-gray-50 to-gray-200">
+        <div className="text-center max-w-lg p-8 bg-white rounded-2xl shadow-xl">
+          <div className="text-blue-600 text-6xl mb-6">📁</div>
+          <h1 className="text-2xl font-bold text-gray-800 mb-2">LP-Editor</h1>
+          <p className="text-gray-600 mb-6">
+            プロジェクトフォルダを選択してください。<br />
+            <span className="text-sm text-gray-500">
+              フォルダには <code className="bg-gray-100 px-1 rounded">src/index.html</code> が必要です。
+            </span>
+          </p>
+
+          <button
+            onClick={handleSelectProject}
+            className="w-full px-6 py-4 bg-blue-600 text-white rounded-xl hover:bg-blue-700 transition-colors font-medium text-lg shadow-lg hover:shadow-xl"
+          >
+            プロジェクトを開く
+          </button>
+
+          <div className="mt-6 text-xs text-gray-400">
+            <p>推奨フォルダ構造:</p>
+            <pre className="text-left bg-gray-50 p-3 rounded-lg mt-2 text-gray-600">
+{`project/
+├── lp-config.json
+└── src/
+    ├── index.html
+    ├── css/
+    ├── js/
+    └── images/`}
+            </pre>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   // Error state
   if (error) {
     return (
       <div className="h-screen flex items-center justify-center bg-gray-100">
-        <div className="text-center max-w-md">
+        <div className="text-center max-w-md p-6 bg-white rounded-xl shadow-lg">
           <div className="text-red-500 text-6xl mb-4">⚠️</div>
           <h2 className="text-xl font-bold text-gray-800 mb-2">エラーが発生しました</h2>
           <p className="text-gray-600 mb-4">{error}</p>
-          <button
-            onClick={() => loadProject()}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-          >
-            再読み込み
-          </button>
+          <div className="space-y-2">
+            <button
+              onClick={() => initializeProject()}
+              className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+            >
+              再読み込み
+            </button>
+            <button
+              onClick={handleSelectProject}
+              className="w-full px-4 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300"
+            >
+              別のプロジェクトを開く
+            </button>
+          </div>
         </div>
       </div>
     )
@@ -373,6 +547,8 @@ export function App() {
       <Toolbar
         onSave={handleSave}
         onExport={handleExport}
+        onUndo={handleUndo}
+        onRedo={handleRedo}
         pages={pages}
         currentPageId={currentPageId}
         onPageChange={handlePageChange}

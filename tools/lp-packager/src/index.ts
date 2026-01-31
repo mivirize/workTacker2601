@@ -61,8 +61,9 @@ program
   .description('Build LP package for distribution')
   .option('-c, --client <name>', 'Client name')
   .option('-o, --output <path>', 'Output directory')
+  .option('-e, --editor-path <path>', 'Path to LP-Editor release folder')
   .option('--include-source', 'Include source files in package')
-  .action(async (projectPath: string = '.', options: { client?: string; output?: string; includeSource?: boolean }) => {
+  .action(async (projectPath: string = '.', options: { client?: string; output?: string; editorPath?: string; includeSource?: boolean }) => {
     const result = await buildCommand(projectPath, options)
     process.exit(result.success ? 0 : 1)
   })

@@ -154,8 +154,8 @@ function parseMarker(element: Element, html: string): EditableMarker | null {
  */
 function parseRepeatBlock(element: Element, html: string): RepeatBlock {
   const id = element.attribs['data-repeat']
-  const min = parseInt(element.attribs['data-min'] || '0', 10)
-  const max = parseInt(element.attribs['data-max'] || '999', 10)
+  const min = parseInt(element.attribs['data-repeat-min'] || '0', 10)
+  const max = parseInt(element.attribs['data-repeat-max'] || '999', 10)
   const { line } = getPosition(element, html)
 
   return {
