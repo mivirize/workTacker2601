@@ -1,0 +1,28 @@
+{
+    "name": "auto-video-gen",
+    "version": "1.0.0",
+    "description": "Automated Video Generation and Upload Workflow",
+    "main": "scripts/1_generate_content.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "generate": "node scripts/1_generate_content.js",
+        "create": "npx playwright test scripts/2_automate_vrew.spec.ts",
+        "create:batch": "npx ts-node scripts/batch_automate_vrew.ts",
+        "upload": "npx playwright test scripts/3_upload_videos.ts",
+        "pipeline": "npm run generate && npm run create:batch && npm run upload"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "sqlite3": "^5.1.7",
+        "playwright": "^1.41.0",
+        "@playwright/test": "^1.41.0",
+        "openai": "^4.26.0"
+    },
+    "devDependencies": {
+        "ts-node": "^10.9.2",
+        "typescript": "^5.3.3",
+        "@types/node": "^20.11.0"
+    }
+}

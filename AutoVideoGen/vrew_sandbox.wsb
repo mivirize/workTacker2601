@@ -1,0 +1,14 @@
+<Configuration>
+  <MappedFolders>
+    <MappedFolder>
+      <HostFolder>C:\Users\owner\Dev\AutoVideoGen</HostFolder>
+      <SandboxFolder>C:\AutoVideoGen</SandboxFolder>
+      <ReadOnly>false</ReadOnly>
+    </MappedFolder>
+  </MappedFolders>
+  <LogonCommand>
+    <Command>powershell -ExecutionPolicy Bypass -Command "Start-Process powershell -ArgumentList '-NoExit', '-Command', 'Write-Host \"=== Vrew Automation Sandbox ===\"; Write-Host \"1. Installing Python...\"; winget install Python.Python.3.12 --accept-package-agreements --accept-source-agreements; Write-Host \"2. Installing dependencies...\"; pip install pyautogui pyperclip pillow; Write-Host \"3. Installing Vrew...\"; Start-Process C:\\AutoVideoGen\\output\\videos\\Vrew-Installer-3.5.4.exe -ArgumentList \"/S\" -Wait; Write-Host \"4. Ready! Run: python C:\\AutoVideoGen\\scripts\\desktop_automate_vrew.py\"'"</Command>
+  </LogonCommand>
+  <MemoryInMB>4096</MemoryInMB>
+  <vGPU>Enable</vGPU>
+</Configuration>

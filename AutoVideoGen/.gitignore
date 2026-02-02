@@ -1,0 +1,28 @@
+# Chrome/Vrew profiles (contains user data)
+.vrew_chrome_profile/
+.vrew_profile/
+user_data/
+
+# Node modules
+node_modules/
+
+# Output files (generated screenshots and videos)
+output/
+
+# Test results
+test-results/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Logs
+*.log
