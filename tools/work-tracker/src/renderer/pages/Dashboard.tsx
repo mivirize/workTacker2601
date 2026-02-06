@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useAppStore } from '../stores/app-store'
 import { formatDuration, formatPercentage } from '../utils/format'
 import { logError } from '../utils/logger'
+import { getCategoryColor } from '../utils/colors'
 import CategoryPieChart from '../components/charts/CategoryPieChart'
 import AppBarChart from '../components/charts/AppBarChart'
 import TimelineChart from '../components/charts/TimelineChart'
@@ -318,7 +319,7 @@ export default function Dashboard() {
                 <div
                   className="w-12 h-12 rounded-lg flex items-center justify-center text-white font-bold text-lg"
                   style={{
-                    backgroundColor: category?.color ?? '#6b7280',
+                    backgroundColor: getCategoryColor(category?.color),
                   }}
                 >
                   {index + 1}

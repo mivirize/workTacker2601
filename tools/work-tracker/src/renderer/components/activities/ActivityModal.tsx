@@ -9,6 +9,7 @@ import type {
   UpdateActivityInput,
 } from '../../../shared/types'
 import TagSelector from '../tags/TagSelector'
+import Modal from '../common/Modal'
 
 interface ActivityModalProps {
   activity?: Activity // 編集モード時のアクティビティ
@@ -184,217 +185,216 @@ export default function ActivityModal({
     return activity.durationSeconds >= 3600
   }, [activity])
 
+  const footerLeft = (
+    <>
+      {isEdit && onDelete && !showDeleteConfirm && (
+        <button
+          type="button"
+          onClick={() => setShowDeleteConfirm(true)}
+          className="btn btn-danger"
+          disabled={isSaving || isDeleting}
+        >
+          削除
+        </button>
+      )}
+      {showDeleteConfirm && (
+        <div className="flex items-center gap-2">
+          <span className="text-sm text-red-600">
+            {isLongActivity ? '長時間のアクティビティです。' : ''}本当に削除しますか？
+          </span>
+          <button
+            type="button"
+            onClick={handleDelete}
+            className="btn btn-danger btn-sm"
+            disabled={isDeleting}
+          >
+            {isDeleting ? '削除中...' : '削除する'}
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowDeleteConfirm(false)}
+            className="btn btn-secondary btn-sm"
+            disabled={isDeleting}
+          >
+            キャンセル
+          </button>
+        </div>
+      )}
+    </>
+  )
+
+  const footer = (
+    <>
+      <button
+        type="button"
+        onClick={onClose}
+        className="btn btn-secondary"
+        disabled={isSaving || isDeleting}
+      >
+        キャンセル
+      </button>
+      <button
+        type="submit"
+        form="activity-form"
+        className="btn btn-primary"
+        disabled={isSaving || isDeleting}
+      >
+        {isSaving ? '保存中...' : '保存'}
+      </button>
+    </>
+  )
+
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className="bg-white rounded-xl shadow-xl w-full max-w-lg mx-4 max-h-[90vh] overflow-y-auto">
-        <form onSubmit={handleSubmit}>
-          {/* ヘッダー */}
-          <div className="p-6 border-b border-gray-200">
-            <h3 className="text-lg font-semibold text-gray-900">
-              {isEdit ? 'アクティビティを編集' : 'アクティビティを追加'}
-            </h3>
+    <Modal
+      isOpen={true}
+      onClose={onClose}
+      title={isEdit ? 'アクティビティを編集' : 'アクティビティを追加'}
+      size="lg"
+      scrollable
+      footer={footer}
+      footerLeft={footerLeft}
+    >
+      <form id="activity-form" onSubmit={handleSubmit} className="space-y-4">
+        {error && (
+          <div className="p-3 bg-red-50 text-red-700 rounded-lg text-sm">
+            {error}
           </div>
+        )}
 
-          {/* フォーム */}
-          <div className="p-6 space-y-4">
-            {error && (
-              <div className="p-3 bg-red-50 text-red-700 rounded-lg text-sm">
-                {error}
-              </div>
-            )}
+        {/* アプリ名 */}
+        <div>
+          <label className="label">
+            アプリ名 <span className="text-red-500">*</span>
+          </label>
+          <input
+            type="text"
+            value={appName}
+            onChange={(e) => setAppName(e.target.value)}
+            className="input"
+            placeholder="例: Visual Studio Code"
+            required
+          />
+        </div>
 
-            {/* アプリ名 */}
-            <div>
-              <label className="label">
-                アプリ名 <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="text"
-                value={appName}
-                onChange={(e) => setAppName(e.target.value)}
-                className="input"
-                placeholder="例: Visual Studio Code"
-                required
-              />
-            </div>
+        {/* ウィンドウタイトル */}
+        <div>
+          <label className="label">ウィンドウタイトル</label>
+          <input
+            type="text"
+            value={windowTitle}
+            onChange={(e) => setWindowTitle(e.target.value)}
+            className="input"
+            placeholder="例: プロジェクト名 - ファイル名"
+          />
+        </div>
 
-            {/* ウィンドウタイトル */}
-            <div>
-              <label className="label">ウィンドウタイトル</label>
-              <input
-                type="text"
-                value={windowTitle}
-                onChange={(e) => setWindowTitle(e.target.value)}
-                className="input"
-                placeholder="例: プロジェクト名 - ファイル名"
-              />
-            </div>
-
-            {/* 開始・終了時刻 */}
-            <div className="grid grid-cols-2 gap-4">
-              <div>
-                <label className="label">
-                  開始時刻 <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="datetime-local"
-                  value={startTime}
-                  onChange={(e) => setStartTime(e.target.value)}
-                  className="input"
-                  required
-                />
-              </div>
-              <div>
-                <label className="label">
-                  終了時刻 <span className="text-red-500">*</span>
-                </label>
-                <input
-                  type="datetime-local"
-                  value={endTime}
-                  onChange={(e) => setEndTime(e.target.value)}
-                  className="input"
-                  required
-                />
-              </div>
-            </div>
-
-            {/* 時間表示 */}
-            {duration && (
-              <div className="text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
-                時間: <span className="font-medium">{duration}</span>
-              </div>
-            )}
-
-            {/* カテゴリ */}
-            <div>
-              <label className="label">カテゴリ</label>
-              <select
-                value={categoryId ?? ''}
-                onChange={(e) =>
-                  setCategoryId(e.target.value ? parseInt(e.target.value) : null)
-                }
-                className="input"
-              >
-                <option value="">未分類</option>
-                {categories.map((cat) => (
-                  <option key={cat.id} value={cat.id}>
-                    {cat.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* プロジェクト */}
-            <div>
-              <label className="label">プロジェクト</label>
-              <select
-                value={projectId ?? ''}
-                onChange={(e) =>
-                  setProjectId(e.target.value ? parseInt(e.target.value) : null)
-                }
-                className="input"
-              >
-                <option value="">なし</option>
-                {projects.filter(p => p.isActive).map((proj) => (
-                  <option key={proj.id} value={proj.id}>
-                    {proj.name}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            {/* タグ */}
-            <div>
-              <label className="label">タグ</label>
-              <TagSelector
-                tags={tags}
-                selectedTagIds={tagIds}
-                onChange={setTagIds}
-                placeholder="タグを選択..."
-              />
-            </div>
-
-            {/* アイドル */}
-            <label className="flex items-center gap-3">
-              <input
-                type="checkbox"
-                checked={isIdle}
-                onChange={(e) => setIsIdle(e.target.checked)}
-                className="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
-              />
-              <span className="text-gray-700">アイドルとしてマーク</span>
+        {/* 開始・終了時刻 */}
+        <div className="grid grid-cols-2 gap-4">
+          <div>
+            <label className="label">
+              開始時刻 <span className="text-red-500">*</span>
             </label>
-
-            {/* URL */}
-            <div>
-              <label className="label">URL (任意)</label>
-              <input
-                type="text"
-                value={url}
-                onChange={(e) => setUrl(e.target.value)}
-                className="input"
-                placeholder="https://..."
-              />
-            </div>
+            <input
+              type="datetime-local"
+              value={startTime}
+              onChange={(e) => setStartTime(e.target.value)}
+              className="input"
+              required
+            />
           </div>
-
-          {/* フッター */}
-          <div className="p-6 border-t border-gray-200 flex justify-between">
-            <div>
-              {isEdit && onDelete && !showDeleteConfirm && (
-                <button
-                  type="button"
-                  onClick={() => setShowDeleteConfirm(true)}
-                  className="btn btn-danger"
-                  disabled={isSaving || isDeleting}
-                >
-                  削除
-                </button>
-              )}
-              {showDeleteConfirm && (
-                <div className="flex items-center gap-2">
-                  <span className="text-sm text-red-600">
-                    {isLongActivity ? '長時間のアクティビティです。' : ''}本当に削除しますか？
-                  </span>
-                  <button
-                    type="button"
-                    onClick={handleDelete}
-                    className="btn btn-danger btn-sm"
-                    disabled={isDeleting}
-                  >
-                    {isDeleting ? '削除中...' : '削除する'}
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setShowDeleteConfirm(false)}
-                    className="btn btn-secondary btn-sm"
-                    disabled={isDeleting}
-                  >
-                    キャンセル
-                  </button>
-                </div>
-              )}
-            </div>
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={onClose}
-                className="btn btn-secondary"
-                disabled={isSaving || isDeleting}
-              >
-                キャンセル
-              </button>
-              <button
-                type="submit"
-                className="btn btn-primary"
-                disabled={isSaving || isDeleting}
-              >
-                {isSaving ? '保存中...' : '保存'}
-              </button>
-            </div>
+          <div>
+            <label className="label">
+              終了時刻 <span className="text-red-500">*</span>
+            </label>
+            <input
+              type="datetime-local"
+              value={endTime}
+              onChange={(e) => setEndTime(e.target.value)}
+              className="input"
+              required
+            />
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
+
+        {/* 時間表示 */}
+        {duration && (
+          <div className="text-sm text-gray-600 bg-gray-50 px-3 py-2 rounded-lg">
+            時間: <span className="font-medium">{duration}</span>
+          </div>
+        )}
+
+        {/* カテゴリ */}
+        <div>
+          <label className="label">カテゴリ</label>
+          <select
+            value={categoryId ?? ''}
+            onChange={(e) =>
+              setCategoryId(e.target.value ? parseInt(e.target.value) : null)
+            }
+            className="input"
+          >
+            <option value="">未分類</option>
+            {categories.map((cat) => (
+              <option key={cat.id} value={cat.id}>
+                {cat.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* プロジェクト */}
+        <div>
+          <label className="label">プロジェクト</label>
+          <select
+            value={projectId ?? ''}
+            onChange={(e) =>
+              setProjectId(e.target.value ? parseInt(e.target.value) : null)
+            }
+            className="input"
+          >
+            <option value="">なし</option>
+            {projects.filter(p => p.isActive).map((proj) => (
+              <option key={proj.id} value={proj.id}>
+                {proj.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {/* タグ */}
+        <div>
+          <label className="label">タグ</label>
+          <TagSelector
+            tags={tags}
+            selectedTagIds={tagIds}
+            onChange={setTagIds}
+            placeholder="タグを選択..."
+          />
+        </div>
+
+        {/* アイドル */}
+        <label className="flex items-center gap-3">
+          <input
+            type="checkbox"
+            checked={isIdle}
+            onChange={(e) => setIsIdle(e.target.checked)}
+            className="w-4 h-4 text-primary-600 border-gray-300 rounded focus:ring-primary-500"
+          />
+          <span className="text-gray-700">アイドルとしてマーク</span>
+        </label>
+
+        {/* URL */}
+        <div>
+          <label className="label">URL (任意)</label>
+          <input
+            type="text"
+            value={url}
+            onChange={(e) => setUrl(e.target.value)}
+            className="input"
+            placeholder="https://..."
+          />
+        </div>
+      </form>
+    </Modal>
   )
 }

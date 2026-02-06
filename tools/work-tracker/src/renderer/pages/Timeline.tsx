@@ -1,13 +1,15 @@
 import { useState, useEffect, useCallback } from 'react'
-import { useAppStore } from '../stores/app-store'
+import { useAppStore, useCategoryMap, useTagMap } from '../stores/app-store'
 import { formatDuration, truncate } from '../utils/format'
 import { log, logError } from '../utils/logger'
+import { getActivityColor, getCategoryColor } from '../utils/colors'
 import { format, subDays } from 'date-fns'
 import { ja } from 'date-fns/locale'
 import type { Activity, SearchFilters, CreateActivityInput, UpdateActivityInput } from '../../shared/types'
 import ActivityModal from '../components/activities/ActivityModal'
 import TimeBlockView from '../components/timeline/TimeBlockView'
 import TagList from '../components/tags/TagList'
+import { useModalState } from '../hooks'
 
 type ViewMode = 'list' | 'block'
 
@@ -38,9 +40,8 @@ export default function Timeline() {
   // View mode state
   const [viewMode, setViewMode] = useState<ViewMode>('list')
 
-  // Activity Modal states
-  const [isActivityModalOpen, setIsActivityModalOpen] = useState(false)
-  const [editingActivity, setEditingActivity] = useState<Activity | null>(null)
+  // Activity Modal state (using custom hook)
+  const activityModal = useModalState<Activity>()
 
   // Search/Filter states
   const [searchQuery, setSearchQuery] = useState('')
@@ -53,8 +54,9 @@ export default function Timeline() {
   })
   const [selectedTagIds, setSelectedTagIds] = useState<number[]>([])
 
-  const categoryMap = new Map(categories.map((c) => [c.id, c]))
-  const tagMap = new Map(tags.map((t) => [t.id, t]))
+  // Use memoized selectors
+  const categoryMap = useCategoryMap()
+  const tagMap = useTagMap()
 
   const loadActivities = useCallback(async () => {
     log('[Timeline] loadActivities called', { isSearchMode, showIdle, selectedDate })
@@ -130,22 +132,6 @@ export default function Timeline() {
     } catch (error) {
       logError('Failed to update activity category:', error)
     }
-  }
-
-  // Activity CRUD handlers
-  const handleOpenAddModal = () => {
-    setEditingActivity(null)
-    setIsActivityModalOpen(true)
-  }
-
-  const handleOpenEditModal = (activity: Activity) => {
-    setEditingActivity(activity)
-    setIsActivityModalOpen(true)
-  }
-
-  const handleCloseModal = () => {
-    setIsActivityModalOpen(false)
-    setEditingActivity(null)
   }
 
   const handleSaveActivity = async (input: CreateActivityInput | UpdateActivityInput) => {
@@ -264,7 +250,7 @@ export default function Timeline() {
             />
           )}
           <button
-            onClick={handleOpenAddModal}
+            onClick={activityModal.openAdd}
             className="btn btn-primary"
           >
             <svg
@@ -435,7 +421,7 @@ export default function Timeline() {
             onActivityClick={(activityId) => {
               const activity = activities.find(a => a.id === activityId)
               if (activity) {
-                handleOpenEditModal(activity)
+                activityModal.openEdit(activity)
               }
             }}
           />
@@ -491,9 +477,7 @@ export default function Timeline() {
                       <div
                         className="w-1 h-full min-h-[60px] rounded-full flex-shrink-0"
                         style={{
-                          backgroundColor: activity.isIdle
-                            ? '#d1d5db'
-                            : category?.color ?? '#6b7280',
+                          backgroundColor: getActivityColor(activity.isIdle, category?.color),
                         }}
                       />
 
@@ -532,7 +516,7 @@ export default function Timeline() {
                             </div>
                             {/* Edit Button */}
                             <button
-                              onClick={() => handleOpenEditModal(activity)}
+                              onClick={() => activityModal.openEdit(activity)}
                               className="p-1 text-gray-400 hover:text-primary-600 transition-colors"
                               title="編集"
                             >
@@ -581,7 +565,7 @@ export default function Timeline() {
                               onClick={() => setEditingActivityId(activity.id)}
                               className="inline-flex items-center px-2 py-0.5 rounded text-xs font-medium text-white hover:opacity-80 transition-opacity"
                               style={{
-                                backgroundColor: category?.color ?? '#6b7280',
+                                backgroundColor: getCategoryColor(category?.color),
                               }}
                               title="クリックしてカテゴリを変更"
                             >
@@ -625,16 +609,16 @@ export default function Timeline() {
       )}
 
       {/* Activity Modal */}
-      {isActivityModalOpen && (
+      {(activityModal.isAdding || activityModal.editingItem) && (
         <ActivityModal
-          activity={editingActivity ?? undefined}
+          activity={activityModal.editingItem ?? undefined}
           defaultDate={selectedDate}
           categories={categories}
           tags={tags}
           projects={projects}
-          onClose={handleCloseModal}
+          onClose={activityModal.close}
           onSave={handleSaveActivity}
-          onDelete={editingActivity ? handleDeleteActivity : undefined}
+          onDelete={activityModal.editingItem ? handleDeleteActivity : undefined}
         />
       )}
     </div>

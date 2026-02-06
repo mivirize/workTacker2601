@@ -1,4 +1,5 @@
 import { create } from 'zustand'
+import { useMemo } from 'react'
 import type {
   TrackingState,
   DailySummary,
@@ -222,3 +223,59 @@ export const useAppStore = create<AppStore>((set, get) => ({
     }
   },
 }))
+
+// ============================================================
+// Memoized Selectors
+// ============================================================
+
+/**
+ * Returns a Map of category ID to Category object
+ * Use this instead of creating Maps in components on every render
+ */
+export function useCategoryMap(): Map<number, Category> {
+  const categories = useAppStore((state) => state.categories)
+  return useMemo(() => new Map(categories.map((c) => [c.id, c])), [categories])
+}
+
+/**
+ * Returns a Map of tag ID to Tag object
+ */
+export function useTagMap(): Map<number, Tag> {
+  const tags = useAppStore((state) => state.tags)
+  return useMemo(() => new Map(tags.map((t) => [t.id, t])), [tags])
+}
+
+/**
+ * Returns a Map of project ID to Project object
+ */
+export function useProjectMap(): Map<number, Project> {
+  const projects = useAppStore((state) => state.projects)
+  return useMemo(() => new Map(projects.map((p) => [p.id, p])), [projects])
+}
+
+/**
+ * Returns only active projects
+ */
+export function useActiveProjects(): Project[] {
+  const projects = useAppStore((state) => state.projects)
+  return useMemo(() => projects.filter((p) => p.isActive), [projects])
+}
+
+/**
+ * Get a category by ID (returns undefined if not found)
+ */
+export function useCategoryById(id: number | null | undefined): Category | undefined {
+  const categoryMap = useCategoryMap()
+  return id != null ? categoryMap.get(id) : undefined
+}
+
+/**
+ * Get tags by IDs
+ */
+export function useTagsByIds(ids: number[]): Tag[] {
+  const tagMap = useTagMap()
+  return useMemo(
+    () => ids.map((id) => tagMap.get(id)).filter((t): t is Tag => t !== undefined),
+    [ids, tagMap]
+  )
+}

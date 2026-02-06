@@ -1,8 +1,9 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import { format } from 'date-fns'
 import { ja } from 'date-fns/locale'
 import { formatDuration, truncate } from '../../utils/format'
 import { logError } from '../../utils/logger'
+import { getActivityColor, getCategoryColor } from '../../utils/colors'
 import ActivityModal from '../activities/ActivityModal'
 import TagList from '../tags/TagList'
 import type { Activity, Category, Tag, Project, CreateActivityInput, UpdateActivityInput } from '../../../shared/types'
@@ -27,8 +28,8 @@ export default function DayActivitiesPanel({
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [editingActivity, setEditingActivity] = useState<Activity | null>(null)
 
-  const categoryMap = new Map(categories.map((c) => [c.id, c]))
-  const tagMap = new Map(tags.map((t) => [t.id, t]))
+  const categoryMap = useMemo(() => new Map(categories.map((c) => [c.id, c])), [categories])
+  const tagMap = useMemo(() => new Map(tags.map((t) => [t.id, t])), [tags])
 
   useEffect(() => {
     if (!selectedDay) {
@@ -219,9 +220,7 @@ export default function DayActivitiesPanel({
                             <div
                               className="w-1 h-full min-h-[32px] rounded-full flex-shrink-0"
                               style={{
-                                backgroundColor: activity.isIdle
-                                  ? '#d1d5db'
-                                  : category?.color ?? '#6b7280',
+                                backgroundColor: getActivityColor(activity.isIdle, category?.color),
                               }}
                             />
 
@@ -258,7 +257,7 @@ export default function DayActivitiesPanel({
                               <div className="mt-0.5 flex items-center gap-1 flex-wrap">
                                 <span
                                   className="inline-block px-1 py-0.5 rounded text-[9px] text-white"
-                                  style={{ backgroundColor: category?.color ?? '#6b7280' }}
+                                  style={{ backgroundColor: getCategoryColor(category?.color) }}
                                 >
                                   {category?.name ?? '未分類'}
                                 </span>

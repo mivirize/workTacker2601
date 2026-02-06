@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import type { TimelineEntry, Category } from '../../../shared/types'
 import { format } from 'date-fns'
 import { formatDuration, truncate } from '../../utils/format'
+import { getActivityColor } from '../../utils/colors'
 
 interface TimelineChartProps {
   data: TimelineEntry[]
@@ -84,9 +85,7 @@ export default function TimelineChart({ data, categories }: TimelineChartProps) 
           const category = entry.categoryId
             ? categoryMap.get(entry.categoryId)
             : null
-          const color = entry.isIdle
-            ? '#d1d5db'
-            : category?.color ?? '#6b7280'
+          const color = getActivityColor(entry.isIdle, category?.color)
           const left = getPositionForTime(entry.startTime)
           const width = getWidthForDuration(entry.startTime, entry.endTime)
 

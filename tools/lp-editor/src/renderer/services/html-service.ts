@@ -8,7 +8,7 @@ import * as cheerio from 'cheerio'
 
 export interface ParsedMarker {
   id: string
-  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
+  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon' | 'counter'
   label?: string
   group?: string
   value: string | null
@@ -22,6 +22,8 @@ export interface ParsedMarker {
   suffix?: string
   // Icon-specific attributes
   iconSet?: string
+  // Counter-specific attributes
+  dataCount?: string
 }
 
 export interface ParsedColor {
@@ -111,6 +113,13 @@ export function parseHtmlMarkers(html: string): ParsedMarker[] {
       if ($svg.length > 0) {
         marker.value = $.html($svg)
       }
+    }
+    if (type === 'counter') {
+      // Counter type: read data-count attribute for animation target value
+      const dataCount = $el.attr('data-count')
+      marker.dataCount = dataCount
+      // Use text content as the display value, but prefer data-count for editing
+      marker.value = dataCount || $el.text().trim()
     }
 
     markers.push(marker)
@@ -229,15 +238,34 @@ export function parseRepeatBlocks(html: string): ParsedRepeatBlock[] {
     const max = parseInt($container.attr('data-repeat-max') || '10', 10)
     const items: ParsedRepeatItem[] = []
 
+    // Get direct repeat items only (exclude items inside nested repeat blocks)
+    const $directItems = $container.find('[data-repeat-item]').filter((_, el) => {
+      // Check if this item is inside a nested data-repeat (but not this container)
+      const $el = $(el)
+      const $parentRepeat = $el.parentsUntil($container, '[data-repeat]')
+      return $parentRepeat.length === 0
+    })
+
     // Get first repeat item as template
-    const $firstItem = $container.find('[data-repeat-item]').first()
+    const $firstItem = $directItems.first()
     const templateHtml = $firstItem.length > 0 ? $.html($firstItem) : ''
 
-    // Extract field keys from template (in order)
+    // Extract field keys from template (in order) - only direct editables, not nested
     const templateFieldKeys: string[] = []
     if ($firstItem.length > 0) {
+      // First, check if the item element itself has data-editable
+      const selfFieldId = $firstItem.attr('data-editable')
+      if (selfFieldId) {
+        const normalizedKey = normalizeFieldIdForKey(selfFieldId)
+        templateFieldKeys.push(normalizedKey)
+      }
+
+      // Then find child elements with data-editable
       $firstItem.find('[data-editable]').each((_, fieldEl) => {
-        const fieldId = $(fieldEl).attr('data-editable')
+        const $fieldEl = $(fieldEl)
+        const fieldId = $fieldEl.attr('data-editable')
+        // Skip if inside a nested repeat block
+        if ($fieldEl.parentsUntil($firstItem, '[data-repeat]').length > 0) return
         if (fieldId) {
           // Use normalized field ID as key
           const normalizedKey = normalizeFieldIdForKey(fieldId)
@@ -246,15 +274,14 @@ export function parseRepeatBlocks(html: string): ParsedRepeatBlock[] {
       })
     }
 
-    // Parse all repeat items
-    $container.find('[data-repeat-item]').each((index, itemEl) => {
+    // Parse all repeat items (only direct items, not nested)
+    $directItems.each((index, itemEl) => {
       const $item = $(itemEl)
       const fields: ParsedRepeatItem['fields'] = {}
       let fieldIndex = 0
 
-      // Find all editable fields within this item (in order)
-      $item.find('[data-editable]').each((_, fieldEl) => {
-        const $field = $(fieldEl)
+      // Helper function to process an editable field
+      const processEditableField = ($field: ReturnType<typeof $>) => {
         const fieldId = $field.attr('data-editable')
         const fieldType = $field.attr('data-type') as ParsedMarker['type']
         if (!fieldId || !fieldType) return
@@ -273,13 +300,31 @@ export function parseRepeatBlocks(html: string): ParsedRepeatBlock[] {
           src: fieldType === 'image' ? $field.attr('src') : undefined,
         }
         fieldIndex++
+      }
+
+      // First, check if the item element itself has data-editable
+      if ($item.attr('data-editable')) {
+        processEditableField($item)
+      }
+
+      // Find all editable fields within this item (in order), excluding nested repeat fields
+      $item.find('[data-editable]').each((_, fieldEl) => {
+        const $field = $(fieldEl)
+        // Skip if inside a nested repeat block
+        if ($field.parentsUntil($item, '[data-repeat]').length > 0) return
+
+        processEditableField($field)
       })
 
       // Auto-detect icons within this item (avoid duplicates by tracking SVGs)
+      // Exclude icons inside nested repeat blocks
       const itemProcessedSvgs = new Set<cheerio.Element>()
       let itemIconIdx = 0
       $item.find('.icon, .feature-card__icon, .stat-card__icon, [class*="icon"]').each((_, iconEl) => {
         const $iconEl = $(iconEl)
+        // Skip if inside a nested repeat block
+        if ($iconEl.parentsUntil($item, '[data-repeat]').length > 0) return
+
         const $svg = $iconEl.find('svg').first()
         if ($svg.length === 0 || $iconEl.attr('data-editable')) return
 
@@ -298,9 +343,11 @@ export function parseRepeatBlocks(html: string): ParsedRepeatBlock[] {
         }
       })
 
-      // Auto-detect counters within this item
+      // Auto-detect counters within this item (exclude nested repeats)
       $item.find('[data-target]').each((counterIdx, counterEl) => {
         const $counterEl = $(counterEl)
+        // Skip if inside a nested repeat block
+        if ($counterEl.parentsUntil($item, '[data-repeat]').length > 0) return
         if ($counterEl.attr('data-editable')) return
 
         const fieldKey = `counter-${counterIdx}`
@@ -444,6 +491,12 @@ export function applyEditablesToHtml(
       if (data.value) {
         $el.find('svg').replaceWith(data.value)
       }
+    } else if (data.type === 'counter') {
+      // Update both data-count attribute and text content
+      if (data.value !== null) {
+        $el.attr('data-count', data.value)
+        $el.text(data.value)
+      }
     } else if (data.value !== null) {
       $el.text(data.value)
     }
@@ -501,24 +554,33 @@ export function applyRepeatBlocksToHtml(
       templateHtmlLength: block.templateHtml?.length || 0,
     })
 
-    // Clear existing items
-    $container.find('[data-repeat-item]').remove()
+    // Clear existing direct items only (not nested repeat items)
+    $container.find('[data-repeat-item]').filter((_, el) => {
+      // Only remove items that are not inside a nested data-repeat
+      return $(el).parentsUntil($container, '[data-repeat]').length === 0
+    }).remove()
 
-    // Get field keys in order from template
+    // Get field keys in order from template (excluding nested repeat fields)
     const $template = $(block.templateHtml)
-    const templateFields = $template.find('[data-editable]').toArray()
-    const fieldOrder = templateFields.map(el => $(el).attr('data-editable'))
+
+    // Build field order array - first check if template itself has data-editable
+    const fieldOrder: (string | undefined)[] = []
+    if ($template.attr('data-editable')) {
+      fieldOrder.push($template.attr('data-editable'))
+    }
+    // Then add child editable fields
+    const templateFields = $template.find('[data-editable]').filter((_, el) => {
+      return $(el).parentsUntil($template, '[data-repeat]').length === 0
+    }).toArray()
+    fieldOrder.push(...templateFields.map(el => $(el).attr('data-editable')))
 
     // Add items based on block data
     for (const item of block.items) {
       // Create new item from template
       const $newItem = $(block.templateHtml)
 
-      // Update field values by normalized key (not by order)
-      const $editableFields = $newItem.find('[data-editable]')
-
-      $editableFields.each((_, el) => {
-        const $field = $(el)
+      // Helper function to apply field data to an element
+      const applyFieldToElement = ($field: ReturnType<typeof $>) => {
         const fieldId = $field.attr('data-editable')
         if (!fieldId) return
 
@@ -563,27 +625,51 @@ export function applyRepeatBlocksToHtml(
         } else if (fieldData.value !== null) {
           $field.text(fieldData.value)
         }
+      }
+
+      // Update field values by normalized key (not by order)
+      // First, check if the item element itself has data-editable
+      if ($newItem.attr('data-editable')) {
+        applyFieldToElement($newItem)
+      }
+
+      // Only update direct fields, not fields inside nested repeats
+      const $editableFields = $newItem.find('[data-editable]').filter((_, el) => {
+        return $(el).parentsUntil($newItem, '[data-repeat]').length === 0
       })
 
-      // Apply auto-detected icons
-      $newItem.find('.icon, .feature-card__icon, [class*="icon"]').each((iconIdx, iconEl) => {
+      $editableFields.each((_, el) => {
+        applyFieldToElement($(el))
+      })
+
+      // Apply auto-detected icons (excluding nested repeats)
+      let iconIdx = 0
+      $newItem.find('.icon, .feature-card__icon, [class*="icon"]').each((_, iconEl) => {
         const $iconEl = $(iconEl)
+        // Skip if inside a nested repeat
+        if ($iconEl.parentsUntil($newItem, '[data-repeat]').length > 0) return
+
         const $svg = $iconEl.find('svg')
         if ($svg.length === 0 || $iconEl.attr('data-editable')) return
 
         const fieldKey = `icon-${iconIdx}`
+        iconIdx++
         const fieldData = item.fields[fieldKey]
         if (fieldData && fieldData.value) {
           $svg.replaceWith(fieldData.value)
         }
       })
 
-      // Apply auto-detected counters
-      $newItem.find('[data-target]').each((counterIdx, counterEl) => {
+      // Apply auto-detected counters (excluding nested repeats)
+      let counterIdx = 0
+      $newItem.find('[data-target]').each((_, counterEl) => {
         const $counterEl = $(counterEl)
+        // Skip if inside a nested repeat
+        if ($counterEl.parentsUntil($newItem, '[data-repeat]').length > 0) return
         if ($counterEl.attr('data-editable')) return
 
         const fieldKey = `counter-${counterIdx}`
+        counterIdx++
         const fieldData = item.fields[fieldKey]
         if (fieldData && fieldData.value !== null) {
           $counterEl.attr('data-target', fieldData.value)

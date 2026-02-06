@@ -51,7 +51,13 @@ contextBridge.exposeInMainWorld('electronAPI', {
   isAdminMode: () => ipcRenderer.invoke('is-admin-mode'),
   listProjects: (baseDir: string) => ipcRenderer.invoke('list-projects', baseDir),
   getProjectStats: (projectPath: string) => ipcRenderer.invoke('get-project-stats', projectPath),
+  loadThumbnail: (thumbnailPath: string) => ipcRenderer.invoke('load-thumbnail', thumbnailPath),
+  exportProject: (projectPath: string, options?: ExportOptions) => ipcRenderer.invoke('export-project', projectPath, options),
+  validateLpContent: (projectPath: string) => ipcRenderer.invoke('validate-lp-content', projectPath),
   selectProjectsDir: () => ipcRenderer.invoke('select-projects-dir'),
+  getLastProjectsDir: () => ipcRenderer.invoke('get-last-projects-dir'),
+  returnToAdmin: () => ipcRenderer.invoke('return-to-admin'),
+  generateScreenshot: (projectPath: string) => ipcRenderer.invoke('generate-screenshot', projectPath),
 })
 
 // Page configuration
@@ -137,7 +143,31 @@ export interface ElectronAPI {
   isAdminMode: () => Promise<boolean>
   listProjects: (baseDir: string) => Promise<ProjectListItem[]>
   getProjectStats: (projectPath: string) => Promise<ProjectStats>
+  loadThumbnail: (thumbnailPath: string) => Promise<string | null>
   selectProjectsDir: () => Promise<string | null>
+  getLastProjectsDir: () => Promise<string | null>
+  returnToAdmin: () => Promise<boolean>
+  exportProject: (projectPath: string, options?: ExportOptions) => Promise<string | null>
+  validateLpContent: (projectPath: string) => Promise<LpValidationResult>
+  generateScreenshot: (projectPath: string) => Promise<string | null>
+}
+
+// Export options
+export interface ExportOptions {
+  includeEditor?: boolean
+}
+
+// LP Validation types
+export interface LpValidationWarning {
+  type: 'error' | 'warning' | 'info'
+  code: string
+  message: string
+  element?: string
+}
+
+export interface LpValidationResult {
+  valid: boolean
+  warnings: LpValidationWarning[]
 }
 
 // Project list item (for admin mode)
@@ -149,6 +179,7 @@ export interface ProjectListItem {
   lastModified: string
   hasHistory: boolean
   buildCount: number
+  thumbnailPath?: string
 }
 
 // Project statistics

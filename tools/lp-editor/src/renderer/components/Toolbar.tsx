@@ -21,9 +21,11 @@ interface ToolbarProps {
   pages: PageConfig[]
   currentPageId: string | null
   onPageChange: (pageId: string) => void
+  showBackToAdmin?: boolean
+  onBackToAdmin?: () => void
 }
 
-export function Toolbar({ onSave, onExport, onUndo, onRedo, pages, currentPageId, onPageChange }: ToolbarProps) {
+export function Toolbar({ onSave, onExport, onUndo, onRedo, pages, currentPageId, onPageChange, showBackToAdmin, onBackToAdmin }: ToolbarProps) {
   const { projectInfo, isDirty, isExporting } = useEditorStore()
 
   // Subscribe to temporal state for undo/redo availability
@@ -38,6 +40,30 @@ export function Toolbar({ onSave, onExport, onUndo, onRedo, pages, currentPageId
     <header className="h-14 bg-white border-b border-gray-200 flex items-center justify-between px-4">
       {/* Left: Project Info */}
       <div className="flex items-center gap-4">
+        {/* Back to Admin button */}
+        {showBackToAdmin && onBackToAdmin && (
+          <button
+            onClick={onBackToAdmin}
+            className="flex items-center gap-1.5 px-3 py-1.5 text-sm text-gray-600 hover:text-gray-800 hover:bg-gray-100 rounded-md transition-colors"
+            title="管理画面に戻る"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M19 12H5M12 19l-7-7 7-7" />
+            </svg>
+            管理画面
+          </button>
+        )}
+
         <h1 className="text-xl font-bold text-gray-800">
           {projectInfo?.name || 'LP-Editor'}
         </h1>

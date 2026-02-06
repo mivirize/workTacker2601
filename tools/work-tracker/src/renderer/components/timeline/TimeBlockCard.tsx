@@ -1,7 +1,9 @@
+import { memo } from 'react'
 import { format } from 'date-fns'
 import type { TimeBlock, TimeBlockInterval } from '../../../shared/types'
 import { formatDuration } from '../../utils/format'
 import { calculateActivityPercentage } from '../../utils/time-blocks'
+import { getActivityColor } from '../../utils/colors'
 
 interface TimeBlockCardProps {
   block: TimeBlock
@@ -10,7 +12,7 @@ interface TimeBlockCardProps {
   onClick: () => void
 }
 
-export default function TimeBlockCard({
+export default memo(function TimeBlockCard({
   block,
   intervalMinutes,
   isExpanded,
@@ -26,14 +28,31 @@ export default function TimeBlockCard({
   const maxSeconds = intervalMinutes * 60
   const barWidth = Math.min(100, Math.round((block.totalDuration / maxSeconds) * 100))
 
+  const ariaLabel = hasActivity
+    ? `${startTime}から${endTime}, ${isIdle ? 'アイドル' : block.dominantApp}, ${formatDuration(block.totalDuration - block.idleDuration)}`
+    : `${startTime}から${endTime}, 記録なし`
+
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault()
+      onClick()
+    }
+  }
+
   return (
     <div
+      role="button"
+      tabIndex={0}
       onClick={onClick}
+      onKeyDown={handleKeyDown}
+      aria-label={ariaLabel}
+      aria-expanded={hasActivity ? isExpanded : undefined}
       className={`
         relative p-3 rounded-lg border cursor-pointer transition-all
         ${isExpanded ? 'ring-2 ring-primary-500 border-primary-300' : 'border-gray-200'}
         ${hasActivity ? 'hover:border-primary-300 hover:bg-primary-50/30' : 'hover:bg-gray-50'}
         ${!hasActivity ? 'opacity-40' : ''}
+        focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-1
       `}
     >
       <div className="flex items-center gap-4">
@@ -56,9 +75,7 @@ export default function TimeBlockCard({
                 className="absolute inset-y-0 left-0 rounded-md transition-all"
                 style={{
                   width: `${barWidth}%`,
-                  backgroundColor: isIdle
-                    ? '#d1d5db'
-                    : block.dominantCategory?.color ?? '#6b7280',
+                  backgroundColor: getActivityColor(isIdle, block.dominantCategory?.color),
                 }}
               />
             )}
@@ -117,4 +134,4 @@ export default function TimeBlockCard({
       </div>
     </div>
   )
-}
+})

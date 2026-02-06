@@ -1,6 +1,8 @@
+import { useMemo } from 'react'
 import { format } from 'date-fns'
 import type { TimeBlock, Category } from '../../../shared/types'
 import { formatDuration, truncate } from '../../utils/format'
+import { getActivityColor } from '../../utils/colors'
 
 interface TimeBlockDetailProps {
   block: TimeBlock
@@ -18,7 +20,7 @@ export default function TimeBlockDetail({
   const startTime = format(new Date(block.startTime), 'HH:mm')
   const endTime = format(new Date(block.endTime), 'HH:mm')
 
-  const categoryMap = new Map(categories.map(c => [c.id, c]))
+  const categoryMap = useMemo(() => new Map(categories.map(c => [c.id, c])), [categories])
 
   return (
     <div className="bg-gray-50 rounded-lg border border-gray-200 p-4 mt-2 animate-fade-in">
@@ -57,7 +59,7 @@ export default function TimeBlockDetail({
               <div className="flex items-center gap-3">
                 <div
                   className="w-3 h-3 rounded-full flex-shrink-0"
-                  style={{ backgroundColor: isIdle ? '#d1d5db' : category?.color ?? '#6b7280' }}
+                  style={{ backgroundColor: getActivityColor(isIdle, category?.color) }}
                 />
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center justify-between">
@@ -74,7 +76,7 @@ export default function TimeBlockDetail({
                       className="h-full rounded-full transition-all"
                       style={{
                         width: `${app.percentage}%`,
-                        backgroundColor: isIdle ? '#d1d5db' : category?.color ?? '#6b7280',
+                        backgroundColor: getActivityColor(isIdle, category?.color),
                       }}
                     />
                   </div>

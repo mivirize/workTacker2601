@@ -42,8 +42,9 @@ function createTimeBlock(
   endTime: number,
   categories: Category[]
 ): TimeBlock {
+  const safeCategories = categories ?? []
   // Filter activities that overlap with this time block
-  const blockActivities = activities.filter(activity => {
+  const blockActivities = (activities ?? []).filter(activity => {
     const activityStart = activity.startTime
     const activityEnd = activity.endTime ?? Date.now()
 
@@ -108,7 +109,7 @@ function createTimeBlock(
   // Find dominant category
   let dominantCategory: TimeBlock['dominantCategory'] = null
   if (dominantAppEntry?.categoryId) {
-    const category = categories.find(c => c.id === dominantAppEntry.categoryId)
+    const category = safeCategories.find(c => c.id === dominantAppEntry.categoryId)
     if (category) {
       dominantCategory = {
         id: category.id,

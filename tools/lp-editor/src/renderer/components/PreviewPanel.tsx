@@ -69,10 +69,11 @@ export function PreviewPanel() {
     </script>`
 
     if (basePath) {
-      if (result.includes('<head>')) {
-        result = result.replace('<head>', `<head><base href="${basePath}">`)
-      } else if (result.includes('<html>')) {
-        result = result.replace('<html>', `<html><head><base href="${basePath}"></head>`)
+      // Use regex to handle <head> with attributes like <head prefix="...">
+      if (result.includes('<head')) {
+        result = result.replace(/<head([^>]*)>/, `<head$1><base href="${basePath}">`)
+      } else if (result.includes('<html')) {
+        result = result.replace(/<html([^>]*)>/, `<html$1><head><base href="${basePath}"></head>`)
       }
     }
 

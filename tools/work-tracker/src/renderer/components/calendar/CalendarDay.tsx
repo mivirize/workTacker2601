@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import { format, isToday } from 'date-fns'
 import type { CalendarDaySummary, Category } from '../../../shared/types'
 
@@ -22,7 +23,7 @@ function formatHours(seconds: number): string {
   return ''
 }
 
-export default function CalendarDay({
+export default memo(function CalendarDay({
   date,
   isCurrentMonth,
   isSelected,
@@ -41,9 +42,16 @@ export default function CalendarDay({
     ?.map((cb) => categories.find((c) => c.id === cb.categoryId))
     ?.filter(Boolean) as Category[] | undefined
 
+  const ariaLabel = summary && summary.totalDuration > 0
+    ? `${format(date, 'M月d日')}, ${formatHours(summary.totalDuration)}, ${summary.activityCount}件のアクティビティ`
+    : `${format(date, 'M月d日')}`
+
   return (
     <button
       onClick={() => onClick(dateString)}
+      aria-label={ariaLabel}
+      aria-pressed={isSelected}
+      aria-current={isCurrentDay ? 'date' : undefined}
       className={`
         relative p-2 min-h-[80px] text-left rounded-lg transition-all
         ${isCurrentMonth ? 'bg-white' : 'bg-gray-50'}
@@ -92,4 +100,4 @@ export default function CalendarDay({
       )}
     </button>
   )
-}
+})

@@ -7,6 +7,8 @@
 import React from 'react'
 import { useEditorStore } from '../stores/editor-store'
 import { validateContent, type ValidationResult, type ValidationIssue } from '../services/validation-service'
+import { analyzeDesign, type DesignAnalysis } from '../services/design-service'
+import { QualityScore, AnimationPresets, DesignChecker } from './design'
 
 export function EditorPanel() {
   const {
@@ -116,6 +118,16 @@ export function EditorPanel() {
           チェック
           {validationBadge}
         </button>
+        <button
+          className={`flex-1 px-3 py-2 text-sm font-medium ${
+            activeGroup === 'design'
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'text-gray-500 hover:text-gray-700'
+          }`}
+          onClick={() => setActiveGroup('design')}
+        >
+          デザイン
+        </button>
       </div>
 
       {/* Content */}
@@ -126,6 +138,8 @@ export function EditorPanel() {
           <SettingsEditor editables={editables} updateEditable={updateEditable} />
         ) : activeGroup === 'check' ? (
           <CheckEditor validationResult={validationResult} selectField={selectField} />
+        ) : activeGroup === 'design' ? (
+          <DesignEditor originalHtml={originalHtml} />
         ) : (
           <ContentEditor
             groups={groups}
@@ -148,7 +162,7 @@ export function EditorPanel() {
 // Repeat Block types
 interface RepeatItemField {
   id: string
-  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
+  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon' | 'counter'
   label?: string
   value: string | null
   href?: string
@@ -157,6 +171,7 @@ interface RepeatItemField {
   max?: number
   step?: number
   suffix?: string
+  dataCount?: string
 }
 
 interface RepeatItem {
@@ -409,6 +424,25 @@ function FieldEditor({
 
       {field.type === 'icon' && (
         <IconField id={id} field={field} updateEditable={updateEditable} />
+      )}
+
+      {field.type === 'counter' && (
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <input
+              type="number"
+              value={field.value || ''}
+              onChange={(e) => updateEditable(id, e.target.value)}
+              onFocus={handleFocus}
+              onBlur={handleBlur}
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            />
+            <span className="text-xs text-gray-500 bg-blue-100 px-2 py-1 rounded">カウンター</span>
+          </div>
+          <p className="text-xs text-gray-400">
+            この値はページ表示時にカウントアップアニメーションで表示されます
+          </p>
+        </div>
       )}
     </div>
   )
@@ -1186,6 +1220,7 @@ function RepeatItemFieldEditor({
       case 'image': return '🖼'
       case 'link': return '🔗'
       case 'number': return '#'
+      case 'counter': return '⏱'
       case 'icon': return '◆'
       case 'richtext': return '¶'
       default: return 'T'
@@ -1259,6 +1294,21 @@ function RepeatItemFieldEditor({
           {field.suffix && (
             <span className="text-gray-500 text-sm font-medium">{field.suffix}</span>
           )}
+        </div>
+      )}
+
+      {field.type === 'counter' && (
+        <div className="space-y-1">
+          <div className="flex items-center gap-2">
+            <input
+              type="number"
+              value={field.value || ''}
+              onChange={(e) => handleChange(e.target.value)}
+              className="flex-1 px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 text-sm bg-gray-50 focus:bg-white transition-colors"
+            />
+            <span className="text-xs text-gray-500 bg-blue-100 px-2 py-1 rounded">カウンター</span>
+          </div>
+          <p className="text-xs text-gray-400">カウントアップアニメーション用</p>
         </div>
       )}
 
@@ -1580,6 +1630,109 @@ function CheckEditor({ validationResult, selectField }: CheckEditorProps) {
         <div className="text-center py-8 text-gray-500">
           チェック項目はありません
         </div>
+      )}
+    </div>
+  )
+}
+
+// Design Editor - Design quality analysis and animation presets
+interface DesignEditorProps {
+  originalHtml: string
+}
+
+function DesignEditor({ originalHtml }: DesignEditorProps) {
+  const [analysis, setAnalysis] = React.useState<DesignAnalysis | null>(null)
+  const [isLoading, setIsLoading] = React.useState(false)
+  const [selectedPresets, setSelectedPresets] = React.useState<string[]>([])
+  const [activeTab, setActiveTab] = React.useState<'score' | 'checker' | 'presets'>('score')
+
+  // Run analysis
+  const runAnalysis = React.useCallback(() => {
+    if (!originalHtml) return
+
+    setIsLoading(true)
+    // Use setTimeout to allow UI to update
+    setTimeout(() => {
+      const result = analyzeDesign(originalHtml)
+      setAnalysis(result)
+      setIsLoading(false)
+    }, 100)
+  }, [originalHtml])
+
+  // Auto-analyze on mount
+  React.useEffect(() => {
+    runAnalysis()
+  }, [runAnalysis])
+
+  const handleTogglePreset = (presetId: string) => {
+    setSelectedPresets((prev) =>
+      prev.includes(presetId)
+        ? prev.filter((id) => id !== presetId)
+        : [...prev, presetId]
+    )
+  }
+
+  const handleApplyPresets = (css: string, js: string) => {
+    // TODO: Inject CSS and JS into HTML
+    console.log('Applying presets:', { css, js })
+    alert('アニメーションコードがコンソールに出力されました。\n今後、HTML編集機能で直接挿入できるようになります。')
+  }
+
+  return (
+    <div className="space-y-4">
+      {/* Sub-tabs */}
+      <div className="flex border-b border-gray-200">
+        <button
+          className={`flex-1 px-2 py-2 text-xs font-medium ${
+            activeTab === 'score'
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'text-gray-500 hover:text-gray-700'
+          }`}
+          onClick={() => setActiveTab('score')}
+        >
+          スコア
+        </button>
+        <button
+          className={`flex-1 px-2 py-2 text-xs font-medium ${
+            activeTab === 'checker'
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'text-gray-500 hover:text-gray-700'
+          }`}
+          onClick={() => setActiveTab('checker')}
+        >
+          詳細チェック
+        </button>
+        <button
+          className={`flex-1 px-2 py-2 text-xs font-medium ${
+            activeTab === 'presets'
+              ? 'text-blue-600 border-b-2 border-blue-600'
+              : 'text-gray-500 hover:text-gray-700'
+          }`}
+          onClick={() => setActiveTab('presets')}
+        >
+          プリセット
+        </button>
+      </div>
+
+      {/* Tab Content */}
+      {activeTab === 'score' && (
+        <QualityScore analysis={analysis} isLoading={isLoading} />
+      )}
+
+      {activeTab === 'checker' && (
+        <DesignChecker
+          analysis={analysis}
+          isLoading={isLoading}
+          onRefresh={runAnalysis}
+        />
+      )}
+
+      {activeTab === 'presets' && (
+        <AnimationPresets
+          selectedPresets={selectedPresets}
+          onTogglePreset={handleTogglePreset}
+          onApply={handleApplyPresets}
+        />
       )}
     </div>
   )

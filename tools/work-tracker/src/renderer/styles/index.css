@@ -2,6 +2,17 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Semantic colors for inline styles */
+  --color-idle: #d1d5db;
+  --color-uncategorized: #6b7280;
+  --color-grid: #e5e7eb;
+  --color-productive: #10b981;
+  --color-text-muted: #6b7280;
+  --color-text-dark: #374151;
+  --color-empty: #e5e7eb;
+}
+
 @layer base {
   html {
     font-family: 'Inter', system-ui, sans-serif;
@@ -105,7 +116,7 @@
 
   .scrollbar-thin {
     scrollbar-width: thin;
-    scrollbar-color: #d1d5db transparent;
+    scrollbar-color: var(--color-idle) transparent;
   }
 
   .scrollbar-thin::-webkit-scrollbar {
@@ -117,7 +128,7 @@
   }
 
   .scrollbar-thin::-webkit-scrollbar-thumb {
-    background-color: #d1d5db;
+    background-color: var(--color-idle);
     border-radius: 3px;
   }
 }

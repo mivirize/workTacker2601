@@ -6,9 +6,11 @@
 
 import { useEffect, useCallback, useMemo, useState } from 'react'
 import { useEditorStore, useTemporalStore } from './stores/editor-store'
+import { useAdminStore } from './stores/admin-store'
 import { EditorPanel } from './components/EditorPanel'
 import { PreviewPanel } from './components/PreviewPanel'
 import { Toolbar } from './components/Toolbar'
+import { AdminPage } from './pages/Admin'
 import {
   parseHtmlMarkers,
   parseHtmlColors,
@@ -43,14 +45,11 @@ export function App() {
     setExporting,
   } = useEditorStore()
 
+  // Admin store
+  const { isAdminMode, setAdminMode } = useAdminStore()
+
   // Project selection state
   const [needsProjectSelect, setNeedsProjectSelect] = useState(false)
-  const [projectPath, setProjectPath] = useState<string>('')
-
-  // Initialize project on mount
-  useEffect(() => {
-    initializeProject()
-  }, [])
 
   // Initialize and validate project
   const initializeProject = async () => {
@@ -62,7 +61,6 @@ export function App() {
       const validation = await window.electronAPI.initProject()
 
       if (validation.valid) {
-        setProjectPath(validation.path)
         await loadProject()
       } else {
         console.warn('Project validation failed:', validation.error)
@@ -82,7 +80,6 @@ export function App() {
       const validation = await window.electronAPI.selectProject()
 
       if (validation && validation.valid) {
-        setProjectPath(validation.path)
         setNeedsProjectSelect(false)
         await loadProject()
       } else if (validation) {
@@ -112,7 +109,7 @@ export function App() {
     const markers = parseHtmlMarkers(html)
     const editablesMap: Record<string, {
       id: string
-      type: 'text' | 'richtext' | 'image' | 'link' | 'background-image'
+      type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
       value: string | null
       label?: string
       group?: string
@@ -163,7 +160,7 @@ export function App() {
         index: number
         fields: Record<string, {
           id: string
-          type: 'text' | 'richtext' | 'image' | 'link' | 'background-image'
+          type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
           label?: string
           value: string | null
           href?: string
@@ -465,6 +462,58 @@ export function App() {
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [handleSave, handleExport, handleUndo, handleRedo])
 
+  // Track previous admin mode to detect transitions
+  const [wasAdminMode, setWasAdminMode] = useState<boolean | null>(null)
+  // Track if we were opened from admin (for showing "back to admin" button)
+  const [openedFromAdmin, setOpenedFromAdmin] = useState(false)
+
+  // Check admin mode on mount
+  useEffect(() => {
+    const checkAdminMode = async () => {
+      try {
+        const adminMode = await window.electronAPI.isAdminMode()
+        setAdminMode(adminMode)
+        setWasAdminMode(adminMode)
+        if (!adminMode) {
+          initializeProject()
+        }
+      } catch (err) {
+        console.error('Failed to check admin mode:', err)
+        initializeProject()
+      }
+    }
+    checkAdminMode()
+  }, [])
+
+  // Handle transition from admin mode to editor mode
+  useEffect(() => {
+    // Skip initial render (wasAdminMode is null) and when still in admin mode
+    if (wasAdminMode === null || isAdminMode) return
+
+    // If we were in admin mode and now we're not, initialize the project
+    if (wasAdminMode && !isAdminMode) {
+      initializeProject()
+      setWasAdminMode(false)
+      setOpenedFromAdmin(true) // Remember we came from admin
+    }
+  }, [isAdminMode, wasAdminMode])
+
+  // Handle returning to admin mode
+  const handleBackToAdmin = useCallback(async () => {
+    try {
+      await window.electronAPI.returnToAdmin()
+      setAdminMode(true)
+      setWasAdminMode(true)
+    } catch (err) {
+      console.error('Failed to return to admin:', err)
+    }
+  }, [setAdminMode])
+
+  // If admin mode, show admin page
+  if (isAdminMode) {
+    return <AdminPage />
+  }
+
   // Loading state
   if (isLoading) {
     return (
@@ -552,6 +601,8 @@ export function App() {
         pages={pages}
         currentPageId={currentPageId}
         onPageChange={handlePageChange}
+        showBackToAdmin={openedFromAdmin}
+        onBackToAdmin={handleBackToAdmin}
       />
 
       <div className="flex-1 flex overflow-hidden">

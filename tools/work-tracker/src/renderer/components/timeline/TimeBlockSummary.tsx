@@ -1,8 +1,14 @@
 import { useState, useMemo } from 'react'
-import { format } from 'date-fns'
+import { format, isValid } from 'date-fns'
 import type { Activity, Category, TimeBlockInterval, TimeBlock } from '../../../shared/types'
 import { generateTimeBlocks, INTERVAL_OPTIONS } from '../../utils/time-blocks'
 import { formatDuration } from '../../utils/format'
+import { COLORS, getActivityColor } from '../../utils/colors'
+
+function formatTimeBlock(timestamp: number): string {
+  const date = new Date(timestamp)
+  return isValid(date) ? format(date, 'HH:mm') : '--:--'
+}
 
 interface TimeBlockSummaryProps {
   activities: Activity[]
@@ -19,11 +25,12 @@ export default function TimeBlockSummary({
   const [intervalMinutes, setIntervalMinutes] = useState<TimeBlockInterval>(30)
   const [selectedBlock, setSelectedBlock] = useState<TimeBlock | null>(null)
 
-  const categoryMap = new Map(categories.map(c => [c.id, c]))
+  const categoryMap = useMemo(() => new Map((categories ?? []).map(c => [c.id, c])), [categories])
 
   // Generate and filter time blocks (only show active hours: 6:00-24:00)
   const blocks = useMemo(() => {
-    const allBlocks = generateTimeBlocks(activities, date, intervalMinutes, categories)
+    const safeDate = date && isValid(date) ? date : new Date()
+    const allBlocks = generateTimeBlocks(activities, safeDate, intervalMinutes, categories ?? [])
     const startIndex = Math.floor(6 * 60 / intervalMinutes)
     const endIndex = Math.floor(24 * 60 / intervalMinutes)
     return allBlocks.slice(startIndex, endIndex)
@@ -91,22 +98,35 @@ export default function TimeBlockSummary({
               : 4
             const isSelected = selectedBlock?.startTime === block.startTime
 
+            const blockLabel = `${formatTimeBlock(block.startTime)}-${formatTimeBlock(block.endTime)}: ${hasActivity ? formatDuration(block.totalDuration) : '記録なし'}`
+
             return (
               <div
                 key={block.startTime}
+                role="button"
+                tabIndex={hasActivity ? 0 : -1}
                 onClick={() => handleBlockClick(block)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault()
+                    handleBlockClick(block)
+                  }
+                }}
+                aria-label={blockLabel}
+                aria-pressed={isSelected}
                 className={`
                   flex-1 min-w-[4px] max-w-[16px] rounded-t-sm transition-all cursor-pointer
                   ${hasActivity ? 'hover:opacity-80' : 'opacity-30'}
                   ${isSelected ? 'ring-2 ring-primary-500 ring-offset-1' : ''}
+                  focus:outline-none focus:ring-2 focus:ring-primary-500
                 `}
                 style={{
                   height: `${barHeight}px`,
                   backgroundColor: isIdle
-                    ? '#d1d5db'
-                    : block.dominantCategory?.color ?? (hasActivity ? '#6b7280' : '#e5e7eb'),
+                    ? COLORS.idle
+                    : block.dominantCategory?.color ?? (hasActivity ? COLORS.uncategorized : COLORS.empty),
                 }}
-                title={`${format(new Date(block.startTime), 'HH:mm')}-${format(new Date(block.endTime), 'HH:mm')}: ${hasActivity ? formatDuration(block.totalDuration) : '記録なし'}`}
+                title={blockLabel}
               />
             )
           })}
@@ -119,7 +139,7 @@ export default function TimeBlockSummary({
           <div className="flex items-center justify-between mb-3">
             <div>
               <h4 className="font-medium text-gray-900">
-                {format(new Date(selectedBlock.startTime), 'HH:mm')} - {format(new Date(selectedBlock.endTime), 'HH:mm')}
+                {formatTimeBlock(selectedBlock.startTime)} - {formatTimeBlock(selectedBlock.endTime)}
               </h4>
               <p className="text-xs text-gray-500">
                 合計: {formatDuration(selectedBlock.totalDuration)}
@@ -146,7 +166,7 @@ export default function TimeBlockSummary({
                 <div key={idx} className="flex items-center gap-2">
                   <div
                     className="w-2 h-2 rounded-full flex-shrink-0"
-                    style={{ backgroundColor: isIdle ? '#d1d5db' : category?.color ?? '#6b7280' }}
+                    style={{ backgroundColor: getActivityColor(isIdle, category?.color) }}
                   />
                   <span className="text-sm text-gray-700 flex-1 truncate">
                     {isIdle ? 'アイドル' : app.appName}
@@ -166,7 +186,7 @@ export default function TimeBlockSummary({
 
       {/* Legend */}
       <div className="flex flex-wrap gap-3 text-xs">
-        {categories.slice(0, 5).map((category) => (
+        {(categories ?? []).slice(0, 5).map((category) => (
           <div key={category.id} className="flex items-center gap-1">
             <div
               className="w-3 h-3 rounded-sm"

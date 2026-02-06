@@ -6,7 +6,7 @@ const path = require('path');
 const http = require('http');
 const fs = require('fs');
 
-const VITE_PORT = 5173;
+const VITE_PORT = 3333;
 const MAX_RETRIES = 30;
 const RETRY_INTERVAL = 1000;
 
@@ -64,12 +64,24 @@ async function startElectron() {
     console.log('No project path specified, will use default or show project selector');
   }
 
+  // Check for admin mode
+  const isAdminMode = process.argv.includes('--admin');
+  if (isAdminMode) {
+    console.log('Starting in admin mode');
+  }
+
   // Find electron binary
   const electronPath = require('electron');
 
   console.log('Starting Electron...');
 
-  const child = spawn(electronPath, ['.'], {
+  // Build electron args
+  const electronArgs = ['.'];
+  if (isAdminMode) {
+    electronArgs.push('--admin');
+  }
+
+  const child = spawn(electronPath, electronArgs, {
     cwd: path.join(__dirname, '..'),
     env,
     stdio: 'inherit',

@@ -22,7 +22,7 @@
       "@renderer/*": ["src/renderer/*"]
     }
   },
-  "include": ["src/renderer/**/*"],
+  "include": ["src/renderer/**/*", "src/preload/**/*"],
   "references": [
     { "path": "./tsconfig.main.json" }
   ]
