@@ -1,0 +1,1754 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="2026 Web Design Trends Showcase - GSAP, Three.js, Particles, Bento Grid, Variable Fonts">
+
+  <title data-editable="001-title" data-type="text" data-label="ページタイトル" data-group="01-Meta" data-order="001">2026 Web Trends Showcase</title>
+
+  <style>
+    :root {
+      /* Dark Mode Base */
+      --bg-void: #050508;
+      --bg-primary: #0a0a12;
+      --bg-secondary: #12121f;
+      --bg-tertiary: #1a1a2e;
+
+      /* Accent Colors */
+      --accent-primary: #6366f1;
+      --accent-secondary: #8b5cf6;
+      --accent-tertiary: #06b6d4;
+      --accent-warm: #f59e0b;
+      --accent-hot: #ef4444;
+      --accent-sakura: #ffc0cb;
+
+      /* Gradients */
+      --gradient-primary: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+      --gradient-warm: linear-gradient(135deg, #f59e0b 0%, #ef4444 100%);
+      --gradient-luxury: linear-gradient(135deg, #c9a962 0%, #d4af37 50%, #f5e6a3 100%);
+
+      /* Text */
+      --text-primary: #f8fafc;
+      --text-secondary: #94a3b8;
+      --text-muted: #64748b;
+
+      /* Glass */
+      --glass-bg: rgba(255, 255, 255, 0.03);
+      --glass-border: rgba(255, 255, 255, 0.08);
+      --glass-blur: 20px;
+
+      /* Spacing */
+      --section-gap: clamp(80px, 15vh, 150px);
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- ========================================
+       LOADER - Letter Animation
+       ======================================== -->
+  <div class="loader" id="loader">
+    <div class="loader__content">
+      <div class="loader__text" data-text="SHOWCASE">
+        <span>S</span><span>H</span><span>O</span><span>W</span><span>C</span><span>A</span><span>S</span><span>E</span>
+      </div>
+      <div class="loader__progress">
+        <div class="loader__bar"></div>
+      </div>
+      <p class="loader__label">Loading 2026 Trends...</p>
+    </div>
+  </div>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scrollProgress">
+    <div class="scroll-progress__bar"></div>
+  </div>
+
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor">
+    <div class="cursor__dot"></div>
+    <div class="cursor__ring"></div>
+    <div class="cursor__trail" id="cursorTrail"></div>
+  </div>
+
+  <!-- ========================================
+       NAVIGATION
+       ======================================== -->
+  <header class="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo" data-editable="010-logo" data-type="text" data-label="ロゴ" data-group="02-Nav" data-order="010">TRENDS 2026</a>
+      <nav class="nav__menu">
+        <a href="#scroll" class="nav__link">Scroll</a>
+        <a href="#3d" class="nav__link">3D</a>
+        <a href="#bento" class="nav__link">Bento</a>
+        <a href="#css-scroll" class="nav__link">CSS Native</a>
+        <a href="#view-transitions" class="nav__link">Transitions</a>
+        <a href="#container-queries" class="nav__link">Container</a>
+        <a href="#particles" class="nav__link">Particles</a>
+        <a href="#cta" class="nav__link">CTA</a>
+      </nav>
+      <button class="nav__toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-nav" id="mobileNav">
+    <nav class="mobile-nav__menu">
+      <a href="#scroll">Scroll Animations</a>
+      <a href="#3d">3D Effects</a>
+      <a href="#bento">Bento Grid</a>
+      <a href="#css-scroll">CSS Native Scroll</a>
+      <a href="#view-transitions">View Transitions</a>
+      <a href="#container-queries">Container Queries</a>
+      <a href="#particles">Particles</a>
+      <a href="#glass">Glassmorphism</a>
+      <a href="#cta">CTA & Forms</a>
+    </nav>
+  </div>
+
+  <!-- ========================================
+       HERO - GSAP SplitText + Particles
+       ======================================== -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__gradient"></div>
+      <div class="hero__grid-lines"></div>
+      <div class="hero__particles" id="heroParticles"></div>
+      <div class="hero__glow hero__glow--1"></div>
+      <div class="hero__glow hero__glow--2"></div>
+      <div class="hero__glow hero__glow--3"></div>
+      <!-- 3D Interactive Starfield -->
+      <div class="hero__starfield" id="heroStarfield"></div>
+      <div class="hero__nebula" id="heroNebula"></div>
+      <div class="hero__constellation" id="heroConstellation">
+        <svg class="constellation-svg" viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"></svg>
+      </div>
+      <div class="hero__shooting-stars" id="heroShootingStars"></div>
+    </div>
+
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal-text" data-editable="020-eyebrow" data-type="text" data-label="アイブロウ" data-group="03-Hero" data-order="020">Web Design Reference 2026</p>
+
+      <h1 class="hero__title">
+        <span class="hero__title-line split-text" data-editable="021-title-1" data-type="text" data-label="タイトル1行目" data-group="03-Hero" data-order="021">Design Trends</span>
+        <span class="hero__title-line split-text text-gradient" data-editable="022-title-2" data-type="text" data-label="タイトル2行目" data-group="03-Hero" data-order="022">Showcase</span>
+      </h1>
+
+      <p class="hero__description reveal-text" data-editable="023-description" data-type="richtext" data-label="説明文" data-group="03-Hero" data-order="023">
+        GSAP ScrollTrigger, Three.js, Bento Grid, Variable Fonts,<br>
+        Particles, Glassmorphism - 2026年の最新トレンドを体験
+      </p>
+
+      <div class="hero__cta reveal-text">
+        <a href="#scroll" class="btn btn--primary btn--glow" data-magnetic>
+          <span>Explore Trends</span>
+          <svg class="btn__arrow" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <div class="hero__scroll-hint">
+        <div class="scroll-indicator">
+          <div class="scroll-indicator__mouse">
+            <div class="scroll-indicator__wheel"></div>
+          </div>
+          <span>Scroll to explore</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 1: SCROLL ANIMATIONS
+       GSAP ScrollTrigger Demo
+       ======================================== -->
+  <section class="section scroll-demo" id="scroll">
+    <div class="section__header">
+      <span class="section__tag">01</span>
+      <h2 class="section__title" data-editable="030-scroll-title" data-type="text" data-label="スクロールタイトル" data-group="04-Scroll" data-order="030">Scroll Animations</h2>
+      <p class="section__subtitle">GSAP ScrollTrigger / Lenis Style</p>
+    </div>
+
+    <!-- Parallax Demo -->
+    <div class="scroll-demo__parallax">
+      <div class="parallax-layer parallax-layer--back">
+        <div class="parallax-shape parallax-shape--1"></div>
+        <div class="parallax-shape parallax-shape--2"></div>
+        <div class="parallax-shape parallax-shape--3"></div>
+      </div>
+      <div class="parallax-layer parallax-layer--mid">
+        <h3 class="parallax-text" data-speed="0.5">PARALLAX</h3>
+      </div>
+      <div class="parallax-layer parallax-layer--front">
+        <div class="parallax-card glass-card">
+          <p data-editable="031-parallax-desc" data-type="text" data-label="パララックス説明" data-group="04-Scroll" data-order="031">異なる速度で動くレイヤーが奥行きを演出</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pin & Reveal Demo -->
+    <div class="scroll-demo__pin">
+      <div class="pin-container">
+        <div class="pin-content">
+          <div class="pin-panel pin-panel--1">
+            <h3 data-editable="032-pin-1" data-type="text" data-label="ピン1" data-group="04-Scroll" data-order="032">Pin & Reveal</h3>
+            <p>スクロールで要素を固定しながらコンテンツを展開</p>
+          </div>
+          <div class="pin-panel pin-panel--2">
+            <h3 data-editable="033-pin-2" data-type="text" data-label="ピン2" data-group="04-Scroll" data-order="033">Stagger Animation</h3>
+            <p>要素を時間差で順番にアニメーション</p>
+          </div>
+          <div class="pin-panel pin-panel--3">
+            <h3 data-editable="034-pin-3" data-type="text" data-label="ピン3" data-group="04-Scroll" data-order="034">Scrub Effect</h3>
+            <p>スクロール量に連動したアニメーション制御</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Text Reveal Demo -->
+    <div class="scroll-demo__text-reveal">
+      <div class="text-reveal-container">
+        <p class="text-reveal-line" data-editable="035-reveal" data-type="richtext" data-label="リビールテキスト" data-group="04-Scroll" data-order="035">
+          スクロールに連動して<br>
+          <span class="highlight">文字が一文字ずつ</span><br>
+          現れるアニメーション
+        </p>
+      </div>
+    </div>
+
+    <!-- Counter Animation -->
+    <div class="scroll-demo__counters">
+      <div class="counter-grid" data-repeat="counters" data-repeat-min="1" data-repeat-max="4">
+        <div class="counter-item glass-card" data-repeat-item="1">
+          <span class="counter-number" data-target="2026">0</span>
+          <span class="counter-label" data-editable="036-counter-1" data-type="text" data-label="カウンター1" data-group="04-Scroll" data-order="036">Year</span>
+        </div>
+        <div class="counter-item glass-card" data-repeat-item="2">
+          <span class="counter-number" data-target="15">0</span>
+          <span class="counter-label" data-editable="037-counter-2" data-type="text" data-label="カウンター2" data-group="04-Scroll" data-order="037">Technologies</span>
+        </div>
+        <div class="counter-item glass-card" data-repeat-item="3">
+          <span class="counter-number" data-target="100">0</span>
+          <span class="counter-label" data-editable="038-counter-3" data-type="text" data-label="カウンター3" data-group="04-Scroll" data-order="038">Examples</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 2: 3D EFFECTS
+       Three.js Style (CSS 3D)
+       ======================================== -->
+  <section class="section section-3d" id="3d">
+    <div class="section__header">
+      <span class="section__tag">02</span>
+      <h2 class="section__title" data-editable="040-3d-title" data-type="text" data-label="3Dタイトル" data-group="05-3D" data-order="040">3D Effects</h2>
+      <p class="section__subtitle">Three.js / WebGL Style</p>
+    </div>
+
+    <!-- 3D Card Tilt -->
+    <div class="demo-3d__cards">
+      <div class="card-3d-grid" data-repeat="3d-cards" data-repeat-min="1" data-repeat-max="6">
+        <div class="card-3d" data-tilt data-repeat-item="1">
+          <div class="card-3d__inner">
+            <div class="card-3d__glow"></div>
+            <div class="card-3d__content">
+              <div class="card-3d__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+              </div>
+              <h4 data-editable="041-card-1" data-type="text" data-label="3Dカード1" data-group="05-3D" data-order="041">Perspective Tilt</h4>
+              <p>マウス位置に追従する3D傾き効果</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-tilt data-repeat-item="2">
+          <div class="card-3d__inner">
+            <div class="card-3d__glow"></div>
+            <div class="card-3d__content">
+              <div class="card-3d__icon">
+                <svg viewBox="0 0 24 24"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg>
+              </div>
+              <h4 data-editable="042-card-2" data-type="text" data-label="3Dカード2" data-group="05-3D" data-order="042">Depth Layers</h4>
+              <p>複数レイヤーによる奥行き表現</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-tilt data-repeat-item="3">
+          <div class="card-3d__inner">
+            <div class="card-3d__glow"></div>
+            <div class="card-3d__content">
+              <div class="card-3d__icon">
+                <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              </div>
+              <h4 data-editable="043-card-3" data-type="text" data-label="3Dカード3" data-group="05-3D" data-order="043">Globe Effect</h4>
+              <p>球体のような曲面表現</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW: 5 Additional 3D Cards -->
+        <div class="card-3d" data-tilt data-repeat-item="4">
+          <div class="card-3d__inner">
+            <div class="card-3d__glow"></div>
+            <div class="card-3d__content">
+              <div class="card-3d__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 3L2 12h3v9h6v-6h2v6h6v-9h3L12 3z"/></svg>
+              </div>
+              <h4>Holographic</h4>
+              <p>ホログラフィック光沢効果</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-tilt data-repeat-item="5">
+          <div class="card-3d__inner">
+            <div class="card-3d__glow"></div>
+            <div class="card-3d__content">
+              <div class="card-3d__icon">
+                <svg viewBox="0 0 24 24"><path d="M9 3L5 7l4 4V8h7v3l4-4-4-4v3H9V3zM15 21l4-4-4-4v3H8v-3l-4 4 4 4v-3h7v3z"/></svg>
+              </div>
+              <h4>Flip Card</h4>
+              <p>クリックで裏面を表示</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-tilt data-repeat-item="6">
+          <div class="card-3d__inner">
+            <div class="card-3d__glow"></div>
+            <div class="card-3d__content">
+              <div class="card-3d__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+              </div>
+              <h4>Reflection</h4>
+              <p>床面への反射エフェクト</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-tilt data-repeat-item="7">
+          <div class="card-3d__inner">
+            <div class="card-3d__glow"></div>
+            <div class="card-3d__content">
+              <div class="card-3d__icon">
+                <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+              </div>
+              <h4>Parallax Card</h4>
+              <p>内部要素が独立して動く</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-3d" data-tilt data-repeat-item="8">
+          <div class="card-3d__inner">
+            <div class="card-3d__glow"></div>
+            <div class="card-3d__content">
+              <div class="card-3d__icon">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+              </div>
+              <h4>Shine Effect</h4>
+              <p>光が流れるシャイン効果</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3D Rotating Cube -->
+    <div class="demo-3d__cube">
+      <div class="cube-scene">
+        <div class="cube" id="cube3d">
+          <div class="cube__face cube__face--front">FRONT</div>
+          <div class="cube__face cube__face--back">BACK</div>
+          <div class="cube__face cube__face--right">RIGHT</div>
+          <div class="cube__face cube__face--left">LEFT</div>
+          <div class="cube__face cube__face--top">TOP</div>
+          <div class="cube__face cube__face--bottom">BOTTOM</div>
+        </div>
+      </div>
+      <p class="demo-3d__caption" data-editable="044-cube-caption" data-type="text" data-label="キューブ説明" data-group="05-3D" data-order="044">ドラッグで回転 / CSS 3D Transform</p>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 3: BENTO GRID
+       ======================================== -->
+  <section class="section section-bento" id="bento">
+    <div class="section__header">
+      <span class="section__tag">03</span>
+      <h2 class="section__title" data-editable="050-bento-title" data-type="text" data-label="Bentoタイトル" data-group="06-Bento" data-order="050">Bento Grid</h2>
+      <p class="section__subtitle">Modular Layout System</p>
+    </div>
+
+    <div class="bento-grid" data-repeat="bento" data-repeat-min="1" data-repeat-max="8">
+      <!-- Large Feature -->
+      <div class="bento-item bento-item--xl glass-card animate-item" data-repeat-item="1">
+        <div class="bento-item__bg">
+          <div class="bento-item__gradient"></div>
+        </div>
+        <div class="bento-item__content">
+          <span class="bento-item__tag">Featured</span>
+          <h3 data-editable="051-bento-1-title" data-type="text" data-label="Bento1タイトル" data-group="06-Bento" data-order="051">Flexible Grid System</h3>
+          <p data-editable="052-bento-1-desc" data-type="richtext" data-label="Bento1説明" data-group="06-Bento" data-order="052">Apple風の弁当箱レイアウト。可変サイズのカードを自由に配置し、情報の優先度を視覚的に表現</p>
+        </div>
+      </div>
+
+      <!-- Medium Items -->
+      <div class="bento-item bento-item--md glass-card animate-item" data-repeat-item="2">
+        <div class="bento-item__icon">
+          <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        </div>
+        <h4 data-editable="053-bento-2" data-type="text" data-label="Bento2" data-group="06-Bento" data-order="053">Auto-fit Layout</h4>
+        <p>grid-template-columnsで自動配置</p>
+      </div>
+
+      <div class="bento-item bento-item--md glass-card animate-item" data-repeat-item="3">
+        <div class="bento-item__icon">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </div>
+        <h4 data-editable="054-bento-3" data-type="text" data-label="Bento3" data-group="06-Bento" data-order="054">Aspect Ratio</h4>
+        <p>aspect-ratioで比率を維持</p>
+      </div>
+
+      <!-- Wide Item -->
+      <div class="bento-item bento-item--wide glass-card animate-item" data-repeat-item="4">
+        <div class="bento-item__stats">
+          <div class="stat">
+            <span class="stat__value">4x4</span>
+            <span class="stat__label">Grid Columns</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">8</span>
+            <span class="stat__label">Max Items</span>
+          </div>
+          <div class="stat">
+            <span class="stat__value">Auto</span>
+            <span class="stat__label">Responsive</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Small Items -->
+      <div class="bento-item bento-item--sm glass-card animate-item" data-repeat-item="5">
+        <span class="bento-item__emoji">&#9733;</span>
+        <p data-editable="055-bento-4" data-type="text" data-label="Bento4" data-group="06-Bento" data-order="055">Rating</p>
+      </div>
+
+      <div class="bento-item bento-item--sm glass-card animate-item" data-repeat-item="6">
+        <span class="bento-item__emoji">&#128640;</span>
+        <p data-editable="056-bento-5" data-type="text" data-label="Bento5" data-group="06-Bento" data-order="056">Fast</p>
+      </div>
+
+      <!-- Tall Item -->
+      <div class="bento-item bento-item--tall glass-card animate-item" data-repeat-item="7">
+        <div class="bento-item__visual">
+          <div class="mini-chart">
+            <div class="mini-chart__bar" style="--height: 40%"></div>
+            <div class="mini-chart__bar" style="--height: 65%"></div>
+            <div class="mini-chart__bar" style="--height: 85%"></div>
+            <div class="mini-chart__bar" style="--height: 55%"></div>
+            <div class="mini-chart__bar" style="--height: 95%"></div>
+          </div>
+        </div>
+        <h4 data-editable="057-bento-6" data-type="text" data-label="Bento6" data-group="06-Bento" data-order="057">Analytics</h4>
+      </div>
+
+      <!-- NEW: 5 Additional Bento Items -->
+      <div class="bento-item bento-item--md glass-card animate-item" data-repeat-item="8">
+        <div class="bento-item__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        </div>
+        <h4>Performance</h4>
+        <p>Core Web Vitals最適化</p>
+      </div>
+
+      <div class="bento-item bento-item--sm glass-card animate-item" data-repeat-item="9">
+        <span class="bento-item__emoji">&#128736;</span>
+        <p>Settings</p>
+      </div>
+
+      <div class="bento-item bento-item--wide glass-card animate-item" data-repeat-item="10">
+        <div class="bento-item__progress-demo">
+          <div class="bento-progress">
+            <div class="bento-progress__fill" style="--width: 78%"></div>
+          </div>
+          <span class="bento-progress__label">Progress Bar Demo - 78%</span>
+        </div>
+      </div>
+
+      <div class="bento-item bento-item--sm glass-card animate-item" data-repeat-item="11">
+        <span class="bento-item__emoji">&#127775;</span>
+        <p>New</p>
+      </div>
+
+      <div class="bento-item bento-item--md glass-card animate-item" data-repeat-item="12">
+        <div class="bento-item__avatar-stack">
+          <div class="avatar-stack">
+            <div class="avatar-stack__item" style="--hue: 250"></div>
+            <div class="avatar-stack__item" style="--hue: 180"></div>
+            <div class="avatar-stack__item" style="--hue: 340"></div>
+            <span class="avatar-stack__more">+12</span>
+          </div>
+        </div>
+        <h4>Team Members</h4>
+        <p>コラボレーション機能</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 4: CSS SCROLL-DRIVEN ANIMATIONS
+       Native CSS Animation Timeline
+       ======================================== -->
+  <section class="section section-css-scroll" id="css-scroll">
+    <div class="section__header">
+      <span class="section__tag section__tag--cyan">04</span>
+      <h2 class="section__title" data-editable="058-css-scroll-title" data-type="text" data-label="CSS Scrollタイトル" data-group="06B-CSSScroll" data-order="058">CSS Scroll-Driven</h2>
+      <p class="section__subtitle">Native CSS Animation Timeline (Chrome 145+ / Safari 26+)</p>
+    </div>
+
+    <div class="css-scroll-demos">
+      <!-- View Timeline Demo -->
+      <div class="css-demo css-demo--view">
+        <h3 class="css-demo__title" data-editable="058a-view-title" data-type="text" data-label="Viewタイトル" data-group="06B-CSSScroll" data-order="058a">view() Animation</h3>
+        <p class="css-demo__desc">要素がビューポートに入ると自動でアニメーション開始</p>
+        <div class="view-cards" data-repeat="view-cards" data-repeat-min="1" data-repeat-max="6">
+          <div class="view-card view-card--fade" data-repeat-item="1">
+            <div class="view-card__icon">&#128161;</div>
+            <h4>Fade In Up</h4>
+            <p>animation-range: entry</p>
+          </div>
+          <div class="view-card view-card--scale" data-repeat-item="2">
+            <div class="view-card__icon">&#128300;</div>
+            <h4>Scale In</h4>
+            <p>animation-range: cover</p>
+          </div>
+          <div class="view-card view-card--rotate" data-repeat-item="3">
+            <div class="view-card__icon">&#128260;</div>
+            <h4>Rotate In</h4>
+            <p>animation-range: contain</p>
+          </div>
+          <div class="view-card view-card--slide" data-repeat-item="4">
+            <div class="view-card__icon">&#128640;</div>
+            <h4>Slide In</h4>
+            <p>animation-range: entry 0% cover 50%</p>
+          </div>
+
+          <!-- NEW: 5 Additional View Cards -->
+          <div class="view-card view-card--blur" data-repeat-item="5">
+            <div class="view-card__icon">&#128065;</div>
+            <h4>Blur Reveal</h4>
+            <p>ぼかしが徐々に解消</p>
+          </div>
+
+          <div class="view-card view-card--flip" data-repeat-item="6">
+            <div class="view-card__icon">&#128260;</div>
+            <h4>Flip In</h4>
+            <p>Y軸回転でフリップイン</p>
+          </div>
+
+          <div class="view-card view-card--bounce" data-repeat-item="7">
+            <div class="view-card__icon">&#127934;</div>
+            <h4>Bounce In</h4>
+            <p>弾むように出現</p>
+          </div>
+
+          <div class="view-card view-card--zoom" data-repeat-item="8">
+            <div class="view-card__icon">&#128270;</div>
+            <h4>Zoom Out</h4>
+            <p>大きい状態から縮小</p>
+          </div>
+
+          <div class="view-card view-card--swing" data-repeat-item="9">
+            <div class="view-card__icon">&#127912;</div>
+            <h4>Swing In</h4>
+            <p>左右に揺れながら出現</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Scroll Progress Demo -->
+      <div class="css-demo css-demo--progress">
+        <h3 class="css-demo__title" data-editable="058b-progress-title" data-type="text" data-label="Progressタイトル" data-group="06B-CSSScroll" data-order="058b">scroll() Timeline</h3>
+        <p class="css-demo__desc">ページ全体のスクロール進捗に連動</p>
+        <div class="progress-demo">
+          <div class="progress-circle">
+            <svg viewBox="0 0 100 100">
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#6366f1" />
+                  <stop offset="50%" style="stop-color:#8b5cf6" />
+                  <stop offset="100%" style="stop-color:#06b6d4" />
+                </linearGradient>
+              </defs>
+              <circle class="progress-circle__bg" cx="50" cy="50" r="45"></circle>
+              <circle class="progress-circle__fill" cx="50" cy="50" r="45"></circle>
+            </svg>
+            <span class="progress-circle__text">0%</span>
+          </div>
+          <div class="progress-bars">
+            <div class="progress-bar-item">
+              <span>Horizontal</span>
+              <div class="progress-bar-track">
+                <div class="progress-bar-fill progress-bar-fill--h"></div>
+              </div>
+            </div>
+            <div class="progress-bar-item">
+              <span>Gradient</span>
+              <div class="progress-bar-track">
+                <div class="progress-bar-fill progress-bar-fill--gradient"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Reveal Text Demo -->
+      <div class="css-demo css-demo--reveal">
+        <h3 class="css-demo__title" data-editable="058c-reveal-title" data-type="text" data-label="Revealタイトル" data-group="06B-CSSScroll" data-order="058c">Text Reveal</h3>
+        <p class="reveal-text-css" data-editable="058d-reveal-text" data-type="richtext" data-label="Revealテキスト" data-group="06B-CSSScroll" data-order="058d">
+          CSS純正のスクロール連動アニメーション。<br>
+          JavaScriptなしで高パフォーマンス。
+        </p>
+      </div>
+
+      <!-- Browser Support Note -->
+      <div class="css-demo css-demo--note glass-card">
+        <h4>&#9888; ブラウザサポート</h4>
+        <div class="browser-support">
+          <span class="browser browser--supported">Chrome 145+</span>
+          <span class="browser browser--supported">Edge 145+</span>
+          <span class="browser browser--supported">Safari 26+</span>
+          <span class="browser browser--unsupported">Firefox (未対応)</span>
+        </div>
+        <p>未対応ブラウザではフォールバックアニメーションが表示されます</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 5: STICKY CARD STACK
+       position: sticky Cards
+       ======================================== -->
+  <section class="section section-sticky-cards" id="sticky-cards">
+    <div class="section__header">
+      <span class="section__tag section__tag--warm">05</span>
+      <h2 class="section__title" data-editable="059-sticky-title" data-type="text" data-label="Stickyタイトル" data-group="06C-Sticky" data-order="059">Sticky Card Stack</h2>
+      <p class="section__subtitle">position: sticky による重なるカード効果</p>
+    </div>
+
+    <div class="sticky-cards-container">
+      <div class="sticky-cards-wrapper" data-repeat="sticky-cards" data-repeat-min="1" data-repeat-max="5">
+        <article class="sticky-card sticky-card--1" data-repeat-item="1">
+          <div class="sticky-card__content">
+            <span class="sticky-card__number">01</span>
+            <h3 data-editable="059a-sticky-1" data-type="text" data-label="Sticky1タイトル" data-group="06C-Sticky" data-order="059a">First Card</h3>
+            <p>スクロールすると次のカードが上に重なって現れます。JSなし、CSS純正のposition: stickyを使用。</p>
+            <div class="sticky-card__visual">
+              <div class="sticky-visual sticky-visual--1"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="sticky-card sticky-card--2" data-repeat-item="2">
+          <div class="sticky-card__content">
+            <span class="sticky-card__number">02</span>
+            <h3 data-editable="059b-sticky-2" data-type="text" data-label="Sticky2タイトル" data-group="06C-Sticky" data-order="059b">Second Card</h3>
+            <p>各カードは異なるtop値を持ち、段階的に重なることで深度を表現します。</p>
+            <div class="sticky-card__visual">
+              <div class="sticky-visual sticky-visual--2"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="sticky-card sticky-card--3" data-repeat-item="3">
+          <div class="sticky-card__content">
+            <span class="sticky-card__number">03</span>
+            <h3 data-editable="059c-sticky-3" data-type="text" data-label="Sticky3タイトル" data-group="06C-Sticky" data-order="059c">Third Card</h3>
+            <p>ホバー時にはカードが少し浮き上がり、シャドウが深くなります。</p>
+            <div class="sticky-card__visual">
+              <div class="sticky-visual sticky-visual--3"></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="sticky-card sticky-card--4" data-repeat-item="4">
+          <div class="sticky-card__content">
+            <span class="sticky-card__number">04</span>
+            <h3 data-editable="059d-sticky-4" data-type="text" data-label="Sticky4タイトル" data-group="06C-Sticky" data-order="059d">Fourth Card</h3>
+            <p>実際のLPではサービス特徴やプラン比較などに活用できます。</p>
+            <div class="sticky-card__visual">
+              <div class="sticky-visual sticky-visual--4"></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 6: HORIZONTAL SCROLL
+       ======================================== -->
+  <section class="section section-horizontal" id="horizontal">
+    <div class="section__header">
+      <span class="section__tag">06</span>
+      <h2 class="section__title" data-editable="060-hscroll-title" data-type="text" data-label="横スクロールタイトル" data-group="07-HScroll" data-order="060">Horizontal Scroll</h2>
+      <p class="section__subtitle">Drag & Scroll Gallery</p>
+    </div>
+
+    <div class="horizontal-scroll" id="horizontalScroll">
+      <div class="horizontal-scroll__track" data-repeat="gallery" data-repeat-min="1" data-repeat-max="8">
+        <article class="gallery-card" data-repeat-item="1">
+          <div class="gallery-card__image">
+            <div class="gallery-card__placeholder" style="--hue: 250"></div>
+          </div>
+          <div class="gallery-card__content">
+            <span class="gallery-card__number">01</span>
+            <h3 data-editable="061-gallery-1" data-type="text" data-label="ギャラリー1" data-group="07-HScroll" data-order="061">Scroll Triggered</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-repeat-item="2">
+          <div class="gallery-card__image">
+            <div class="gallery-card__placeholder" style="--hue: 280"></div>
+          </div>
+          <div class="gallery-card__content">
+            <span class="gallery-card__number">02</span>
+            <h3 data-editable="062-gallery-2" data-type="text" data-label="ギャラリー2" data-group="07-HScroll" data-order="062">Drag Enabled</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-repeat-item="3">
+          <div class="gallery-card__image">
+            <div class="gallery-card__placeholder" style="--hue: 190"></div>
+          </div>
+          <div class="gallery-card__content">
+            <span class="gallery-card__number">03</span>
+            <h3 data-editable="063-gallery-3" data-type="text" data-label="ギャラリー3" data-group="07-HScroll" data-order="063">Touch Support</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-repeat-item="4">
+          <div class="gallery-card__image">
+            <div class="gallery-card__placeholder" style="--hue: 30"></div>
+          </div>
+          <div class="gallery-card__content">
+            <span class="gallery-card__number">04</span>
+            <h3 data-editable="064-gallery-4" data-type="text" data-label="ギャラリー4" data-group="07-HScroll" data-order="064">Momentum</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-repeat-item="5">
+          <div class="gallery-card__image">
+            <div class="gallery-card__placeholder" style="--hue: 340"></div>
+          </div>
+          <div class="gallery-card__content">
+            <span class="gallery-card__number">05</span>
+            <h3 data-editable="065-gallery-5" data-type="text" data-label="ギャラリー5" data-group="07-HScroll" data-order="065">Snap Points</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-repeat-item="6">
+          <div class="gallery-card__image">
+            <div class="gallery-card__placeholder" style="--hue: 160"></div>
+          </div>
+          <div class="gallery-card__content">
+            <span class="gallery-card__number">06</span>
+            <h3 data-editable="066-gallery-6" data-type="text" data-label="ギャラリー6" data-group="07-HScroll" data-order="066">Easing Curves</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-repeat-item="7">
+          <div class="gallery-card__image">
+            <div class="gallery-card__placeholder" style="--hue: 45"></div>
+          </div>
+          <div class="gallery-card__content">
+            <span class="gallery-card__number">07</span>
+            <h3 data-editable="067-gallery-7" data-type="text" data-label="ギャラリー7" data-group="07-HScroll" data-order="067">Velocity Based</h3>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-repeat-item="8">
+          <div class="gallery-card__image">
+            <div class="gallery-card__placeholder" style="--hue: 200"></div>
+          </div>
+          <div class="gallery-card__content">
+            <span class="gallery-card__number">08</span>
+            <h3 data-editable="068-gallery-8" data-type="text" data-label="ギャラリー8" data-group="07-HScroll" data-order="068">GPU Accelerated</h3>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 7: KINETIC TYPOGRAPHY
+       Variable Fonts + Text Animation
+       ======================================== -->
+  <section class="section section-typography" id="typography">
+    <div class="section__header">
+      <span class="section__tag">07</span>
+      <h2 class="section__title" data-editable="070-typo-title" data-type="text" data-label="タイポタイトル" data-group="08-Typography" data-order="070">Kinetic Typography</h2>
+      <p class="section__subtitle">Variable Fonts + Animation</p>
+    </div>
+
+    <!-- Variable Font Weight Demo -->
+    <div class="typo-demo__variable">
+      <h3 class="variable-text" id="variableText" data-editable="071-variable" data-type="text" data-label="Variable Font" data-group="08-Typography" data-order="071">VARIABLE</h3>
+      <div class="variable-control">
+        <label>Font Weight</label>
+        <input type="range" id="weightSlider" min="100" max="900" value="400">
+        <span id="weightValue">400</span>
+      </div>
+    </div>
+
+    <!-- Wave Text Animation -->
+    <div class="typo-demo__wave">
+      <p class="wave-text" data-editable="072-wave" data-type="text" data-label="Wave Text" data-group="08-Typography" data-order="072">WAVE ANIMATION</p>
+    </div>
+
+    <!-- Scramble Text -->
+    <div class="typo-demo__scramble">
+      <p class="scramble-text" data-text="HOVER TO SCRAMBLE" data-editable="073-scramble" data-type="text" data-label="Scramble Text" data-group="08-Typography" data-order="073">HOVER TO SCRAMBLE</p>
+    </div>
+
+    <!-- Split Text Reveal -->
+    <div class="typo-demo__split">
+      <h3 class="split-reveal">
+        <span class="split-word" data-editable="074-split-1" data-type="text" data-label="Split1" data-group="08-Typography" data-order="074">TEXT</span>
+        <span class="split-word" data-editable="075-split-2" data-type="text" data-label="Split2" data-group="08-Typography" data-order="075">SPLIT</span>
+        <span class="split-word" data-editable="076-split-3" data-type="text" data-label="Split3" data-group="08-Typography" data-order="076">REVEAL</span>
+      </h3>
+    </div>
+
+    <!-- Marquee -->
+    <div class="typo-demo__marquee">
+      <div class="marquee">
+        <div class="marquee__content">
+          <span>GSAP</span><span>*</span>
+          <span>THREE.JS</span><span>*</span>
+          <span>WEBGL</span><span>*</span>
+          <span>VARIABLE FONTS</span><span>*</span>
+          <span>SCROLL TRIGGER</span><span>*</span>
+        </div>
+        <div class="marquee__content" aria-hidden="true">
+          <span>GSAP</span><span>*</span>
+          <span>THREE.JS</span><span>*</span>
+          <span>WEBGL</span><span>*</span>
+          <span>VARIABLE FONTS</span><span>*</span>
+          <span>SCROLL TRIGGER</span><span>*</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- NEW: 5 Additional Typography Demos -->
+    <div class="typo-demos-grid">
+      <!-- Gradient Text -->
+      <div class="typo-demo__item glass-card">
+        <h4 class="gradient-text-demo">GRADIENT TEXT</h4>
+        <p class="typo-demo__label">背景グラデーションをテキストにクリップ</p>
+        <code>background-clip: text</code>
+      </div>
+
+      <!-- Neon Text -->
+      <div class="typo-demo__item glass-card">
+        <h4 class="neon-text-demo">NEON GLOW</h4>
+        <p class="typo-demo__label">複数text-shadowでネオン効果</p>
+        <code>text-shadow: 0 0 10px, 0 0 20px...</code>
+      </div>
+
+      <!-- Stroke Text -->
+      <div class="typo-demo__item glass-card">
+        <h4 class="stroke-text-demo">OUTLINED</h4>
+        <p class="typo-demo__label">テキストのアウトラインのみ表示</p>
+        <code>-webkit-text-stroke</code>
+      </div>
+
+      <!-- Typewriter Effect -->
+      <div class="typo-demo__item glass-card">
+        <h4 class="typewriter-demo">TYPEWRITER_</h4>
+        <p class="typo-demo__label">タイプライター風入力アニメーション</p>
+        <code>steps() + border-right</code>
+      </div>
+
+      <!-- 3D Text -->
+      <div class="typo-demo__item glass-card">
+        <h4 class="text-3d-demo">3D TEXT</h4>
+        <p class="typo-demo__label">複数シャドウによる立体テキスト</p>
+        <code>Multiple text-shadows</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 8: PARTICLES
+       Sakura, Light, Geometric
+       ======================================== -->
+  <section class="section section-particles" id="particles">
+    <div class="section__header">
+      <span class="section__tag">08</span>
+      <h2 class="section__title" data-editable="080-particles-title" data-type="text" data-label="パーティクルタイトル" data-group="09-Particles" data-order="080">Particle Effects</h2>
+      <p class="section__subtitle">Sakura / Light / Geometric</p>
+    </div>
+
+    <div class="particles-showcase">
+      <!-- Sakura Particles -->
+      <div class="particle-demo particle-demo--sakura">
+        <div class="particle-demo__container" id="sakuraContainer"></div>
+        <div class="particle-demo__label glass-card">
+          <h4 data-editable="081-sakura" data-type="text" data-label="桜パーティクル" data-group="09-Particles" data-order="081">Sakura Petals</h4>
+          <p>日本向けLP向け桜エフェクト</p>
+        </div>
+      </div>
+
+      <!-- Light Particles -->
+      <div class="particle-demo particle-demo--light">
+        <div class="particle-demo__container" id="lightContainer"></div>
+        <div class="particle-demo__label glass-card">
+          <h4 data-editable="082-light" data-type="text" data-label="光パーティクル" data-group="09-Particles" data-order="082">Light Particles</h4>
+          <p>高級感のある光の粒子</p>
+        </div>
+      </div>
+
+      <!-- Geometric Particles -->
+      <div class="particle-demo particle-demo--geometric">
+        <div class="particle-demo__container" id="geometricContainer"></div>
+        <div class="particle-demo__label glass-card">
+          <h4 data-editable="083-geometric" data-type="text" data-label="幾何学パーティクル" data-group="09-Particles" data-order="083">Geometric</h4>
+          <p>テック系サイト向けパーティクル</p>
+        </div>
+      </div>
+
+      <!-- NEW: 5 Additional Particle Demos -->
+      <!-- Snow Particles -->
+      <div class="particle-demo particle-demo--snow">
+        <div class="particle-demo__container" id="snowContainer"></div>
+        <div class="particle-demo__label glass-card">
+          <h4>Snow Flakes</h4>
+          <p>冬季キャンペーン向け雪エフェクト</p>
+        </div>
+      </div>
+
+      <!-- Confetti Particles -->
+      <div class="particle-demo particle-demo--confetti">
+        <div class="particle-demo__container" id="confettiContainer"></div>
+        <div class="particle-demo__label glass-card">
+          <h4>Confetti</h4>
+          <p>お祝い・成功画面向け紙吹雪</p>
+        </div>
+      </div>
+
+      <!-- Bubble Particles -->
+      <div class="particle-demo particle-demo--bubble">
+        <div class="particle-demo__container" id="bubbleContainer"></div>
+        <div class="particle-demo__label glass-card">
+          <h4>Bubbles</h4>
+          <p>水や清涼感を表現する泡</p>
+        </div>
+      </div>
+
+      <!-- Star Particles -->
+      <div class="particle-demo particle-demo--stars">
+        <div class="particle-demo__container" id="starsContainer"></div>
+        <div class="particle-demo__label glass-card">
+          <h4>Twinkle Stars</h4>
+          <p>きらめく星空エフェクト</p>
+        </div>
+      </div>
+
+      <!-- Firefly Particles -->
+      <div class="particle-demo particle-demo--firefly">
+        <div class="particle-demo__container" id="fireflyContainer"></div>
+        <div class="particle-demo__label glass-card">
+          <h4>Fireflies</h4>
+          <p>幻想的なホタルの光</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 9: GLASSMORPHISM
+       ======================================== -->
+  <section class="section section-glass" id="glass">
+    <div class="section__header">
+      <span class="section__tag">09</span>
+      <h2 class="section__title" data-editable="090-glass-title" data-type="text" data-label="ガラスタイトル" data-group="10-Glass" data-order="090">Glassmorphism</h2>
+      <p class="section__subtitle">Frosted Glass UI</p>
+    </div>
+
+    <div class="glass-showcase">
+      <div class="glass-bg">
+        <div class="glass-bg__blob glass-bg__blob--1"></div>
+        <div class="glass-bg__blob glass-bg__blob--2"></div>
+        <div class="glass-bg__blob glass-bg__blob--3"></div>
+      </div>
+
+      <div class="glass-cards">
+        <div class="glass-card glass-card--demo" data-repeat="glass-cards" data-repeat-min="1" data-repeat-max="4">
+          <div class="glass-card__header" data-repeat-item="1">
+            <div class="glass-card__avatar"></div>
+            <div>
+              <h4 data-editable="091-glass-1" data-type="text" data-label="ガラスカード1" data-group="10-Glass" data-order="091">Blur Effect</h4>
+              <p>backdrop-filter: blur(20px)</p>
+            </div>
+          </div>
+          <div class="glass-card__body">
+            <p>背景をぼかして半透明のUIを実現。iOS風のモダンなデザイン。</p>
+          </div>
+        </div>
+
+        <div class="glass-card glass-card--demo">
+          <div class="glass-card__header" data-repeat-item="2">
+            <div class="glass-card__avatar" style="--hue: 280"></div>
+            <div>
+              <h4 data-editable="092-glass-2" data-type="text" data-label="ガラスカード2" data-group="10-Glass" data-order="092">Border Glow</h4>
+              <p>rgba(255,255,255,0.1) border</p>
+            </div>
+          </div>
+          <div class="glass-card__body">
+            <p>微かな境界線とシャドウで浮遊感を演出。</p>
+          </div>
+        </div>
+
+        <div class="glass-card glass-card--demo">
+          <div class="glass-card__header" data-repeat-item="3">
+            <div class="glass-card__avatar" style="--hue: 180"></div>
+            <div>
+              <h4 data-editable="093-glass-3" data-type="text" data-label="ガラスカード3" data-group="10-Glass" data-order="093">Layered Depth</h4>
+              <p>Multiple glass layers</p>
+            </div>
+          </div>
+          <div class="glass-card__body">
+            <p>複数のガラスレイヤーを重ねた奥行き表現。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Micro Interactions Showcase -->
+    <div class="micro-interactions">
+      <h3 data-editable="094-micro-title" data-type="text" data-label="マイクロタイトル" data-group="10-Glass" data-order="094">Micro Interactions Guide</h3>
+      <p class="micro-interactions__subtitle">ホバー・クリックで効果を確認してください</p>
+
+      <!-- Button Effects Gallery -->
+      <div class="micro-section">
+        <h4 class="micro-section__title">&#9654; Button Effects</h4>
+        <div class="micro-card-grid">
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <button class="micro-btn micro-btn--ripple ripple-effect">Click Me</button>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Ripple Effect</h5>
+              <p>クリック位置から波紋が広がる。Material Design風</p>
+              <code>ripple-effect</code>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <button class="micro-btn micro-btn--magnetic" data-magnetic>Hover Me</button>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Magnetic Button</h5>
+              <p>マウスに吸い付くように追従する</p>
+              <code>data-magnetic</code>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <button class="micro-btn micro-btn--fill hover-glow">Hover Me</button>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Glow Hover</h5>
+              <p>ホバーで背後に光の輪が出現</p>
+              <code>hover-glow</code>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <button class="micro-btn micro-btn--border gradient-border-animated">Hover Me</button>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Gradient Border</h5>
+              <p>グラデーションボーダーがアニメーション</p>
+              <code>gradient-border-animated</code>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <button class="micro-btn micro-btn--scale scale-bounce">Hover Me</button>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Scale Bounce</h5>
+              <p>弾むように拡大縮小</p>
+              <code>scale-bounce</code>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <button class="micro-btn micro-btn--float float-hover">Hover Me</button>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Float Up</h5>
+              <p>上に浮き上がりシャドウが深くなる</p>
+              <code>float-hover</code>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <button class="micro-btn micro-btn--pulse pulse-ring">Hover Me</button>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Pulse Ring</h5>
+              <p>パルス状の輪が外側に広がる</p>
+              <code>pulse-ring</code>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <button class="micro-btn micro-btn--tilt tilt-3d">Hover Me</button>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>3D Tilt</h5>
+              <p>マウス位置に応じて3D傾き</p>
+              <code>tilt-3d</code>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Link Effects -->
+      <div class="micro-section">
+        <h4 class="micro-section__title">&#9654; Link Effects</h4>
+        <div class="micro-card-grid micro-card-grid--3">
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <a href="#" class="micro-link underline-slide">Hover this link</a>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Underline Slide</h5>
+              <p>下線が左からスライドイン</p>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <a href="#" class="micro-link text-shimmer">Shimmer Text</a>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Text Shimmer</h5>
+              <p>テキストが光り輝く</p>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <a href="#" class="micro-link icon-rotate">
+                <span>Click here</span>
+                <svg viewBox="0 0 24 24" width="16" height="16"><path fill="currentColor" d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/></svg>
+              </a>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Icon Rotate</h5>
+              <p>アイコンが回転・移動</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Elements -->
+      <div class="micro-section">
+        <h4 class="micro-section__title">&#9654; Form Elements</h4>
+        <div class="micro-card-grid micro-card-grid--3">
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <div class="input-float">
+                <input type="text" id="floatInput" placeholder=" ">
+                <label for="floatInput">Your Name</label>
+              </div>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Floating Label</h5>
+              <p>入力時にラベルが上に浮く</p>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <label class="checkbox-custom">
+                <input type="checkbox">
+                <span class="checkbox-custom__box"></span>
+                <span>Check me</span>
+              </label>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Animated Checkbox</h5>
+              <p>チェックマークがアニメーション</p>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview">
+              <label class="toggle-switch">
+                <input type="checkbox">
+                <span class="toggle-switch__slider"></span>
+                <span>Toggle</span>
+              </label>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Toggle Switch</h5>
+              <p>iOS風のスムーズな切り替え</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Effects -->
+      <div class="micro-section">
+        <h4 class="micro-section__title">&#9654; Card Effects</h4>
+        <div class="micro-card-grid micro-card-grid--3">
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview micro-demo-card__preview--tall">
+              <div class="micro-card float-hover glass-card">
+                <span>Float</span>
+              </div>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Float Card</h5>
+              <p>ホバーで浮き上がる</p>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview micro-demo-card__preview--tall">
+              <div class="micro-card tilt-3d glass-card">
+                <span>3D Tilt</span>
+              </div>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>3D Tilt Card</h5>
+              <p>マウス追従で3D効果</p>
+            </div>
+          </div>
+
+          <div class="micro-demo-card glass-card">
+            <div class="micro-demo-card__preview micro-demo-card__preview--tall">
+              <div class="micro-card hover-glow glass-card">
+                <span>Glow</span>
+              </div>
+            </div>
+            <div class="micro-demo-card__info">
+              <h5>Glow Card</h5>
+              <p>ホバーでグロー効果</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 10: LUXURY BRAND STYLE
+       ======================================== -->
+  <section class="section section-luxury" id="luxury">
+    <div class="luxury-bg">
+      <div class="luxury-bg__gradient"></div>
+      <div class="luxury-bg__pattern"></div>
+    </div>
+
+    <div class="luxury-content">
+      <div class="section__header section__header--luxury">
+        <span class="section__tag section__tag--gold">10</span>
+        <h2 class="section__title section__title--luxury" data-editable="100-luxury-title" data-type="text" data-label="ラグジュアリータイトル" data-group="11-Luxury" data-order="100">Luxury Brand Style</h2>
+        <p class="section__subtitle section__subtitle--luxury">Tiffany / Cartier / Dior Inspired</p>
+      </div>
+
+      <div class="luxury-showcase">
+        <!-- Product Card Luxury -->
+        <div class="luxury-card">
+          <div class="luxury-card__image">
+            <div class="luxury-card__placeholder"></div>
+            <div class="luxury-card__overlay">
+              <span>DISCOVER</span>
+            </div>
+          </div>
+          <div class="luxury-card__content">
+            <span class="luxury-card__category" data-editable="101-luxury-cat" data-type="text" data-label="ラグジュアリーカテゴリ" data-group="11-Luxury" data-order="101">COLLECTION 2026</span>
+            <h3 class="luxury-card__title" data-editable="102-luxury-name" data-type="text" data-label="ラグジュアリー商品名" data-group="11-Luxury" data-order="102">Signature Piece</h3>
+            <p class="luxury-card__price" data-editable="103-luxury-price" data-type="text" data-label="ラグジュアリー価格" data-group="11-Luxury" data-order="103">&#165;1,200,000</p>
+          </div>
+        </div>
+
+        <!-- Elegant CTA -->
+        <div class="luxury-cta">
+          <p class="luxury-cta__text" data-editable="104-luxury-cta-text" data-type="richtext" data-label="ラグジュアリーCTA文" data-group="11-Luxury" data-order="104">
+            最高品質の素材と職人技が織りなす<br>唯一無二のエレガンス
+          </p>
+          <a href="#" class="btn btn--luxury" data-editable="105-luxury-cta-btn" data-type="link" data-label="ラグジュアリーCTAボタン" data-group="11-Luxury" data-order="105">
+            <span>Explore Collection</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Luxury Features -->
+      <div class="luxury-features" data-repeat="luxury-features" data-repeat-min="1" data-repeat-max="4">
+        <div class="luxury-feature" data-repeat-item="1">
+          <div class="luxury-feature__icon">
+            <svg viewBox="0 0 24 24"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          </div>
+          <h4 data-editable="106-lux-feat-1" data-type="text" data-label="特徴1" data-group="11-Luxury" data-order="106">Craftsmanship</h4>
+        </div>
+        <div class="luxury-feature" data-repeat-item="2">
+          <div class="luxury-feature__icon">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+          </div>
+          <h4 data-editable="107-lux-feat-2" data-type="text" data-label="特徴2" data-group="11-Luxury" data-order="107">Timeless</h4>
+        </div>
+        <div class="luxury-feature" data-repeat-item="3">
+          <div class="luxury-feature__icon">
+            <svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h4 data-editable="108-lux-feat-3" data-type="text" data-label="特徴3" data-group="11-Luxury" data-order="108">Exclusive</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 11: CTA & FORMS (Japan LP Style)
+       ======================================== -->
+  <section class="section section-cta" id="cta">
+    <div class="cta-bg">
+      <div class="cta-bg__gradient"></div>
+      <div class="cta-bg__particles" id="ctaParticles"></div>
+    </div>
+
+    <div class="cta-content">
+      <div class="section__header">
+        <span class="section__tag section__tag--hot">11</span>
+        <h2 class="section__title" data-editable="120-cta-title" data-type="text" data-label="CTAタイトル" data-group="12-CTA" data-order="120">CTA & Forms</h2>
+        <p class="section__subtitle">日本LP向け高変換デザイン</p>
+      </div>
+
+      <!-- Japanese Style CTA -->
+      <div class="cta-showcase">
+        <div class="cta-demo cta-demo--japanese">
+          <div class="cta-badge" data-editable="121-cta-badge" data-type="text" data-label="CTAバッジ" data-group="12-CTA" data-order="121">期間限定</div>
+          <h3 class="cta-headline" data-editable="122-cta-headline" data-type="text" data-label="CTAヘッドライン" data-group="12-CTA" data-order="122">今すぐ無料で始める</h3>
+          <p class="cta-subtext" data-editable="123-cta-subtext" data-type="text" data-label="CTAサブテキスト" data-group="12-CTA" data-order="123">30日間の無料トライアル・クレジットカード不要</p>
+
+          <div class="cta-buttons">
+            <a href="#" class="cta-btn cta-btn--primary cta-btn--pulse">
+              <span data-editable="124-cta-btn-primary" data-type="text" data-label="CTAプライマリボタン" data-group="12-CTA" data-order="124">無料で試す</span>
+              <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+            <a href="#" class="cta-btn cta-btn--secondary">
+              <span data-editable="125-cta-btn-secondary" data-type="text" data-label="CTAセカンダリボタン" data-group="12-CTA" data-order="125">詳しく見る</span>
+            </a>
+          </div>
+
+          <div class="cta-microcopy">
+            <span>&#10003; いつでも解約可能</span>
+            <span>&#10003; 自動課金なし</span>
+          </div>
+        </div>
+
+        <!-- Trust Indicators -->
+        <div class="trust-section">
+          <h4 data-editable="126-trust-title" data-type="text" data-label="信頼タイトル" data-group="12-CTA" data-order="126">導入実績</h4>
+          <div class="trust-numbers" data-repeat="trust-numbers" data-repeat-min="1" data-repeat-max="4">
+            <div class="trust-item" data-repeat-item="1">
+              <span class="trust-number" data-target="50000">0</span>
+              <span class="trust-label" data-editable="127-trust-1" data-type="text" data-label="信頼1" data-group="12-CTA" data-order="127">ユーザー数</span>
+            </div>
+            <div class="trust-item" data-repeat-item="2">
+              <span class="trust-number" data-target="98.5">0</span>
+              <span class="trust-unit">%</span>
+              <span class="trust-label" data-editable="128-trust-2" data-type="text" data-label="信頼2" data-group="12-CTA" data-order="128">満足度</span>
+            </div>
+            <div class="trust-item" data-repeat-item="3">
+              <span class="trust-number" data-target="24">0</span>
+              <span class="trust-unit">h</span>
+              <span class="trust-label" data-editable="129-trust-3" data-type="text" data-label="信頼3" data-group="12-CTA" data-order="129">サポート</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form Demos -->
+      <div class="form-showcase">
+        <h3 data-editable="130-form-title" data-type="text" data-label="フォームタイトル" data-group="12-CTA" data-order="130">Form Interactions</h3>
+
+        <div class="form-demos">
+          <!-- Standard Form -->
+          <form class="demo-form demo-form--standard glass-card">
+            <h4>Standard Contact Form</h4>
+            <div class="form-row">
+              <div class="form-group form-group--float">
+                <input type="text" id="nameInput" placeholder=" " required>
+                <label for="nameInput">お名前</label>
+                <span class="form-line"></span>
+              </div>
+              <div class="form-group form-group--float">
+                <input type="email" id="emailInput" placeholder=" " required>
+                <label for="emailInput">メールアドレス</label>
+                <span class="form-line"></span>
+              </div>
+            </div>
+            <div class="form-group form-group--float">
+              <textarea id="messageInput" rows="4" placeholder=" "></textarea>
+              <label for="messageInput">メッセージ</label>
+              <span class="form-line"></span>
+            </div>
+            <button type="submit" class="form-submit">
+              <span>送信する</span>
+              <div class="form-submit__loader"></div>
+            </button>
+          </form>
+
+          <!-- Checkbox & Radio Demo -->
+          <div class="demo-form demo-form--options glass-card">
+            <h4>Custom Checkboxes & Radios</h4>
+
+            <div class="options-group">
+              <label class="option-checkbox">
+                <input type="checkbox" name="option1">
+                <span class="option-checkbox__mark"></span>
+                <span class="option-checkbox__label">アニメーションチェックボックス</span>
+              </label>
+              <label class="option-checkbox">
+                <input type="checkbox" name="option2" checked>
+                <span class="option-checkbox__mark"></span>
+                <span class="option-checkbox__label">デフォルトでチェック済み</span>
+              </label>
+            </div>
+
+            <div class="options-group">
+              <label class="option-radio">
+                <input type="radio" name="radioGroup" value="1" checked>
+                <span class="option-radio__mark"></span>
+                <span class="option-radio__label">オプション A</span>
+              </label>
+              <label class="option-radio">
+                <input type="radio" name="radioGroup" value="2">
+                <span class="option-radio__mark"></span>
+                <span class="option-radio__label">オプション B</span>
+              </label>
+              <label class="option-radio">
+                <input type="radio" name="radioGroup" value="3">
+                <span class="option-radio__mark"></span>
+                <span class="option-radio__label">オプション C</span>
+              </label>
+            </div>
+
+            <!-- Range Slider -->
+            <div class="range-demo">
+              <label>価格帯: <span id="rangeValue">50,000円</span></label>
+              <input type="range" id="priceRange" min="10000" max="100000" step="5000" value="50000" class="custom-range">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Fixed CTA Bar Demo -->
+      <div class="fixed-cta-demo">
+        <p>スマートフォン向け固定CTAバー（下部固定）</p>
+        <div class="fixed-cta-preview">
+          <div class="fixed-cta-bar">
+            <span data-editable="131-fixed-cta" data-type="text" data-label="固定CTAテキスト" data-group="12-CTA" data-order="131">今すぐ申し込む</span>
+            <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 12: VIEW TRANSITIONS API
+       Page Transition Effects (Chrome 111+)
+       ======================================== -->
+  <section class="section section-view-transitions" id="view-transitions">
+    <div class="section__header">
+      <span class="section__tag section__tag--green">12</span>
+      <h2 class="section__title" data-editable="140-vt-title" data-type="text" data-label="View Transitionsタイトル" data-group="13-ViewTransitions" data-order="140">View Transitions API</h2>
+      <p class="section__subtitle">Native Page Transitions (Chrome 111+ / Safari 18+)</p>
+    </div>
+
+    <div class="vt-demos">
+      <!-- Transition Type Demos -->
+      <div class="vt-demo vt-demo--types">
+        <h3 class="vt-demo__title">Transition Types</h3>
+        <div class="vt-cards">
+          <div class="vt-card glass-card">
+            <div class="vt-card__preview vt-card__preview--fade">
+              <div class="vt-preview-box" id="vtFadeBox">A</div>
+            </div>
+            <h4>Fade</h4>
+            <p>デフォルトのクロスフェード</p>
+            <button class="vt-trigger-btn" data-transition="fade">Trigger</button>
+            <code>::view-transition-old/new { animation: fade }</code>
+          </div>
+
+          <div class="vt-card glass-card">
+            <div class="vt-card__preview vt-card__preview--slide">
+              <div class="vt-preview-box" id="vtSlideBox">B</div>
+            </div>
+            <h4>Slide</h4>
+            <p>横方向スライド遷移</p>
+            <button class="vt-trigger-btn" data-transition="slide">Trigger</button>
+            <code>animation: slide-from-right</code>
+          </div>
+
+          <div class="vt-card glass-card">
+            <div class="vt-card__preview vt-card__preview--scale">
+              <div class="vt-preview-box" id="vtScaleBox">C</div>
+            </div>
+            <h4>Scale</h4>
+            <p>拡大/縮小トランジション</p>
+            <button class="vt-trigger-btn" data-transition="scale">Trigger</button>
+            <code>animation: scale-up/scale-down</code>
+          </div>
+
+          <div class="vt-card glass-card">
+            <div class="vt-card__preview vt-card__preview--flip">
+              <div class="vt-preview-box" id="vtFlipBox">D</div>
+            </div>
+            <h4>Flip</h4>
+            <p>3D回転トランジション</p>
+            <button class="vt-trigger-btn" data-transition="flip">Trigger</button>
+            <code>animation: flip-out/flip-in</code>
+          </div>
+        </div>
+      </div>
+
+      <!-- View Transition Names Demo -->
+      <div class="vt-demo vt-demo--names">
+        <h3 class="vt-demo__title">view-transition-name</h3>
+        <p class="vt-demo__desc">個別要素にユニークな遷移名を付与して、要素単位でトランジション</p>
+        <div class="vt-names-demo">
+          <div class="vt-names-grid">
+            <div class="vt-named-element" style="view-transition-name: card-1;">
+              <span>Card 1</span>
+            </div>
+            <div class="vt-named-element" style="view-transition-name: card-2;">
+              <span>Card 2</span>
+            </div>
+            <div class="vt-named-element" style="view-transition-name: card-3;">
+              <span>Card 3</span>
+            </div>
+          </div>
+          <button class="btn btn--primary vt-shuffle-btn" id="vtShuffleBtn">Shuffle Cards</button>
+        </div>
+        <div class="vt-code-block glass-card">
+          <pre><code>.element {
+  view-transition-name: unique-name;
+}
+
+document.startViewTransition(() => {
+  // DOM変更処理
+});</code></pre>
+        </div>
+      </div>
+
+      <!-- Browser Support -->
+      <div class="vt-support glass-card">
+        <h4>Browser Support</h4>
+        <div class="support-badges">
+          <span class="support-badge support-badge--yes">Chrome 111+</span>
+          <span class="support-badge support-badge--yes">Edge 111+</span>
+          <span class="support-badge support-badge--yes">Safari 18+</span>
+          <span class="support-badge support-badge--partial">Firefox (flag)</span>
+        </div>
+        <p class="vt-support__note">フォールバック: 非対応ブラウザでは即座にDOM更新</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SECTION 13: CONTAINER QUERIES
+       Component-Level Responsive Design
+       ======================================== -->
+  <section class="section section-container-queries" id="container-queries">
+    <div class="section__header">
+      <span class="section__tag section__tag--orange">13</span>
+      <h2 class="section__title" data-editable="150-cq-title" data-type="text" data-label="Container Queriesタイトル" data-group="14-ContainerQueries" data-order="150">Container Queries</h2>
+      <p class="section__subtitle">Component-Level Responsive Design</p>
+    </div>
+
+    <div class="cq-demos">
+      <!-- Interactive Demo -->
+      <div class="cq-demo cq-demo--interactive">
+        <h3 class="cq-demo__title">Resize to See Effect</h3>
+        <p class="cq-demo__desc">コンテナサイズに応じてレイアウトが自動変更</p>
+
+        <div class="cq-resize-wrapper">
+          <div class="cq-resizable-container" id="cqResizable">
+            <div class="cq-card">
+              <div class="cq-card__image">
+                <div class="cq-card__placeholder"></div>
+              </div>
+              <div class="cq-card__content">
+                <h4 class="cq-card__title">Responsive Card</h4>
+                <p class="cq-card__text">このカードはコンテナ幅に応じて縦/横レイアウトが切り替わります。</p>
+                <span class="cq-card__meta">Container Queries</span>
+              </div>
+            </div>
+          </div>
+          <div class="cq-resize-handle" id="cqResizeHandle">
+            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+
+        <div class="cq-size-indicator">
+          Current width: <span id="cqWidthValue">400px</span>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="cq-demo cq-demo--code">
+        <h3 class="cq-demo__title">Implementation</h3>
+        <div class="cq-code-tabs">
+          <div class="cq-code-block glass-card">
+            <h4>CSS</h4>
+            <pre><code>.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+/* 小さいコンテナ: 縦並び */
+.cq-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 300px以上: 横並び */
+@container card (min-width: 300px) {
+  .cq-card {
+    flex-direction: row;
+  }
+  .cq-card__title {
+    font-size: 1.25rem;
+  }
+}
+
+/* 500px以上: さらに拡張 */
+@container card (min-width: 500px) {
+  .cq-card__image {
+    flex: 0 0 200px;
+  }
+}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <!-- Use Cases Grid -->
+      <div class="cq-demo cq-demo--usecases">
+        <h3 class="cq-demo__title">Use Cases</h3>
+        <div class="cq-usecases-grid">
+          <div class="cq-usecase glass-card">
+            <div class="cq-usecase__icon">&#128466;</div>
+            <h4>Dashboard Widgets</h4>
+            <p>サイドバー/メインで同じウィジェットが異なるレイアウト</p>
+          </div>
+          <div class="cq-usecase glass-card">
+            <div class="cq-usecase__icon">&#128196;</div>
+            <h4>Article Cards</h4>
+            <p>グリッド配置位置に応じた自動レスポンシブ</p>
+          </div>
+          <div class="cq-usecase glass-card">
+            <div class="cq-usecase__icon">&#128230;</div>
+            <h4>Product Cards</h4>
+            <p>EC サイトで表示エリアに最適化</p>
+          </div>
+          <div class="cq-usecase glass-card">
+            <div class="cq-usecase__icon">&#127760;</div>
+            <h4>Reusable Components</h4>
+            <p>メディアクエリ不要のポータブルコンポーネント</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Container Query Units -->
+      <div class="cq-demo cq-demo--units">
+        <h3 class="cq-demo__title">Container Query Units</h3>
+        <div class="cq-units-grid">
+          <div class="cq-unit glass-card">
+            <code>cqw</code>
+            <p>Container query width (1% of container)</p>
+          </div>
+          <div class="cq-unit glass-card">
+            <code>cqh</code>
+            <p>Container query height</p>
+          </div>
+          <div class="cq-unit glass-card">
+            <code>cqi</code>
+            <p>Container query inline size</p>
+          </div>
+          <div class="cq-unit glass-card">
+            <code>cqb</code>
+            <p>Container query block size</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Browser Support -->
+      <div class="cq-support glass-card">
+        <h4>Browser Support</h4>
+        <div class="support-badges">
+          <span class="support-badge support-badge--yes">Chrome 105+</span>
+          <span class="support-badge support-badge--yes">Edge 105+</span>
+          <span class="support-badge support-badge--yes">Safari 16+</span>
+          <span class="support-badge support-badge--yes">Firefox 110+</span>
+        </div>
+        <p>All modern browsers supported! Production ready in 2026.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+       ======================================== -->
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__brand">
+        <span class="footer__logo" data-editable="110-footer-logo" data-type="text" data-label="フッターロゴ" data-group="12-Footer" data-order="110">TRENDS 2026</span>
+        <p data-editable="111-footer-desc" data-type="text" data-label="フッター説明" data-group="12-Footer" data-order="111">Web Design Reference Collection</p>
+      </div>
+
+      <div class="footer__tech">
+        <span>Built with:</span>
+        <div class="footer__tags">
+          <span>CSS Scroll-Driven</span>
+          <span>View Transitions API</span>
+          <span>Container Queries</span>
+          <span>CSS 3D Transforms</span>
+          <span>Vanilla JS</span>
+          <span>LP-Editor Ready</span>
+        </div>
+      </div>
+
+      <p class="footer__copyright" data-editable="112-copyright" data-type="text" data-label="コピーライト" data-group="12-Footer" data-order="112">&copy; 2026 LP-CMS. All rights reserved.</p>
+    </div>
+
+    <a href="#hero" class="footer__top" aria-label="Back to top">
+      <svg viewBox="0 0 24 24"><path d="M18 15l-6-6-6 6"/></svg>
+    </a>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

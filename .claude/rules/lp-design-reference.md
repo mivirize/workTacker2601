@@ -608,12 +608,245 @@ LP作成時に必ず確認：
 
 ---
 
-## 11. 参考リソース
+## 11. View Transitions API
+
+ページ遷移や要素変更時のスムーズなアニメーション（Chrome/Edge対応）。
+
+### 11.1 ページ遷移トランジション
+
+```javascript
+// 基本的な遷移アニメーション
+document.addEventListener('click', (e) => {
+  const link = e.target.closest('a');
+  if (!link || link.target === '_blank') return;
+
+  e.preventDefault();
+
+  if (!document.startViewTransition) {
+    window.location.href = link.href;
+    return;
+  }
+
+  document.startViewTransition(() => {
+    window.location.href = link.href;
+  });
+});
+```
+
+### 11.2 要素スワップトランジション
+
+```javascript
+// カート追加時の視覚的フィードバック
+const addToCart = async () => {
+  const product = document.querySelector('.product-card');
+  product.style.viewTransitionName = 'product-thumbnail';
+
+  const transition = document.startViewTransition(async () => {
+    await fetch('/api/cart/add');
+    updateCartUI();
+  });
+
+  await transition.finished;
+};
+```
+
+### 11.3 CSSカスタマイズ
+
+```css
+::view-transition {
+  animation-duration: 0.6s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-old(root) {
+  animation: fade-out 0.4s ease-out forwards;
+}
+
+::view-transition-new(root) {
+  animation: fade-in 0.4s ease-in forwards;
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+```
+
+**ブラウザサポート（2026年2月）:**
+- Chrome/Edge: 完全サポート
+- Safari/Firefox: 2026年後半予定
+
+---
+
+## 12. Container Queries
+
+コンテナのサイズに基づいたレスポンシブスタイル。
+
+### 12.1 基本構文
+
+```css
+/* コンテナの定義 */
+.card-container {
+  container-type: inline-size;
+  container-name: card;
+}
+
+/* コンテナサイズに応じた条件付きスタイル */
+@container card (min-width: 300px) {
+  .card-title {
+    font-size: 1.25rem;
+  }
+}
+
+@container card (min-width: 500px) {
+  .card-content {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+  }
+}
+```
+
+### 12.2 グリッドレイアウト適応
+
+```css
+.gallery {
+  container-type: size;
+  display: grid;
+  gap: 1rem;
+}
+
+@container (max-width: 400px) {
+  .gallery { grid-template-columns: 1fr; }
+}
+
+@container (min-width: 400px) and (max-width: 700px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+
+@container (min-width: 700px) {
+  .gallery { grid-template-columns: repeat(4, 1fr); }
+}
+```
+
+### 12.3 スタイルクエリ（2026年新機能）
+
+```css
+/* カスタムプロパティに基づく条件 */
+@container style(--dark-mode) {
+  .card {
+    background: #1a1a1a;
+    color: #fff;
+  }
+}
+
+@container style(--premium: true) {
+  .card {
+    background: linear-gradient(135deg, #c9a962 0%, #e8c997 100%);
+  }
+}
+```
+
+**ブラウザサポート:** 全主要ブラウザ対応（2023年〜）
+
+---
+
+## 13. 2026年追加トレンド
+
+### 13.1 スクロール駆動プログレスバー
+
+```css
+@keyframes scroll-progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+.progress-bar {
+  animation: scroll-progress linear;
+  animation-timeline: scroll(root inline);
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 50%, #06b6d4 100%);
+}
+```
+
+### 13.2 ビューエントリー段階表示
+
+```css
+@keyframes stagger-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.feature-card {
+  animation: stagger-reveal ease-out 0.6s;
+  animation-timeline: view();
+  animation-range: entry 0% entry 50%;
+  animation-delay: var(--delay, 0s);
+}
+
+/* 使用例 */
+.feature-card:nth-child(1) { --delay: 0s; }
+.feature-card:nth-child(2) { --delay: 0.1s; }
+.feature-card:nth-child(3) { --delay: 0.2s; }
+```
+
+### 13.3 ネオデコ + グラスモーフィズム
+
+```css
+.glass-card-neodeco {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ネオデコの装飾線 */
+.glass-card-neodeco::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c9a962, transparent);
+}
+
+.glass-card-neodeco::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c9a962, transparent);
+}
+```
+
+---
+
+## 14. 参考リソース
 
 - [Figma Web Design Trends](https://www.figma.com/resource-library/web-design-trends/)
 - [UX Design Trends 2026](https://uxdesign.cc/10-ux-design-shifts-you-cant-ignore-in-2026-8f0da1c6741d)
 - [Luxury Website Design Examples](https://www.designrush.com/best-designs/websites/trends/best-luxury-website-designs)
 - [CSS Scroll-Driven Animations](https://developer.chrome.com/blog/scroll-triggered-animations)
+- [View Transitions API - MDN](https://developer.mozilla.org/en-US/docs/Web/API/View_Transition_API)
+- [Container Queries - web.dev](https://web.dev/learn/css/container-queries)
 - [Motion UI Trends 2026](https://lomatechnology.com/blog/motion-ui-trends-2026/2911)
 - [eCommerce Design Trends](https://gempages.net/blogs/shopify/ecommerce-design-trends)
 - [SANKOU! LP Collection](https://sankoudesign.com/category/lp/) - 日本LP 4,288件のギャラリー
