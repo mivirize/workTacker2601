@@ -26,3 +26,23 @@ Thumbs.db
 
 # Logs
 *.log
+logs/
+
+# Secrets & credentials
+client_secrets.json
+*.pickle
+*.token
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Debug screenshots
+debug_screenshots/
+*.png
+NUL
+
+# Worker archive
+worker.zip
+worker/

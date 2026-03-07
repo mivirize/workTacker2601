@@ -73,7 +73,7 @@ function updateStatus(id: number, status: VideoStatus, filename: string): Promis
             }
         });
 
-        db.run("UPDATE videos SET status=?, file_path=? WHERE id=?", [status, filename, id], function(err) {
+        db.run("UPDATE videos SET status=?, file_path=? WHERE id=?", [status, filename, id], function (err) {
             db.close((closeErr) => {
                 if (closeErr) console.error('Error closing database:', closeErr);
             });
@@ -508,10 +508,13 @@ test('Automate Vrew Web', async ({ playwright }) => {
     // 7. Customize Video (Step 3: ビデオをカスタマイズ)
     console.log("Waiting for Step 3: Customization...");
     try {
-        const verticalButton = page.getByText('9:16', { exact: true }).or(page.getByRole('button', { name: '9:16' }));
-        await verticalButton.first().waitFor({ state: 'visible', timeout: 10000 });
-        console.log("Found 9:16 button. Clicking for Vertical Video...");
-        await verticalButton.first().click({ force: true });
+        const targetFormat = process.env.VIDEO_FORMAT || '9:16';
+        console.log(`Target format: ${targetFormat}`);
+
+        const formatButton = page.getByText(targetFormat, { exact: true }).or(page.getByRole('button', { name: targetFormat }));
+        await formatButton.first().waitFor({ state: 'visible', timeout: 10000 });
+        console.log(`Found ${targetFormat} button. Clicking...`);
+        await formatButton.first().click({ force: true });
         await page.waitForTimeout(1000);
 
         console.log("Clicking 'Done' to start generation...");
@@ -530,7 +533,7 @@ test('Automate Vrew Web', async ({ playwright }) => {
 
     } catch (e) {
         console.log("Error in Step 3 (Customization): " + e);
-        console.log(">> PLEASE MANUALLY SELECT 9:16 AND CLICK DONE <<");
+        console.log(`>> PLEASE MANUALLY SELECT ${process.env.VIDEO_FORMAT || '9:16'} AND CLICK DONE <<`);
         await page.pause();
     }
 
@@ -736,7 +739,7 @@ test('Automate Vrew Web', async ({ playwright }) => {
             if (await errorDialog.isVisible({ timeout: 500 })) {
                 console.log("[ERROR] Error dialog detected!");
                 // Take screenshot of error
-                await page.screenshot({ path: path.join(VIDEO_OUTPUT_DIR, `error_dialog_${i}.png`) }).catch(() => {});
+                await page.screenshot({ path: path.join(VIDEO_OUTPUT_DIR, `error_dialog_${i}.png`) }).catch(() => { });
 
                 // Click close button
                 const closeBtn = page.getByRole('button', { name: /閉じる|Close/ }).filter({ visible: true });
@@ -747,7 +750,7 @@ test('Automate Vrew Web', async ({ playwright }) => {
 
                     // Re-click export button after closing error
                     console.log("[ERROR] Retrying export...");
-                    await exportBtn.first().click().catch(() => {});
+                    await exportBtn.first().click().catch(() => { });
                     lastAction = 'error_recovery';
                 }
             }
