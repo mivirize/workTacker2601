@@ -1,0 +1,33 @@
+{
+  "name": "@faqai/ai",
+  "version": "0.1.0",
+  "private": true,
+  "description": "LLM integration layer for FAQAI Platform",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "import": "./dist/index.js", "types": "./dist/index.d.ts" },
+    "./providers": { "import": "./dist/providers/index.js", "types": "./dist/providers/index.d.ts" },
+    "./rag": { "import": "./dist/rag/index.js", "types": "./dist/rag/index.d.ts" },
+    "./prompts": { "import": "./dist/prompts/index.js", "types": "./dist/prompts/index.d.ts" }
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "test:unit": "vitest run",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@faqai/types": "workspace:*",
+    "ai": "^4.1.16",
+    "@ai-sdk/openai": "^1.1.14",
+    "@ai-sdk/anthropic": "^1.1.6",
+    "@ai-sdk/google": "^1.1.14",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@faqai/config": "workspace:*",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

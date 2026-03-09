@@ -1,0 +1,49 @@
+{
+  "name": "@faqai/api",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch --env-file=.env.local dist/index.js",
+    "build": "tsc",
+    "typecheck": "tsc --noEmit",
+    "start": "node --env-file=.env dist/index.js",
+    "test:unit": "vitest run",
+    "test:unit:watch": "vitest",
+    "lint": "eslint src/",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.78.0",
+    "@aws-sdk/client-s3": "^3.1004.0",
+    "@aws-sdk/s3-request-presigner": "^3.1004.0",
+    "@faqai/db": "workspace:*",
+    "@faqai/types": "workspace:*",
+    "@hono/node-server": "^1.13.7",
+    "@hono/zod-validator": "^0.4.1",
+    "axios": "^1.13.6",
+    "bcryptjs": "^2.4.3",
+    "bullmq": "^5.70.1",
+    "cheerio": "^1.2.0",
+    "drizzle-orm": "^0.38.3",
+    "hono": "^4.6.20",
+    "hono-rate-limiter": "^0.4.0",
+    "ioredis": "^5.4.1",
+    "jose": "^5.9.6",
+    "nanoid": "^5.0.9",
+    "pino": "^9.5.0",
+    "pino-pretty": "^13.0.0",
+    "playwright": "^1.58.2",
+    "sharp": "^0.34.5",
+    "zod": "^3.24.1"
+  },
+  "devDependencies": {
+    "@faqai/config": "workspace:*",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/node": "^22.13.0",
+    "@types/sharp": "^0.32.0",
+    "@vitest/coverage-v8": "^2.1.8",
+    "typescript": "^5.7.3",
+    "vitest": "^2.1.8"
+  }
+}

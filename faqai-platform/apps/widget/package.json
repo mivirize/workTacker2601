@@ -1,0 +1,23 @@
+{
+  "name": "@faqai/widget",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "bundle": "vite build --mode production",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx"
+  },
+  "dependencies": {
+    "preact": "^10.25.4"
+  },
+  "devDependencies": {
+    "@faqai/config": "workspace:*",
+    "@preact/preset-vite": "^2.9.2",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.6",
+    "vite-plugin-dts": "^4.4.0"
+  }
+}
