@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELEXIA - 未来を、加速する</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-dark: #0a0a0a;
+            --bg-light: #171717;
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.7);
+            --accent: #3e68ff;
+            --accent-glow: rgba(62, 104, 255, 0.5);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+            background: linear-gradient(180deg, rgba(10, 10, 10, 0.9) 0%, transparent 100%);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.3em;
+            color: var(--text-primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-cta {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+            padding: 12px 28px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at center bottom, rgba(62, 104, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(62, 104, 255, 0.1) 0%, transparent 40%);
+        }
+
+        .car-visual {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+
+        .car-silhouette {
+            width: 80%;
+            max-width: 1200px;
+            height: 300px;
+            background: linear-gradient(180deg, rgba(30, 30, 30, 0.9) 0%, rgba(20, 20, 20, 0.95) 100%);
+            border-radius: 150px 150px 0 0;
+            position: relative;
+            box-shadow:
+                0 -20px 60px rgba(62, 104, 255, 0.2),
+                inset 0 2px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .headlight-left, .headlight-right {
+            position: absolute;
+            bottom: 100px;
+            width: 80px;
+            height: 20px;
+            background: linear-gradient(90deg, var(--accent), transparent);
+            border-radius: 10px;
+            animation: headlightPulse 2s ease-in-out infinite;
+        }
+
+        .headlight-left {
+            left: 15%;
+        }
+
+        .headlight-right {
+            right: 15%;
+            background: linear-gradient(-90deg, var(--accent), transparent);
+        }
+
+        @keyframes headlightPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; box-shadow: 0 0 30px var(--accent-glow); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            margin-bottom: 200px;
+        }
+
+        .hero h1 {
+            font-size: clamp(4rem, 12vw, 10rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #fff 0%, #3e68ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+
+        .btn-primary {
+            background: var(--text-primary);
+            color: var(--bg-dark);
+            padding: 16px 48px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 16px 48px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: var(--text-primary);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            display: block;
+            width: 30px;
+            height: 50px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .scroll-indicator span::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 10px;
+            background: var(--text-primary);
+            border-radius: 3px;
+            animation: scrollDot 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        @keyframes scrollDot {
+            0%, 100% { opacity: 1; top: 8px; }
+            50% { opacity: 0.3; top: 20px; }
+        }
+
+        /* Specs Section */
+        .specs {
+            padding: 120px 40px;
+            background: var(--bg-light);
+        }
+
+        .specs-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .spec-item {
+            text-align: center;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s;
+        }
+
+        .spec-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .spec-value {
+            font-size: 4rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #fff 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+
+        .spec-unit {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .spec-label {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 40px;
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .features-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 16px;
+        }
+
+        .features-header p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+        }
+
+        .feature-showcase {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .feature-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-bottom: 120px;
+        }
+
+        .feature-row:nth-child(even) {
+            direction: rtl;
+        }
+
+        .feature-row:nth-child(even) > * {
+            direction: ltr;
+        }
+
+        .feature-visual {
+            height: 500px;
+            background: linear-gradient(135deg, var(--bg-light) 0%, rgba(62, 104, 255, 0.1) 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-visual::before {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.3;
+        }
+
+        .feature-icon-large {
+            font-size: 8rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .feature-content h3 {
+            font-size: 2.5rem;
+            margin-bottom: 24px;
+        }
+
+        .feature-content p {
+            color: var(--text-secondary);
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+            line-height: 1.8;
+        }
+
+        .feature-list {
+            list-style: none;
+        }
+
+        .feature-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 12px 0;
+            color: var(--text-secondary);
+        }
+
+        .feature-list li::before {
+            content: '◆';
+            color: var(--accent);
+        }
+
+        /* Configurator Section */
+        .configurator {
+            padding: 120px 40px;
+            background: var(--bg-light);
+        }
+
+        .configurator-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .configurator-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+        }
+
+        .config-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        .car-preview {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0a0a0a 100%);
+            border-radius: 24px;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .car-preview::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: linear-gradient(0deg, rgba(62, 104, 255, 0.2) 0%, transparent 100%);
+        }
+
+        .preview-text {
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(255, 255, 255, 0.1);
+        }
+
+        .config-options {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .config-group h4 {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .color-options {
+            display: flex;
+            gap: 12px;
+        }
+
+        .color-option {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            border: 3px solid transparent;
+            transition: all 0.3s;
+        }
+
+        .color-option:hover, .color-option.active {
+            border-color: var(--text-primary);
+            transform: scale(1.1);
+        }
+
+        .color-option.white { background: #ffffff; }
+        .color-option.black { background: #1a1a1a; }
+        .color-option.silver { background: linear-gradient(135deg, #c0c0c0, #808080); }
+        .color-option.blue { background: linear-gradient(135deg, #1e3a8a, #3b82f6); }
+        .color-option.red { background: linear-gradient(135deg, #991b1b, #dc2626); }
+
+        .wheel-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+        }
+
+        .wheel-option {
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .wheel-option:hover, .wheel-option.active {
+            border-color: var(--accent);
+            background: rgba(62, 104, 255, 0.1);
+        }
+
+        .wheel-option span {
+            display: block;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .config-price {
+            margin-top: auto;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+            color: var(--text-secondary);
+        }
+
+        .price-total {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-top: 16px;
+        }
+
+        .config-cta {
+            display: block;
+            width: 100%;
+            background: var(--text-primary);
+            color: var(--bg-dark);
+            padding: 18px;
+            border-radius: 4px;
+            text-align: center;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 24px;
+            transition: all 0.3s;
+        }
+
+        .config-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.2);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 160px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 600px;
+            height: 600px;
+            background: var(--accent);
+            border-radius: 50%;
+            filter: blur(200px);
+            opacity: 0.15;
+        }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            margin-bottom: 24px;
+            position: relative;
+        }
+
+        .cta-section p {
+            color: var(--text-secondary);
+            font-size: 1.25rem;
+            margin-bottom: 48px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand p {
+            color: var(--text-secondary);
+            font-size: 0.875rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 20px;
+            color: var(--text-secondary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--text-primary);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-secondary);
+            font-size: 0.75rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .specs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-row {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .feature-row:nth-child(even) {
+                direction: ltr;
+            }
+
+            .config-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .spec-value {
+                font-size: 2.5rem;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">ELEXIA</div>
+        <ul class="nav-links">
+            <li><a href="#specs">スペック</a></li>
+            <li><a href="#features">機能</a></li>
+            <li><a href="#configurator">カスタマイズ</a></li>
+            <li><a href="#contact">店舗</a></li>
+        </ul>
+        <a href="#" class="nav-cta">試乗予約</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <h1>Model <span>X</span></h1>
+            <p>未来を、加速する。電動パフォーマンスの新たな基準。</p>
+            <div class="hero-buttons">
+                <a href="#configurator" class="btn-primary">今すぐオーダー</a>
+                <a href="#" class="btn-ghost">試乗を予約</a>
+            </div>
+        </div>
+        <div class="car-visual">
+            <div class="car-silhouette">
+                <div class="headlight-left"></div>
+                <div class="headlight-right"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span></span>
+        </div>
+    </section>
+
+    <section class="specs" id="specs">
+        <div class="specs-grid">
+            <div class="spec-item">
+                <div class="spec-value">2.1</div>
+                <div class="spec-unit">秒</div>
+                <div class="spec-label">0-100km/h加速</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-value">680</div>
+                <div class="spec-unit">km</div>
+                <div class="spec-label">航続距離</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-value">1,020</div>
+                <div class="spec-unit">馬力</div>
+                <div class="spec-label">最高出力</div>
+            </div>
+            <div class="spec-item">
+                <div class="spec-value">322</div>
+                <div class="spec-unit">km/h</div>
+                <div class="spec-label">最高速度</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2>革新的なテクノロジー</h2>
+            <p>すべてが、未来のために設計されています</p>
+        </div>
+
+        <div class="feature-showcase">
+            <div class="feature-row">
+                <div class="feature-visual">
+                    <div class="feature-icon-large"><svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="4" width="16" height="16" rx="2"/><circle cx="9" cy="10" r="1.5"/><circle cx="15" cy="10" r="1.5"/><path d="M9 15h6"/></svg></div>
+                </div>
+                <div class="feature-content">
+                    <h3>完全自動運転</h3>
+                    <p>最先端のAIと360度センサーアレイにより、レベル4自動運転を実現。目的地を設定するだけで、あとはELEXIAがすべてを行います。</p>
+                    <ul class="feature-list">
+                        <li>12個のカメラと超音波センサー</li>
+                        <li>LiDARによる高精度3Dマッピング</li>
+                        <li>AIによるリアルタイム状況判断</li>
+                        <li>OTAアップデートで常に進化</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-visual">
+                    <div class="feature-icon-large"><svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                </div>
+                <div class="feature-content">
+                    <h3>超急速充電</h3>
+                    <p>独自開発のバッテリー技術とスーパーチャージャーネットワークにより、わずか15分で80%まで充電可能。長距離ドライブも安心です。</p>
+                    <ul class="feature-list">
+                        <li>350kW超急速充電対応</li>
+                        <li>全国5,000箇所以上の充電ステーション</li>
+                        <li>自宅充電は一晩でフル充電</li>
+                        <li>バッテリー保証8年/160,000km</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="feature-row">
+                <div class="feature-visual">
+                    <div class="feature-icon-large"><svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l8 4v6c0 5.5-3.8 10.7-8 12-4.2-1.3-8-6.5-8-12V6l8-4z"/><path d="M9 12l2 2 4-4"/></svg></div>
+                </div>
+                <div class="feature-content">
+                    <h3>最高水準の安全性</h3>
+                    <p>すべての衝突試験で最高評価を獲得。アクティブセーフティシステムが、あらゆる危険からあなたを守ります。</p>
+                    <ul class="feature-list">
+                        <li>Euro NCAP 5つ星評価</li>
+                        <li>自動緊急ブレーキシステム</li>
+                        <li>車線逸脱防止支援</li>
+                        <li>サイドインパクトプロテクション</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="configurator" id="configurator">
+        <div class="configurator-header">
+            <h2>あなただけの一台を</h2>
+            <p>カスタマイズして、理想のELEXIAを作りましょう</p>
+        </div>
+
+        <div class="config-container">
+            <div class="car-preview">
+                <div class="preview-text">ELEXIA X</div>
+            </div>
+
+            <div class="config-options">
+                <div class="config-group">
+                    <h4>エクステリアカラー</h4>
+                    <div class="color-options">
+                        <div class="color-option white active" data-color="パールホワイト"></div>
+                        <div class="color-option black" data-color="ソリッドブラック"></div>
+                        <div class="color-option silver" data-color="シルバーメタリック"></div>
+                        <div class="color-option blue" data-color="ディープブルー"></div>
+                        <div class="color-option red" data-color="マルチコートレッド"></div>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <h4>ホイール</h4>
+                    <div class="wheel-options">
+                        <div class="wheel-option active">
+                            <strong>19"</strong>
+                            <span>スタンダード</span>
+                        </div>
+                        <div class="wheel-option">
+                            <strong>21"</strong>
+                            <span>+ ¥350,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-group">
+                    <h4>インテリア</h4>
+                    <div class="wheel-options">
+                        <div class="wheel-option active">
+                            <strong>ブラック</strong>
+                            <span>標準</span>
+                        </div>
+                        <div class="wheel-option">
+                            <strong>ホワイト</strong>
+                            <span>+ ¥150,000</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="config-price">
+                    <div class="price-row">
+                        <span>ベース価格</span>
+                        <span>¥12,990,000</span>
+                    </div>
+                    <div class="price-row">
+                        <span>オプション</span>
+                        <span>¥0</span>
+                    </div>
+                    <div class="price-total">
+                        合計: ¥12,990,000
+                    </div>
+                    <a href="#" class="config-cta">オーダーを確定</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <h2>未来は、今始まる</h2>
+        <p>ELEXIAの革新的な電動ドライビングを、ぜひ体験してください。全国のショールームで試乗をお待ちしています。</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">試乗を予約する</a>
+            <a href="#" class="btn-ghost">ショールームを探す</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">ELEXIA</div>
+                <p>持続可能なモビリティで、<br>世界を変える。</p>
+            </div>
+            <div class="footer-col">
+                <h4>車両</h4>
+                <ul>
+                    <li><a href="#">Model S</a></li>
+                    <li><a href="#">Model X</a></li>
+                    <li><a href="#">Model 3</a></li>
+                    <li><a href="#">Model Y</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>エネルギー</h4>
+                <ul>
+                    <li><a href="#">ソーラーパネル</a></li>
+                    <li><a href="#">パワーウォール</a></li>
+                    <li><a href="#">充電ステーション</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>サポート</h4>
+                <ul>
+                    <li><a href="#">サービス</a></li>
+                    <li><a href="#">充電</a></li>
+                    <li><a href="#">よくある質問</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ELEXIA Inc. All rights reserved.</p>
+            <p>プライバシーポリシー | 利用規約</p>
+        </div>
+    </footer>
+
+    <script>
+        // Interactive color selector
+        document.querySelectorAll('.color-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.color-option').forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Interactive wheel/interior selector
+        document.querySelectorAll('.wheel-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const parent = this.parentElement;
+                parent.querySelectorAll('.wheel-option').forEach(o => o.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

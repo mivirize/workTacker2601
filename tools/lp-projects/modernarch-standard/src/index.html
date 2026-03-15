@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-type="text" data-field="page-title">MODERN ARCH | 一級建築士事務所</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo" data-type="text" data-field="logo">MODERN ARCH</a>
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="header__mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero__bg"><img src="images/hero.jpg" alt="Architecture" data-type="image" data-field="hero-image"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title" data-type="text" data-field="hero-title">住まいに、物語を。</h1>
+      <p class="hero__subtitle" data-type="text" data-field="hero-subtitle">光と風が織りなす、唯一無二の空間設計</p>
+      <a href="#contact" class="hero__cta">無料相談を予約</a>
+    </div>
+  </section>
+
+  <section class="philosophy" id="philosophy">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__label">Philosophy</span>
+        <h2 class="section-header__title" data-type="text" data-field="philosophy-title">設計思想</h2>
+      </div>
+      <div class="philosophy__content">
+        <p class="philosophy__lead" data-type="text" data-field="philosophy-lead">私たちは、住まう人の物語を形にする建築を目指しています。</p>
+        <img src="images/philosophy.jpg" alt="Philosophy" data-type="image" data-field="philosophy-image">
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__label">Services</span>
+        <h2 class="section-header__title" data-type="text" data-field="services-title">サービス</h2>
+      </div>
+      <div class="services__grid" data-repeat="services">
+        <div class="service-card" data-repeat-item="1">
+          <div class="service-card__number">01</div>
+          <h3 data-type="text" data-field="service-1-title">住宅設計</h3>
+          <p data-type="text" data-field="service-1-desc">注文住宅から別荘まで。</p>
+        </div>
+        <div class="service-card" data-repeat-item="2">
+          <div class="service-card__number">02</div>
+          <h3 data-type="text" data-field="service-2-title">店舗設計</h3>
+          <p data-type="text" data-field="service-2-desc">ブランドの世界観を空間で表現。</p>
+        </div>
+        <div class="service-card" data-repeat-item="3">
+          <div class="service-card__number">03</div>
+          <h3 data-type="text" data-field="service-3-title">リノベーション</h3>
+          <p data-type="text" data-field="service-3-desc">既存建築を現代の暮らしに。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-header__label">Projects</span>
+        <h2 class="section-header__title" data-type="text" data-field="projects-title">プロジェクト</h2>
+      </div>
+      <div class="projects__grid" data-repeat="projects">
+        <div class="project-card" data-repeat-item="1">
+          <img src="images/project-1.jpg" alt="Project" data-type="image" data-field="project-1-image">
+          <h3 data-type="text" data-field="project-1-title">葉山の家</h3>
+        </div>
+        <div class="project-card" data-repeat-item="2">
+          <img src="images/project-2.jpg" alt="Project" data-type="image" data-field="project-2-image">
+          <h3 data-type="text" data-field="project-2-title">代官山レジデンス</h3>
+        </div>
+        <div class="project-card" data-repeat-item="3">
+          <img src="images/project-3.jpg" alt="Project" data-type="image" data-field="project-3-image">
+          <h3 data-type="text" data-field="project-3-title">目黒の店舗</h3>
+        </div>
+        <div class="project-card" data-repeat-item="4">
+          <img src="images/project-4.jpg" alt="Project" data-type="image" data-field="project-4-image">
+          <h3 data-type="text" data-field="project-4-title">世田谷の家</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header section-header--center">
+        <span class="section-header__label">Contact</span>
+        <h2 class="section-header__title" data-type="text" data-field="contact-title">お問い合わせ</h2>
+      </div>
+      <form class="contact__form" id="contact-form">
+        <div class="form-group"><label>お名前</label><input type="text" name="name" required></div>
+        <div class="form-group"><label>メール</label><input type="email" name="email" required></div>
+        <div class="form-group"><label>内容</label><textarea name="message" rows="5"></textarea></div>
+        <button type="submit" class="btn">送信</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="footer__logo" data-type="text" data-field="footer-logo">MODERN ARCH</p>
+      <p>&copy; 2026 MODERN ARCH</p>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

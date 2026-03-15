@@ -1,0 +1,47 @@
+{
+  "name": "SANGAKU BEER LP",
+  "version": "1.0.0",
+  "tier": "rich",
+  "client": "山岳麦酒醸造所",
+  "design": {
+    "colors": {
+      "primary": "#C17F24",
+      "secondary": "#1B4332",
+      "accent": "#D4A24C",
+      "background": "#0D1B0F",
+      "backgroundLight": "#F5F1E8",
+      "text": "#FFFFFF",
+      "textDark": "#1A1A1A"
+    },
+    "fonts": {
+      "heading": "'Noto Serif JP', serif",
+      "body": "'Noto Sans JP', sans-serif"
+    }
+  },
+  "features": {
+    "parallax": true,
+    "scrollAnimations": true,
+    "lightbox": true,
+    "ageVerification": true,
+    "smoothScroll": true
+  },
+  "sections": [
+    "age-gate",
+    "hero",
+    "brand-story",
+    "philosophy",
+    "brewing-process",
+    "products",
+    "awards",
+    "brewer-profile",
+    "brewery-tour",
+    "online-shop",
+    "instagram-gallery",
+    "footer"
+  ],
+  "meta": {
+    "title": "山岳麦酒 | SANGAKU BEER - 北アルプスの恵み、一杯に込めて",
+    "description": "長野県松本市で北アルプスの清らかな水と厳選素材で醸すクラフトビール。醸造家 佐藤純一がドイツ仕込みの技術で丁寧に造る至高の一杯。",
+    "keywords": "クラフトビール, 長野, 松本, 北アルプス, 地ビール, SANGAKU BEER, 山岳麦酒"
+  }
+}

@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEDICA LIFE - すべての人に健康を</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066b3;
+            --primary-dark: #004a82;
+            --secondary: #00a3e0;
+            --accent: #e63888;
+            --green: #00a651;
+            --white: #ffffff;
+            --gray: #5c5c5c;
+            --light-gray: #f5f7fa;
+            --dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Noto Sans JP', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color: var(--dark);
+            background: var(--white);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 0 60px;
+            height: 72px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: bold;
+            font-size: 1.25rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 28px;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: background 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 90vh;
+            padding: 120px 60px 80px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #e8f4fc 0%, #ffffff 100%);
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 24px;
+            color: var(--dark);
+        }
+
+        .hero-content h1 span {
+            color: var(--primary);
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--gray);
+            margin-bottom: 32px;
+            line-height: 2;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: var(--white);
+            padding: 16px 32px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: all 0.3s;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--primary);
+            padding: 16px 32px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            border: 2px solid var(--primary);
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='10'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+
+        .hero-icon {
+            font-size: 10rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .floating-card {
+            position: absolute;
+            background: var(--white);
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .floating-card.top {
+            top: 20px;
+            right: -40px;
+        }
+
+        .floating-card.bottom {
+            bottom: 40px;
+            left: -40px;
+        }
+
+        .floating-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--green) 0%, #00c853 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+        }
+
+        .floating-text h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+
+        .floating-text p {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 80px 60px;
+            background: var(--white);
+        }
+
+        .stats-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 32px;
+            border-radius: 16px;
+            background: var(--light-gray);
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            font-size: 0.9375rem;
+            color: var(--gray);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 60px;
+            background: var(--light-gray);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .section-header p {
+            font-size: 1rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            transition: all 0.3s;
+            border-left: 4px solid transparent;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            border-left-color: var(--primary);
+        }
+
+        .service-icon {
+            width: 64px;
+            height: 64px;
+            background: linear-gradient(135deg, #e8f4fc 0%, #cce7f8 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: var(--dark);
+        }
+
+        .service-card p {
+            font-size: 0.9375rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Research Section */
+        .research {
+            padding: 100px 60px;
+            background: var(--white);
+        }
+
+        .research-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .research-image {
+            height: 500px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .research-image::before {
+            content: '';
+            font-size: 8rem;
+        }
+
+        .research-content h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .research-content p {
+            color: var(--gray);
+            margin-bottom: 32px;
+            line-height: 2;
+        }
+
+        .research-list {
+            list-style: none;
+        }
+
+        .research-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .research-list li::before {
+            content: '✓';
+            width: 28px;
+            height: 28px;
+            background: var(--green);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 100px 60px;
+            background: var(--light-gray);
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-image {
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .product-card:nth-child(1) .product-image { background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%); }
+        .product-card:nth-child(2) .product-image { background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); }
+        .product-card:nth-child(3) .product-image { background: linear-gradient(135deg, #fff3e0 0%, #ffe0b2 100%); }
+        .product-card:nth-child(4) .product-image { background: linear-gradient(135deg, #fce4ec 0%, #f8bbd0 100%); }
+
+        .product-info {
+            padding: 24px;
+        }
+
+        .product-category {
+            font-size: 0.75rem;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .product-info h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 100px 60px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--white);
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .cta p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .cta .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            padding: 60px;
+            color: var(--white);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+        }
+
+        .footer-brand .logo-icon {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .footer-brand .logo-text {
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.875rem;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.75rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .research-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .services-grid,
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero,
+            .stats,
+            .services,
+            .research,
+            .products,
+            .cta,
+            footer {
+                padding-left: 24px;
+                padding-right: 24px;
+            }
+
+            .stats-grid,
+            .services-grid,
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">M</div>
+            <span class="logo-text">MEDICA LIFE</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">製品情報</a></li>
+            <li><a href="#">研究開発</a></li>
+            <li><a href="#">医療従事者の方へ</a></li>
+            <li><a href="#">企業情報</a></li>
+        </ul>
+        <a href="#" class="nav-cta">お問い合わせ</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>すべての人に<br><span>健康</span>を届ける</h1>
+                <p>私たちは、革新的な医薬品とワクチンの開発を通じて、世界中の人々の健康と幸福に貢献します。科学の力で、より良い未来を創造します。</p>
+                <div class="hero-buttons">
+                    <a href="#" class="btn-primary">製品情報を見る</a>
+                    <a href="#" class="btn-secondary">研究開発について</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-image">
+                    <span class="hero-icon"></span>
+                </div>
+                <div class="floating-card top">
+                    <div class="floating-icon">✓</div>
+                    <div class="floating-text">
+                        <h4>臨床試験</h4>
+                        <p>Phase 3 完了</p>
+                    </div>
+                </div>
+                <div class="floating-card bottom">
+                    <div class="floating-icon"></div>
+                    <div class="floating-text">
+                        <h4>グローバル展開</h4>
+                        <p>120カ国以上</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value">170+</div>
+                <div class="stat-label">年の歴史</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">120+</div>
+                <div class="stat-label">展開国数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">90,000+</div>
+                <div class="stat-label">従業員数</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value">¥8兆</div>
+                <div class="stat-label">年間売上高</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="section-header">
+            <h2>私たちの取り組み</h2>
+            <p>革新的な医薬品の開発から患者さんへのサポートまで、包括的なヘルスケアソリューションを提供します</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>医薬品開発</h3>
+                <p>がん、感染症、希少疾患など、アンメットメディカルニーズに応える革新的な医薬品を開発しています。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>ワクチン</h3>
+                <p>感染症から人々を守るため、最先端の技術を用いたワクチンの研究開発と製造を行っています。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>バイオ医薬品</h3>
+                <p>バイオテクノロジーを活用し、従来の医薬品では治療が困難だった疾患に挑戦しています。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>患者サポート</h3>
+                <p>治療を受ける患者さんとそのご家族に、包括的なサポートプログラムを提供しています。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>デジタルヘルス</h3>
+                <p>AIやデータサイエンスを活用し、より精密で個別化された医療の実現を目指しています。</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"></div>
+                <h3>サステナビリティ</h3>
+                <p>環境負荷の低減と持続可能な医薬品供給を通じて、地球と人々の健康を守ります。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="research">
+        <div class="research-container">
+            <div class="research-image"></div>
+            <div class="research-content">
+                <h2>科学の力で、<br>未来を創る</h2>
+                <p>私たちは年間売上高の20%以上を研究開発に投資し、次世代の革新的な治療法の開発に取り組んでいます。世界中の研究機関やバイオテック企業との協力を通じて、科学の最前線で挑戦を続けています。</p>
+                <ul class="research-list">
+                    <li>mRNA技術を活用した次世代ワクチン</li>
+                    <li>がん免疫療法の新たなアプローチ</li>
+                    <li>遺伝子治療・細胞治療の研究</li>
+                    <li>AIを活用した創薬プロセスの革新</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="products">
+        <div class="section-header">
+            <h2>主な製品領域</h2>
+            <p>幅広い疾患領域で、患者さんの生活の質の向上に貢献しています</p>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">オンコロジー</div>
+                    <h3>がん治療薬</h3>
+                    <p>革新的ながん治療薬で、患者さんに新たな希望を</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">感染症</div>
+                    <h3>ワクチン・抗菌薬</h3>
+                    <p>感染症から人々を守る予防と治療</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">循環器</div>
+                    <h3>心血管疾患治療薬</h3>
+                    <p>心臓と血管の健康をサポート</p>
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="product-image"></div>
+                <div class="product-info">
+                    <div class="product-category">神経科学</div>
+                    <h3>神経疾患治療薬</h3>
+                    <p>脳と神経の疾患に挑む</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="cta-container">
+            <h2>健康な未来のために、<br>ともに歩みましょう</h2>
+            <p>私たちは、科学の力を通じて、すべての人がより長く、より健康に暮らせる世界の実現を目指しています。患者さん、医療従事者、パートナー企業の皆さまとともに、この使命に取り組んでいます。</p>
+            <a href="#" class="btn-primary">お問い合わせ</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon">M</div>
+                    <span class="logo-text">MEDICA LIFE</span>
+                </div>
+                <p>すべての人に健康を届ける。<br>170年以上にわたり、革新的な医薬品の開発を通じて、世界中の人々の健康に貢献しています。</p>
+            </div>
+            <div class="footer-col">
+                <h4>製品情報</h4>
+                <ul>
+                    <li><a href="#">医薬品一覧</a></li>
+                    <li><a href="#">ワクチン</a></li>
+                    <li><a href="#">添付文書</a></li>
+                    <li><a href="#">安全性情報</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>企業情報</h4>
+                <ul>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">研究開発</a></li>
+                    <li><a href="#">サステナビリティ</a></li>
+                    <li><a href="#">採用情報</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>サポート</h4>
+                <ul>
+                    <li><a href="#">医療従事者の方へ</a></li>
+                    <li><a href="#">患者さん・ご家族の方へ</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">よくある質問</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 MEDICA LIFE Inc. All rights reserved.</p>
+            <p>プライバシーポリシー | 利用規約 | 特定商取引法に基づく表示</p>
+        </div>
+    </footer>
+</body>
+</html>

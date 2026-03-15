@@ -1,0 +1,612 @@
+/* ========================================
+   SANGAKU BEER - Animations
+   ======================================== */
+
+/* ----------------------------------------
+   Scroll Triggered Animations
+---------------------------------------- */
+
+/* Base animation classes */
+.animate-on-scroll {
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+}
+
+/* Fade Up */
+.fade-up {
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-up.animated {
+  transform: translateY(0);
+}
+
+/* Fade In */
+.fade-in {
+  transition: opacity 0.8s ease-out;
+}
+
+/* Slide Right */
+.slide-right {
+  transform: translateX(-60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-right.animated {
+  transform: translateX(0);
+}
+
+/* Slide Left */
+.slide-left {
+  transform: translateX(60px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.slide-left.animated {
+  transform: translateX(0);
+}
+
+/* Scale In */
+.scale-in {
+  transform: scale(0.8);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.scale-in.animated {
+  transform: scale(1);
+}
+
+/* Rotate In */
+.rotate-in {
+  transform: rotate(-10deg) scale(0.9);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.rotate-in.animated {
+  transform: rotate(0) scale(1);
+}
+
+/* Animation Delays */
+.delay-1 {
+  transition-delay: 0.15s !important;
+}
+
+.delay-2 {
+  transition-delay: 0.3s !important;
+}
+
+.delay-3 {
+  transition-delay: 0.45s !important;
+}
+
+.delay-4 {
+  transition-delay: 0.6s !important;
+}
+
+/* ----------------------------------------
+   Parallax Effects
+---------------------------------------- */
+[data-parallax] {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* ----------------------------------------
+   Hero Animations
+---------------------------------------- */
+@keyframes heroFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero__content > * {
+  animation: heroFadeIn 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.hero__content > *:nth-child(1) { animation-delay: 0.3s; }
+.hero__content > *:nth-child(2) { animation-delay: 0.5s; }
+.hero__content > *:nth-child(3) { animation-delay: 0.7s; }
+.hero__content > *:nth-child(4) { animation-delay: 0.9s; }
+
+/* ----------------------------------------
+   Timeline Animations
+---------------------------------------- */
+.timeline__line {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--color-primary) 10%,
+    var(--color-primary) 90%,
+    transparent
+  );
+  transform: scaleY(0);
+  transform-origin: top;
+  animation: timelineGrow 1.5s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes timelineGrow {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+.timeline__year {
+  opacity: 0;
+  transform: translateX(-50%) scale(0.5);
+  animation: yearPop 0.5s ease-out forwards;
+}
+
+.timeline__item:nth-child(1) .timeline__year { animation-delay: 0.6s; }
+.timeline__item:nth-child(2) .timeline__year { animation-delay: 0.9s; }
+.timeline__item:nth-child(3) .timeline__year { animation-delay: 1.2s; }
+.timeline__item:nth-child(4) .timeline__year { animation-delay: 1.5s; }
+.timeline__item:nth-child(5) .timeline__year { animation-delay: 1.8s; }
+
+@keyframes yearPop {
+  to {
+    opacity: 1;
+    transform: translateX(-50%) scale(1);
+  }
+}
+
+/* ----------------------------------------
+   Process Step Progress
+---------------------------------------- */
+.process-step {
+  position: relative;
+}
+
+.process-step::before {
+  content: '';
+  position: absolute;
+  left: 50px;
+  top: 50%;
+  width: 12px;
+  height: 12px;
+  background: var(--color-bg-cream);
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  transition: background 0.3s ease;
+}
+
+.process-step.active::before {
+  background: var(--color-primary);
+  box-shadow: 0 0 15px rgba(193, 127, 36, 0.5);
+}
+
+@media (max-width: 768px) {
+  .process-step::before {
+    left: 30px;
+  }
+}
+
+/* ----------------------------------------
+   Product Card Hover Effects
+---------------------------------------- */
+.product-card {
+  position: relative;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    rgba(193, 127, 36, 0.1) 50%,
+    transparent 100%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.product-card:hover::before {
+  opacity: 1;
+  animation: shimmer 1.5s ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ----------------------------------------
+   Award Medal Animations
+---------------------------------------- */
+.award-card__medal {
+  animation: medalFloat 3s ease-in-out infinite;
+}
+
+.award-card:nth-child(1) .award-card__medal { animation-delay: 0s; }
+.award-card:nth-child(2) .award-card__medal { animation-delay: 0.5s; }
+.award-card:nth-child(3) .award-card__medal { animation-delay: 1s; }
+.award-card:nth-child(4) .award-card__medal { animation-delay: 1.5s; }
+
+@keyframes medalFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Medal Glow Effect */
+.award-card__medal--gold::after {
+  content: '';
+  position: absolute;
+  inset: -10px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.3) 0%, transparent 70%);
+  animation: medalGlow 2s ease-in-out infinite;
+}
+
+@keyframes medalGlow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+/* ----------------------------------------
+   Counter Animation
+---------------------------------------- */
+.awards__number {
+  position: relative;
+}
+
+.awards__number.counting {
+  animation: countPulse 0.1s ease-in-out;
+}
+
+@keyframes countPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+/* ----------------------------------------
+   Button Ripple Effect
+---------------------------------------- */
+.btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn .ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: scale(0);
+  animation: rippleEffect 0.6s linear;
+  pointer-events: none;
+}
+
+@keyframes rippleEffect {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* ----------------------------------------
+   Gallery Hover Effects
+---------------------------------------- */
+.gallery__item::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    45deg,
+    rgba(193, 127, 36, 0.2) 0%,
+    transparent 50%,
+    rgba(27, 67, 50, 0.2) 100%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.gallery__item:hover::before {
+  opacity: 1;
+}
+
+/* ----------------------------------------
+   Scroll Indicator Animation
+---------------------------------------- */
+.hero__scroll-indicator {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+/* ----------------------------------------
+   Philosophy Card Hover
+---------------------------------------- */
+.philosophy-card__icon {
+  transition: transform 0.5s ease;
+}
+
+.philosophy-card:hover .philosophy-card__icon {
+  transform: rotateY(360deg);
+}
+
+/* ----------------------------------------
+   Brewer Image Frame Animation
+---------------------------------------- */
+.brewer__image-frame {
+  transition: all 0.5s ease;
+}
+
+.brewer__image:hover .brewer__image-frame {
+  inset: -30px;
+  opacity: 0.5;
+}
+
+/* ----------------------------------------
+   Loading State
+---------------------------------------- */
+.loading {
+  position: relative;
+  overflow: hidden;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: loadingShimmer 1.5s infinite;
+}
+
+@keyframes loadingShimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* ----------------------------------------
+   Age Gate Transition
+---------------------------------------- */
+.age-gate {
+  transition: opacity 0.8s ease, visibility 0.8s ease;
+}
+
+.age-gate__content {
+  transform: scale(0.9);
+  transition: transform 0.5s ease;
+}
+
+.age-gate:not(.hidden) .age-gate__content {
+  transform: scale(1);
+}
+
+/* ----------------------------------------
+   Header Scroll Effect
+---------------------------------------- */
+.header {
+  transition: background 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header.scrolled {
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* ----------------------------------------
+   Mobile Nav Animation
+---------------------------------------- */
+.header__nav {
+  transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.header__nav.active .header__nav-list li {
+  animation: navItemSlide 0.4s ease forwards;
+  opacity: 0;
+}
+
+.header__nav.active .header__nav-list li:nth-child(1) { animation-delay: 0.1s; }
+.header__nav.active .header__nav-list li:nth-child(2) { animation-delay: 0.15s; }
+.header__nav.active .header__nav-list li:nth-child(3) { animation-delay: 0.2s; }
+.header__nav.active .header__nav-list li:nth-child(4) { animation-delay: 0.25s; }
+.header__nav.active .header__nav-list li:nth-child(5) { animation-delay: 0.3s; }
+.header__nav.active .header__nav-list li:nth-child(6) { animation-delay: 0.35s; }
+.header__nav.active .header__nav-list li:nth-child(7) { animation-delay: 0.4s; }
+
+@keyframes navItemSlide {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ----------------------------------------
+   Lightbox Animations
+---------------------------------------- */
+.lightbox {
+  backdrop-filter: blur(10px);
+}
+
+.lightbox__content img {
+  animation: lightboxZoom 0.3s ease-out;
+}
+
+@keyframes lightboxZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ----------------------------------------
+   Reduce Motion
+---------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  [data-parallax] {
+    transform: none !important;
+  }
+}
+
+/* ----------------------------------------
+   Stagger Animation Helper
+---------------------------------------- */
+[data-stagger] > * {
+  --stagger-delay: 0.1s;
+}
+
+[data-stagger] > *:nth-child(1) { transition-delay: calc(var(--stagger-delay) * 1); }
+[data-stagger] > *:nth-child(2) { transition-delay: calc(var(--stagger-delay) * 2); }
+[data-stagger] > *:nth-child(3) { transition-delay: calc(var(--stagger-delay) * 3); }
+[data-stagger] > *:nth-child(4) { transition-delay: calc(var(--stagger-delay) * 4); }
+[data-stagger] > *:nth-child(5) { transition-delay: calc(var(--stagger-delay) * 5); }
+[data-stagger] > *:nth-child(6) { transition-delay: calc(var(--stagger-delay) * 6); }
+[data-stagger] > *:nth-child(7) { transition-delay: calc(var(--stagger-delay) * 7); }
+[data-stagger] > *:nth-child(8) { transition-delay: calc(var(--stagger-delay) * 8); }
+
+/* ----------------------------------------
+   Hover Shine Effect
+---------------------------------------- */
+.shine-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine-effect::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg) translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.shine-effect:hover::after {
+  transform: rotate(30deg) translateX(100%);
+}
+
+/* ----------------------------------------
+   Pulse Animation
+---------------------------------------- */
+.pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* ----------------------------------------
+   Float Animation
+---------------------------------------- */
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* ----------------------------------------
+   Text Reveal Animation
+---------------------------------------- */
+.text-reveal {
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+  transform: translateY(100%);
+  animation: textReveal 0.8s ease forwards;
+}
+
+@keyframes textReveal {
+  to {
+    transform: translateY(0);
+  }
+}

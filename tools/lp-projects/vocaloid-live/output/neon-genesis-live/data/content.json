@@ -1,0 +1,473 @@
+{
+  "_meta": {
+    "name": "NEON GENESIS LIVE",
+    "client": "NEON GENESIS LIVE",
+    "version": "1.0.0",
+    "generatedAt": "2026-01-29T10:49:28.965Z"
+  },
+  "editables": {
+    "010-page-title": {
+      "type": "text",
+      "value": "NEON GENESIS LIVE 2026 | 星宮ネオン",
+      "label": "010: ページタイトル",
+      "group": "01-SEO"
+    },
+    "020-logo-text": {
+      "type": "text",
+      "value": "NEON",
+      "label": "020: ロゴテキスト",
+      "group": "02-Header"
+    },
+    "030-hero-badge": {
+      "type": "text",
+      "value": "2026.03.15 SUN",
+      "label": "030: バッジテキスト",
+      "group": "03-Hero"
+    },
+    "031-hero-title-1": {
+      "type": "text",
+      "value": "NEON",
+      "label": "031: タイトル1行目",
+      "group": "03-Hero"
+    },
+    "032-hero-title-2": {
+      "type": "text",
+      "value": "GENESIS",
+      "label": "032: タイトル2行目",
+      "group": "03-Hero"
+    },
+    "033-hero-title-3": {
+      "type": "text",
+      "value": "LIVE 2026",
+      "label": "033: タイトル3行目",
+      "group": "03-Hero"
+    },
+    "034-hero-artist": {
+      "type": "text",
+      "value": "星宮ネオン / Hoshimiya NEON",
+      "label": "034: アーティスト名",
+      "group": "03-Hero"
+    },
+    "035-hero-venue": {
+      "type": "text",
+      "value": "Zepp DiverCity Tokyo",
+      "label": "035: 会場名",
+      "group": "03-Hero"
+    },
+    "036-hero-cta": {
+      "type": "link",
+      "value": "TICKET INFO",
+      "label": "036: CTAボタン",
+      "group": "03-Hero",
+      "href": "#ticket"
+    },
+    "037-hero-cta2": {
+      "type": "link",
+      "value": "VIEW GOODS",
+      "label": "037: CTAボタン2",
+      "group": "03-Hero",
+      "href": "#goods"
+    },
+    "040-countdown-title": {
+      "type": "text",
+      "value": "開演まであと",
+      "label": "040: カウントダウンタイトル",
+      "group": "04-Countdown"
+    },
+    "041-live-date": {
+      "type": "text",
+      "value": "2026年3月15日（日）",
+      "label": "041: 開催日",
+      "group": "04-Countdown"
+    },
+    "042-live-time": {
+      "type": "text",
+      "value": "OPEN 16:00 / START 17:00",
+      "label": "042: 開演時間",
+      "group": "04-Countdown"
+    },
+    "043-live-venue": {
+      "type": "text",
+      "value": "Zepp DiverCity Tokyo",
+      "label": "043: 会場詳細",
+      "group": "04-Countdown"
+    },
+    "050-goods-title": {
+      "type": "text",
+      "value": "OFFICIAL GOODS",
+      "label": "050: 物販タイトル",
+      "group": "05-Goods"
+    },
+    "051-goods-subtitle": {
+      "type": "text",
+      "value": "会場限定グッズを先行公開",
+      "label": "051: 物販サブタイトル",
+      "group": "05-Goods"
+    },
+    "076-goods-notice": {
+      "type": "richtext",
+      "value": "※物販は会場にて販売予定です。一部商品は数量限定のため、売り切れの際はご了承ください。<br></br>※通販での販売予定はございません。",
+      "label": "076: 物販注意事項",
+      "group": "05-Goods"
+    },
+    "080-ticket-title": {
+      "type": "text",
+      "value": "TICKET INFO",
+      "label": "080: チケットタイトル",
+      "group": "06-Ticket"
+    },
+    "090-ticket-notice": {
+      "type": "richtext",
+      "value": "※チケットは先着順での販売となります。定員に達し次第、販売を終了いたします。<br></br>※転売目的での購入は固くお断りいたします。",
+      "label": "090: チケット注意事項",
+      "group": "06-Ticket"
+    },
+    "100-cta-title": {
+      "type": "text",
+      "value": "JOIN THE NEON WORLD",
+      "label": "100: CTAタイトル",
+      "group": "07-CTA"
+    },
+    "101-cta-text": {
+      "type": "text",
+      "value": "一夜限りの電脳世界へ、ようこそ。",
+      "label": "101: CTAテキスト",
+      "group": "07-CTA"
+    },
+    "102-cta-button": {
+      "type": "link",
+      "value": "GET YOUR TICKET",
+      "label": "102: CTAボタン",
+      "group": "07-CTA",
+      "href": "#ticket"
+    },
+    "110-footer-logo": {
+      "type": "text",
+      "value": "NEON GENESIS LIVE 2026",
+      "label": "110: フッターロゴ",
+      "group": "08-Footer"
+    },
+    "111-footer-artist": {
+      "type": "text",
+      "value": "星宮ネオン Official",
+      "label": "111: フッターアーティスト名",
+      "group": "08-Footer"
+    },
+    "112-social-x": {
+      "type": "link",
+      "value": "X",
+      "label": "112: X(Twitter)",
+      "group": "08-Footer",
+      "href": "#"
+    },
+    "113-social-yt": {
+      "type": "link",
+      "value": "YT",
+      "label": "113: YouTube",
+      "group": "08-Footer",
+      "href": "#"
+    },
+    "114-social-nico": {
+      "type": "link",
+      "value": "nico",
+      "label": "114: niconico",
+      "group": "08-Footer",
+      "href": "#"
+    },
+    "115-copyright": {
+      "type": "text",
+      "value": "© 2026 Hoshimiya NEON. All rights reserved.",
+      "label": "115: コピーライト",
+      "group": "08-Footer"
+    }
+  },
+  "repeatBlocks": {
+    "goods": {
+      "min": 1,
+      "max": 12,
+      "items": [
+        {
+          "052-goods-1-name": {
+            "type": "text",
+            "value": "NEON GENESIS Tシャツ",
+            "label": "052: 商品1名",
+            "group": "05-Goods"
+          },
+          "053-goods-1-desc": {
+            "type": "text",
+            "value": "サイバーパンクデザインの公式Tシャツ",
+            "label": "053: 商品1説明",
+            "group": "05-Goods"
+          },
+          "054-goods-1-price": {
+            "type": "text",
+            "value": "¥4,500",
+            "label": "054: 商品1価格",
+            "group": "05-Goods"
+          }
+        },
+        {
+          "055-goods-2-name": {
+            "type": "text",
+            "value": "限定ペンライト",
+            "label": "055: 商品2名",
+            "group": "05-Goods"
+          },
+          "056-goods-2-desc": {
+            "type": "text",
+            "value": "24色切替・ライブ連動機能付き",
+            "label": "056: 商品2説明",
+            "group": "05-Goods"
+          },
+          "057-goods-2-price": {
+            "type": "text",
+            "value": "¥3,500",
+            "label": "057: 商品2価格",
+            "group": "05-Goods"
+          }
+        },
+        {
+          "058-goods-3-name": {
+            "type": "text",
+            "value": "アクリルスタンド",
+            "label": "058: 商品3名",
+            "group": "05-Goods"
+          },
+          "059-goods-3-desc": {
+            "type": "text",
+            "value": "全高約15cm・LEDベース付き",
+            "label": "059: 商品3説明",
+            "group": "05-Goods"
+          },
+          "060-goods-3-price": {
+            "type": "text",
+            "value": "¥1,800",
+            "label": "060: 商品3価格",
+            "group": "05-Goods"
+          }
+        },
+        {
+          "061-goods-4-name": {
+            "type": "text",
+            "value": "マフラータオル",
+            "label": "061: 商品4名",
+            "group": "05-Goods"
+          },
+          "062-goods-4-desc": {
+            "type": "text",
+            "value": "今治産・ネオンカラー刺繍",
+            "label": "062: 商品4説明",
+            "group": "05-Goods"
+          },
+          "063-goods-4-price": {
+            "type": "text",
+            "value": "¥2,500",
+            "label": "063: 商品4価格",
+            "group": "05-Goods"
+          }
+        },
+        {
+          "064-goods-5-name": {
+            "type": "text",
+            "value": "限定CD「NEON TRACKS」",
+            "label": "064: 商品5名",
+            "group": "05-Goods"
+          },
+          "065-goods-5-desc": {
+            "type": "text",
+            "value": "会場限定リミックス収録",
+            "label": "065: 商品5説明",
+            "group": "05-Goods"
+          },
+          "066-goods-5-price": {
+            "type": "text",
+            "value": "¥3,000",
+            "label": "066: 商品5価格",
+            "group": "05-Goods"
+          }
+        },
+        {
+          "067-goods-6-name": {
+            "type": "text",
+            "value": "缶バッジセット",
+            "label": "067: 商品6名",
+            "group": "05-Goods"
+          },
+          "068-goods-6-desc": {
+            "type": "text",
+            "value": "5種セット・ランダムシークレット1種",
+            "label": "068: 商品6説明",
+            "group": "05-Goods"
+          },
+          "069-goods-6-price": {
+            "type": "text",
+            "value": "¥1,200",
+            "label": "069: 商品6価格",
+            "group": "05-Goods"
+          }
+        },
+        {
+          "070-goods-7-name": {
+            "type": "text",
+            "value": "クリアファイルセット",
+            "label": "070: 商品7名",
+            "group": "05-Goods"
+          },
+          "071-goods-7-desc": {
+            "type": "text",
+            "value": "A4サイズ・3枚セット",
+            "label": "071: 商品7説明",
+            "group": "05-Goods"
+          },
+          "072-goods-7-price": {
+            "type": "text",
+            "value": "¥800",
+            "label": "072: 商品7価格",
+            "group": "05-Goods"
+          }
+        },
+        {
+          "073-goods-8-name": {
+            "type": "text",
+            "value": "VIP限定グッズBOX",
+            "label": "073: 商品8名",
+            "group": "05-Goods"
+          },
+          "074-goods-8-desc": {
+            "type": "text",
+            "value": "限定100セット・シリアルナンバー入り",
+            "label": "074: 商品8説明",
+            "group": "05-Goods"
+          },
+          "075-goods-8-price": {
+            "type": "text",
+            "value": "¥15,000",
+            "label": "075: 商品8価格",
+            "group": "05-Goods"
+          }
+        }
+      ]
+    },
+    "tickets": {
+      "min": 1,
+      "max": 4,
+      "items": [
+        {
+          "081-ticket-1-name": {
+            "type": "text",
+            "value": "一般チケット",
+            "label": "081: チケット1名",
+            "group": "06-Ticket"
+          },
+          "082-ticket-1-price": {
+            "type": "text",
+            "value": "8,800",
+            "label": "082: チケット1価格",
+            "group": "06-Ticket"
+          },
+          "083-ticket-1-btn": {
+            "type": "link",
+            "value": "購入する",
+            "label": "083: チケット1ボタン",
+            "group": "06-Ticket",
+            "href": "#"
+          }
+        },
+        {
+          "084-ticket-2-name": {
+            "type": "text",
+            "value": "プレミアムチケット",
+            "label": "084: チケット2名",
+            "group": "06-Ticket"
+          },
+          "085-ticket-2-price": {
+            "type": "text",
+            "value": "12,800",
+            "label": "085: チケット2価格",
+            "group": "06-Ticket"
+          },
+          "086-ticket-2-btn": {
+            "type": "link",
+            "value": "購入する",
+            "label": "086: チケット2ボタン",
+            "group": "06-Ticket",
+            "href": "#"
+          }
+        },
+        {
+          "087-ticket-3-name": {
+            "type": "text",
+            "value": "VIPチケット",
+            "label": "087: チケット3名",
+            "group": "06-Ticket"
+          },
+          "088-ticket-3-price": {
+            "type": "text",
+            "value": "25,000",
+            "label": "088: チケット3価格",
+            "group": "06-Ticket"
+          },
+          "089-ticket-3-btn": {
+            "type": "link",
+            "value": "購入する",
+            "label": "089: チケット3ボタン",
+            "group": "06-Ticket",
+            "href": "#"
+          }
+        }
+      ]
+    }
+  },
+  "colors": {
+    "primary": {
+      "variable": "--color-primary",
+      "value": "#00f0ff",
+      "label": "primary"
+    },
+    "primary-dark": {
+      "variable": "--color-primary-dark",
+      "value": "#00a8b3",
+      "label": "primary-dark"
+    },
+    "secondary": {
+      "variable": "--color-secondary",
+      "value": "#ff00ff",
+      "label": "secondary"
+    },
+    "accent": {
+      "variable": "--color-accent",
+      "value": "#ffff00",
+      "label": "accent"
+    },
+    "accent-alt": {
+      "variable": "--color-accent-alt",
+      "value": "#ff3366",
+      "label": "accent-alt"
+    },
+    "text": {
+      "variable": "--color-text",
+      "value": "#ffffff",
+      "label": "text"
+    },
+    "text-muted": {
+      "variable": "--color-text-muted",
+      "value": "#a0a0a0",
+      "label": "text-muted"
+    },
+    "bg-dark": {
+      "variable": "--color-bg-dark",
+      "value": "#0a0a0f",
+      "label": "bg-dark"
+    },
+    "bg-card": {
+      "variable": "--color-bg-card",
+      "value": "rgba(20, 20, 35, 0.8)",
+      "label": "bg-card"
+    },
+    "bg-glass": {
+      "variable": "--color-bg-glass",
+      "value": "rgba(255, 255, 255, 0.05)",
+      "label": "bg-glass"
+    }
+  }
+}

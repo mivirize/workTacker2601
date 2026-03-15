@@ -1,0 +1,65 @@
+{
+  "name": "W不動産",
+  "version": "1.0.0",
+  "client": "W不動産株式会社",
+  "description": "初期費用0円で大阪の賃貸物件を紹介するW不動産のLP（プレミアム版）",
+  "entry": "src/index.html",
+  "output": {
+    "appName": "W不動産 LP Editor",
+    "fileName": "w-fudousan"
+  },
+  "pages": [
+    {
+      "id": "index",
+      "path": "src/index.html",
+      "label": "メインLP"
+    }
+  ],
+  "colors": {
+    "primary": {
+      "value": "#2D5A27",
+      "label": "プライマリカラー",
+      "description": "メインの緑色"
+    },
+    "secondary": {
+      "value": "#1A1A1A",
+      "label": "セカンダリカラー",
+      "description": "ブラック・テキスト"
+    },
+    "accent": {
+      "value": "#4A7C43",
+      "label": "アクセントカラー",
+      "description": "明るい緑・ホバー"
+    },
+    "background": {
+      "value": "#FAFAFA",
+      "label": "背景カラー",
+      "description": "ライトグレー背景"
+    },
+    "text": {
+      "value": "#333333",
+      "label": "テキストカラー",
+      "description": "メインテキスト"
+    },
+    "line": {
+      "value": "#06C755",
+      "label": "LINEカラー",
+      "description": "LINE CTAボタン"
+    }
+  },
+  "groups": {
+    "hero": { "label": "ヒーローセクション", "order": 1 },
+    "features": { "label": "3つの0円", "order": 2 },
+    "savings": { "label": "浮いたお金で何ができる？", "order": 3 },
+    "flow": { "label": "ご利用の流れ", "order": 4 },
+    "company": { "label": "会社紹介", "order": 5 },
+    "faq": { "label": "FAQ", "order": 6 },
+    "cta": { "label": "CTAセクション", "order": 7 }
+  },
+  "meta": {
+    "industry": "不動産",
+    "target": "大阪で賃貸物件を探している方",
+    "goal": "LINE友だち追加・来店予約の獲得",
+    "style": "ミニマル・モダン・信頼感"
+  }
+}

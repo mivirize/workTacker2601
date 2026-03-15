@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="m2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#a8c8ff"/>
+      <stop offset="100%" style="stop-color:#4a6fa5"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="#0a0a12"/>
+  <circle cx="200" cy="180" r="80" fill="none" stroke="url(#m2)" stroke-width="4"/>
+  <text x="200" y="290" font-family="Arial" font-size="20" fill="#a8c8ff" text-anchor="middle">夜明けの調べ</text>
+  <text x="200" y="320" font-family="Arial" font-size="14" fill="#888" text-anchor="middle">Aimer</text>
+  <text x="200" y="360" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">ENDING THEME</text>
+</svg>

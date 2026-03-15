@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>W不動産 | 初期費用0円で大阪の賃貸</title>
+  <meta name="description" content="敷金・礼金・仲介手数料0円！大阪で新生活を始める方に、初期費用を抑えた賃貸物件をご紹介。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <!-- LP-Editor カラーパレット -->
+  <style>
+    :root {
+      /* メインカラー */
+      --color-primary: #2D5A27;
+      --color-primary-dark: #1E3D1A;
+      --color-primary-light: #4A7C43;
+
+      /* セカンダリカラー */
+      --color-secondary: #1A1A1A;
+      --color-secondary-light: #2D2D2D;
+
+      /* アクセントカラー */
+      --color-accent: #4A7C43;
+      --color-accent-gold: #D4A855;
+
+      /* 背景カラー */
+      --color-background: #FAFAFA;
+      --color-background-dark: #0D1B2A;
+
+      /* テキストカラー */
+      --color-text: #333333;
+      --color-text-light: #666666;
+      --color-text-muted: #999999;
+
+      /* その他 */
+      --color-white: #FFFFFF;
+      --color-border: #E5E5E5;
+      --color-line: #06C755;
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- ========================================
+       HEADER
+  ======================================== -->
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo">
+        <span class="header__logo-text" data-editable="header-logo" data-type="text">W不動産</span>
+      </a>
+      <nav class="header__nav">
+        <a href="#features" class="header__nav-link">特徴</a>
+        <a href="#comparison" class="header__nav-link">費用比較</a>
+        <a href="#flow" class="header__nav-link">ご利用の流れ</a>
+        <a href="#faq" class="header__nav-link">FAQ</a>
+      </nav>
+      <div class="header__contact">
+        <a href="tel:0120-000-000" class="header__tel">
+          <svg class="header__tel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          <span data-editable="header-tel" data-type="text">0120-000-000</span>
+        </a>
+        <a href="#contact" class="header__cta">来店予約</a>
+      </div>
+      <button class="header__menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <nav class="mobile-menu__nav">
+      <a href="#features" class="mobile-menu__link">特徴</a>
+      <a href="#comparison" class="mobile-menu__link">費用比較</a>
+      <a href="#flow" class="mobile-menu__link">ご利用の流れ</a>
+      <a href="#faq" class="mobile-menu__link">FAQ</a>
+      <a href="#contact" class="mobile-menu__cta btn btn--primary">来店予約</a>
+    </nav>
+  </div>
+
+  <!-- ========================================
+       HERO SECTION
+  ======================================== -->
+  <section id="hero" class="hero">
+    <div class="hero__bg">
+      <div class="hero__particles" id="heroParticles"></div>
+      <div class="hero__gradient"></div>
+    </div>
+    <div class="hero__inner">
+      <div class="hero__content">
+        <p class="hero__badge animate-fade-in" data-editable="hero-badge" data-type="text">
+          <span class="hero__badge-icon">✓</span>
+          大阪エリア 取扱物件3,000件以上
+        </p>
+        <h1 class="hero__title animate-fade-in">
+          <span class="hero__title-line" data-editable="hero-title-1" data-type="text">初期費用</span>
+          <span class="hero__title-highlight">
+            <span class="hero__zero" data-editable="hero-zero" data-type="text">0</span>
+            <span class="hero__yen">円</span>
+          </span>
+          <span class="hero__title-line" data-editable="hero-title-2" data-type="text">で理想の暮らしを</span>
+        </h1>
+        <p class="hero__subtitle animate-fade-in" data-editable="hero-subtitle" data-type="text">
+          敷金・礼金・仲介手数料<strong>すべて0円</strong>。<br>
+          最大<strong>30万円以上</strong>お得に引っ越しできます。
+        </p>
+
+        <!-- Stats -->
+        <div class="hero__stats animate-fade-in">
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="3000" data-editable="stat-1-number" data-type="counter">3,000</span>
+            <span class="hero__stat-unit" data-editable="stat-1-unit" data-type="text">件+</span>
+            <span class="hero__stat-label" data-editable="stat-1-label" data-type="text">取扱物件</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="98" data-editable="stat-2-number" data-type="counter">98</span>
+            <span class="hero__stat-unit" data-editable="stat-2-unit" data-type="text">%</span>
+            <span class="hero__stat-label" data-editable="stat-2-label" data-type="text">顧客満足度</span>
+          </div>
+          <div class="hero__stat">
+            <span class="hero__stat-number" data-count="2500" data-editable="stat-3-number" data-type="counter">2,500</span>
+            <span class="hero__stat-unit" data-editable="stat-3-unit" data-type="text">件+</span>
+            <span class="hero__stat-label" data-editable="stat-3-label" data-type="text">年間成約</span>
+          </div>
+        </div>
+
+        <div class="hero__cta-group animate-fade-in">
+          <a href="#contact" class="btn btn--primary btn--large btn--glow">
+            <span data-editable="hero-cta-text" data-type="text">無料相談を予約する</span>
+          </a>
+          <a href="https://lin.ee/xxxxx" class="btn btn--line btn--large" target="_blank">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+            </svg>
+            <span data-editable="hero-line-text" data-type="text">LINEで相談</span>
+          </a>
+        </div>
+        <p class="hero__cta-note" data-editable="hero-cta-note" data-type="text">24時間対応・登録1分</p>
+      </div>
+      <div class="hero__image">
+        <img src="images/hero-main.jpg" alt="W不動産 メインビジュアル" data-editable="hero-image" data-type="image">
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">
+      <span>SCROLL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       PROBLEM SECTION - こんなお悩みありませんか？
+  ======================================== -->
+  <section id="problem" class="problem">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-header__label" data-editable="problem-label" data-type="text">こんなお悩みありませんか？</span>
+        <h2 class="section-header__title" data-editable="problem-title" data-type="text">引っ越し費用、<br class="sp-only">高すぎませんか？</h2>
+      </div>
+
+      <div class="problem__grid" data-repeat="problems" data-repeat-min="1" data-repeat-max="6">
+        <div class="problem__card animate-on-scroll" data-repeat-item>
+          <div class="problem__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+            </svg>
+          </div>
+          <p class="problem__card-text" data-editable="problem-text" data-type="richtext">初期費用が<strong>30万円以上</strong>かかると言われた…</p>
+        </div>
+        <div class="problem__card animate-on-scroll" data-repeat-item>
+          <div class="problem__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+            </svg>
+          </div>
+          <p class="problem__card-text" data-editable="problem-text" data-type="richtext">貯金が少なくて<strong>部屋が借りられない</strong>…</p>
+        </div>
+        <div class="problem__card animate-on-scroll" data-repeat-item>
+          <div class="problem__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+            </svg>
+          </div>
+          <p class="problem__card-text" data-editable="problem-text" data-type="richtext">敷金・礼金・仲介手数料…<strong>何にこんなにかかるの？</strong></p>
+        </div>
+        <div class="problem__card animate-on-scroll" data-repeat-item>
+          <div class="problem__card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/>
+            </svg>
+          </div>
+          <p class="problem__card-text" data-editable="problem-text" data-type="richtext"><strong>保証人</strong>を頼める人がいない…</p>
+        </div>
+      </div>
+
+      <div class="problem__solution animate-on-scroll">
+        <div class="problem__solution-arrow">→</div>
+        <p class="problem__solution-text" data-editable="problem-solution" data-type="richtext">
+          そのお悩み、<span class="text-accent">W不動産</span>がすべて解決します！
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FEATURES - 3つの0円
+  ======================================== -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-header__label" data-editable="features-label" data-type="text">選ばれる理由</span>
+        <h2 class="section-header__title" data-editable="features-title" data-type="text">3つの<span class="text-gradient">0円</span>で<br class="sp-only">新生活をサポート</h2>
+      </div>
+
+      <div class="features__grid" data-repeat="features" data-repeat-min="1" data-repeat-max="6">
+        <div class="feature-card animate-on-scroll" data-repeat-item>
+          <div class="feature-card__zero">
+            <span class="feature-card__zero-number">0</span>
+            <span class="feature-card__zero-unit">円</span>
+          </div>
+          <h3 class="feature-card__title" data-editable="feature-title" data-type="text">敷金0円</h3>
+          <p class="feature-card__desc" data-editable="feature-desc" data-type="text">退去時の原状回復費用は別途精算。入居時の負担を大幅に軽減できます。</p>
+        </div>
+        <div class="feature-card animate-on-scroll" data-repeat-item>
+          <div class="feature-card__zero">
+            <span class="feature-card__zero-number">0</span>
+            <span class="feature-card__zero-unit">円</span>
+          </div>
+          <h3 class="feature-card__title" data-editable="feature-title" data-type="text">礼金0円</h3>
+          <p class="feature-card__desc" data-editable="feature-desc" data-type="text">オーナー様との交渉済み物件のみをご紹介。礼金は一切いただきません。</p>
+        </div>
+        <div class="feature-card animate-on-scroll" data-repeat-item>
+          <div class="feature-card__zero">
+            <span class="feature-card__zero-number">0</span>
+            <span class="feature-card__zero-unit">円</span>
+          </div>
+          <h3 class="feature-card__title" data-editable="feature-title" data-type="text">仲介手数料0円</h3>
+          <p class="feature-card__desc" data-editable="feature-desc" data-type="text">オーナー様からの広告料で運営。お客様からの仲介手数料は0円です。</p>
+        </div>
+      </div>
+
+      <!-- Sub Features -->
+      <div class="features__sub" data-repeat="features-sub" data-repeat-min="1" data-repeat-max="8">
+        <div class="feature-mini animate-on-scroll" data-repeat-item>
+          <span class="feature-mini__icon">✓</span>
+          <span class="feature-mini__text" data-editable="feature-sub-text" data-type="text">保証人不要プランあり</span>
+        </div>
+        <div class="feature-mini animate-on-scroll" data-repeat-item>
+          <span class="feature-mini__icon">✓</span>
+          <span class="feature-mini__text" data-editable="feature-sub-text" data-type="text">即日入居OK</span>
+        </div>
+        <div class="feature-mini animate-on-scroll" data-repeat-item>
+          <span class="feature-mini__icon">✓</span>
+          <span class="feature-mini__text" data-editable="feature-sub-text" data-type="text">来店不要・オンライン完結</span>
+        </div>
+        <div class="feature-mini animate-on-scroll" data-repeat-item>
+          <span class="feature-mini__icon">✓</span>
+          <span class="feature-mini__text" data-editable="feature-sub-text" data-type="text">家具家電付き物件あり</span>
+        </div>
+        <div class="feature-mini animate-on-scroll" data-repeat-item>
+          <span class="feature-mini__icon">✓</span>
+          <span class="feature-mini__text" data-editable="feature-sub-text" data-type="text">LINE 24時間対応</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       COMPARISON - 費用比較
+  ======================================== -->
+  <section id="comparison" class="comparison">
+    <div class="container">
+      <div class="section-header section-header--light animate-on-scroll">
+        <span class="section-header__label" data-editable="comparison-label" data-type="text">費用比較</span>
+        <h2 class="section-header__title" data-editable="comparison-title" data-type="text">最大<span class="text-gold">30万円以上</span>お得に</h2>
+        <p class="section-header__subtitle" data-editable="comparison-subtitle" data-type="text">家賃6万円の物件で比較した場合</p>
+      </div>
+
+      <div class="comparison__table animate-on-scroll">
+        <div class="comparison__header">
+          <div class="comparison__cell comparison__cell--item">項目</div>
+          <div class="comparison__cell comparison__cell--normal">一般的な不動産</div>
+          <div class="comparison__cell comparison__cell--ours">W不動産</div>
+        </div>
+        <div class="comparison__body" data-repeat="comparison-rows" data-repeat-min="1" data-repeat-max="8">
+          <div class="comparison__row" data-repeat-item>
+            <div class="comparison__cell comparison__cell--item" data-editable="comp-item" data-type="text">敷金</div>
+            <div class="comparison__cell comparison__cell--normal" data-editable="comp-normal" data-type="text">120,000円</div>
+            <div class="comparison__cell comparison__cell--ours comparison__cell--zero" data-editable="comp-ours" data-type="text">0円</div>
+          </div>
+          <div class="comparison__row" data-repeat-item>
+            <div class="comparison__cell comparison__cell--item" data-editable="comp-item" data-type="text">礼金</div>
+            <div class="comparison__cell comparison__cell--normal" data-editable="comp-normal" data-type="text">60,000円</div>
+            <div class="comparison__cell comparison__cell--ours comparison__cell--zero" data-editable="comp-ours" data-type="text">0円</div>
+          </div>
+          <div class="comparison__row" data-repeat-item>
+            <div class="comparison__cell comparison__cell--item" data-editable="comp-item" data-type="text">仲介手数料</div>
+            <div class="comparison__cell comparison__cell--normal" data-editable="comp-normal" data-type="text">66,000円</div>
+            <div class="comparison__cell comparison__cell--ours comparison__cell--zero" data-editable="comp-ours" data-type="text">0円</div>
+          </div>
+          <div class="comparison__row" data-repeat-item>
+            <div class="comparison__cell comparison__cell--item" data-editable="comp-item" data-type="text">前家賃</div>
+            <div class="comparison__cell comparison__cell--normal" data-editable="comp-normal" data-type="text">60,000円</div>
+            <div class="comparison__cell comparison__cell--ours" data-editable="comp-ours" data-type="text">60,000円</div>
+          </div>
+        </div>
+        <div class="comparison__footer">
+          <div class="comparison__cell comparison__cell--item">合計</div>
+          <div class="comparison__cell comparison__cell--normal comparison__cell--total" data-editable="comp-total-normal" data-type="text">306,000円</div>
+          <div class="comparison__cell comparison__cell--ours comparison__cell--total" data-editable="comp-total-ours" data-type="text">60,000円</div>
+        </div>
+      </div>
+
+      <div class="comparison__savings animate-on-scroll">
+        <span class="comparison__savings-label">最大</span>
+        <span class="comparison__savings-amount" data-count="246000" data-editable="savings-amount" data-type="counter">246,000</span>
+        <span class="comparison__savings-unit">円お得！</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       SAVINGS - 浮いたお金で何ができる？
+  ======================================== -->
+  <section id="savings" class="savings">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-header__label" data-editable="savings-label" data-type="text">IDEA</span>
+        <h2 class="section-header__title" data-editable="savings-title" data-type="text">浮いたお金で、何ができる？</h2>
+        <p class="section-header__subtitle" data-editable="savings-subtitle" data-type="text">初期費用0円で浮いた約25万円の使い道</p>
+      </div>
+
+      <div class="savings__grid" data-repeat="savings-items" data-repeat-min="1" data-repeat-max="8">
+        <div class="savings-card animate-on-scroll" data-repeat-item>
+          <div class="savings-card__image">
+            <img src="images/savings-appliance.jpg" alt="家電の購入" loading="lazy" data-editable="savings-image" data-type="image">
+          </div>
+          <div class="savings-card__content">
+            <h3 class="savings-card__title" data-editable="savings-card-title" data-type="text">最新家電の購入</h3>
+            <p class="savings-card__desc" data-editable="savings-card-desc" data-type="text">ダイソンの掃除機やドラム式洗濯機など、憧れの家電を揃えて新生活をスタート。</p>
+            <span class="savings-card__price" data-editable="savings-card-price" data-type="text">約10〜15万円</span>
+          </div>
+        </div>
+        <div class="savings-card animate-on-scroll" data-repeat-item>
+          <div class="savings-card__image">
+            <img src="images/savings-travel.jpg" alt="旅行・趣味" loading="lazy" data-editable="savings-image" data-type="image">
+          </div>
+          <div class="savings-card__content">
+            <h3 class="savings-card__title" data-editable="savings-card-title" data-type="text">旅行・趣味</h3>
+            <p class="savings-card__desc" data-editable="savings-card-desc" data-type="text">ハワイ旅行や国内温泉旅行、趣味の道具購入など、自分へのご褒美に。</p>
+            <span class="savings-card__price" data-editable="savings-card-price" data-type="text">約15〜25万円</span>
+          </div>
+        </div>
+        <div class="savings-card animate-on-scroll" data-repeat-item>
+          <div class="savings-card__image">
+            <img src="images/savings-furniture.jpg" alt="家具・インテリア" loading="lazy" data-editable="savings-image" data-type="image">
+          </div>
+          <div class="savings-card__content">
+            <h3 class="savings-card__title" data-editable="savings-card-title" data-type="text">家具・インテリア</h3>
+            <p class="savings-card__desc" data-editable="savings-card-desc" data-type="text">ソファやベッド、おしゃれなインテリアで理想の部屋作り。</p>
+            <span class="savings-card__price" data-editable="savings-card-price" data-type="text">約10〜20万円</span>
+          </div>
+        </div>
+        <div class="savings-card animate-on-scroll" data-repeat-item>
+          <div class="savings-card__image">
+            <img src="images/savings-saving.jpg" alt="貯金・投資" loading="lazy" data-editable="savings-image" data-type="image">
+          </div>
+          <div class="savings-card__content">
+            <h3 class="savings-card__title" data-editable="savings-card-title" data-type="text">貯金・投資</h3>
+            <p class="savings-card__desc" data-editable="savings-card-desc" data-type="text">将来のために貯金したり、資産運用の第一歩に。</p>
+            <span class="savings-card__price" data-editable="savings-card-price" data-type="text">25万円〜</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       TESTIMONIALS - お客様の声
+  ======================================== -->
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-header__label" data-editable="testimonials-label" data-type="text">VOICE</span>
+        <h2 class="section-header__title" data-editable="testimonials-title" data-type="text">お客様の声</h2>
+      </div>
+
+      <div class="testimonials__grid" data-repeat="testimonials" data-repeat-min="1" data-repeat-max="6">
+        <div class="testimonial-card animate-on-scroll" data-repeat-item>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text" data-editable="testimonial-text" data-type="richtext">初期費用を抑えられたおかげで、家具や家電に予算を回せました。対応もとても親切で、安心してお任せできました。</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name" data-editable="testimonial-name" data-type="text">Y.T様</span>
+            <span class="testimonial-card__info" data-editable="testimonial-info" data-type="text">20代女性・梅田エリア</span>
+          </div>
+        </div>
+        <div class="testimonial-card animate-on-scroll" data-repeat-item>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text" data-editable="testimonial-text" data-type="richtext">LINEでいつでも相談できるのが便利でした。内見から契約までスムーズで、想像以上に簡単に引っ越しできました。</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name" data-editable="testimonial-name" data-type="text">K.S様</span>
+            <span class="testimonial-card__info" data-editable="testimonial-info" data-type="text">30代男性・難波エリア</span>
+          </div>
+        </div>
+        <div class="testimonial-card animate-on-scroll" data-repeat-item>
+          <div class="testimonial-card__stars">★★★★★</div>
+          <p class="testimonial-card__text" data-editable="testimonial-text" data-type="richtext">保証人なしでも契約できる物件を紹介してもらえて助かりました。スタッフの方も親身になって相談に乗ってくれました。</p>
+          <div class="testimonial-card__author">
+            <span class="testimonial-card__name" data-editable="testimonial-name" data-type="text">M.H様</span>
+            <span class="testimonial-card__info" data-editable="testimonial-info" data-type="text">20代男性・天王寺エリア</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FLOW - ご利用の流れ
+  ======================================== -->
+  <section id="flow" class="flow">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-header__label" data-editable="flow-label" data-type="text">FLOW</span>
+        <h2 class="section-header__title" data-editable="flow-title" data-type="text">ご利用の流れ</h2>
+        <p class="section-header__subtitle" data-editable="flow-subtitle" data-type="text">お問い合わせから入居まで、4つのステップ</p>
+      </div>
+
+      <div class="flow__timeline" data-repeat="flow-steps" data-repeat-min="1" data-repeat-max="6">
+        <div class="flow-step animate-on-scroll" data-repeat-item>
+          <div class="flow-step__number"><span data-editable="flow-step-number" data-type="text">01</span></div>
+          <div class="flow-step__content">
+            <h3 class="flow-step__title" data-editable="flow-step-title" data-type="text">不動産を探す</h3>
+            <p class="flow-step__desc" data-editable="flow-step-desc" data-type="text">ご希望条件をお伺いし、最適な物件をご提案。周辺環境や設備など、気になる点はお気軽にご相談ください。</p>
+          </div>
+        </div>
+        <div class="flow-step animate-on-scroll" data-repeat-item>
+          <div class="flow-step__number"><span data-editable="flow-step-number" data-type="text">02</span></div>
+          <div class="flow-step__content">
+            <h3 class="flow-step__title" data-editable="flow-step-title" data-type="text">不動産の決定・申し込み</h3>
+            <p class="flow-step__desc" data-editable="flow-step-desc" data-type="text">気に入った物件が見つかったら、入居申込書を作成。必要書類のご案内も丁寧にサポートします。</p>
+          </div>
+        </div>
+        <div class="flow-step animate-on-scroll" data-repeat-item>
+          <div class="flow-step__number"><span data-editable="flow-step-number" data-type="text">03</span></div>
+          <div class="flow-step__content">
+            <h3 class="flow-step__title" data-editable="flow-step-title" data-type="text">不動産の入居審査</h3>
+            <p class="flow-step__desc" data-editable="flow-step-desc" data-type="text">管理会社・保証会社による審査があります。審査期間は通常4〜5日程度です。</p>
+          </div>
+        </div>
+        <div class="flow-step animate-on-scroll" data-repeat-item>
+          <div class="flow-step__number"><span data-editable="flow-step-number" data-type="text">04</span></div>
+          <div class="flow-step__content">
+            <h3 class="flow-step__title" data-editable="flow-step-title" data-type="text">不動産ご契約・引っ越し</h3>
+            <p class="flow-step__desc" data-editable="flow-step-desc" data-type="text">契約書類の確認・署名後、鍵のお渡し。いよいよ新生活のスタートです！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       COMPANY - 会社紹介（inno-sense風）
+  ======================================== -->
+  <section id="company" class="company">
+    <div class="container">
+      <div class="company__inner">
+        <div class="company__logo-area animate-on-scroll">
+          <div class="company__logo" data-editable="company-logo-text" data-type="text">W不動産</div>
+          <div class="company__grass"></div>
+        </div>
+        <div class="company__content animate-on-scroll">
+          <h2 class="company__tagline" data-editable="company-tagline" data-type="text">大阪エリアの賃貸に強い<br>不動産会社W不動産</h2>
+          <p class="company__philosophy" data-editable="company-philosophy" data-type="richtext">
+            私たちW不動産は、お客様にとって「一番の存在」を目指しています。<br><br>
+            地域に根ざした知識と、お客様一人ひとりに寄り添った提案力で、
+            理想の住まい探しをサポートします。
+          </p>
+          <div class="company__info">
+            <div class="company__info-item">
+              <span class="company__info-label">住所</span>
+              <span class="company__info-value" data-editable="company-address" data-type="text">〒542-0081 大阪府大阪市中央区南船場3-4-26</span>
+            </div>
+            <div class="company__info-item">
+              <span class="company__info-label">営業時間</span>
+              <span class="company__info-value" data-editable="company-hours" data-type="text">10:00〜19:00（定休日：水曜日）</span>
+            </div>
+            <div class="company__info-item">
+              <span class="company__info-label">アクセス</span>
+              <span class="company__info-value" data-editable="company-access" data-type="text">地下鉄御堂筋線「心斎橋駅」徒歩3分</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FAQ
+  ======================================== -->
+  <section id="faq" class="faq">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-header__label" data-editable="faq-label" data-type="text">FAQ</span>
+        <h2 class="section-header__title" data-editable="faq-title" data-type="text">よくあるご質問</h2>
+      </div>
+
+      <div class="faq__list" data-repeat="faq-items" data-repeat-min="1" data-repeat-max="10">
+        <div class="faq-item animate-on-scroll" data-repeat-item>
+          <button class="faq-item__question">
+            <span data-editable="faq-question" data-type="text">本当に初期費用0円なのですか？</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-answer" data-type="richtext">はい、敷金・礼金・仲介手数料はすべて0円です。火災保険料や鍵交換費用など、物件により別途費用がかかる場合がございますが、事前に明確にご説明いたします。</p>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll" data-repeat-item>
+          <button class="faq-item__question">
+            <span data-editable="faq-question" data-type="text">どのようなエリアの物件を扱っていますか？</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-answer" data-type="richtext">大阪市内を中心に、梅田・難波・心斎橋・天王寺エリアなど主要エリアの物件を多数ご用意しております。</p>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll" data-repeat-item>
+          <button class="faq-item__question">
+            <span data-editable="faq-question" data-type="text">内見は何件まで可能ですか？</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-answer" data-type="richtext">内見の件数に制限はございません。納得いくまで何件でもご案内いたします。オンライン内見も対応しております。</p>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll" data-repeat-item>
+          <button class="faq-item__question">
+            <span data-editable="faq-question" data-type="text">契約までどのくらいの期間がかかりますか？</span>
+            <span class="faq-item__icon"></span>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-answer" data-type="richtext">お急ぎの場合、最短1週間程度でのご入居も可能です。通常は2〜3週間程度が目安となります。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       CTA SECTION
+  ======================================== -->
+  <section id="contact" class="cta-section">
+    <div class="container">
+      <div class="cta-section__inner animate-on-scroll">
+        <h2 class="cta-section__title" data-editable="cta-title" data-type="text">まずは無料相談から</h2>
+        <p class="cta-section__subtitle" data-editable="cta-subtitle" data-type="text">お気軽にお問い合わせください。専門スタッフが丁寧にご対応します。</p>
+
+        <div class="cta-section__buttons">
+          <a href="tel:0120-000-000" class="btn btn--white btn--large">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+            </svg>
+            <span data-editable="cta-tel-text" data-type="text">0120-000-000</span>
+          </a>
+          <a href="https://lin.ee/xxxxx" class="btn btn--line btn--large" target="_blank">
+            <svg class="btn__icon" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+            </svg>
+            <span data-editable="cta-line-text" data-type="text">LINEで相談</span>
+          </a>
+        </div>
+
+        <p class="cta-section__note" data-editable="cta-note" data-type="text">受付時間：10:00〜19:00（水曜定休）</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+  ======================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__logo" data-editable="footer-logo" data-type="text">W不動産</span>
+          <p class="footer__address" data-editable="footer-address" data-type="text">〒542-0081 大阪府大阪市中央区南船場3-4-26</p>
+        </div>
+
+        <div class="footer__links">
+          <a href="#" class="footer__link" data-editable="footer-link-1" data-type="text">会社概要</a>
+          <a href="#" class="footer__link" data-editable="footer-link-2" data-type="text">プライバシーポリシー</a>
+          <a href="#" class="footer__link" data-editable="footer-link-3" data-type="text">お問い合わせ</a>
+        </div>
+
+        <div class="footer__social">
+          <a href="https://www.instagram.com/w_fudousan.jp?igsh=N3N6NGxwaDhleGl1" class="footer__social-link" target="_blank" rel="noopener" data-editable="footer-instagram" data-type="link">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright" data-editable="footer-copyright" data-type="text">&copy; 2024 W不動産 All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Fixed LINE Button -->
+  <a href="https://lin.ee/xxxxx" class="fixed-line-btn" target="_blank">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/>
+    </svg>
+    <span>LINE相談</span>
+  </a>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

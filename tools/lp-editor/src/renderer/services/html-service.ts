@@ -62,7 +62,7 @@ export function parseHtmlMarkers(html: string): ParsedMarker[] {
   let order = 0
 
   // Track processed elements to avoid duplicates
-  const processedElements = new Set<cheerio.Element>()
+  const processedElements = new Set<any>()
 
   // 1. Parse explicit data-editable markers
   $('[data-editable]').each((_, element) => {
@@ -161,7 +161,7 @@ export function parseHtmlMarkers(html: string): ParsedMarker[] {
 
   // 3. Auto-detect icons (.icon elements containing svg, without data-editable)
   // Track SVG elements that have already been processed to avoid duplicates
-  const processedSvgs = new Set<cheerio.Element>()
+  const processedSvgs = new Set<any>()
   let iconIndex = 0
 
   $('.icon, .feature-card__icon, .stat-card__icon, [class*="icon"]').each((_, element) => {
@@ -208,7 +208,7 @@ export function parseHtmlMarkers(html: string): ParsedMarker[] {
 /**
  * Find the section name for an element
  */
-function findSectionName($: cheerio.CheerioAPI, $el: cheerio.Cheerio<cheerio.Element>): string {
+function findSectionName(_$: cheerio.CheerioAPI, $el: cheerio.Cheerio<any>): string {
   const $section = $el.closest('section')
   if ($section.length > 0) {
     const sectionId = $section.attr('id')
@@ -318,7 +318,7 @@ export function parseRepeatBlocks(html: string): ParsedRepeatBlock[] {
 
       // Auto-detect icons within this item (avoid duplicates by tracking SVGs)
       // Exclude icons inside nested repeat blocks
-      const itemProcessedSvgs = new Set<cheerio.Element>()
+      const itemProcessedSvgs = new Set<any>()
       let itemIconIdx = 0
       $item.find('.icon, .feature-card__icon, .stat-card__icon, [class*="icon"]').each((_, iconEl) => {
         const $iconEl = $(iconEl)
@@ -418,8 +418,8 @@ export function applyEditablesToHtml(
   const $ = cheerio.load(html)
 
   // Build index maps for auto-detected elements
-  const counterElements: cheerio.Element[] = []
-  const iconElements: cheerio.Element[] = []
+  const counterElements: any[] = []
+  const iconElements: any[] = []
 
   $('[data-target]').each((_, el) => {
     if (!$(el).attr('data-editable')) {
@@ -570,7 +570,7 @@ export function applyRepeatBlocksToHtml(
     }
     // Then add child editable fields
     const templateFields = $template.find('[data-editable]').filter((_, el) => {
-      return $(el).parentsUntil($template, '[data-repeat]').length === 0
+      return $(el).parentsUntil($template as any, '[data-repeat]').length === 0
     }).toArray()
     fieldOrder.push(...templateFields.map(el => $(el).attr('data-editable')))
 
@@ -635,7 +635,7 @@ export function applyRepeatBlocksToHtml(
 
       // Only update direct fields, not fields inside nested repeats
       const $editableFields = $newItem.find('[data-editable]').filter((_, el) => {
-        return $(el).parentsUntil($newItem, '[data-repeat]').length === 0
+        return $(el).parentsUntil($newItem as any, '[data-repeat]').length === 0
       })
 
       $editableFields.each((_, el) => {
@@ -647,7 +647,7 @@ export function applyRepeatBlocksToHtml(
       $newItem.find('.icon, .feature-card__icon, [class*="icon"]').each((_, iconEl) => {
         const $iconEl = $(iconEl)
         // Skip if inside a nested repeat
-        if ($iconEl.parentsUntil($newItem, '[data-repeat]').length > 0) return
+        if ($iconEl.parentsUntil($newItem as any, '[data-repeat]').length > 0) return
 
         const $svg = $iconEl.find('svg')
         if ($svg.length === 0 || $iconEl.attr('data-editable')) return
@@ -665,7 +665,7 @@ export function applyRepeatBlocksToHtml(
       $newItem.find('[data-target]').each((_, counterEl) => {
         const $counterEl = $(counterEl)
         // Skip if inside a nested repeat
-        if ($counterEl.parentsUntil($newItem, '[data-repeat]').length > 0) return
+        if ($counterEl.parentsUntil($newItem as any, '[data-repeat]').length > 0) return
         if ($counterEl.attr('data-editable')) return
 
         const fieldKey = `counter-${counterIdx}`
@@ -684,17 +684,6 @@ export function applyRepeatBlocksToHtml(
   }
 
   return $.html()
-}
-
-/**
- * Normalize field ID by removing number prefixes and suffixes
- * e.g., "042-feature-1-title" -> "feature-title"
- */
-function normalizeFieldId(id: string): string {
-  return id
-    .replace(/^\d+-/, '') // Remove leading number prefix like "042-"
-    .replace(/-\d+(-|$)/g, '$1') // Remove number segments like "-1-" or "-1" at end
-    .replace(/\.\d+$/, '') // Remove dot-number suffix like ".0"
 }
 
 /**

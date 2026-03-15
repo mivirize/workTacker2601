@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LPサイト コレクション - 10種類の業界別ランディングページ</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
+            --black: #0f0f0f;
+            --white: #ffffff;
+            --gray: #6b7280;
+            --light-gray: #f3f4f6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--black);
+            color: var(--white);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 60px 40px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            font-size: 1.125rem;
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 32px;
+        }
+
+        .card {
+            background: linear-gradient(145deg, #1a1a1a 0%, #0f0f0f 100%);
+            border-radius: 24px;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .card:hover {
+            transform: translateY(-12px);
+            box-shadow: 0 30px 60px rgba(99, 102, 241, 0.2);
+            border-color: rgba(99, 102, 241, 0.3);
+        }
+
+        .card-preview {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:nth-child(1) .card-preview { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card:nth-child(2) .card-preview { background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); }
+        .card:nth-child(3) .card-preview { background: linear-gradient(135deg, #0a1628 0%, #1a2d4a 100%); }
+        .card:nth-child(4) .card-preview { background: linear-gradient(135deg, #111 0%, #ff3b30 100%); }
+        .card:nth-child(5) .card-preview { background: linear-gradient(135deg, #87ceeb 0%, #003366 100%); }
+        .card:nth-child(6) .card-preview { background: linear-gradient(135deg, #06c167 0%, #05a55a 100%); }
+        .card:nth-child(7) .card-preview { background: linear-gradient(135deg, #0176d3 0%, #9050e9 100%); }
+        .card:nth-child(8) .card-preview { background: linear-gradient(135deg, #1a1a2e 0%, #c9a962 100%); }
+        .card:nth-child(9) .card-preview { background: linear-gradient(135deg, #0066b3 0%, #00a3e0 100%); }
+        .card:nth-child(10) .card-preview { background: linear-gradient(135deg, #141414 0%, #e50914 100%); }
+
+        .card-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 60%, rgba(0, 0, 0, 0.8) 100%);
+        }
+
+        .card-number {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 700;
+        }
+
+        .card-content {
+            padding: 28px;
+        }
+
+        .card-industry {
+            display: inline-block;
+            background: rgba(99, 102, 241, 0.15);
+            color: #a5b4fc;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .card h2 {
+            font-size: 1.375rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .card-model {
+            color: var(--gray);
+            font-size: 0.875rem;
+            margin-bottom: 16px;
+        }
+
+        .card-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .feature-tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--gray);
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 0.75rem;
+        }
+
+        .card-link {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, #8b5cf6 100%);
+            color: var(--white);
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+
+        .card-link:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 40px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        footer p {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 40px 20px;
+            }
+
+            .grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="badge">LANDING PAGE COLLECTION</div>
+            <h1>10種類の業界別<br>ランディングページ</h1>
+            <p>様々な業界・企業スタイルを参考にした、レスポンシブでインタラクティブなLPサンプル集</p>
+        </header>
+
+        <div class="grid">
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">01</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">テクノロジー</span>
+                    <h2>NovaTech</h2>
+                    <p class="card-model">モデル: Apple</p>
+                    <div class="card-features">
+                        <span class="feature-tag">ミニマル</span>
+                        <span class="feature-tag">エレガント</span>
+                        <span class="feature-tag">製品訴求</span>
+                    </div>
+                    <a href="01-tech-apple.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">02</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">自動車</span>
+                    <h2>ELEXIA</h2>
+                    <p class="card-model">モデル: Tesla</p>
+                    <div class="card-features">
+                        <span class="feature-tag">インタラクティブ</span>
+                        <span class="feature-tag">未来的</span>
+                        <span class="feature-tag">コンフィギュレーター</span>
+                    </div>
+                    <a href="02-auto-tesla.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">03</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">金融</span>
+                    <h2>ZENITH CAPITAL</h2>
+                    <p class="card-model">モデル: Goldman Sachs</p>
+                    <div class="card-features">
+                        <span class="feature-tag">信頼感</span>
+                        <span class="feature-tag">プロフェッショナル</span>
+                        <span class="feature-tag">伝統</span>
+                    </div>
+                    <a href="03-finance-goldman.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">04</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">スポーツ</span>
+                    <h2>VELOCITY</h2>
+                    <p class="card-model">モデル: Nike</p>
+                    <div class="card-features">
+                        <span class="feature-tag">ダイナミック</span>
+                        <span class="feature-tag">エネルギッシュ</span>
+                        <span class="feature-tag">アスリート</span>
+                    </div>
+                    <a href="04-sports-nike.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">05</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">旅行・航空</span>
+                    <h2>SKYWARD AIRLINES</h2>
+                    <p class="card-model">モデル: ANA</p>
+                    <div class="card-features">
+                        <span class="feature-tag">写真重視</span>
+                        <span class="feature-tag">洗練</span>
+                        <span class="feature-tag">予約フォーム</span>
+                    </div>
+                    <a href="05-airline-ana.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">06</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">フードデリバリー</span>
+                    <h2>TABETE</h2>
+                    <p class="card-model">モデル: Uber Eats</p>
+                    <div class="card-features">
+                        <span class="feature-tag">ポップ</span>
+                        <span class="feature-tag">親しみやすい</span>
+                        <span class="feature-tag">検索機能</span>
+                    </div>
+                    <a href="06-food-ubereats.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">07</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">SaaS / クラウド</span>
+                    <h2>CloudSync</h2>
+                    <p class="card-model">モデル: Salesforce</p>
+                    <div class="card-features">
+                        <span class="feature-tag">モダン</span>
+                        <span class="feature-tag">機能訴求</span>
+                        <span class="feature-tag">価格表</span>
+                    </div>
+                    <a href="07-saas-salesforce.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">08</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">高級ブランド</span>
+                    <h2>MAISON LUMIÈRE</h2>
+                    <p class="card-model">モデル: LVMH</p>
+                    <div class="card-features">
+                        <span class="feature-tag">ラグジュアリー</span>
+                        <span class="feature-tag">芸術的</span>
+                        <span class="feature-tag">エレガント</span>
+                    </div>
+                    <a href="08-luxury-lvmh.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">09</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">ヘルスケア / 製薬</span>
+                    <h2>MEDICA LIFE</h2>
+                    <p class="card-model">モデル: Pfizer</p>
+                    <div class="card-features">
+                        <span class="feature-tag">清潔感</span>
+                        <span class="feature-tag">信頼性</span>
+                        <span class="feature-tag">科学的</span>
+                    </div>
+                    <a href="09-healthcare-pfizer.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-preview">
+                    <span class="card-number">10</span>
+                                    </div>
+                <div class="card-content">
+                    <span class="card-industry">エンターテイメント</span>
+                    <h2>STREAMIX</h2>
+                    <p class="card-model">モデル: Netflix</p>
+                    <div class="card-features">
+                        <span class="feature-tag">ダークモード</span>
+                        <span class="feature-tag">没入感</span>
+                        <span class="feature-tag">プラン比較</span>
+                    </div>
+                    <a href="10-streaming-netflix.html" class="card-link">サイトを見る →</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Created with Claude Code | © 2026 LP Collection</p>
+        </footer>
+    </div>
+</body>
+</html>

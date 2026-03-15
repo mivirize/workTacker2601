@@ -23,7 +23,7 @@ interface ProjectCardProps {
 export function ProjectCard({
   name,
   client,
-  path,
+  path: _path,
   lastModified,
   hasHistory,
   buildCount,

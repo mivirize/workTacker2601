@@ -1,0 +1,1863 @@
+{
+  "meta": {
+    "url": "https://www.cho-kaguyahime.com/",
+    "title": "Netflix映画『超かぐや姫！』公式サイト",
+    "description": "Netflixアニメーション映画『超かぐや姫！』2026年1月22日(木)Netflixにて世界独占配信！監督：山下清悟。制作：スタジオコロリド/スタジオクロマト。出演：夏吉ゆうこ、永瀬アンナ、早見沙織など。",
+    "analyzedAt": "2026-02-05T02:14:57.265Z",
+    "totalHeight": 11216,
+    "viewport": {
+      "width": 1920,
+      "height": 1080
+    }
+  },
+  "structure": {
+    "sections": [
+      {
+        "id": "top",
+        "tag": "BODY",
+        "classes": [
+          "is-fv"
+        ],
+        "position": {
+          "top": 0,
+          "height": 11215.609375
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "fullWrap",
+        "tag": "DIV",
+        "classes": [],
+        "position": {
+          "top": 0,
+          "height": 11215.609375
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-gnavMenuLabel",
+        "tag": "SPAN",
+        "classes": [
+          "gnav__menuLabel"
+        ],
+        "position": {
+          "top": 0,
+          "height": 0
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-gnav",
+        "tag": "UL",
+        "classes": [
+          "gnav__lists"
+        ],
+        "position": {
+          "top": 0,
+          "height": 0
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-gsns",
+        "tag": "DL",
+        "classes": [
+          "gnav__officialLists"
+        ],
+        "position": {
+          "top": 0,
+          "height": 0
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-gnavCharacter",
+        "tag": "DIV",
+        "classes": [
+          "gnav__character"
+        ],
+        "position": {
+          "top": 0,
+          "height": 0
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-hotnews",
+        "tag": "DD",
+        "classes": [
+          "gnav__hotTopicsItem"
+        ],
+        "position": {
+          "top": 0,
+          "height": 0
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "kv",
+        "tag": "DIV",
+        "classes": [
+          "kv"
+        ],
+        "position": {
+          "top": 0,
+          "height": 1080
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-kvSwiper",
+        "tag": "DIV",
+        "classes": [
+          "kv__imgContentin",
+          "swiper",
+          "swiper-fade",
+          "swiper-initialized",
+          "swiper-horizontal"
+        ],
+        "position": {
+          "top": 0,
+          "height": 1080
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "swiper-wrapper-20a770977510e6b102",
+        "tag": "UL",
+        "classes": [
+          "kv__imgs",
+          "swiper-wrapper"
+        ],
+        "position": {
+          "top": 0,
+          "height": 1080
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "fv",
+        "tag": "DIV",
+        "classes": [
+          "fv",
+          "sections",
+          "ani2"
+        ],
+        "position": {
+          "top": 0,
+          "height": 1080
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "nav",
+        "tag": "NAV",
+        "classes": [
+          "nav"
+        ],
+        "position": {
+          "top": 40,
+          "height": 164.609375
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-nav",
+        "tag": "UL",
+        "classes": [
+          "nav__lists"
+        ],
+        "position": {
+          "top": 41,
+          "height": 163.609375
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-sns",
+        "tag": "DL",
+        "classes": [
+          "fv__snsLists"
+        ],
+        "position": {
+          "top": 414.984375,
+          "height": 250.015625
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-kvSwiperSwitchers",
+        "tag": "UL",
+        "classes": [
+          "fv__kvSwitcherLists"
+        ],
+        "position": {
+          "top": 480,
+          "height": 120
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-bnr",
+        "tag": "DIV",
+        "classes": [
+          "fv__bnr"
+        ],
+        "position": {
+          "top": 960,
+          "height": 120
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-bnrSwiper",
+        "tag": "DIV",
+        "classes": [
+          "fv__bnrSwiper",
+          "swiper"
+        ],
+        "position": {
+          "top": 960,
+          "height": 120
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-bnrSwiperWrapper",
+        "tag": "UL",
+        "classes": [
+          "fv__bnrSwiper-wrapper",
+          "swiper-wrapper"
+        ],
+        "position": {
+          "top": 960,
+          "height": 64
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "news",
+        "tag": "SECTION",
+        "classes": [
+          "news",
+          "sections"
+        ],
+        "position": {
+          "top": 1080,
+          "height": 701
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-newsLists",
+        "tag": "UL",
+        "classes": [
+          "news__lists"
+        ],
+        "position": {
+          "top": 1359.5,
+          "height": 266
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "movie",
+        "tag": "SECTION",
+        "classes": [
+          "movie",
+          "sections"
+        ],
+        "position": {
+          "top": 1781,
+          "height": 1620
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-movieSwiper",
+        "tag": "DIV",
+        "classes": [
+          "movie__swiper",
+          "swiper",
+          "swiper-coverflow",
+          "swiper-3d",
+          "swiper-initialized"
+        ],
+        "position": {
+          "top": 2111,
+          "height": 528
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-movieSwiperWrapper",
+        "tag": "DIV",
+        "classes": [
+          "movie__swiper-wrapper",
+          "swiper-wrapper"
+        ],
+        "position": {
+          "top": 2111,
+          "height": 528
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-movieSwiperSwitchers",
+        "tag": "UL",
+        "classes": [
+          "movie__swiperSwitcherLists"
+        ],
+        "position": {
+          "top": 2639,
+          "height": 52
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "introduction",
+        "tag": "SECTION",
+        "classes": [
+          "introduction",
+          "sections"
+        ],
+        "position": {
+          "top": 3401,
+          "height": 3184
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "story",
+        "tag": "DIV",
+        "classes": [
+          "story"
+        ],
+        "position": {
+          "top": 5051,
+          "height": 1374
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "music",
+        "tag": "SECTION",
+        "classes": [
+          "music",
+          "sections"
+        ],
+        "position": {
+          "top": 6585,
+          "height": 801
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-musicSwiper",
+        "tag": "DIV",
+        "classes": [
+          "music__contentWrap",
+          "swiper",
+          "swiper-initialized",
+          "swiper-horizontal",
+          "swiper-pointer-events"
+        ],
+        "position": {
+          "top": 6802,
+          "height": 474
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "js-mvLists",
+        "tag": "UL",
+        "classes": [
+          "music__lists",
+          "swiper-wrapper"
+        ],
+        "position": {
+          "top": 6802,
+          "height": 474
+        },
+        "hasAnimation": true
+      },
+      {
+        "id": "character",
+        "tag": "SECTION",
+        "classes": [
+          "character",
+          "sections",
+          "--nowimg1"
+        ],
+        "position": {
+          "top": 7386,
+          "height": 1380
+        },
+        "hasAnimation": true
+      }
+    ],
+    "navigation": {
+      "type": "fixed",
+      "items": [
+        {
+          "text": "超かぐや姫！",
+          "href": "#top"
+        },
+        {
+          "text": "MENU",
+          "href": "javascript:;"
+        },
+        {
+          "text": "最新情報",
+          "href": "#news"
+        },
+        {
+          "text": "映像",
+          "href": "#movie"
+        },
+        {
+          "text": "イントロダクション",
+          "href": "#introduction"
+        },
+        {
+          "text": "あらすじ",
+          "href": "#story"
+        },
+        {
+          "text": "音楽",
+          "href": "#music"
+        },
+        {
+          "text": "登場人物",
+          "href": "#character"
+        },
+        {
+          "text": "スタッフ・キャスト",
+          "href": "#staffcast"
+        },
+        {
+          "text": "関連商品",
+          "href": "./goods"
+        },
+        {
+          "text": "スペシャル",
+          "href": "./special"
+        },
+        {
+          "text": "X",
+          "href": "https://x.com/Cho_KaguyaHime"
+        },
+        {
+          "text": "TikTok",
+          "href": "https://www.tiktok.com/@cho_kaguyahime_pr"
+        },
+        {
+          "text": "YouTube",
+          "href": "https://www.youtube.com/@Cho-KaguyaHime-PR"
+        },
+        {
+          "text": "Instagram",
+          "href": "https://www.instagram.com/cho_kaguyahime_pr/"
+        },
+        {
+          "text": "Niconico",
+          "href": "https://www.nicovideo.jp/user/141907929"
+        },
+        {
+          "text": "MORE",
+          "href": "#character"
+        },
+        {
+          "text": "202602.01本編オリジナル曲「ワールドイズマイン CP",
+          "href": "./news/detail.html?id=625"
+        },
+        {
+          "text": "最新情報",
+          "href": "#news"
+        },
+        {
+          "text": "映像",
+          "href": "#movie"
+        }
+      ],
+      "hasHamburger": true,
+      "hasSmoothScroll": true
+    },
+    "forms": []
+  },
+  "animations": {
+    "cssKeyframes": [
+      {
+        "name": "mirrorball",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "background-position: 0px 0px;"
+          },
+          {
+            "key": "100%",
+            "style": "background-position: 100% 0px;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "scrollLine",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "height: 0px; bottom: 0px;"
+          },
+          {
+            "key": "20%, 40%",
+            "style": "height: 100%; bottom: 0px;"
+          },
+          {
+            "key": "60%, 100%",
+            "style": "height: 0px; bottom: 100%;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "c0",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "background-position: 0px 0px;"
+          },
+          {
+            "key": "100%",
+            "style": "background-position: max(calc(-511 / var(--vw-min) * 100vw),-511px) 0;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "c1",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "background-position: 0px 0px;"
+          },
+          {
+            "key": "100%",
+            "style": "background-position: max(calc(-988 / var(--vw-min) * 100vw),-988px) 0;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "c2",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "background-position: 0px 0px;"
+          },
+          {
+            "key": "100%",
+            "style": "background-position: max(calc(-994 / var(--vw-min) * 100vw),-994px) 0;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "c3",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "background-position: 0px 0px;"
+          },
+          {
+            "key": "100%",
+            "style": "background-position: max(calc(-556 / var(--vw-min) * 100vw),-556px) 0;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "c2s",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "mask-size: 100% 100%,\r\n\t\tvar(--kv-circle-width)\r\n\t\tvar(--kv-circle-width); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70.5%, rgba(0, 0, 0, 0"
+          },
+          {
+            "key": "50%",
+            "style": "mask-size: 100% 100%,\r\n\t\t0\r\n\t\tcalc(var(--kv-circle-width) * 0.5625); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));"
+          },
+          {
+            "key": "100%",
+            "style": "mask-size: 100% 100%,\r\n\t\tvar(--kv-circle-width)\r\n\t\tcalc(var(--kv-circle-width) * 0.5625); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "s2c",
+        "keyframes": [
+          {
+            "key": "100%",
+            "style": "mask-size: 100% 100%,\r\n\t\tvar(--kv-circle-width)\r\n\t\tvar(--kv-circle-width); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70.5%, rgba(0, 0, 0, 0"
+          },
+          {
+            "key": "50%",
+            "style": "mask-size: 100% 100%,\r\n\t\t0\r\n\t\tcalc(var(--kv-circle-width) * 0.5625); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));"
+          },
+          {
+            "key": "0%",
+            "style": "mask-size: 100% 100%,\r\n\t\tvar(--kv-circle-width)\r\n\t\tcalc(var(--kv-circle-width) * 0.5625); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "floating-y",
+        "keyframes": [
+          {
+            "key": "0%, 100%",
+            "style": "transform: translateY(0px);"
+          },
+          {
+            "key": "50%",
+            "style": "transform: translateY(min(calc(15 / var(--vw-min) * 100vw),15px));"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "floating-x",
+        "keyframes": [
+          {
+            "key": "0%, 100%",
+            "style": "transform: translateY(0px);"
+          },
+          {
+            "key": "50%",
+            "style": "transform: translateX(min(calc(15 / var(--vw-min) * 100vw),15px));"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "spotlightL",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "transform: rotate(0deg);"
+          },
+          {
+            "key": "50%",
+            "style": "transform: rotate(-5deg);"
+          },
+          {
+            "key": "100%",
+            "style": "transform: rotate(0deg);"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "spotlightR",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "transform: rotate(0deg);"
+          },
+          {
+            "key": "50%",
+            "style": "transform: rotate(5deg);"
+          },
+          {
+            "key": "100%",
+            "style": "transform: rotate(0deg);"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "fog",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "background-position: 0px 0px;"
+          },
+          {
+            "key": "100%",
+            "style": "background-position: min(calc(2360 / var(--vw-min) * 100vw),2360px) 0;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "datedeco",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "background-position: 0px 0px;"
+          },
+          {
+            "key": "100%",
+            "style": "background-position: min(calc(12 / var(--vw-min) * 100vw),12px) 0;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "swiperNavCircle",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "stroke-dasharray: 0, 72;"
+          },
+          {
+            "key": "100%",
+            "style": "stroke-dasharray: 72, 72;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "coinrotate",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "transform: rotateY(0deg);"
+          },
+          {
+            "key": "100%",
+            "style": "transform: rotateY(720deg);"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "commentL",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "opacity: 0; transform: translateX(100%);"
+          },
+          {
+            "key": "8%",
+            "style": "opacity: 1; transform: translateX(5%);"
+          },
+          {
+            "key": "50%",
+            "style": "opacity: 1; transform: translateX(-5%);"
+          },
+          {
+            "key": "58%, 100%",
+            "style": "opacity: 0; transform: translateX(-100%);"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "commentR",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "opacity: 0; transform: translateX(-100%);"
+          },
+          {
+            "key": "8%",
+            "style": "opacity: 1; transform: translateX(-5%);"
+          },
+          {
+            "key": "50%",
+            "style": "opacity: 1; transform: translateX(5%);"
+          },
+          {
+            "key": "58%, 100%",
+            "style": "opacity: 0; transform: translateX(100%);"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "umbrella",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "transform: rotate(0deg);"
+          },
+          {
+            "key": "100%",
+            "style": "transform: rotate(720deg);"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "pancake-flash",
+        "keyframes": [
+          {
+            "key": "0%",
+            "style": "transform: rotate(0deg);"
+          },
+          {
+            "key": "50%, 100%",
+            "style": "transform: rotate(180deg);"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "lantern1",
+        "keyframes": [
+          {
+            "key": "0%, 30%, 100%",
+            "style": "opacity: 0;"
+          },
+          {
+            "key": "50%, 80%",
+            "style": "opacity: 1;"
+          }
+        ],
+        "usage": []
+      },
+      {
+        "name": "lantern2",
+        "keyframes": [
+          {
+            "key": "0%, 30%, 100%",
+            "style": "opacity: 1;"
+          },
+          {
+            "key": "50%, 80%",
+            "style": "opacity: 0;"
+          }
+        ],
+        "usage": []
+      }
+    ],
+    "animatedElements": [
+      {
+        "selector": "DIV.gnav__characterEn",
+        "animation": "c1",
+        "duration": "20s",
+        "timing": "linear",
+        "iterationCount": "infinite"
+      },
+      {
+        "selector": "circle.[object",
+        "animation": "swiperNavCircle",
+        "duration": "8.5s",
+        "timing": "linear",
+        "iterationCount": "1"
+      },
+      {
+        "selector": "DIV.introduction__umbrella1",
+        "animation": "umbrella",
+        "duration": "15s",
+        "timing": "ease",
+        "iterationCount": "infinite"
+      },
+      {
+        "selector": "DIV.introduction__umbrella2",
+        "animation": "umbrella",
+        "duration": "14s",
+        "timing": "ease",
+        "iterationCount": "infinite"
+      },
+      {
+        "selector": "DIV.introduction__umbrella3",
+        "animation": "umbrella",
+        "duration": "17s",
+        "timing": "ease",
+        "iterationCount": "infinite"
+      },
+      {
+        "selector": "DIV.introduction__umbrella4",
+        "animation": "umbrella",
+        "duration": "16s",
+        "timing": "ease",
+        "iterationCount": "infinite"
+      },
+      {
+        "selector": "DIV.kv__fixedInner",
+        "animation": "s2c",
+        "duration": "0.5s",
+        "timing": "ease",
+        "iterationCount": "1"
+      },
+      {
+        "selector": "DIV.kv__fixedInner2",
+        "animation": "s2c",
+        "duration": "0.5s",
+        "timing": "ease",
+        "iterationCount": "1"
+      }
+    ],
+    "scrollTriggers": []
+  },
+  "effects": {
+    "gradients": [
+      {
+        "selector": "DIV.gnav__content",
+        "gradient": "url(\"https://www.cho-kaguyahime.com/assets/img/common/bg_light.png\"), linear-gradient(rgb(203, 196, 248) 0%, rgb(245, 186, 191) 100%)",
+        "type": "linear"
+      },
+      {
+        "selector": "DIV.kv__fixedInner2",
+        "gradient": "url(\"https://www.cho-kaguyahime.com/assets/img/common/bg_light.png\"), linear-gradient(rgb(203, 196, 248) 0%, rgb(245, 186, 191) 100%)",
+        "type": "linear"
+      },
+      {
+        "selector": "DIV.modal",
+        "gradient": "url(\"https://www.cho-kaguyahime.com/assets/img/common/bg_light.png\"), linear-gradient(rgb(203, 196, 248) 0%, rgb(245, 186, 191) 100%)",
+        "type": "linear"
+      },
+      {
+        "selector": "DIV.modal",
+        "gradient": "url(\"https://www.cho-kaguyahime.com/assets/img/common/bg_light.png\"), linear-gradient(rgb(203, 196, 248) 0%, rgb(245, 186, 191) 100%)",
+        "type": "linear"
+      }
+    ],
+    "masks": [
+      {
+        "selector": "DIV.kv__fixedInner",
+        "maskImage": "linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70.5%, rg",
+        "maskSize": "100% 100%, 1337.14px 1337.14px",
+        "purpose": "shape"
+      },
+      {
+        "selector": "DIV.kv__fixedInner2",
+        "maskImage": "linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70.5%, rg",
+        "maskSize": "100% 100%, 1337.14px 1337.14px",
+        "purpose": "shape"
+      }
+    ],
+    "filters": [
+      {
+        "selector": "SPAN.gnav__menuBtnBox",
+        "filter": "backdrop: blur(4px)",
+        "type": "blur"
+      }
+    ],
+    "parallax": []
+  },
+  "components": {
+    "sliders": [
+      {
+        "selector": "DIV.kv__imgContentin.swiper.swiper-fade",
+        "library": "swiper",
+        "slideCount": 5,
+        "effect": "fade",
+        "autoplay": false,
+        "navigation": false,
+        "pagination": false
+      },
+      {
+        "selector": "DIV.fv__bnrSwiper.swiper",
+        "library": "swiper",
+        "slideCount": 1,
+        "effect": "slide",
+        "autoplay": false,
+        "navigation": false,
+        "pagination": false
+      },
+      {
+        "selector": "DIV.movie__swiper.swiper.swiper-coverflow",
+        "library": "swiper",
+        "slideCount": 30,
+        "effect": "coverflow",
+        "autoplay": false,
+        "navigation": false,
+        "pagination": false
+      },
+      {
+        "selector": "DIV.music__contentWrap.swiper.swiper-initialized",
+        "library": "swiper",
+        "slideCount": 30,
+        "effect": "slide",
+        "autoplay": false,
+        "navigation": false,
+        "pagination": false
+      },
+      {
+        "selector": "DIV.character__swiper.swiper.swiper-initialized",
+        "library": "swiper",
+        "slideCount": 14,
+        "effect": "slide",
+        "autoplay": false,
+        "navigation": false,
+        "pagination": false
+      }
+    ],
+    "modals": [
+      {
+        "selector": "DIV.modal",
+        "type": "content",
+        "trigger": null
+      },
+      {
+        "selector": "DIV.modal",
+        "type": "content",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      },
+      {
+        "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+        "type": "video",
+        "trigger": null
+      }
+    ],
+    "videoPlayers": []
+  },
+  "assets": {
+    "images": [
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/common/gnav_c1.png",
+        "filename": "gnav_c1.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.news.cho-kaguyahime.com/wp-content/uploads/2026/01/%E3%83%90%E3%83%8A%E3%83%BC%E3%83%8D%E3%83%88%E3%83%95%E3%83%AA.png",
+        "filename": "%E3%83%90%E3%83%8A%E3%83%BC%E3%83%8D%E3%83%88%E3%83%95%E3%83%AA.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/story/story_img.jpg",
+        "filename": "story_img.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_0thumb.png",
+        "filename": "character_0thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_0thumb-ac.png",
+        "filename": "character_0thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_1thumb.png",
+        "filename": "character_1thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_1thumb-ac.png",
+        "filename": "character_1thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_2thumb.png",
+        "filename": "character_2thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_2thumb-ac.png",
+        "filename": "character_2thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_5thumb.png",
+        "filename": "character_5thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_5thumb-ac.png",
+        "filename": "character_5thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_6thumb.png",
+        "filename": "character_6thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_6thumb-ac.png",
+        "filename": "character_6thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_7thumb.png",
+        "filename": "character_7thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_7thumb-ac.png",
+        "filename": "character_7thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_8thumb.png",
+        "filename": "character_8thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_8thumb-ac.png",
+        "filename": "character_8thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_9thumb.png",
+        "filename": "character_9thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_9thumb-ac.png",
+        "filename": "character_9thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_4thumb.png",
+        "filename": "character_4thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_4thumb-ac.png",
+        "filename": "character_4thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_10thumb.png",
+        "filename": "character_10thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_10thumb-ac.png",
+        "filename": "character_10thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_11thumb.png",
+        "filename": "character_11thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_11thumb-ac.png",
+        "filename": "character_11thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_3thumb.png",
+        "filename": "character_3thumb.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_3thumb-ac.png",
+        "filename": "character_3thumb-ac.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_3name-en.png",
+        "filename": "character_3name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_3main.png",
+        "filename": "character_3main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_0name-en.png",
+        "filename": "character_0name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_0main.png",
+        "filename": "character_0main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_0main_2.png",
+        "filename": "character_0main_2.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_1name-en.png",
+        "filename": "character_1name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_1main.png",
+        "filename": "character_1main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_1main_2.png",
+        "filename": "character_1main_2.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_1main_3.png",
+        "filename": "character_1main_3.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_2name-en.png",
+        "filename": "character_2name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_2main.png",
+        "filename": "character_2main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_5name-en.png",
+        "filename": "character_5name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_5main.png",
+        "filename": "character_5main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_6name-en.png",
+        "filename": "character_6name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_6main.png",
+        "filename": "character_6main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_7name-en.png",
+        "filename": "character_7name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_7main.png",
+        "filename": "character_7main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_8name-en.png",
+        "filename": "character_8name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_8main.png",
+        "filename": "character_8main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_8main_2.png",
+        "filename": "character_8main_2.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_9name-en.png",
+        "filename": "character_9name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_9main.png",
+        "filename": "character_9main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_9main_2.png",
+        "filename": "character_9main_2.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_4name-en.png",
+        "filename": "character_4name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_4main.png",
+        "filename": "character_4main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_10name-en.png",
+        "filename": "character_10name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_10main.png",
+        "filename": "character_10main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_11name-en.png",
+        "filename": "character_11name-en.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_11main.png",
+        "filename": "character_11main.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/common/logo.webp",
+        "filename": "logo.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/common/gnav_topics_title.webp",
+        "filename": "gnav_topics_title.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/top/kv.jpg",
+        "filename": "kv.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/top/kv3.jpg",
+        "filename": "kv3.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/top/kv2.jpg",
+        "filename": "kv2.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/top/catch.webp",
+        "filename": "catch.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/top/date.webp",
+        "filename": "date.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/news/news_title.webp",
+        "filename": "news_title.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/news/news_title-ja.png",
+        "filename": "news_title-ja.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/news/news_frame.webp",
+        "filename": "news_frame.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_comment-r1.png",
+        "filename": "movie_comment-r1.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_comment-r2.webp",
+        "filename": "movie_comment-r2.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_comment-r3.webp",
+        "filename": "movie_comment-r3.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_comment-l1.png",
+        "filename": "movie_comment-l1.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_comment-l2.webp",
+        "filename": "movie_comment-l2.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_comment-l3.webp",
+        "filename": "movie_comment-l3.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/common/title_sun.webp",
+        "filename": "title_sun.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_title.png",
+        "filename": "movie_title.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_title-ja.webp",
+        "filename": "movie_title-ja.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://img.youtube.com/vi/rXcPRKriVsI/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/movie/movie_mask.png",
+        "filename": "movie_mask.png",
+        "type": "png"
+      },
+      {
+        "url": "https://img.youtube.com/vi/55moNn0leAU/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/c_QUMs0xC_Q/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/0O0owfHUNvM/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/XbIRhHAMByI/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/_g66gXSLRPM/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/Nv_WH4OUOdc/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/WOJyMMY9Z90/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/LHKtab_WAbA/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/TH-U3eQwcWM/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/common/title_sun-r.webp",
+        "filename": "title_sun-r.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/introduction_title.webp",
+        "filename": "introduction_title.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/introduction_title-ja.webp",
+        "filename": "introduction_title-ja.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/introduction_catch.png",
+        "filename": "introduction_catch.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/introduction_catch2.webp",
+        "filename": "introduction_catch2.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/story/story_title.webp",
+        "filename": "story_title.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/story/story_title-ja.webp",
+        "filename": "story_title-ja.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/story/story_catch.webp",
+        "filename": "story_catch.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/story/story_subcatch.webp",
+        "filename": "story_subcatch.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/music/music_title.png",
+        "filename": "music_title.png",
+        "type": "png"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/music/music_title-ja.webp",
+        "filename": "music_title-ja.webp",
+        "type": "webp"
+      },
+      {
+        "url": "https://img.youtube.com/vi/356MRZ6P5h0/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/g6yAXqs7GpQ/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      },
+      {
+        "url": "https://img.youtube.com/vi/XRymkHlMB-k/maxresdefault.jpg",
+        "filename": "maxresdefault.jpg",
+        "type": "jpg"
+      }
+    ],
+    "fonts": [
+      {
+        "family": "Times New Roman",
+        "source": "custom",
+        "weights": [
+          "400"
+        ]
+      },
+      {
+        "family": "vdl-logog",
+        "source": "typekit",
+        "weights": [
+          "400"
+        ]
+      }
+    ],
+    "svgs": [
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_3name.svg",
+        "filename": "character_3name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_0name.svg",
+        "filename": "character_0name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_1name.svg",
+        "filename": "character_1name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_2name.svg",
+        "filename": "character_2name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_5name.svg",
+        "filename": "character_5name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_6name.svg",
+        "filename": "character_6name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_7name.svg",
+        "filename": "character_7name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_8name.svg",
+        "filename": "character_8name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_9name.svg",
+        "filename": "character_9name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_4name.svg",
+        "filename": "character_4name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_10name.svg",
+        "filename": "character_10name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_11name.svg",
+        "filename": "character_11name.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/common/menu_bg.svg",
+        "filename": "menu_bg.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/common/gnav_c1e.svg",
+        "filename": "gnav_c1e.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/common/icon_play.svg",
+        "filename": "icon_play.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/deco_umbrella1.svg",
+        "filename": "deco_umbrella1.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/deco_umbrella2.svg",
+        "filename": "deco_umbrella2.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/deco_umbrella3.svg",
+        "filename": "deco_umbrella3.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/deco_umbrella4.svg",
+        "filename": "deco_umbrella4.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/introduction_moon.svg",
+        "filename": "introduction_moon.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_frame.svg",
+        "filename": "character_frame.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/character/character_changebtn.svg",
+        "filename": "character_changebtn.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/staffcast/staff_title.svg",
+        "filename": "staff_title.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/staffcast/cast_title.svg",
+        "filename": "cast_title.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/staffcast/staffcast_flower.svg",
+        "filename": "staffcast_flower.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/introduction/introduction_torii.svg",
+        "filename": "introduction_torii.svg",
+        "type": "svg"
+      },
+      {
+        "url": "https://www.cho-kaguyahime.com/assets/img/top/kv_frame.svg",
+        "filename": "kv_frame.svg",
+        "type": "svg"
+      }
+    ],
+    "videos": []
+  },
+  "technologies": {
+    "libraries": [
+      "jQuery 3.6.0",
+      "Swiper"
+    ],
+    "frameworks": [],
+    "analytics": [
+      "Google Tag Manager"
+    ]
+  },
+  "styles": {
+    "colors": [
+      "rgb(0, 0, 0)",
+      "rgb(40, 40, 40)",
+      "rgb(255, 255, 255)",
+      "rgb(34, 34, 34)",
+      "rgb(0, 192, 195)",
+      "rgb(255, 99, 93)",
+      "rgb(255, 228, 143)",
+      "rgb(104, 204, 220)",
+      "rgb(162, 134, 231)",
+      "rgb(255, 135, 124)"
+    ],
+    "typography": {
+      "fonts": [
+        "\"Times New Roman\"",
+        "vdl-logog"
+      ],
+      "sizes": {
+        "P": {
+          "fontSize": "16px",
+          "lineHeight": "32px",
+          "letterSpacing": "0.8px"
+        },
+        "H1": {
+          "fontSize": "16px",
+          "lineHeight": "32px",
+          "letterSpacing": "0.8px"
+        },
+        "H2": {
+          "fontSize": "16px",
+          "lineHeight": "32px",
+          "letterSpacing": "0.8px"
+        },
+        "H3": {
+          "fontSize": "16px",
+          "lineHeight": "32px",
+          "letterSpacing": "0.8px"
+        },
+        "H4": {
+          "fontSize": "12px",
+          "lineHeight": "24px",
+          "letterSpacing": "0.8px"
+        }
+      }
+    },
+    "spacing": {
+      "containerWidth": "auto",
+      "sectionPadding": "0",
+      "gridGap": "16px"
+    }
+  }
+}

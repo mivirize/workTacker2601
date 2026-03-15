@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-type="text" data-field="page-title">MODERN ARCH | 建築事務所</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo" data-type="text" data-field="logo">MODERN ARCH</a>
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li><a href="#philosophy">Philosophy</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero__bg parallax"><img src="images/hero.jpg" alt="Architecture" data-type="image" data-field="hero-image"></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title" data-type="text" data-field="hero-title">住まいに、物語を。</h1>
+      <p class="hero__subtitle" data-type="text" data-field="hero-subtitle">光と風が織りなす、唯一無二の空間設計</p>
+      <a href="#contact" class="hero__cta">無料相談を予約</a>
+    </div>
+  </section>
+
+  <section class="philosophy" id="philosophy">
+    <div class="container">
+      <div class="section-header"><span class="section-header__label">Philosophy</span><h2 class="section-header__title" data-type="text" data-field="philosophy-title">設計思想</h2></div>
+      <div class="philosophy__content">
+        <p class="philosophy__lead" data-type="text" data-field="philosophy-lead">私たちは、住まう人の物語を形にする建築を目指しています。</p>
+        <img src="images/philosophy.jpg" alt="Philosophy" data-type="image" data-field="philosophy-image">
+      </div>
+    </div>
+  </section>
+
+  <section class="awards" id="awards">
+    <div class="container">
+      <div class="section-header"><span class="section-header__label">Awards</span><h2 class="section-header__title" data-type="text" data-field="awards-title">受賞歴</h2></div>
+      <div class="awards__grid" data-repeat="awards">
+        <div class="award-card" data-repeat-item="1"><span data-type="text" data-field="award-1-year">2025</span><h3 data-type="text" data-field="award-1-title">グッドデザイン賞</h3></div>
+        <div class="award-card" data-repeat-item="2"><span data-type="text" data-field="award-2-year">2024</span><h3 data-type="text" data-field="award-2-title">住宅建築賞</h3></div>
+        <div class="award-card" data-repeat-item="3"><span data-type="text" data-field="award-3-year">2023</span><h3 data-type="text" data-field="award-3-title">JIA新人賞</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="container">
+      <div class="section-header"><span class="section-header__label">Projects</span><h2 class="section-header__title" data-type="text" data-field="projects-title">プロジェクト</h2></div>
+      <div class="projects__grid" data-repeat="projects">
+        <div class="project-card" data-repeat-item="1"><img src="images/project-1.jpg" data-type="image" data-field="project-1-image"><h3 data-type="text" data-field="project-1-title">葉山の家</h3></div>
+        <div class="project-card" data-repeat-item="2"><img src="images/project-2.jpg" data-type="image" data-field="project-2-image"><h3 data-type="text" data-field="project-2-title">代官山レジデンス</h3></div>
+        <div class="project-card" data-repeat-item="3"><img src="images/project-3.jpg" data-type="image" data-field="project-3-image"><h3 data-type="text" data-field="project-3-title">目黒のカフェ</h3></div>
+        <div class="project-card" data-repeat-item="4"><img src="images/project-4.jpg" data-type="image" data-field="project-4-image"><h3 data-type="text" data-field="project-4-title">世田谷の家</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section-header"><span class="section-header__label">Team</span><h2 class="section-header__title" data-type="text" data-field="team-title">チーム</h2></div>
+      <div class="team__grid" data-repeat="team">
+        <div class="team-card" data-repeat-item="1"><img src="images/team-1.jpg" data-type="image" data-field="team-1-image"><h3 data-type="text" data-field="team-1-name">山田 太郎</h3><p data-type="text" data-field="team-1-role">代表建築家</p></div>
+        <div class="team-card" data-repeat-item="2"><img src="images/team-2.jpg" data-type="image" data-field="team-2-image"><h3 data-type="text" data-field="team-2-name">佐藤 花子</h3><p data-type="text" data-field="team-2-role">設計ディレクター</p></div>
+        <div class="team-card" data-repeat-item="3"><img src="images/team-3.jpg" data-type="image" data-field="team-3-image"><h3 data-type="text" data-field="team-3-name">田中 一郎</h3><p data-type="text" data-field="team-3-role">プロジェクトマネージャー</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header section-header--center"><span class="section-header__label">Contact</span><h2 class="section-header__title" data-type="text" data-field="contact-title">お問い合わせ</h2></div>
+      <form class="contact__form" id="contact-form">
+        <div class="form-group"><label>お名前</label><input type="text" name="name" required></div>
+        <div class="form-group"><label>メール</label><input type="email" name="email" required></div>
+        <div class="form-group"><label>内容</label><textarea name="message" rows="5"></textarea></div>
+        <button type="submit" class="btn">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container"><p class="footer__logo" data-type="text" data-field="footer-logo">MODERN ARCH</p><p>2026 MODERN ARCH</p></div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

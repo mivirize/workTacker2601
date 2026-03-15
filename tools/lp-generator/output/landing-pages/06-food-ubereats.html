@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TABETE - おいしいを、すぐそこに</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --green: #06c167;
+            --green-dark: #05a55a;
+            --yellow: #ffc043;
+            --orange: #ff6b00;
+            --black: #000000;
+            --white: #ffffff;
+            --gray: #545454;
+            --light-gray: #f6f6f6;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.5;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 0 40px;
+            height: 64px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--black);
+        }
+
+        .logo span {
+            color: var(--green);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--black);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--green);
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .btn-login {
+            background: transparent;
+            color: var(--black);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-signup {
+            background: var(--black);
+            color: var(--white);
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 0.9375rem;
+            font-weight: 500;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .btn-signup:hover {
+            background: var(--gray);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 100px 40px 60px;
+            background: linear-gradient(135deg, #f0fff4 0%, #fff 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 30%, var(--yellow) 0%, transparent 20%),
+                radial-gradient(circle at 70% 60%, var(--green) 0%, transparent 15%),
+                radial-gradient(circle at 50% 80%, var(--orange) 0%, transparent 10%);
+            opacity: 0.1;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--green);
+        }
+
+        .hero-content p {
+            font-size: 1.125rem;
+            color: var(--gray);
+            margin-bottom: 32px;
+            max-width: 450px;
+        }
+
+        /* Search Box */
+        .search-box {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .search-input {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--white);
+            padding: 16px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input input {
+            flex: 1;
+            border: none;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        .search-btn {
+            background: var(--green);
+            color: var(--white);
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .search-btn:hover {
+            background: var(--green-dark);
+        }
+
+        .hero-badges {
+            display: flex;
+            gap: 24px;
+        }
+
+        .badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .badge span {
+            font-size: 1.25rem;
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .food-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+        }
+
+        .food-item {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .food-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .food-item:nth-child(2) {
+            transform: translateY(30px);
+        }
+
+        .food-item:nth-child(4) {
+            transform: translateY(30px);
+        }
+
+        .food-image {
+            width: 100%;
+            height: 140px;
+            border-radius: 12px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+        }
+
+        .food-item:nth-child(1) .food-image { background: linear-gradient(135deg, #ff6b6b, #ee5a5a); }
+        .food-item:nth-child(2) .food-image { background: linear-gradient(135deg, #ffc043, #ffb020); }
+        .food-item:nth-child(3) .food-image { background: linear-gradient(135deg, #06c167, #05a55a); }
+        .food-item:nth-child(4) .food-image { background: linear-gradient(135deg, #667eea, #764ba2); }
+
+        .food-name {
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .food-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .food-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* Categories Section */
+        .categories {
+            padding: 80px 40px;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.75rem, 3vw, 2.5rem);
+            font-weight: 800;
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .category-card:hover {
+            transform: scale(1.05);
+        }
+
+        .category-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--light-gray);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 12px;
+            font-size: 2.5rem;
+            transition: background 0.3s;
+        }
+
+        .category-card:hover .category-icon {
+            background: #e8f5e9;
+        }
+
+        .category-name {
+            font-weight: 600;
+            font-size: 0.9375rem;
+        }
+
+        /* Restaurants Section */
+        .restaurants {
+            padding: 80px 40px;
+            background: var(--light-gray);
+        }
+
+        .restaurants-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto 40px;
+        }
+
+        .restaurants-header h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 800;
+        }
+
+        .restaurants-header a {
+            color: var(--green);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .restaurants-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .restaurant-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .restaurant-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .restaurant-image {
+            height: 160px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .restaurant-card:nth-child(1) .restaurant-image { background: linear-gradient(135deg, #ff9a9e, #fecfef); }
+        .restaurant-card:nth-child(2) .restaurant-image { background: linear-gradient(135deg, #a8edea, #fed6e3); }
+        .restaurant-card:nth-child(3) .restaurant-image { background: linear-gradient(135deg, #ffecd2, #fcb69f); }
+        .restaurant-card:nth-child(4) .restaurant-image { background: linear-gradient(135deg, #d4fc79, #96e6a1); }
+
+        .restaurant-promo {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--green);
+            color: var(--white);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .restaurant-info {
+            padding: 16px;
+        }
+
+        .restaurant-name {
+            font-weight: 700;
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        .restaurant-meta {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-size: 0.875rem;
+            color: var(--gray);
+        }
+
+        .restaurant-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .restaurant-rating strong {
+            color: var(--black);
+        }
+
+        /* How it works */
+        .how-it-works {
+            padding: 80px 40px;
+            background: var(--black);
+            color: var(--white);
+        }
+
+        .how-it-works .section-header h2 {
+            color: var(--white);
+        }
+
+        .how-it-works .section-header p {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .step {
+            text-align: center;
+        }
+
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background: var(--green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+            font-weight: 800;
+        }
+
+        .step h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .step p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9375rem;
+        }
+
+        /* App Download */
+        .app-download {
+            padding: 80px 40px;
+            background: linear-gradient(135deg, var(--green) 0%, var(--green-dark) 100%);
+            color: var(--white);
+        }
+
+        .app-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .app-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .app-content p {
+            font-size: 1.125rem;
+            opacity: 0.9;
+            margin-bottom: 32px;
+        }
+
+        .app-buttons {
+            display: flex;
+            gap: 16px;
+        }
+
+        .app-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--black);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .app-btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .app-btn-icon {
+            font-size: 1.5rem;
+        }
+
+        .app-btn-text {
+            text-align: left;
+        }
+
+        .app-btn-text small {
+            font-size: 0.6875rem;
+            opacity: 0.8;
+            display: block;
+        }
+
+        .app-btn-text strong {
+            font-size: 1rem;
+        }
+
+        .app-visual {
+            display: flex;
+            justify-content: center;
+        }
+
+        .phone-mockup {
+            width: 280px;
+            height: 560px;
+            background: var(--black);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.3);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: var(--white);
+            border-radius: 32px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .phone-screen .logo {
+            font-size: 2rem;
+        }
+
+        .phone-screen p {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        /* Partner Section */
+        .partner {
+            padding: 80px 40px;
+            background: var(--light-gray);
+        }
+
+        .partner-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .partner-card {
+            background: var(--white);
+            padding: 48px;
+            border-radius: 24px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .partner-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--green);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin-bottom: 24px;
+        }
+
+        .partner-card h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .partner-card p {
+            color: var(--gray);
+            margin-bottom: 24px;
+            flex: 1;
+        }
+
+        .partner-btn {
+            display: inline-block;
+            background: var(--black);
+            color: var(--white);
+            padding: 14px 28px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .partner-btn:hover {
+            background: var(--gray);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 60px 40px 30px;
+            color: var(--white);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 16px;
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            color: var(--gray);
+            font-size: 0.875rem;
+        }
+
+        .footer-col h4 {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--gray);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--gray);
+            font-size: 0.75rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            font-size: 1.25rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--green);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .app-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-badges {
+                justify-content: center;
+            }
+
+            .food-grid {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .restaurants-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero,
+            .categories,
+            .restaurants,
+            .how-it-works,
+            .app-download,
+            .partner,
+            footer {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .restaurants-grid,
+            .partner-container {
+                grid-template-columns: 1fr;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .app-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">TABE<span>TE</span></div>
+        <ul class="nav-links">
+            <li><a href="#">レストラン</a></li>
+            <li><a href="#">配達員になる</a></li>
+            <li><a href="#">店舗登録</a></li>
+        </ul>
+        <div class="nav-actions">
+            <button class="btn-login">ログイン</button>
+            <a href="#" class="btn-signup">新規登録</a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>おいしいを、<br><span>すぐそこに</span></h1>
+                <p>お気に入りのレストランの料理を、最短15分でお届け。今すぐ住所を入力して、近くのレストランを探してみよう。</p>
+                <div class="search-box">
+                    <div class="search-input">
+                        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span>
+                        <input type="text" placeholder="配達先の住所を入力">
+                    </div>
+                    <button class="search-btn">検索</button>
+                </div>
+                <div class="hero-badges">
+                    <div class="badge">
+                        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></span>
+                        <div>最短15分でお届け</div>
+                    </div>
+                    <div class="badge">
+                        <span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 2v7c0 1.1.9 2 2 2h4a2 2 0 0 0 2-2V2"/><path d="M7 2v20"/><path d="M21 15V2a5 5 0 0 0-5 5v6c0 1.1.9 2 2 2h3zm0 0v7"/></svg></span>
+                        <div>50,000店舗以上</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="food-grid">
+                    <div class="food-item">
+                        <div class="food-image">Burger</div>
+                        <div class="food-name">グルメバーガー</div>
+                        <div class="food-info">
+                            <span>20-30分</span>
+                            <div class="food-rating">★ 4.8</div>
+                        </div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-image">Pizza</div>
+                        <div class="food-name">本格ピザ</div>
+                        <div class="food-info">
+                            <span>25-35分</span>
+                            <div class="food-rating">★ 4.9</div>
+                        </div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-image"></div>
+                        <div class="food-name">フレッシュサラダ</div>
+                        <div class="food-info">
+                            <span>15-25分</span>
+                            <div class="food-rating">★ 4.7</div>
+                        </div>
+                    </div>
+                    <div class="food-item">
+                        <div class="food-image">Sushi</div>
+                        <div class="food-name">江戸前寿司</div>
+                        <div class="food-info">
+                            <span>30-40分</span>
+                            <div class="food-rating">★ 4.9</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories">
+        <div class="section-header">
+            <h2>カテゴリーから探す</h2>
+            <p>今の気分に合わせて、ジャンルを選んでください</p>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon">Burger</div>
+                <div class="category-name">ハンバーガー</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">Pizza</div>
+                <div class="category-name">ピザ</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">Ramen</div>
+                <div class="category-name">ラーメン</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon">Sushi</div>
+                <div class="category-name">寿司</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon"></div>
+                <div class="category-name">和食</div>
+            </div>
+            <div class="category-card">
+                <div class="category-icon"></div>
+                <div class="category-name">中華</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="restaurants">
+        <div class="restaurants-header">
+            <h2>あなたの近くの人気店</h2>
+            <a href="#">すべて見る →</a>
+        </div>
+        <div class="restaurants-grid">
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <span class="restaurant-promo">初回20%OFF</span>
+                                    </div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">TOKYO BURGER CLUB</div>
+                    <div class="restaurant-meta">
+                        <div class="restaurant-rating">★ <strong>4.8</strong> (324)</div>
+                        <span>20-30分</span>
+                        <span>¥300</span>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                                    </div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">ナポリの風 Pizza</div>
+                    <div class="restaurant-meta">
+                        <div class="restaurant-rating">★ <strong>4.9</strong> (512)</div>
+                        <span>25-35分</span>
+                        <span>¥350</span>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                    <span class="restaurant-promo">送料無料</span>
+                                    </div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">麺屋 一番</div>
+                    <div class="restaurant-meta">
+                        <div class="restaurant-rating">★ <strong>4.7</strong> (289)</div>
+                        <span>15-25分</span>
+                        <span>¥250</span>
+                    </div>
+                </div>
+            </div>
+            <div class="restaurant-card">
+                <div class="restaurant-image">
+                                    </div>
+                <div class="restaurant-info">
+                    <div class="restaurant-name">築地 すし鮮</div>
+                    <div class="restaurant-meta">
+                        <div class="restaurant-rating">★ <strong>4.9</strong> (198)</div>
+                        <span>30-40分</span>
+                        <span>¥400</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="how-it-works">
+        <div class="section-header">
+            <h2>かんたん3ステップ</h2>
+            <p>アプリをダウンロードして、今すぐ注文</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step">
+                <div class="step-number">1</div>
+                <h3>お店を探す</h3>
+                <p>住所を入力して、近くのレストランを検索。お気に入りの料理を見つけよう。</p>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <h3>注文する</h3>
+                <p>メニューを選んで、支払い方法を選択。あとはお届けを待つだけ。</p>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <h3>受け取る</h3>
+                <p>玄関先で受け取るか、置き配を選択。あたたかい料理をお楽しみください。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="app-download">
+        <div class="app-container">
+            <div class="app-content">
+                <h2>アプリで<br>もっと便利に</h2>
+                <p>プッシュ通知でリアルタイム配達状況をお知らせ。限定クーポンやお得なキャンペーン情報も見逃しません。</p>
+                <div class="app-buttons">
+                    <a href="#" class="app-btn">
+                        <span class="app-btn-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 0 3 1 3 3v1c3 0 5 2 5 5 0 2-1 4-2 5l-1 5h-10l-1-5c-1-1-2-3-2-5 0-3 2-5 5-5V5c0-2 1.5-3 3-3z"/></svg></span>
+                        <div class="app-btn-text">
+                            <small>Download on the</small>
+                            <strong>App Store</strong>
+                        </div>
+                    </a>
+                    <a href="#" class="app-btn">
+                        <span class="app-btn-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></span>
+                        <div class="app-btn-text">
+                            <small>GET IT ON</small>
+                            <strong>Google Play</strong>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="app-visual">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="logo">TABE<span>TE</span></div>
+                        <p>おいしいを、すぐそこに</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="partner">
+        <div class="partner-container">
+            <div class="partner-card">
+                <div class="partner-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg></div>
+                <h3>レストランパートナー</h3>
+                <p>TABETEに店舗を登録して、新しいお客様にリーチしましょう。初期費用・月額費用は無料。売上に応じた手数料のみで始められます。</p>
+                <a href="#" class="partner-btn">店舗を登録する</a>
+            </div>
+            <div class="partner-card">
+                <div class="partner-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><circle cx="5" cy="17" r="3"/><circle cx="19" cy="17" r="3"/><path d="M12 17V5l4 4"/><path d="M5 17l7-5 7 5"/></svg></div>
+                <h3>配達パートナー</h3>
+                <p>自由な時間に自分のペースで稼ごう。自転車でもバイクでもOK。今すぐ登録して、配達パートナーになりませんか？</p>
+                <a href="#" class="partner-btn">配達員に登録する</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">TABE<span>TE</span></div>
+                <p>おいしいを、すぐそこに。<br>全国50,000店舗以上のレストランから、<br>あなたにぴったりの一品をお届けします。</p>
+            </div>
+            <div class="footer-col">
+                <h4>TABETEについて</h4>
+                <ul>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">ニュースルーム</a></li>
+                    <li><a href="#">投資家情報</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>サポート</h4>
+                <ul>
+                    <li><a href="#">ヘルプセンター</a></li>
+                    <li><a href="#">配達について</a></li>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">安全への取り組み</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>パートナー</h4>
+                <ul>
+                    <li><a href="#">レストラン登録</a></li>
+                    <li><a href="#">配達員登録</a></li>
+                    <li><a href="#">法人向けサービス</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 TABETE Inc. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#"></a>
+                <a href="#">X</a>
+                <a href="#"></a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

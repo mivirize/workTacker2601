@@ -1,0 +1,57 @@
+{
+  "name": "Global Talk",
+  "version": "1.0.0",
+  "description": "Global Talk - ビジネス英語オンラインスクール LP",
+  "tier": "rich",
+  "client": "グローバルトーク株式会社",
+  "industry": "Online English Education",
+  "target": "25-40 year old business professionals",
+  "colors": {
+    "primary": "#1a3a5c",
+    "secondary": "#ff6b35",
+    "accent": "#00b4d8",
+    "background": "#ffffff",
+    "backgroundDark": "#0d1f30",
+    "text": "#333333",
+    "textLight": "#666666",
+    "textOnDark": "#ffffff"
+  },
+  "fonts": {
+    "heading": "'Noto Sans JP', sans-serif",
+    "body": "'Noto Sans JP', sans-serif"
+  },
+  "sections": [
+    "hero",
+    "pain-points",
+    "solution",
+    "learning-method",
+    "features",
+    "stats",
+    "instructors",
+    "testimonials",
+    "corporate-clients",
+    "pricing",
+    "faq",
+    "cta-form"
+  ],
+  "features": {
+    "scrollAnimations": true,
+    "videoEmbed": true,
+    "countUpAnimations": true,
+    "testimonialSlider": true,
+    "faqAccordion": true,
+    "stickyHeader": true,
+    "smoothScroll": true
+  },
+  "stats": {
+    "students": 300000,
+    "satisfaction": 97,
+    "toeicImprovement": 150,
+    "corporateClients": 500
+  },
+  "entryPoints": {
+    "html": "src/index.html",
+    "css": ["src/css/styles.css", "src/css/animations.css"],
+    "js": ["src/js/main.js", "src/js/slider.js"]
+  }
+}

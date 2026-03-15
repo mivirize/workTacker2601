@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NovaTech - 革新を、あなたの手に</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-black: #1d1d1f;
+            --secondary-gray: #86868b;
+            --light-gray: #f5f5f7;
+            --white: #ffffff;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            color: var(--primary-black);
+            background: var(--white);
+            line-height: 1.5;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            padding: 0 22px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .nav-container {
+            max-width: 1024px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-black);
+            font-size: 0.85rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 120px 24px 80px;
+            background: linear-gradient(180deg, #fbfbfd 0%, #ffffff 100%);
+        }
+
+        .hero-badge {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 8vw, 5rem);
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-bottom: 16px;
+            animation: fadeInUp 0.8s ease-out 0.1s both;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--secondary-gray);
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: fadeInUp 0.8s ease-out 0.2s both;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            animation: fadeInUp 0.8s ease-out 0.3s both;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 14px 32px;
+            border-radius: 980px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #667eea;
+            padding: 14px 32px;
+            border-radius: 980px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: 500;
+            border: 1px solid #667eea;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .btn-secondary:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Product Image */
+        .hero-image {
+            margin-top: 60px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .product-mockup {
+            width: 100%;
+            max-width: 800px;
+            height: 400px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #3d3d3f 100%);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-mockup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: linear-gradient(135deg, #3d3d3f 0%, #4d4d4f 100%);
+            border-radius: 24px 24px 0 0;
+        }
+
+        .product-mockup::after {
+            content: '●●●';
+            position: absolute;
+            top: 8px;
+            left: 16px;
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .screen-content {
+            width: 90%;
+            height: 320px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            border-radius: 12px;
+            margin-top: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            font-weight: 300;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 24px;
+            background: var(--light-gray);
+        }
+
+        .features-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .features-header h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .features-header p {
+            color: var(--secondary-gray);
+            font-size: 1.25rem;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 48px 32px;
+            border-radius: 24px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--secondary-gray);
+        }
+
+        /* Product Showcase */
+        .showcase {
+            padding: 120px 24px;
+            background: var(--primary-black);
+            color: white;
+        }
+
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .showcase-content h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+
+        .showcase-content p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.125rem;
+            margin-bottom: 32px;
+        }
+
+        .specs-list {
+            list-style: none;
+        }
+
+        .specs-list li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .specs-list li::before {
+            content: '✓';
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .showcase-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .device {
+            width: 300px;
+            height: 600px;
+            background: linear-gradient(180deg, #2d2d2f 0%, #1d1d1f 100%);
+            border-radius: 48px;
+            padding: 16px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .device-screen {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #667eea 0%, #764ba2 100%);
+            border-radius: 36px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .device-screen .time {
+            font-size: 4rem;
+            font-weight: 200;
+        }
+
+        .device-screen .date {
+            font-size: 1.25rem;
+            opacity: 0.8;
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 120px 24px;
+            background: var(--light-gray);
+        }
+
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .pricing-header h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            margin-bottom: 16px;
+        }
+
+        .pricing-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .pricing-card {
+            background: white;
+            padding: 48px 32px;
+            border-radius: 24px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .pricing-card.featured {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: scale(1.05);
+        }
+
+        .pricing-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+        }
+
+        .pricing-card .price {
+            font-size: 3rem;
+            font-weight: 600;
+            margin: 16px 0;
+        }
+
+        .pricing-card .price span {
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .pricing-card ul {
+            list-style: none;
+            margin: 24px 0;
+            text-align: left;
+        }
+
+        .pricing-card ul li {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pricing-card ul li::before {
+            content: '✓';
+        }
+
+        .pricing-card.featured ul li::before {
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .pricing-card:not(.featured) ul li::before {
+            color: #667eea;
+        }
+
+        /* CTA Section */
+        .cta {
+            padding: 120px 24px;
+            text-align: center;
+            background: white;
+        }
+
+        .cta h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 24px;
+        }
+
+        .cta p {
+            color: var(--secondary-gray);
+            font-size: 1.25rem;
+            margin-bottom: 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--light-gray);
+            padding: 60px 24px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            font-size: 0.75rem;
+            color: var(--secondary-gray);
+            margin-bottom: 16px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 8px;
+        }
+
+        .footer-col ul li a {
+            color: var(--primary-black);
+            text-decoration: none;
+            font-size: 0.875rem;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            text-align: center;
+            color: var(--secondary-gray);
+            font-size: 0.75rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .showcase-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo">NovaTech</div>
+            <ul class="nav-links">
+                <li><a href="#features">機能</a></li>
+                <li><a href="#showcase">製品</a></li>
+                <li><a href="#pricing">価格</a></li>
+                <li><a href="#contact">お問い合わせ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <span class="hero-badge">NEW 新製品発表</span>
+        <h1>革新を、<span>あなた</span>の手に</h1>
+        <p>最先端のテクノロジーと美しいデザインが融合。NovaTech Proは、あなたの創造性を解き放ちます。</p>
+        <div class="hero-buttons">
+            <a href="#" class="btn-primary">購入する</a>
+            <a href="#" class="btn-secondary">詳しく見る</a>
+        </div>
+        <div class="hero-image">
+            <div class="product-mockup">
+                <div class="screen-content">NovaTech Pro</div>
+            </div>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="features-header">
+            <h2>すべてが、次のレベルへ</h2>
+            <p>革新的な機能があなたの体験を変えます</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg></div>
+                <h3>超高速パフォーマンス</h3>
+                <p>新設計のNova Chipが、従来比200%の処理速度を実現。あらゆる作業がスムーズに。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="6" y="7" width="12" height="14" rx="2"/><path d="M10 4h4"/><path d="M10 17h4"/></svg></div>
+                <h3>オールデイバッテリー</h3>
+                <p>最大24時間のバッテリー駆動。一日中、電源を気にせず使えます。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="1"/></svg></div>
+                <h3>プロ級カメラシステム</h3>
+                <p>48MPメインカメラとAI処理により、誰でもプロフェッショナルな写真を。</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M12 3a4 4 0 0 0-4 4v4h8V7a4 4 0 0 0-4-4z"/></svg></div>
+                <h3>プライバシー最優先</h3>
+                <p>エンドツーエンド暗号化と生体認証で、あなたのデータを完全に保護。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="showcase" id="showcase">
+        <div class="showcase-container">
+            <div class="showcase-content">
+                <h2>美しさと機能の<br>完璧な調和</h2>
+                <p>極限まで薄く、信じられないほど軽い。それでいて、最もパワフル。NovaTech Proは、不可能を可能にしました。</p>
+                <ul class="specs-list">
+                    <li>6.7インチ Super Retina XDRディスプレイ</li>
+                    <li>航空宇宙グレードチタニウム</li>
+                    <li>IP68等級の耐水性能</li>
+                    <li>5G対応・Wi-Fi 7</li>
+                    <li>ProMotion技術（120Hzリフレッシュレート）</li>
+                </ul>
+            </div>
+            <div class="showcase-visual">
+                <div class="device">
+                    <div class="device-screen">
+                        <div class="time">10:24</div>
+                        <div class="date">1月27日 月曜日</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing" id="pricing">
+        <div class="pricing-header">
+            <h2>あなたに最適なモデルを</h2>
+            <p>すべてのモデルで、最高の体験をお届けします</p>
+        </div>
+        <div class="pricing-cards">
+            <div class="pricing-card">
+                <h3>NovaTech</h3>
+                <div class="price">¥129,800<span>〜</span></div>
+                <ul>
+                    <li>6.1インチディスプレイ</li>
+                    <li>128GBストレージ</li>
+                    <li>デュアルカメラ</li>
+                    <li>終日バッテリー</li>
+                </ul>
+                <a href="#" class="btn-secondary">選択する</a>
+            </div>
+            <div class="pricing-card featured">
+                <h3>NovaTech Pro</h3>
+                <div class="price">¥179,800<span>〜</span></div>
+                <ul>
+                    <li>6.7インチディスプレイ</li>
+                    <li>256GBストレージ</li>
+                    <li>トリプルカメラ</li>
+                    <li>ProMotion技術</li>
+                </ul>
+                <a href="#" class="btn-primary" style="background: white; color: #667eea;">選択する</a>
+            </div>
+            <div class="pricing-card">
+                <h3>NovaTech Max</h3>
+                <div class="price">¥229,800<span>〜</span></div>
+                <ul>
+                    <li>6.9インチディスプレイ</li>
+                    <li>512GBストレージ</li>
+                    <li>クアッドカメラ</li>
+                    <li>最大36時間駆動</li>
+                </ul>
+                <a href="#" class="btn-secondary">選択する</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="contact">
+        <h2>今すぐ、未来を手に入れよう</h2>
+        <p>新規ご購入で、3ヶ月のNovaTech+を無料でお試しいただけます</p>
+        <a href="#" class="btn-primary">購入はこちら</a>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>製品</h4>
+                <ul>
+                    <li><a href="#">NovaTech</a></li>
+                    <li><a href="#">NovaTech Pro</a></li>
+                    <li><a href="#">NovaTech Max</a></li>
+                    <li><a href="#">アクセサリー</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>サービス</h4>
+                <ul>
+                    <li><a href="#">NovaTech+</a></li>
+                    <li><a href="#">NovaCare</a></li>
+                    <li><a href="#">下取りプログラム</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>サポート</h4>
+                <ul>
+                    <li><a href="#">お問い合わせ</a></li>
+                    <li><a href="#">修理サービス</a></li>
+                    <li><a href="#">マニュアル</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>会社情報</h4>
+                <ul>
+                    <li><a href="#">NovaTechについて</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">ニュースルーム</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 NovaTech Inc. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>

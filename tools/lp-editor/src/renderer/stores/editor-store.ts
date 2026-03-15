@@ -10,7 +10,7 @@ import { temporal } from 'zundo'
 
 interface EditableField {
   id: string
-  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
+  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon' | 'counter'
   value: string | null
   label?: string
   group?: string
@@ -24,6 +24,8 @@ interface EditableField {
   suffix?: string
   // Icon-specific attributes
   iconSet?: string
+  // Counter-specific attributes
+  dataCount?: string
 }
 
 interface ColorField {
@@ -35,7 +37,7 @@ interface ColorField {
 
 interface RepeatItemField {
   id: string
-  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
+  type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon' | 'counter'
   label?: string
   value: string | null
   href?: string

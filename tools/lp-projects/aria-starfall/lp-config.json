@@ -1,0 +1,53 @@
+{
+  "name": "星降る夜のアリア",
+  "version": "1.0.0",
+  "description": "Netflix映画『星降る夜のアリア』公式サイト - アニメ特設サイトテンプレート",
+  "author": "Studio CELESTIA",
+  "entryPoint": "src/index.html",
+  "buildOutput": "dist",
+  "assets": {
+    "images": "src/images",
+    "css": "src/css",
+    "js": "src/js"
+  },
+  "colorScheme": {
+    "primary": "#FFD700",
+    "primaryDark": "#B8860B",
+    "secondary": "#0a0a1a",
+    "accent": "#a8c8ff",
+    "accentPink": "#ff6b9d",
+    "bgDark": "#0a0a12",
+    "bgSection": "#0d0d18",
+    "text": "#f0f0f0",
+    "textMuted": "#888888"
+  },
+  "fonts": [
+    "Noto Sans JP",
+    "Noto Serif JP",
+    "Cinzel"
+  ],
+  "sections": [
+    { "id": "hero", "name": "ヒーロー", "editable": true },
+    { "id": "news", "name": "NEWS", "editable": true },
+    { "id": "movie", "name": "MOVIE", "editable": true },
+    { "id": "introduction", "name": "INTRODUCTION", "editable": true },
+    { "id": "story", "name": "STORY", "editable": true },
+    { "id": "music", "name": "MUSIC", "editable": true },
+    { "id": "character", "name": "CHARACTER", "editable": true },
+    { "id": "staff", "name": "STAFF/CAST", "editable": true },
+    { "id": "footer", "name": "フッター", "editable": true }
+  ],
+  "meta": {
+    "template": "anime-special-site",
+    "reference": "https://www.cho-kaguyahime.com/",
+    "features": [
+      "ローディングスクリーン",
+      "星パーティクル",
+      "スクロールアニメーション",
+      "スライダー（MOVIE/MUSIC）",
+      "キャラクター選択UI",
+      "レスポンシブデザイン",
+      "ダークテーマ"
+    ]
+  }
+}

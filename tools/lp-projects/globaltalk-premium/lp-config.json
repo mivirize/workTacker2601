@@ -1,0 +1,109 @@
+{
+  "name": "Global Talk Premium LP",
+  "version": "1.0.0",
+  "description": "Premium tier landing page for Global Talk online English school",
+  "author": "LP-Editor",
+  "tier": "premium",
+  "client": "グローバルトーク株式会社",
+  "industry": "Online English Education",
+  "target": "25-40 year old business professionals",
+  "theme": {
+    "primaryColor": "#1a365d",
+    "secondaryColor": "#ed8936",
+    "fontFamily": "Inter, Noto Sans JP, sans-serif"
+  },
+  "pages": [
+    {
+      "name": "index",
+      "path": "src/index.html",
+      "title": "Global Talk | ビジネス英語、始めるなら今。",
+      "sections": [
+        "loading-screen",
+        "hero",
+        "philosophy",
+        "pain-points",
+        "solution",
+        "methodology",
+        "ai-tech",
+        "stats",
+        "success-stories",
+        "instructors",
+        "corporate",
+        "pricing",
+        "cta-final",
+        "footer"
+      ]
+    },
+    {
+      "name": "about",
+      "path": "src/about.html",
+      "title": "会社概要 | Global Talk",
+      "sections": [
+        "page-hero",
+        "mission",
+        "values",
+        "team",
+        "company-info",
+        "history",
+        "about-cta",
+        "footer"
+      ]
+    },
+    {
+      "name": "contact",
+      "path": "src/contact.html",
+      "title": "お問い合わせ | Global Talk",
+      "sections": [
+        "page-hero",
+        "contact-form",
+        "contact-info",
+        "map",
+        "footer"
+      ]
+    }
+  ],
+  "assets": {
+    "css": ["src/css/styles.css"],
+    "js": ["src/js/main.js"],
+    "images": "src/images/"
+  },
+  "features": {
+    "loadingScreen": true,
+    "scrollAnimations": true,
+    "counterAnimations": true,
+    "particleEffects": true,
+    "pricingToggle": true,
+    "storiesSlider": true,
+    "scrollProgress": true,
+    "backToTop": true,
+    "smoothScroll": true,
+    "formValidation": true,
+    "aiDashboardAnimation": true,
+    "worldMapAnimation": true
+  },
+  "editableFields": {
+    "text": {
+      "selector": "[data-type='text']",
+      "description": "All text content with data-type='text' attribute"
+    },
+    "image": {
+      "selector": "[data-type='image']",
+      "description": "All images with data-type='image' attribute"
+    },
+    "repeat": {
+      "selector": "[data-repeat]",
+      "description": "Repeatable sections for dynamic content"
+    }
+  },
+  "seo": {
+    "title": "Global Talk | ビジネス英語、始めるなら今。",
+    "description": "Global Talkは、ビジネスパーソンのためのオンライン英会話スクール。AI技術と一流講師陣で、あなたのグローバルキャリアを加速させます。",
+    "keywords": "ビジネス英語, オンライン英会話, 英語学習, グローバル, AI学習, 法人研修"
+  },
+  "analytics": {
+    "googleAnalytics": "",
+    "facebookPixel": ""
+  },
+  "createdAt": "2026-02-01",
+  "lastModified": "2026-02-01"
+}

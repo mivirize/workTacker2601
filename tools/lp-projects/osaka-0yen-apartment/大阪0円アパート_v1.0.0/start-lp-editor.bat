@@ -1,0 +1,3 @@
+@echo off
+echo Starting LP-Editor for 大阪0円アパート...
+start "" "%~dp0LP-Editor.exe"

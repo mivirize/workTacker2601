@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Global Talk | ビジネス英語、始めるなら今。</title>
+  <meta name="description" content="Global Talkは、ビジネスパーソンのためのオンライン英会話スクール。AI技術と一流講師陣で、あなたのグローバルキャリアを加速させます。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading-screen" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <span class="logo-text">Global</span>
+        <span class="logo-text logo-accent">Talk</span>
+      </div>
+      <div class="loading-bar">
+        <div class="loading-progress"></div>
+      </div>
+      <p class="loading-text">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Particle Container -->
+  <div id="particles-container" class="particles-container"></div>
+
+  <!-- Navigation -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <a href="index.html" class="header__logo">
+        <span class="logo-text" data-type="text" data-label="Logo Text 1">Global</span>
+        <span class="logo-text logo-accent" data-type="text" data-label="Logo Text 2">Talk</span>
+      </a>
+      <nav class="header__nav">
+        <ul class="nav-list">
+          <li><a href="#methodology" class="nav-link">学習メソッド</a></li>
+          <li><a href="#instructors" class="nav-link">講師紹介</a></li>
+          <li><a href="#pricing" class="nav-link">料金プラン</a></li>
+          <li><a href="about.html" class="nav-link">会社概要</a></li>
+          <li><a href="contact.html" class="nav-link">お問い合わせ</a></li>
+        </ul>
+      </nav>
+      <a href="#cta-final" class="header__cta btn btn--primary btn--sm">無料体験を予約</a>
+      <button class="header__hamburger" id="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <nav class="mobile-menu__nav">
+      <ul class="mobile-nav-list">
+        <li><a href="#methodology" class="mobile-nav-link">学習メソッド</a></li>
+        <li><a href="#instructors" class="mobile-nav-link">講師紹介</a></li>
+        <li><a href="#pricing" class="mobile-nav-link">料金プラン</a></li>
+        <li><a href="about.html" class="mobile-nav-link">会社概要</a></li>
+        <li><a href="contact.html" class="mobile-nav-link">お問い合わせ</a></li>
+      </ul>
+      <a href="#cta-final" class="btn btn--primary btn--lg mobile-cta">無料体験を予約</a>
+    </nav>
+  </div>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section id="hero" class="hero">
+      <div class="hero__bg">
+        <div class="world-map-container">
+          <svg class="world-map" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice">
+            <!-- Simplified World Map Outline -->
+            <g class="continents" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="1">
+              <!-- North America -->
+              <path d="M150,150 Q200,100 280,120 Q350,140 380,200 Q400,280 350,320 Q280,350 200,300 Q150,250 150,150Z"/>
+              <!-- South America -->
+              <path d="M280,350 Q320,380 300,450 Q280,520 250,550 Q220,520 230,450 Q240,380 280,350Z"/>
+              <!-- Europe -->
+              <path d="M500,120 Q550,100 620,130 Q680,150 700,200 Q680,250 620,260 Q550,250 500,200 Q480,160 500,120Z"/>
+              <!-- Africa -->
+              <path d="M520,280 Q580,260 640,300 Q680,380 650,480 Q580,520 520,480 Q480,400 520,280Z"/>
+              <!-- Asia -->
+              <path d="M700,100 Q800,80 920,120 Q1000,180 1050,280 Q1000,380 900,400 Q780,380 700,300 Q680,200 700,100Z"/>
+              <!-- Australia -->
+              <path d="M900,420 Q980,400 1050,450 Q1080,500 1050,540 Q980,560 920,520 Q880,480 900,420Z"/>
+            </g>
+            <!-- Connection Lines (animated) -->
+            <g class="connection-lines">
+              <line class="connection-line" x1="300" y1="200" x2="600" y2="180"/>
+              <line class="connection-line" x1="600" y1="180" x2="850" y2="250"/>
+              <line class="connection-line" x1="300" y1="200" x2="850" y2="250"/>
+              <line class="connection-line" x1="600" y1="180" x2="580" y2="380"/>
+              <line class="connection-line" x1="850" y1="250" x2="950" y2="480"/>
+            </g>
+            <!-- Connection Points -->
+            <g class="connection-points">
+              <circle class="point pulse-point" cx="300" cy="200" r="6"/>
+              <circle class="point pulse-point" cx="600" cy="180" r="6"/>
+              <circle class="point pulse-point" cx="850" cy="250" r="6"/>
+              <circle class="point pulse-point" cx="580" cy="380" r="6"/>
+              <circle class="point pulse-point" cx="950" cy="480" r="6"/>
+            </g>
+          </svg>
+        </div>
+        <div class="hero__gradient"></div>
+      </div>
+      <div class="hero__content container">
+        <div class="hero__badge animate-on-scroll">
+          <span class="badge" data-type="text" data-label="Badge Text">累計受講者数 50,000人突破</span>
+        </div>
+        <h1 class="hero__title animate-on-scroll">
+          <span class="hero__title-line" data-type="text" data-label="Hero Title Line 1">ビジネス英語、</span>
+          <span class="hero__title-line hero__title-accent" data-type="text" data-label="Hero Title Line 2">始めるなら今。</span>
+        </h1>
+        <p class="hero__subtitle animate-on-scroll" data-type="text" data-label="Hero Subtitle">
+          グローバルで活躍するビジネスパーソンのための<br>
+          AI搭載オンライン英会話スクール
+        </p>
+        <div class="hero__cta animate-on-scroll">
+          <a href="#cta-final" class="btn btn--primary btn--lg">
+            <span>無料体験レッスンを予約</span>
+            <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+          <a href="#methodology" class="btn btn--outline btn--lg">
+            <span>詳しく見る</span>
+          </a>
+        </div>
+        <div class="hero__stats animate-on-scroll">
+          <div class="hero-stat">
+            <span class="hero-stat__number" data-type="text" data-label="Stat 1 Number">98.5%</span>
+            <span class="hero-stat__label" data-type="text" data-label="Stat 1 Label">受講者満足度</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__number" data-type="text" data-label="Stat 2 Number">500+</span>
+            <span class="hero-stat__label" data-type="text" data-label="Stat 2 Label">法人導入実績</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat__number" data-type="text" data-label="Stat 3 Number">24/7</span>
+            <span class="hero-stat__label" data-type="text" data-label="Stat 3 Label">いつでも受講可能</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll-indicator">
+        <span>Scroll</span>
+        <div class="scroll-line"></div>
+      </div>
+    </section>
+
+    <!-- Section 2: Brand Philosophy -->
+    <section id="philosophy" class="section philosophy">
+      <div class="container">
+        <div class="philosophy__content">
+          <div class="philosophy__text animate-on-scroll">
+            <span class="section-label" data-type="text" data-label="Section Label">Our Philosophy</span>
+            <h2 class="section-title" data-type="text" data-label="Philosophy Title">
+              言葉の壁を超えて、<br>世界とつながる
+            </h2>
+            <p class="philosophy__description" data-type="text" data-label="Philosophy Description">
+              Global Talkは、単なる英会話スクールではありません。
+              私たちは、ビジネスの現場で本当に使える英語力を、
+              最短距離で習得するためのパートナーです。
+            </p>
+            <p class="philosophy__description" data-type="text" data-label="Philosophy Description 2">
+              AI技術と経験豊富な講師陣の融合により、
+              一人ひとりに最適化された学習体験を提供。
+              あなたのグローバルキャリアを、私たちが全力でサポートします。
+            </p>
+          </div>
+          <div class="philosophy__visual animate-on-scroll">
+            <div class="philosophy-card">
+              <div class="philosophy-card__icon">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                  <path d="M24 4C24 4 16 14 16 24C16 34 24 44 24 44" stroke="currentColor" stroke-width="2"/>
+                  <path d="M24 4C24 4 32 14 32 24C32 34 24 44 24 44" stroke="currentColor" stroke-width="2"/>
+                  <line x1="4" y1="24" x2="44" y2="24" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3 data-type="text" data-label="Card Title 1">グローバル視点</h3>
+              <p data-type="text" data-label="Card Description 1">世界50カ国以上の講師陣が、国際ビジネスの現場感覚を伝授</p>
+            </div>
+            <div class="philosophy-card">
+              <div class="philosophy-card__icon">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <rect x="8" y="8" width="32" height="32" rx="4" stroke="currentColor" stroke-width="2"/>
+                  <path d="M16 24L22 30L32 18" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3 data-type="text" data-label="Card Title 2">実践重視</h3>
+              <p data-type="text" data-label="Card Description 2">会議、プレゼン、交渉など実際のビジネスシーンで使えるスキル</p>
+            </div>
+            <div class="philosophy-card">
+              <div class="philosophy-card__icon">
+                <svg viewBox="0 0 48 48" fill="none">
+                  <circle cx="24" cy="16" r="8" stroke="currentColor" stroke-width="2"/>
+                  <path d="M8 44C8 35.2 15.2 28 24 28C32.8 28 40 35.2 40 44" stroke="currentColor" stroke-width="2"/>
+                </svg>
+              </div>
+              <h3 data-type="text" data-label="Card Title 3">パーソナライズ</h3>
+              <p data-type="text" data-label="Card Description 3">AIが学習進捗を分析し、最適なカリキュラムを自動生成</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Pain Points -->
+    <section id="pain-points" class="section pain-points">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label" data-type="text" data-label="Section Label">Your Challenges</span>
+          <h2 class="section-title" data-type="text" data-label="Pain Points Title">
+            こんなお悩み、ありませんか？
+          </h2>
+        </div>
+        <div class="pain-points__grid" data-repeat="pain-points">
+          <div class="pain-card animate-on-scroll" data-repeat-item>
+            <div class="pain-card__number">01</div>
+            <div class="pain-card__content">
+              <h3 class="pain-card__title" data-type="text" data-label="Pain Title">英語会議で発言できない</h3>
+              <p class="pain-card__description" data-type="text" data-label="Pain Description">
+                聞き取れても、自分の意見を英語で瞬時に
+                まとめて発言することができない...
+              </p>
+            </div>
+            <div class="pain-card__icon">
+              <svg viewBox="0 0 48 48" fill="none">
+                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 14V28" stroke="currentColor" stroke-width="2"/>
+                <circle cx="24" cy="34" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+          </div>
+          <div class="pain-card animate-on-scroll" data-repeat-item>
+            <div class="pain-card__number">02</div>
+            <div class="pain-card__content">
+              <h3 class="pain-card__title" data-type="text" data-label="Pain Title">学習が続かない</h3>
+              <p class="pain-card__description" data-type="text" data-label="Pain Description">
+                忙しい毎日の中で、英語学習の
+                モチベーションを維持するのが難しい...
+              </p>
+            </div>
+            <div class="pain-card__icon">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M24 4V24L34 34" stroke="currentColor" stroke-width="2"/>
+                <circle cx="24" cy="24" r="20" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="pain-card animate-on-scroll" data-repeat-item>
+            <div class="pain-card__number">03</div>
+            <div class="pain-card__content">
+              <h3 class="pain-card__title" data-type="text" data-label="Pain Title">ビジネス英語が分からない</h3>
+              <p class="pain-card__description" data-type="text" data-label="Pain Description">
+                日常会話はできても、専門的なビジネス
+                表現やニュアンスが掴めない...
+              </p>
+            </div>
+            <div class="pain-card__icon">
+              <svg viewBox="0 0 48 48" fill="none">
+                <rect x="8" y="8" width="32" height="32" rx="2" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="18" x2="32" y2="18" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="26" x2="28" y2="26" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="34" x2="24" y2="34" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+          <div class="pain-card animate-on-scroll" data-repeat-item>
+            <div class="pain-card__number">04</div>
+            <div class="pain-card__content">
+              <h3 class="pain-card__title" data-type="text" data-label="Pain Title">スクールが合わない</h3>
+              <p class="pain-card__description" data-type="text" data-label="Pain Description">
+                通学は時間がかかる、オンラインは
+                質が心配...自分に合った方法が見つからない
+              </p>
+            </div>
+            <div class="pain-card__icon">
+              <svg viewBox="0 0 48 48" fill="none">
+                <path d="M4 24H44" stroke="currentColor" stroke-width="2"/>
+                <path d="M24 4V44" stroke="currentColor" stroke-width="2"/>
+                <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="32" cy="32" r="4" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Solution -->
+    <section id="solution" class="section solution">
+      <div class="container">
+        <div class="solution__content">
+          <div class="solution__visual animate-on-scroll">
+            <div class="solution-visual">
+              <div class="solution-circle solution-circle--outer"></div>
+              <div class="solution-circle solution-circle--middle"></div>
+              <div class="solution-circle solution-circle--inner"></div>
+              <div class="solution-center">
+                <span data-type="text" data-label="Solution Center Text">Global Talk</span>
+              </div>
+              <div class="solution-orbit">
+                <div class="orbit-item" style="--delay: 0s;">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M12 2C12 2 8 7 8 12C8 17 12 22 12 22" stroke="currentColor" stroke-width="1.5"/>
+                    <line x1="2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="orbit-item" style="--delay: -3s;">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <rect x="3" y="3" width="18" height="18" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M7 12L10 15L17 8" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="orbit-item" style="--delay: -6s;">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="8" r="4" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M4 22C4 17.5 7.5 14 12 14C16.5 14 20 17.5 20 22" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="orbit-item" style="--delay: -9s;">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M12 2L15 9H22L16 14L18 21L12 17L6 21L8 14L2 9H9L12 2Z" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="solution__text animate-on-scroll">
+            <span class="section-label" data-type="text" data-label="Section Label">Our Solution</span>
+            <h2 class="section-title" data-type="text" data-label="Solution Title">
+              Global Talkが、<br>すべて解決します
+            </h2>
+            <ul class="solution-list">
+              <li class="solution-item">
+                <div class="solution-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="solution-item__content">
+                  <h4 data-type="text" data-label="Solution Item Title 1">24時間365日、いつでも受講可能</h4>
+                  <p data-type="text" data-label="Solution Item Description 1">世界中の講師と繋がり、あなたの都合に合わせてレッスン</p>
+                </div>
+              </li>
+              <li class="solution-item">
+                <div class="solution-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="solution-item__content">
+                  <h4 data-type="text" data-label="Solution Item Title 2">AIによる弱点分析と最適カリキュラム</h4>
+                  <p data-type="text" data-label="Solution Item Description 2">学習データをAIが分析し、効率的な上達をサポート</p>
+                </div>
+              </li>
+              <li class="solution-item">
+                <div class="solution-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="solution-item__content">
+                  <h4 data-type="text" data-label="Solution Item Title 3">実践的なビジネスシーン特化の教材</h4>
+                  <p data-type="text" data-label="Solution Item Description 3">会議、プレゼン、交渉など現場で使える表現を習得</p>
+                </div>
+              </li>
+              <li class="solution-item">
+                <div class="solution-item__icon">
+                  <svg viewBox="0 0 24 24" fill="none">
+                    <path d="M20 6L9 17L4 12" stroke="currentColor" stroke-width="2"/>
+                  </svg>
+                </div>
+                <div class="solution-item__content">
+                  <h4 data-type="text" data-label="Solution Item Title 4">専属コーチによる継続サポート</h4>
+                  <p data-type="text" data-label="Solution Item Description 4">学習のモチベーション維持と目標達成をコーチがサポート</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Learning Methodology -->
+    <section id="methodology" class="section methodology">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label" data-type="text" data-label="Section Label">Learning Method</span>
+          <h2 class="section-title" data-type="text" data-label="Methodology Title">
+            独自の学習メソッド
+          </h2>
+          <p class="section-subtitle" data-type="text" data-label="Methodology Subtitle">
+            Global Talk独自の4ステップメソッドで、<br>最短3ヶ月でビジネス英語をマスター
+          </p>
+        </div>
+        <div class="methodology__path">
+          <div class="path-line"></div>
+          <div class="methodology__steps" data-repeat="methodology-steps">
+            <div class="method-step animate-on-scroll" data-repeat-item>
+              <div class="method-step__number">
+                <span>01</span>
+              </div>
+              <div class="method-step__content">
+                <h3 class="method-step__title" data-type="text" data-label="Step Title">Assessment</h3>
+                <h4 class="method-step__name" data-type="text" data-label="Step Name">レベル診断</h4>
+                <p class="method-step__description" data-type="text" data-label="Step Description">
+                  AIと講師による詳細なレベル診断。
+                  スピーキング、リスニング、語彙力、
+                  文法力を多角的に分析します。
+                </p>
+                <div class="method-step__features">
+                  <span data-type="text" data-label="Feature 1">AI分析</span>
+                  <span data-type="text" data-label="Feature 2">講師面談</span>
+                  <span data-type="text" data-label="Feature 3">目標設定</span>
+                </div>
+              </div>
+            </div>
+            <div class="method-step animate-on-scroll" data-repeat-item>
+              <div class="method-step__number">
+                <span>02</span>
+              </div>
+              <div class="method-step__content">
+                <h3 class="method-step__title" data-type="text" data-label="Step Title">Planning</h3>
+                <h4 class="method-step__name" data-type="text" data-label="Step Name">カリキュラム設計</h4>
+                <p class="method-step__description" data-type="text" data-label="Step Description">
+                  診断結果を基に、あなた専用の
+                  学習プランを作成。目標達成までの
+                  ロードマップを明確にします。
+                </p>
+                <div class="method-step__features">
+                  <span data-type="text" data-label="Feature 1">個別最適化</span>
+                  <span data-type="text" data-label="Feature 2">ロードマップ</span>
+                  <span data-type="text" data-label="Feature 3">週次計画</span>
+                </div>
+              </div>
+            </div>
+            <div class="method-step animate-on-scroll" data-repeat-item>
+              <div class="method-step__number">
+                <span>03</span>
+              </div>
+              <div class="method-step__content">
+                <h3 class="method-step__title" data-type="text" data-label="Step Title">Practice</h3>
+                <h4 class="method-step__name" data-type="text" data-label="Step Name">実践トレーニング</h4>
+                <p class="method-step__description" data-type="text" data-label="Step Description">
+                  実際のビジネスシーンを想定した
+                  ロールプレイとアウトプット重視の
+                  レッスンで実践力を養います。
+                </p>
+                <div class="method-step__features">
+                  <span data-type="text" data-label="Feature 1">ロールプレイ</span>
+                  <span data-type="text" data-label="Feature 2">即興会話</span>
+                  <span data-type="text" data-label="Feature 3">発音矯正</span>
+                </div>
+              </div>
+            </div>
+            <div class="method-step animate-on-scroll" data-repeat-item>
+              <div class="method-step__number">
+                <span>04</span>
+              </div>
+              <div class="method-step__content">
+                <h3 class="method-step__title" data-type="text" data-label="Step Title">Progress</h3>
+                <h4 class="method-step__name" data-type="text" data-label="Step Name">成長の可視化</h4>
+                <p class="method-step__description" data-type="text" data-label="Step Description">
+                  AIが学習データをリアルタイム分析。
+                  成長を可視化し、次のステップへの
+                  モチベーションを高めます。
+                </p>
+                <div class="method-step__features">
+                  <span data-type="text" data-label="Feature 1">進捗ダッシュボード</span>
+                  <span data-type="text" data-label="Feature 2">レポート</span>
+                  <span data-type="text" data-label="Feature 3">認定証</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: AI Technology -->
+    <section id="ai-tech" class="section ai-tech">
+      <div class="ai-tech__bg">
+        <div class="ai-grid"></div>
+      </div>
+      <div class="container">
+        <div class="ai-tech__content">
+          <div class="ai-tech__text animate-on-scroll">
+            <span class="section-label" data-type="text" data-label="Section Label">AI Technology</span>
+            <h2 class="section-title section-title--light" data-type="text" data-label="AI Title">
+              最先端AI技術で、<br>学習効率を最大化
+            </h2>
+            <p class="ai-tech__description" data-type="text" data-label="AI Description">
+              Global Talkは、独自開発のAIエンジン「GT-AI」を搭載。
+              あなたの発話を分析し、リアルタイムでフィードバック。
+              弱点を特定し、効率的な学習プランを提案します。
+            </p>
+            <div class="ai-features">
+              <div class="ai-feature">
+                <div class="ai-feature__icon">
+                  <svg viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M16 8V16L22 22" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="ai-feature__content">
+                  <h4 data-type="text" data-label="AI Feature Title 1">リアルタイム分析</h4>
+                  <p data-type="text" data-label="AI Feature Description 1">発話内容を0.1秒で分析</p>
+                </div>
+              </div>
+              <div class="ai-feature">
+                <div class="ai-feature__icon">
+                  <svg viewBox="0 0 32 32" fill="none">
+                    <path d="M4 24L12 16L18 22L28 8" stroke="currentColor" stroke-width="1.5"/>
+                    <circle cx="4" cy="24" r="2" fill="currentColor"/>
+                    <circle cx="12" cy="16" r="2" fill="currentColor"/>
+                    <circle cx="18" cy="22" r="2" fill="currentColor"/>
+                    <circle cx="28" cy="8" r="2" fill="currentColor"/>
+                  </svg>
+                </div>
+                <div class="ai-feature__content">
+                  <h4 data-type="text" data-label="AI Feature Title 2">学習曲線予測</h4>
+                  <p data-type="text" data-label="AI Feature Description 2">目標達成までの期間を予測</p>
+                </div>
+              </div>
+              <div class="ai-feature">
+                <div class="ai-feature__icon">
+                  <svg viewBox="0 0 32 32" fill="none">
+                    <rect x="4" y="4" width="24" height="24" rx="2" stroke="currentColor" stroke-width="1.5"/>
+                    <path d="M10 16H22M16 10V22" stroke="currentColor" stroke-width="1.5"/>
+                  </svg>
+                </div>
+                <div class="ai-feature__content">
+                  <h4 data-type="text" data-label="AI Feature Title 3">教材自動生成</h4>
+                  <p data-type="text" data-label="AI Feature Description 3">弱点に特化した教材を作成</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="ai-tech__visual animate-on-scroll">
+            <div class="ai-dashboard">
+              <div class="ai-dashboard__header">
+                <span class="ai-dashboard__title">GT-AI Learning Dashboard</span>
+                <span class="ai-dashboard__status">ACTIVE</span>
+              </div>
+              <div class="ai-dashboard__content">
+                <div class="ai-metric">
+                  <span class="ai-metric__label">Speaking Score</span>
+                  <div class="ai-metric__bar">
+                    <div class="ai-metric__fill" style="--width: 78%"></div>
+                  </div>
+                  <span class="ai-metric__value">78%</span>
+                </div>
+                <div class="ai-metric">
+                  <span class="ai-metric__label">Listening Score</span>
+                  <div class="ai-metric__bar">
+                    <div class="ai-metric__fill" style="--width: 85%"></div>
+                  </div>
+                  <span class="ai-metric__value">85%</span>
+                </div>
+                <div class="ai-metric">
+                  <span class="ai-metric__label">Vocabulary</span>
+                  <div class="ai-metric__bar">
+                    <div class="ai-metric__fill" style="--width: 65%"></div>
+                  </div>
+                  <span class="ai-metric__value">65%</span>
+                </div>
+                <div class="ai-metric">
+                  <span class="ai-metric__label">Fluency</span>
+                  <div class="ai-metric__bar">
+                    <div class="ai-metric__fill" style="--width: 72%"></div>
+                  </div>
+                  <span class="ai-metric__value">72%</span>
+                </div>
+              </div>
+              <div class="ai-dashboard__recommendation">
+                <span class="ai-dashboard__rec-label">AI Recommendation</span>
+                <p class="ai-dashboard__rec-text">Vocabulary強化のため、ビジネス用語集中コースを推奨します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Stats -->
+    <section id="stats" class="section stats">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label" data-type="text" data-label="Section Label">Our Results</span>
+          <h2 class="section-title" data-type="text" data-label="Stats Title">
+            数字で見る Global Talk
+          </h2>
+        </div>
+        <div class="stats__grid" data-repeat="stats">
+          <div class="stat-card animate-on-scroll" data-repeat-item>
+            <div class="stat-card__number">
+              <span class="counter" data-target="50000" data-type="text" data-label="Stat Number">0</span>
+              <span class="stat-card__unit" data-type="text" data-label="Stat Unit">人</span>
+            </div>
+            <div class="stat-card__label" data-type="text" data-label="Stat Label">累計受講者数</div>
+            <div class="stat-card__sublabel" data-type="text" data-label="Stat Sublabel">2024年12月時点</div>
+          </div>
+          <div class="stat-card animate-on-scroll" data-repeat-item>
+            <div class="stat-card__number">
+              <span class="counter" data-target="98.5" data-decimals="1" data-type="text" data-label="Stat Number">0</span>
+              <span class="stat-card__unit" data-type="text" data-label="Stat Unit">%</span>
+            </div>
+            <div class="stat-card__label" data-type="text" data-label="Stat Label">受講者満足度</div>
+            <div class="stat-card__sublabel" data-type="text" data-label="Stat Sublabel">受講後アンケート</div>
+          </div>
+          <div class="stat-card animate-on-scroll" data-repeat-item>
+            <div class="stat-card__number">
+              <span class="counter" data-target="500" data-type="text" data-label="Stat Number">0</span>
+              <span class="stat-card__unit" data-type="text" data-label="Stat Unit">社+</span>
+            </div>
+            <div class="stat-card__label" data-type="text" data-label="Stat Label">法人導入実績</div>
+            <div class="stat-card__sublabel" data-type="text" data-label="Stat Sublabel">大手企業含む</div>
+          </div>
+          <div class="stat-card animate-on-scroll" data-repeat-item>
+            <div class="stat-card__number">
+              <span class="counter" data-target="3" data-type="text" data-label="Stat Number">0</span>
+              <span class="stat-card__unit" data-type="text" data-label="Stat Unit">ヶ月</span>
+            </div>
+            <div class="stat-card__label" data-type="text" data-label="Stat Label">平均上達期間</div>
+            <div class="stat-card__sublabel" data-type="text" data-label="Stat Sublabel">TOEIC 150点UP</div>
+          </div>
+          <div class="stat-card animate-on-scroll" data-repeat-item>
+            <div class="stat-card__number">
+              <span class="counter" data-target="1000" data-type="text" data-label="Stat Number">0</span>
+              <span class="stat-card__unit" data-type="text" data-label="Stat Unit">人+</span>
+            </div>
+            <div class="stat-card__label" data-type="text" data-label="Stat Label">在籍講師数</div>
+            <div class="stat-card__sublabel" data-type="text" data-label="Stat Sublabel">50カ国以上</div>
+          </div>
+          <div class="stat-card animate-on-scroll" data-repeat-item>
+            <div class="stat-card__number">
+              <span class="counter" data-target="24" data-type="text" data-label="Stat Number">0</span>
+              <span class="stat-card__unit" data-type="text" data-label="Stat Unit">/7</span>
+            </div>
+            <div class="stat-card__label" data-type="text" data-label="Stat Label">受講可能時間</div>
+            <div class="stat-card__sublabel" data-type="text" data-label="Stat Sublabel">いつでも予約OK</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Success Stories -->
+    <section id="success-stories" class="section success-stories">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label" data-type="text" data-label="Section Label">Success Stories</span>
+          <h2 class="section-title" data-type="text" data-label="Stories Title">
+            受講者の声
+          </h2>
+          <p class="section-subtitle" data-type="text" data-label="Stories Subtitle">
+            Global Talkで英語力を向上させた受講者様の実体験をご紹介します
+          </p>
+        </div>
+        <div class="stories-slider" data-repeat="success-stories">
+          <div class="stories-track">
+            <div class="story-card animate-on-scroll" data-repeat-item>
+              <div class="story-card__header">
+                <div class="story-card__avatar">
+                  <img src="images/avatar-placeholder.svg" alt="山田太郎" data-type="image" data-label="Avatar Image">
+                </div>
+                <div class="story-card__info">
+                  <span class="story-card__name" data-type="text" data-label="Name">山田 太郎</span>
+                  <span class="story-card__role" data-type="text" data-label="Role">IT企業 マネージャー</span>
+                </div>
+                <div class="story-card__rating">
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                </div>
+              </div>
+              <div class="story-card__body">
+                <p class="story-card__quote" data-type="text" data-label="Quote">
+                  「海外クライアントとの会議で、自信を持って発言できるようになりました。
+                  3ヶ月でTOEICスコアが200点アップ。仕事の幅が大きく広がりました。」
+                </p>
+              </div>
+              <div class="story-card__footer">
+                <div class="story-card__result">
+                  <span class="result-label" data-type="text" data-label="Result Label">TOEIC</span>
+                  <span class="result-before" data-type="text" data-label="Before Score">650</span>
+                  <span class="result-arrow">→</span>
+                  <span class="result-after" data-type="text" data-label="After Score">850</span>
+                </div>
+                <span class="story-card__duration" data-type="text" data-label="Duration">受講期間: 3ヶ月</span>
+              </div>
+            </div>
+            <div class="story-card animate-on-scroll" data-repeat-item>
+              <div class="story-card__header">
+                <div class="story-card__avatar">
+                  <img src="images/avatar-placeholder.svg" alt="佐藤花子" data-type="image" data-label="Avatar Image">
+                </div>
+                <div class="story-card__info">
+                  <span class="story-card__name" data-type="text" data-label="Name">佐藤 花子</span>
+                  <span class="story-card__role" data-type="text" data-label="Role">外資系コンサル</span>
+                </div>
+                <div class="story-card__rating">
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                </div>
+              </div>
+              <div class="story-card__body">
+                <p class="story-card__quote" data-type="text" data-label="Quote">
+                  「プレゼンテーション特化のコースで、説得力のある英語表現を習得。
+                  今では英語でのプレゼンが楽しみになりました。」
+                </p>
+              </div>
+              <div class="story-card__footer">
+                <div class="story-card__result">
+                  <span class="result-label" data-type="text" data-label="Result Label">TOEIC</span>
+                  <span class="result-before" data-type="text" data-label="Before Score">720</span>
+                  <span class="result-arrow">→</span>
+                  <span class="result-after" data-type="text" data-label="After Score">890</span>
+                </div>
+                <span class="story-card__duration" data-type="text" data-label="Duration">受講期間: 4ヶ月</span>
+              </div>
+            </div>
+            <div class="story-card animate-on-scroll" data-repeat-item>
+              <div class="story-card__header">
+                <div class="story-card__avatar">
+                  <img src="images/avatar-placeholder.svg" alt="鈴木一郎" data-type="image" data-label="Avatar Image">
+                </div>
+                <div class="story-card__info">
+                  <span class="story-card__name" data-type="text" data-label="Name">鈴木 一郎</span>
+                  <span class="story-card__role" data-type="text" data-label="Role">商社 営業部長</span>
+                </div>
+                <div class="story-card__rating">
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 1l2.39 5.54 5.61.58-4.17 3.67 1.17 5.48L10 13.73l-5 2.54 1.17-5.48L2 7.12l5.61-.58L10 1z"/></svg>
+                </div>
+              </div>
+              <div class="story-card__body">
+                <p class="story-card__quote" data-type="text" data-label="Quote">
+                  「海外出張での商談が劇的に変わりました。ビジネス特有の表現を
+                  学べるのがGlobal Talkの強み。投資対効果は抜群です。」
+                </p>
+              </div>
+              <div class="story-card__footer">
+                <div class="story-card__result">
+                  <span class="result-label" data-type="text" data-label="Result Label">TOEIC</span>
+                  <span class="result-before" data-type="text" data-label="Before Score">580</span>
+                  <span class="result-arrow">→</span>
+                  <span class="result-after" data-type="text" data-label="After Score">780</span>
+                </div>
+                <span class="story-card__duration" data-type="text" data-label="Duration">受講期間: 6ヶ月</span>
+              </div>
+            </div>
+          </div>
+          <div class="stories-controls">
+            <button class="stories-btn stories-btn--prev" aria-label="前へ">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <div class="stories-dots">
+              <button class="stories-dot active" aria-label="スライド1"></button>
+              <button class="stories-dot" aria-label="スライド2"></button>
+              <button class="stories-dot" aria-label="スライド3"></button>
+            </div>
+            <button class="stories-btn stories-btn--next" aria-label="次へ">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Instructors -->
+    <section id="instructors" class="section instructors">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label" data-type="text" data-label="Section Label">Our Instructors</span>
+          <h2 class="section-title" data-type="text" data-label="Instructors Title">
+            一流の講師陣
+          </h2>
+          <p class="section-subtitle" data-type="text" data-label="Instructors Subtitle">
+            ビジネス経験豊富な講師が、実践的な英語力を伝授します
+          </p>
+        </div>
+        <div class="instructors__grid" data-repeat="instructors">
+          <div class="instructor-card animate-on-scroll" data-repeat-item>
+            <div class="instructor-card__image">
+              <img src="images/instructor-placeholder.svg" alt="John Smith" data-type="image" data-label="Instructor Image">
+              <div class="instructor-card__overlay">
+                <p class="instructor-card__bio" data-type="text" data-label="Bio">
+                  元Goldman Sachsで10年以上のビジネス経験。
+                  金融英語とビジネスコミュニケーションのエキスパート。
+                </p>
+              </div>
+            </div>
+            <div class="instructor-card__content">
+              <h3 class="instructor-card__name" data-type="text" data-label="Name">John Smith</h3>
+              <p class="instructor-card__specialty" data-type="text" data-label="Specialty">金融・投資英語</p>
+              <div class="instructor-card__tags">
+                <span data-type="text" data-label="Tag 1">ビジネス</span>
+                <span data-type="text" data-label="Tag 2">金融</span>
+                <span data-type="text" data-label="Tag 3">プレゼン</span>
+              </div>
+            </div>
+          </div>
+          <div class="instructor-card animate-on-scroll" data-repeat-item>
+            <div class="instructor-card__image">
+              <img src="images/instructor-placeholder.svg" alt="Emily Chen" data-type="image" data-label="Instructor Image">
+              <div class="instructor-card__overlay">
+                <p class="instructor-card__bio" data-type="text" data-label="Bio">
+                  シリコンバレーでテックスタートアップを経験。
+                  IT業界特有の表現と国際会議でのコミュニケーション術を指導。
+                </p>
+              </div>
+            </div>
+            <div class="instructor-card__content">
+              <h3 class="instructor-card__name" data-type="text" data-label="Name">Emily Chen</h3>
+              <p class="instructor-card__specialty" data-type="text" data-label="Specialty">IT・テック英語</p>
+              <div class="instructor-card__tags">
+                <span data-type="text" data-label="Tag 1">IT</span>
+                <span data-type="text" data-label="Tag 2">スタートアップ</span>
+                <span data-type="text" data-label="Tag 3">会議</span>
+              </div>
+            </div>
+          </div>
+          <div class="instructor-card animate-on-scroll" data-repeat-item>
+            <div class="instructor-card__image">
+              <img src="images/instructor-placeholder.svg" alt="Michael Brown" data-type="image" data-label="Instructor Image">
+              <div class="instructor-card__overlay">
+                <p class="instructor-card__bio" data-type="text" data-label="Bio">
+                  ロンドンの法律事務所で国際契約を担当。
+                  法務英語と交渉術のスペシャリスト。
+                </p>
+              </div>
+            </div>
+            <div class="instructor-card__content">
+              <h3 class="instructor-card__name" data-type="text" data-label="Name">Michael Brown</h3>
+              <p class="instructor-card__specialty" data-type="text" data-label="Specialty">法務・交渉英語</p>
+              <div class="instructor-card__tags">
+                <span data-type="text" data-label="Tag 1">法務</span>
+                <span data-type="text" data-label="Tag 2">契約</span>
+                <span data-type="text" data-label="Tag 3">交渉</span>
+              </div>
+            </div>
+          </div>
+          <div class="instructor-card animate-on-scroll" data-repeat-item>
+            <div class="instructor-card__image">
+              <img src="images/instructor-placeholder.svg" alt="Sarah Williams" data-type="image" data-label="Instructor Image">
+              <div class="instructor-card__overlay">
+                <p class="instructor-card__bio" data-type="text" data-label="Bio">
+                  元P&Gマーケティングマネージャー。
+                  マーケティング・広告業界の英語表現に精通。
+                </p>
+              </div>
+            </div>
+            <div class="instructor-card__content">
+              <h3 class="instructor-card__name" data-type="text" data-label="Name">Sarah Williams</h3>
+              <p class="instructor-card__specialty" data-type="text" data-label="Specialty">マーケティング英語</p>
+              <div class="instructor-card__tags">
+                <span data-type="text" data-label="Tag 1">マーケティング</span>
+                <span data-type="text" data-label="Tag 2">広告</span>
+                <span data-type="text" data-label="Tag 3">ブランディング</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="instructors__cta animate-on-scroll">
+          <a href="about.html#team" class="btn btn--outline">
+            <span>すべての講師を見る</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Corporate Case Studies -->
+    <section id="corporate" class="section corporate">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label" data-type="text" data-label="Section Label">Corporate Training</span>
+          <h2 class="section-title" data-type="text" data-label="Corporate Title">
+            法人研修導入事例
+          </h2>
+          <p class="section-subtitle" data-type="text" data-label="Corporate Subtitle">
+            大手企業を含む500社以上の導入実績
+          </p>
+        </div>
+        <div class="corporate__grid" data-repeat="corporate-cases">
+          <div class="corporate-card animate-on-scroll" data-repeat-item>
+            <div class="corporate-card__header">
+              <div class="corporate-card__logo">
+                <img src="images/company-logo-placeholder.svg" alt="Company Logo" data-type="image" data-label="Company Logo">
+              </div>
+              <div class="corporate-card__industry" data-type="text" data-label="Industry">製造業</div>
+            </div>
+            <div class="corporate-card__body">
+              <h3 class="corporate-card__title" data-type="text" data-label="Case Title">グローバル展開に伴う全社員英語研修</h3>
+              <p class="corporate-card__description" data-type="text" data-label="Case Description">
+                海外拠点展開に伴い、全社員500名を対象にビジネス英語研修を実施。
+                6ヶ月間のプログラムで、社員のTOEIC平均スコアが150点向上。
+              </p>
+            </div>
+            <div class="corporate-card__results">
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">500</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">人受講</span>
+              </div>
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">+150</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">点UP</span>
+              </div>
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">6</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">ヶ月</span>
+              </div>
+            </div>
+          </div>
+          <div class="corporate-card animate-on-scroll" data-repeat-item>
+            <div class="corporate-card__header">
+              <div class="corporate-card__logo">
+                <img src="images/company-logo-placeholder.svg" alt="Company Logo" data-type="image" data-label="Company Logo">
+              </div>
+              <div class="corporate-card__industry" data-type="text" data-label="Industry">IT</div>
+            </div>
+            <div class="corporate-card__body">
+              <h3 class="corporate-card__title" data-type="text" data-label="Case Title">エンジニア向け技術英語特化研修</h3>
+              <p class="corporate-card__description" data-type="text" data-label="Case Description">
+                海外エンジニアとの協業強化のため、開発チーム100名を対象に
+                技術英語研修を実施。コードレビュー、技術文書作成力が向上。
+              </p>
+            </div>
+            <div class="corporate-card__results">
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">100</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">人受講</span>
+              </div>
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">95</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">%満足</span>
+              </div>
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">3</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">ヶ月</span>
+              </div>
+            </div>
+          </div>
+          <div class="corporate-card animate-on-scroll" data-repeat-item>
+            <div class="corporate-card__header">
+              <div class="corporate-card__logo">
+                <img src="images/company-logo-placeholder.svg" alt="Company Logo" data-type="image" data-label="Company Logo">
+              </div>
+              <div class="corporate-card__industry" data-type="text" data-label="Industry">金融</div>
+            </div>
+            <div class="corporate-card__body">
+              <h3 class="corporate-card__title" data-type="text" data-label="Case Title">経営層向けエグゼクティブ英語研修</h3>
+              <p class="corporate-card__description" data-type="text" data-label="Case Description">
+                海外投資家との対話強化のため、役員・部長クラス50名を対象に
+                エグゼクティブ向け英語研修。IR、投資家対応力が大幅向上。
+              </p>
+            </div>
+            <div class="corporate-card__results">
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">50</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">人受講</span>
+              </div>
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">+200</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">点UP</span>
+              </div>
+              <div class="corporate-result">
+                <span class="corporate-result__number" data-type="text" data-label="Result Number">12</span>
+                <span class="corporate-result__label" data-type="text" data-label="Result Label">ヶ月</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="corporate__logos animate-on-scroll">
+          <p class="corporate__logos-title" data-type="text" data-label="Logos Title">導入企業</p>
+          <div class="logos-row">
+            <div class="logo-item"><img src="images/company-logo-placeholder.svg" alt="Company 1" data-type="image" data-label="Logo 1"></div>
+            <div class="logo-item"><img src="images/company-logo-placeholder.svg" alt="Company 2" data-type="image" data-label="Logo 2"></div>
+            <div class="logo-item"><img src="images/company-logo-placeholder.svg" alt="Company 3" data-type="image" data-label="Logo 3"></div>
+            <div class="logo-item"><img src="images/company-logo-placeholder.svg" alt="Company 4" data-type="image" data-label="Logo 4"></div>
+            <div class="logo-item"><img src="images/company-logo-placeholder.svg" alt="Company 5" data-type="image" data-label="Logo 5"></div>
+            <div class="logo-item"><img src="images/company-logo-placeholder.svg" alt="Company 6" data-type="image" data-label="Logo 6"></div>
+          </div>
+        </div>
+        <div class="corporate__cta animate-on-scroll">
+          <a href="contact.html" class="btn btn--primary btn--lg">
+            <span>法人向け資料をダウンロード</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: Pricing -->
+    <section id="pricing" class="section pricing">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-label" data-type="text" data-label="Section Label">Pricing Plans</span>
+          <h2 class="section-title" data-type="text" data-label="Pricing Title">
+            料金プラン
+          </h2>
+          <p class="section-subtitle" data-type="text" data-label="Pricing Subtitle">
+            目的とペースに合わせて選べる3つのプラン
+          </p>
+        </div>
+        <div class="pricing__toggle animate-on-scroll">
+          <span class="pricing__toggle-label">月額払い</span>
+          <button class="pricing__toggle-switch" id="pricing-toggle" aria-label="年間払いに切り替え">
+            <span class="pricing__toggle-slider"></span>
+          </button>
+          <span class="pricing__toggle-label">年間払い<span class="pricing__discount">20%OFF</span></span>
+        </div>
+        <div class="pricing__grid" data-repeat="pricing-plans">
+          <div class="pricing-card animate-on-scroll" data-repeat-item>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name" data-type="text" data-label="Plan Name">Light</h3>
+              <p class="pricing-card__description" data-type="text" data-label="Plan Description">まずは試してみたい方に</p>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">¥</span>
+              <span class="pricing-card__amount monthly" data-type="text" data-label="Monthly Price">9,800</span>
+              <span class="pricing-card__amount yearly hidden" data-type="text" data-label="Yearly Price">7,840</span>
+              <span class="pricing-card__period">/月</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li data-type="text" data-label="Feature 1">月4回のマンツーマンレッスン</li>
+              <li data-type="text" data-label="Feature 2">AI学習アプリ無制限</li>
+              <li data-type="text" data-label="Feature 3">基本教材アクセス</li>
+              <li data-type="text" data-label="Feature 4">進捗レポート（月1回）</li>
+              <li class="disabled" data-type="text" data-label="Feature 5">専属コーチング</li>
+              <li class="disabled" data-type="text" data-label="Feature 6">グループレッスン</li>
+            </ul>
+            <a href="#cta-final" class="btn btn--outline btn--full">
+              <span>このプランを選択</span>
+            </a>
+          </div>
+          <div class="pricing-card pricing-card--featured animate-on-scroll" data-repeat-item>
+            <div class="pricing-card__badge" data-type="text" data-label="Badge">人気No.1</div>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name" data-type="text" data-label="Plan Name">Standard</h3>
+              <p class="pricing-card__description" data-type="text" data-label="Plan Description">本格的に学びたい方に</p>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">¥</span>
+              <span class="pricing-card__amount monthly" data-type="text" data-label="Monthly Price">19,800</span>
+              <span class="pricing-card__amount yearly hidden" data-type="text" data-label="Yearly Price">15,840</span>
+              <span class="pricing-card__period">/月</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li data-type="text" data-label="Feature 1">月8回のマンツーマンレッスン</li>
+              <li data-type="text" data-label="Feature 2">AI学習アプリ無制限</li>
+              <li data-type="text" data-label="Feature 3">全教材アクセス</li>
+              <li data-type="text" data-label="Feature 4">進捗レポート（週1回）</li>
+              <li data-type="text" data-label="Feature 5">専属コーチング（月2回）</li>
+              <li data-type="text" data-label="Feature 6">グループレッスン（月2回）</li>
+            </ul>
+            <a href="#cta-final" class="btn btn--primary btn--full">
+              <span>このプランを選択</span>
+            </a>
+          </div>
+          <div class="pricing-card animate-on-scroll" data-repeat-item>
+            <div class="pricing-card__header">
+              <h3 class="pricing-card__name" data-type="text" data-label="Plan Name">Premium</h3>
+              <p class="pricing-card__description" data-type="text" data-label="Plan Description">最短で結果を出したい方に</p>
+            </div>
+            <div class="pricing-card__price">
+              <span class="pricing-card__currency">¥</span>
+              <span class="pricing-card__amount monthly" data-type="text" data-label="Monthly Price">39,800</span>
+              <span class="pricing-card__amount yearly hidden" data-type="text" data-label="Yearly Price">31,840</span>
+              <span class="pricing-card__period">/月</span>
+            </div>
+            <ul class="pricing-card__features">
+              <li data-type="text" data-label="Feature 1">月16回のマンツーマンレッスン</li>
+              <li data-type="text" data-label="Feature 2">AI学習アプリ無制限</li>
+              <li data-type="text" data-label="Feature 3">全教材+プレミアム教材</li>
+              <li data-type="text" data-label="Feature 4">進捗レポート（毎日）</li>
+              <li data-type="text" data-label="Feature 5">専属コーチング（週1回）</li>
+              <li data-type="text" data-label="Feature 6">グループレッスン（無制限）</li>
+            </ul>
+            <a href="#cta-final" class="btn btn--outline btn--full">
+              <span>このプランを選択</span>
+            </a>
+          </div>
+        </div>
+        <div class="pricing__note animate-on-scroll">
+          <p data-type="text" data-label="Pricing Note">※ すべてのプランに7日間の無料体験が含まれます。いつでも解約可能です。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 12: Final CTA -->
+    <section id="cta-final" class="section cta-final">
+      <div class="cta-final__bg">
+        <div class="cta-particles"></div>
+      </div>
+      <div class="container">
+        <div class="cta-final__content animate-on-scroll">
+          <span class="section-label section-label--light" data-type="text" data-label="CTA Label">Start Today</span>
+          <h2 class="cta-final__title" data-type="text" data-label="CTA Title">
+            あなたの英語学習を、<br>今日から始めませんか？
+          </h2>
+          <p class="cta-final__description" data-type="text" data-label="CTA Description">
+            7日間の無料体験で、Global Talkの効果を実感してください。<br>
+            クレジットカード登録不要。いつでも解約可能。
+          </p>
+          <div class="cta-final__form">
+            <form id="trial-form" class="trial-form">
+              <div class="trial-form__row">
+                <div class="trial-form__field">
+                  <input type="text" id="name" name="name" placeholder="お名前" required>
+                </div>
+                <div class="trial-form__field">
+                  <input type="email" id="email" name="email" placeholder="メールアドレス" required>
+                </div>
+                <button type="submit" class="btn btn--primary btn--lg trial-form__submit">
+                  <span>無料体験を始める</span>
+                  <svg class="btn-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="cta-final__trust">
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span data-type="text" data-label="Trust Item 1">7日間無料</span>
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span data-type="text" data-label="Trust Item 2">カード登録不要</span>
+            </div>
+            <div class="trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 6L9 17l-5-5"/>
+              </svg>
+              <span data-type="text" data-label="Trust Item 3">いつでも解約OK</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="footer__logo">
+            <span class="logo-text" data-type="text" data-label="Footer Logo 1">Global</span>
+            <span class="logo-text logo-accent" data-type="text" data-label="Footer Logo 2">Talk</span>
+          </a>
+          <p class="footer__tagline" data-type="text" data-label="Tagline">ビジネス英語、始めるなら今。</p>
+        </div>
+        <div class="footer__nav">
+          <div class="footer__nav-col">
+            <h4 data-type="text" data-label="Nav Title 1">サービス</h4>
+            <ul>
+              <li><a href="#methodology">学習メソッド</a></li>
+              <li><a href="#ai-tech">AI技術</a></li>
+              <li><a href="#instructors">講師紹介</a></li>
+              <li><a href="#pricing">料金プラン</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-col">
+            <h4 data-type="text" data-label="Nav Title 2">会社情報</h4>
+            <ul>
+              <li><a href="about.html">会社概要</a></li>
+              <li><a href="about.html#team">チーム</a></li>
+              <li><a href="#">採用情報</a></li>
+              <li><a href="#">ニュース</a></li>
+            </ul>
+          </div>
+          <div class="footer__nav-col">
+            <h4 data-type="text" data-label="Nav Title 3">サポート</h4>
+            <ul>
+              <li><a href="contact.html">お問い合わせ</a></li>
+              <li><a href="#">よくある質問</a></li>
+              <li><a href="#">利用規約</a></li>
+              <li><a href="#">プライバシーポリシー</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright" data-type="text" data-label="Copyright">&copy; 2026 Global Talk. All rights reserved.</p>
+        <div class="footer__social">
+          <a href="#" aria-label="Twitter">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+            </svg>
+          </a>
+          <a href="#" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scroll Progress Bar -->
+  <div class="scroll-progress" id="scroll-progress"></div>
+
+  <!-- Back to Top -->
+  <button class="back-to-top" id="back-to-top" aria-label="トップに戻る">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 19V5M5 12l7-7 7 7"/>
+    </svg>
+  </button>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1456 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pawsome Stay - 横浜の高級ペットホテル</title>
+  <meta name="description" content="大切な家族を、最高のおもてなしで。横浜の高級ペットホテル Pawsome Stay。24時間ケア、トリミング、ライブカメラ完備。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading" class="loading-screen">
+    <div class="loading-content">
+      <div class="loading-mascot">
+        <svg class="mascot-svg" viewBox="0 0 120 120" width="120" height="120">
+          <!-- Cute dog face -->
+          <ellipse cx="60" cy="65" rx="45" ry="40" fill="#F5DEB3"/>
+          <ellipse cx="60" cy="70" rx="38" ry="32" fill="#FFF8DC"/>
+          <!-- Ears -->
+          <ellipse cx="25" cy="40" rx="18" ry="28" fill="#D2691E" transform="rotate(-20 25 40)"/>
+          <ellipse cx="95" cy="40" rx="18" ry="28" fill="#D2691E" transform="rotate(20 95 40)"/>
+          <!-- Eyes -->
+          <circle cx="42" cy="58" r="8" fill="#4A4A4A"/>
+          <circle cx="78" cy="58" r="8" fill="#4A4A4A"/>
+          <circle cx="44" cy="56" r="3" fill="#FFFFFF"/>
+          <circle cx="80" cy="56" r="3" fill="#FFFFFF"/>
+          <!-- Nose -->
+          <ellipse cx="60" cy="72" rx="8" ry="6" fill="#4A4A4A"/>
+          <ellipse cx="60" cy="70" rx="3" ry="2" fill="#8A8A8A"/>
+          <!-- Mouth -->
+          <path d="M52 80 Q60 88 68 80" stroke="#4A4A4A" stroke-width="2" fill="none"/>
+          <!-- Tongue -->
+          <ellipse class="tongue" cx="60" cy="85" rx="6" ry="8" fill="#FF6B9D"/>
+          <!-- Blush -->
+          <ellipse cx="30" cy="68" rx="8" ry="5" fill="#FFB5C5" opacity="0.6"/>
+          <ellipse cx="90" cy="68" rx="8" ry="5" fill="#FFB5C5" opacity="0.6"/>
+        </svg>
+      </div>
+      <div class="loading-text">
+        <span>L</span><span>O</span><span>A</span><span>D</span><span>I</span><span>N</span><span>G</span>
+      </div>
+      <div class="loading-paws">
+        <span class="paw">🐾</span>
+        <span class="paw">🐾</span>
+        <span class="paw">🐾</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Particle Container -->
+  <div id="particles-container" class="particles-container"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">Pawsome Stay</span>
+      </a>
+      <ul class="nav__menu">
+        <li><a href="#services">サービス</a></li>
+        <li><a href="#rooms">お部屋</a></li>
+        <li><a href="#staff">スタッフ</a></li>
+        <li><a href="#pricing">料金</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+      <a href="#contact" class="nav__cta btn btn--primary">
+        <span>予約する</span>
+        <span class="btn-heart">💕</span>
+      </a>
+      <button class="nav__toggle" id="nav-toggle" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu__list">
+      <li><a href="#services">サービス</a></li>
+      <li><a href="#rooms">お部屋</a></li>
+      <li><a href="#staff">スタッフ</a></li>
+      <li><a href="#pricing">料金</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#contact" class="btn btn--primary">予約する</a></li>
+    </ul>
+  </div>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__video-bg">
+        <div class="hero__video-overlay"></div>
+        <!-- Video placeholder - replace with actual video -->
+        <div class="hero__video-placeholder">
+          <div class="video-pets">
+            <span class="floating-pet">🐕</span>
+            <span class="floating-pet">🐈</span>
+            <span class="floating-pet">🐩</span>
+            <span class="floating-pet">🐱</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__content">
+        <div class="hero__badge animate-on-scroll">
+          <span class="badge-icon">✨</span>
+          <span>横浜No.1 ペットホテル</span>
+        </div>
+        <h1 class="hero__title animate-on-scroll" data-type="text">
+          大切な家族を、<br>
+          <span class="highlight">最高のおもてなし</span>で。
+        </h1>
+        <p class="hero__subtitle animate-on-scroll" data-type="text">
+          24時間365日、愛情たっぷりのケアで<br>
+          あなたの大切なペットをお預かりします
+        </p>
+        <div class="hero__cta animate-on-scroll">
+          <a href="#contact" class="btn btn--primary btn--large" id="hero-cta">
+            <span>無料見学を予約する</span>
+            <span class="btn-sparkle">✨</span>
+          </a>
+          <a href="#rooms" class="btn btn--secondary btn--large">
+            <span>お部屋を見る</span>
+            <span class="btn-icon">→</span>
+          </a>
+        </div>
+        <div class="hero__trust animate-on-scroll">
+          <div class="trust-item">
+            <span class="trust-number" data-count="5000">0</span>
+            <span class="trust-label">頭以上のお預かり実績</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-number">4.9</span>
+            <span class="trust-label">Google評価</span>
+          </div>
+          <div class="trust-item">
+            <span class="trust-number" data-count="98">0</span>
+            <span class="trust-label">%リピート率</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero__scroll">
+        <span class="scroll-text">Scroll</span>
+        <div class="scroll-indicator">
+          <span class="scroll-paw">🐾</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Brand Story -->
+    <section class="story" id="story">
+      <div class="container">
+        <div class="story__grid">
+          <div class="story__image animate-on-scroll">
+            <div class="story__image-frame">
+              <img src="images/story-image.jpg" alt="Pawsome Stay の始まり" data-type="image">
+              <div class="image-decoration">
+                <span class="deco-heart">💖</span>
+                <span class="deco-paw">🐾</span>
+              </div>
+            </div>
+          </div>
+          <div class="story__content">
+            <span class="section-label animate-on-scroll">Our Story</span>
+            <h2 class="section-title animate-on-scroll" data-type="text">
+              すべては、<br>一匹の保護犬との出会いから
+            </h2>
+            <div class="story__text animate-on-scroll" data-type="text">
+              <p>
+                2015年、創業者の佐藤美咲は、保護施設で一匹のゴールデンレトリバー「ハナ」と出会いました。
+              </p>
+              <p>
+                ハナの目には、長い間人間に裏切られてきた悲しみと、それでもなお人を信じたいという希望が宿っていました。
+              </p>
+              <p>
+                「すべてのペットに、安心できる居場所を」
+              </p>
+              <p>
+                その想いを胸に、Pawsome Stayは誕生しました。私たちは、ただペットを預かるだけではありません。ご家族の一員として、愛情を込めてお世話させていただきます。
+              </p>
+            </div>
+            <div class="story__signature animate-on-scroll">
+              <img src="images/founder-signature.png" alt="佐藤美咲" data-type="image">
+              <span>創業者・代表取締役 佐藤美咲</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="story__decoration">
+        <span class="floating-element">🌸</span>
+        <span class="floating-element">🐾</span>
+        <span class="floating-element">💕</span>
+      </div>
+    </section>
+
+    <!-- Section 3: Trust Indicators -->
+    <section class="trust-section" id="trust">
+      <div class="container">
+        <div class="trust-section__header animate-on-scroll">
+          <span class="section-label">Why Choose Us</span>
+          <h2 class="section-title" data-type="text">選ばれる理由</h2>
+        </div>
+        <div class="trust-cards">
+          <div class="trust-card animate-on-scroll" data-delay="0">
+            <div class="trust-card__icon">
+              <span class="icon-bg"></span>
+              <span class="icon">🏆</span>
+            </div>
+            <h3 class="trust-card__title" data-type="text">横浜エリアNo.1</h3>
+            <p class="trust-card__text" data-type="text">
+              Google口コミ評価4.9、横浜エリアで最も選ばれているペットホテルです
+            </p>
+            <div class="trust-card__badge">
+              <span>⭐⭐⭐⭐⭐</span>
+            </div>
+          </div>
+          <div class="trust-card animate-on-scroll" data-delay="100">
+            <div class="trust-card__icon">
+              <span class="icon-bg"></span>
+              <span class="icon">👨‍⚕️</span>
+            </div>
+            <h3 class="trust-card__title" data-type="text">獣医師監修</h3>
+            <p class="trust-card__text" data-type="text">
+              提携動物病院の獣医師が定期的に巡回。緊急時も24時間対応可能です
+            </p>
+            <div class="trust-card__badge">
+              <span>24時間サポート</span>
+            </div>
+          </div>
+          <div class="trust-card animate-on-scroll" data-delay="200">
+            <div class="trust-card__icon">
+              <span class="icon-bg"></span>
+              <span class="icon">📹</span>
+            </div>
+            <h3 class="trust-card__title" data-type="text">ライブカメラ完備</h3>
+            <p class="trust-card__text" data-type="text">
+              いつでもどこでもスマホからペットの様子を確認できます
+            </p>
+            <div class="trust-card__badge">
+              <span>リアルタイム配信</span>
+            </div>
+          </div>
+          <div class="trust-card animate-on-scroll" data-delay="300">
+            <div class="trust-card__icon">
+              <span class="icon-bg"></span>
+              <span class="icon">🏠</span>
+            </div>
+            <h3 class="trust-card__title" data-type="text">完全個室</h3>
+            <p class="trust-card__text" data-type="text">
+              すべてのお部屋が完全個室。ストレスフリーな環境をご提供します
+            </p>
+            <div class="trust-card__badge">
+              <span>プライベート空間</span>
+            </div>
+          </div>
+        </div>
+        <div class="trust-logos animate-on-scroll">
+          <p class="trust-logos__label">メディア掲載実績</p>
+          <div class="trust-logos__grid">
+            <div class="logo-item">TV Kanagawa</div>
+            <div class="logo-item">Yokohama Walker</div>
+            <div class="logo-item">いぬのきもち</div>
+            <div class="logo-item">ねこのきもち</div>
+            <div class="logo-item">PetLIVES</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Services Overview -->
+    <section class="services" id="services">
+      <div class="container">
+        <div class="services__header animate-on-scroll">
+          <span class="section-label">Our Services</span>
+          <h2 class="section-title" data-type="text">サービス一覧</h2>
+          <p class="section-subtitle" data-type="text">
+            大切なペットに、最高のケアを
+          </p>
+        </div>
+        <div class="services__selector">
+          <button class="service-tab active" data-service="hotel">
+            <span class="tab-icon">🏨</span>
+            <span class="tab-text">ペットホテル</span>
+          </button>
+          <button class="service-tab" data-service="grooming">
+            <span class="tab-icon">✂️</span>
+            <span class="tab-text">トリミング</span>
+          </button>
+          <button class="service-tab" data-service="daycare">
+            <span class="tab-icon">☀️</span>
+            <span class="tab-text">デイケア</span>
+          </button>
+          <button class="service-tab" data-service="spa">
+            <span class="tab-icon">🛁</span>
+            <span class="tab-text">スパ</span>
+          </button>
+        </div>
+        <div class="services__content">
+          <div class="service-panel active" id="panel-hotel">
+            <div class="service-panel__grid">
+              <div class="service-panel__image">
+                <img src="images/service-hotel.jpg" alt="ペットホテル" data-type="image">
+                <div class="service-badge">人気No.1</div>
+              </div>
+              <div class="service-panel__info">
+                <h3 data-type="text">ペットホテル</h3>
+                <p data-type="text">
+                  完全個室の快適なお部屋で、24時間スタッフが常駐。愛情たっぷりのケアで、ご家族の帰りをお待ちします。
+                </p>
+                <ul class="service-features">
+                  <li><span class="check">✓</span>完全個室（6タイプから選択）</li>
+                  <li><span class="check">✓</span>24時間スタッフ常駐</li>
+                  <li><span class="check">✓</span>1日3回のお散歩</li>
+                  <li><span class="check">✓</span>ライブカメラ視聴</li>
+                  <li><span class="check">✓</span>獣医師との連携</li>
+                </ul>
+                <div class="service-price">
+                  <span class="price-from">1泊</span>
+                  <span class="price-amount">¥5,500</span>
+                  <span class="price-note">〜（税込）</span>
+                </div>
+                <a href="#rooms" class="btn btn--accent">お部屋を詳しく見る</a>
+              </div>
+            </div>
+          </div>
+          <div class="service-panel" id="panel-grooming">
+            <div class="service-panel__grid">
+              <div class="service-panel__image">
+                <img src="images/service-grooming.jpg" alt="トリミング" data-type="image">
+              </div>
+              <div class="service-panel__info">
+                <h3 data-type="text">トリミング</h3>
+                <p data-type="text">
+                  経験豊富なトリマーが、ペットの魅力を最大限に引き出します。シャンプーからフルコートまで、丁寧に仕上げます。
+                </p>
+                <ul class="service-features">
+                  <li><span class="check">✓</span>JKCトリマー資格保持者</li>
+                  <li><span class="check">✓</span>オーガニックシャンプー使用</li>
+                  <li><span class="check">✓</span>ネイルケア・耳掃除込み</li>
+                  <li><span class="check">✓</span>送迎サービス対応</li>
+                </ul>
+                <div class="service-price">
+                  <span class="price-from">シャンプーコース</span>
+                  <span class="price-amount">¥4,400</span>
+                  <span class="price-note">〜（税込）</span>
+                </div>
+                <a href="#grooming-detail" class="btn btn--accent">メニューを見る</a>
+              </div>
+            </div>
+          </div>
+          <div class="service-panel" id="panel-daycare">
+            <div class="service-panel__grid">
+              <div class="service-panel__image">
+                <img src="images/service-daycare.jpg" alt="デイケア" data-type="image">
+              </div>
+              <div class="service-panel__info">
+                <h3 data-type="text">デイケア</h3>
+                <p data-type="text">
+                  お仕事やお出かけの間、大切なペットをお預かり。他のペットとの交流や運動で、心身ともにリフレッシュ。
+                </p>
+                <ul class="service-features">
+                  <li><span class="check">✓</span>朝8時〜夜8時まで</li>
+                  <li><span class="check">✓</span>広いプレイエリア完備</li>
+                  <li><span class="check">✓</span>スタッフによる見守り</li>
+                  <li><span class="check">✓</span>お昼寝タイムあり</li>
+                </ul>
+                <div class="service-price">
+                  <span class="price-from">1日</span>
+                  <span class="price-amount">¥3,300</span>
+                  <span class="price-note">〜（税込）</span>
+                </div>
+                <a href="#contact" class="btn btn--accent">予約する</a>
+              </div>
+            </div>
+          </div>
+          <div class="service-panel" id="panel-spa">
+            <div class="service-panel__grid">
+              <div class="service-panel__image">
+                <img src="images/service-spa.jpg" alt="スパ" data-type="image">
+              </div>
+              <div class="service-panel__info">
+                <h3 data-type="text">ペットスパ</h3>
+                <p data-type="text">
+                  マイクロバブルバス、アロママッサージ、泥パックなど、ペットのための贅沢なスパ体験をご提供します。
+                </p>
+                <ul class="service-features">
+                  <li><span class="check">✓</span>マイクロバブルバス</li>
+                  <li><span class="check">✓</span>アロママッサージ</li>
+                  <li><span class="check">✓</span>泥パック・炭酸泉</li>
+                  <li><span class="check">✓</span>シニアペット向けケア</li>
+                </ul>
+                <div class="service-price">
+                  <span class="price-from">スパコース</span>
+                  <span class="price-amount">¥6,600</span>
+                  <span class="price-note">〜（税込）</span>
+                </div>
+                <a href="#contact" class="btn btn--accent">予約する</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Interactive Room Explorer -->
+    <section class="rooms" id="rooms">
+      <div class="container">
+        <div class="rooms__header animate-on-scroll">
+          <span class="section-label">Room Explorer</span>
+          <h2 class="section-title" data-type="text">お部屋タイプ</h2>
+          <p class="section-subtitle" data-type="text">
+            ペットの性格やサイズに合わせて、6タイプのお部屋をご用意
+          </p>
+        </div>
+        <div class="rooms__explorer">
+          <div class="rooms__nav">
+            <button class="room-nav-btn active" data-room="standard">
+              <span class="room-icon">🏠</span>
+              <span class="room-name">スタンダード</span>
+              <span class="room-price">¥5,500〜</span>
+            </button>
+            <button class="room-nav-btn" data-room="comfort">
+              <span class="room-icon">🛋️</span>
+              <span class="room-name">コンフォート</span>
+              <span class="room-price">¥7,700〜</span>
+            </button>
+            <button class="room-nav-btn" data-room="deluxe">
+              <span class="room-icon">✨</span>
+              <span class="room-name">デラックス</span>
+              <span class="room-price">¥9,900〜</span>
+            </button>
+            <button class="room-nav-btn" data-room="suite">
+              <span class="room-icon">👑</span>
+              <span class="room-name">スイート</span>
+              <span class="room-price">¥13,200〜</span>
+            </button>
+            <button class="room-nav-btn" data-room="royal">
+              <span class="room-icon">🏰</span>
+              <span class="room-name">ロイヤル</span>
+              <span class="room-price">¥16,500〜</span>
+            </button>
+            <button class="room-nav-btn" data-room="cat">
+              <span class="room-icon">🐱</span>
+              <span class="room-name">キャットルーム</span>
+              <span class="room-price">¥6,600〜</span>
+            </button>
+          </div>
+          <div class="rooms__display">
+            <div class="room-view active" id="room-standard">
+              <div class="room-view__image">
+                <img src="images/room-standard.jpg" alt="スタンダードルーム" data-type="image">
+                <button class="room-360-btn">
+                  <span class="btn-icon">🔄</span>
+                  <span>360°ビュー</span>
+                </button>
+              </div>
+              <div class="room-view__info">
+                <div class="room-view__header">
+                  <h3 data-type="text">スタンダードルーム</h3>
+                  <span class="room-size">約2畳</span>
+                </div>
+                <p class="room-description" data-type="text">
+                  小型犬〜中型犬向けの快適なお部屋。清潔で安全な空間で、ゆったりとお過ごしいただけます。
+                </p>
+                <div class="room-amenities">
+                  <span class="amenity"><span class="amenity-icon">🛏️</span>専用ベッド</span>
+                  <span class="amenity"><span class="amenity-icon">🍽️</span>食器セット</span>
+                  <span class="amenity"><span class="amenity-icon">🧸</span>おもちゃ</span>
+                  <span class="amenity"><span class="amenity-icon">📹</span>ライブカメラ</span>
+                </div>
+                <div class="room-price-detail">
+                  <div class="price-row">
+                    <span>小型犬（〜5kg）</span>
+                    <span>¥5,500/泊</span>
+                  </div>
+                  <div class="price-row">
+                    <span>中型犬（5〜15kg）</span>
+                    <span>¥6,600/泊</span>
+                  </div>
+                </div>
+                <a href="#contact" class="btn btn--primary">このお部屋を予約</a>
+              </div>
+            </div>
+            <div class="room-view" id="room-comfort">
+              <div class="room-view__image">
+                <img src="images/room-comfort.jpg" alt="コンフォートルーム" data-type="image">
+                <button class="room-360-btn">
+                  <span class="btn-icon">🔄</span>
+                  <span>360°ビュー</span>
+                </button>
+              </div>
+              <div class="room-view__info">
+                <div class="room-view__header">
+                  <h3 data-type="text">コンフォートルーム</h3>
+                  <span class="room-size">約3畳</span>
+                </div>
+                <p class="room-description" data-type="text">
+                  ゆとりある空間で、アクティブなペットも快適に。窓からの自然光が心地よいお部屋です。
+                </p>
+                <div class="room-amenities">
+                  <span class="amenity"><span class="amenity-icon">🛏️</span>プレミアムベッド</span>
+                  <span class="amenity"><span class="amenity-icon">🪟</span>窓付き</span>
+                  <span class="amenity"><span class="amenity-icon">🎵</span>BGM</span>
+                  <span class="amenity"><span class="amenity-icon">📹</span>ライブカメラ</span>
+                </div>
+                <div class="room-price-detail">
+                  <div class="price-row">
+                    <span>小型犬（〜5kg）</span>
+                    <span>¥7,700/泊</span>
+                  </div>
+                  <div class="price-row">
+                    <span>中型犬（5〜15kg）</span>
+                    <span>¥8,800/泊</span>
+                  </div>
+                </div>
+                <a href="#contact" class="btn btn--primary">このお部屋を予約</a>
+              </div>
+            </div>
+            <div class="room-view" id="room-deluxe">
+              <div class="room-view__image">
+                <img src="images/room-deluxe.jpg" alt="デラックスルーム" data-type="image">
+                <button class="room-360-btn">
+                  <span class="btn-icon">🔄</span>
+                  <span>360°ビュー</span>
+                </button>
+                <span class="room-badge">人気</span>
+              </div>
+              <div class="room-view__info">
+                <div class="room-view__header">
+                  <h3 data-type="text">デラックスルーム</h3>
+                  <span class="room-size">約4畳</span>
+                </div>
+                <p class="room-description" data-type="text">
+                  広々とした空間に、専用のプレイエリア付き。ペットの遊び心を満たす人気のお部屋です。
+                </p>
+                <div class="room-amenities">
+                  <span class="amenity"><span class="amenity-icon">🛏️</span>高級ベッド</span>
+                  <span class="amenity"><span class="amenity-icon">🎮</span>プレイエリア</span>
+                  <span class="amenity"><span class="amenity-icon">🌡️</span>床暖房</span>
+                  <span class="amenity"><span class="amenity-icon">📹</span>ライブカメラ</span>
+                </div>
+                <div class="room-price-detail">
+                  <div class="price-row">
+                    <span>小型犬（〜5kg）</span>
+                    <span>¥9,900/泊</span>
+                  </div>
+                  <div class="price-row">
+                    <span>中型犬（5〜15kg）</span>
+                    <span>¥11,000/泊</span>
+                  </div>
+                  <div class="price-row">
+                    <span>大型犬（15kg〜）</span>
+                    <span>¥13,200/泊</span>
+                  </div>
+                </div>
+                <a href="#contact" class="btn btn--primary">このお部屋を予約</a>
+              </div>
+            </div>
+            <div class="room-view" id="room-suite">
+              <div class="room-view__image">
+                <img src="images/room-suite.jpg" alt="スイートルーム" data-type="image">
+                <button class="room-360-btn">
+                  <span class="btn-icon">🔄</span>
+                  <span>360°ビュー</span>
+                </button>
+                <span class="room-badge premium">プレミアム</span>
+              </div>
+              <div class="room-view__info">
+                <div class="room-view__header">
+                  <h3 data-type="text">スイートルーム</h3>
+                  <span class="room-size">約6畳</span>
+                </div>
+                <p class="room-description" data-type="text">
+                  まるでホテルのスイートルームのような贅沢空間。ソファ、専用トイレ、大型プレイエリア完備。
+                </p>
+                <div class="room-amenities">
+                  <span class="amenity"><span class="amenity-icon">🛋️</span>ソファ付き</span>
+                  <span class="amenity"><span class="amenity-icon">🚿</span>専用トイレ</span>
+                  <span class="amenity"><span class="amenity-icon">📺</span>TV</span>
+                  <span class="amenity"><span class="amenity-icon">🌡️</span>個別空調</span>
+                </div>
+                <div class="room-price-detail">
+                  <div class="price-row">
+                    <span>全サイズ共通</span>
+                    <span>¥13,200/泊〜</span>
+                  </div>
+                </div>
+                <a href="#contact" class="btn btn--primary">このお部屋を予約</a>
+              </div>
+            </div>
+            <div class="room-view" id="room-royal">
+              <div class="room-view__image">
+                <img src="images/room-royal.jpg" alt="ロイヤルルーム" data-type="image">
+                <button class="room-360-btn">
+                  <span class="btn-icon">🔄</span>
+                  <span>360°ビュー</span>
+                </button>
+                <span class="room-badge royal">最高級</span>
+              </div>
+              <div class="room-view__info">
+                <div class="room-view__header">
+                  <h3 data-type="text">ロイヤルルーム</h3>
+                  <span class="room-size">約8畳</span>
+                </div>
+                <p class="room-description" data-type="text">
+                  Pawsome Stay最高級のお部屋。専属スタッフ、プライベートガーデン、スパ利用付きの特別なステイを。
+                </p>
+                <div class="room-amenities">
+                  <span class="amenity"><span class="amenity-icon">👑</span>専属スタッフ</span>
+                  <span class="amenity"><span class="amenity-icon">🌳</span>プライベートガーデン</span>
+                  <span class="amenity"><span class="amenity-icon">🛁</span>スパ付き</span>
+                  <span class="amenity"><span class="amenity-icon">🍽️</span>特別食</span>
+                </div>
+                <div class="room-price-detail">
+                  <div class="price-row">
+                    <span>全サイズ共通</span>
+                    <span>¥16,500/泊〜</span>
+                  </div>
+                </div>
+                <a href="#contact" class="btn btn--primary">このお部屋を予約</a>
+              </div>
+            </div>
+            <div class="room-view" id="room-cat">
+              <div class="room-view__image">
+                <img src="images/room-cat.jpg" alt="キャットルーム" data-type="image">
+                <button class="room-360-btn">
+                  <span class="btn-icon">🔄</span>
+                  <span>360°ビュー</span>
+                </button>
+              </div>
+              <div class="room-view__info">
+                <div class="room-view__header">
+                  <h3 data-type="text">キャットルーム</h3>
+                  <span class="room-size">約3畳</span>
+                </div>
+                <p class="room-description" data-type="text">
+                  猫ちゃん専用のお部屋。キャットタワー、爪とぎ、隠れ家スペースなど、猫ちゃんが大好きな設備を完備。
+                </p>
+                <div class="room-amenities">
+                  <span class="amenity"><span class="amenity-icon">🗼</span>キャットタワー</span>
+                  <span class="amenity"><span class="amenity-icon">🐾</span>爪とぎ</span>
+                  <span class="amenity"><span class="amenity-icon">🏠</span>隠れ家</span>
+                  <span class="amenity"><span class="amenity-icon">🪟</span>外が見える窓</span>
+                </div>
+                <div class="room-price-detail">
+                  <div class="price-row">
+                    <span>1匹</span>
+                    <span>¥6,600/泊</span>
+                  </div>
+                  <div class="price-row">
+                    <span>2匹（同室）</span>
+                    <span>¥9,900/泊</span>
+                  </div>
+                </div>
+                <a href="#contact" class="btn btn--primary">このお部屋を予約</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: 24/7 Care Promise -->
+    <section class="care-promise" id="care">
+      <div class="care-promise__bg">
+        <div class="care-promise__overlay"></div>
+      </div>
+      <div class="container">
+        <div class="care-promise__content animate-on-scroll">
+          <span class="section-label light">24/7 Care</span>
+          <h2 class="section-title light" data-type="text">
+            24時間365日、<br>愛情を込めたケア
+          </h2>
+          <p class="care-promise__text" data-type="text">
+            Pawsome Stayでは、夜間もスタッフが常駐。<br>
+            大切なペットを片時も一人にしません。
+          </p>
+          <div class="care-timeline">
+            <div class="timeline-item">
+              <div class="timeline-time">7:00</div>
+              <div class="timeline-content">
+                <span class="timeline-icon">🌅</span>
+                <span class="timeline-text">起床・健康チェック</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">8:00</div>
+              <div class="timeline-content">
+                <span class="timeline-icon">🍽️</span>
+                <span class="timeline-text">朝食</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">10:00</div>
+              <div class="timeline-content">
+                <span class="timeline-icon">🚶</span>
+                <span class="timeline-text">お散歩タイム</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">12:00</div>
+              <div class="timeline-content">
+                <span class="timeline-icon">🍽️</span>
+                <span class="timeline-text">昼食</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">14:00</div>
+              <div class="timeline-content">
+                <span class="timeline-icon">🎮</span>
+                <span class="timeline-text">プレイタイム</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">16:00</div>
+              <div class="timeline-content">
+                <span class="timeline-icon">🚶</span>
+                <span class="timeline-text">午後のお散歩</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">18:00</div>
+              <div class="timeline-content">
+                <span class="timeline-icon">🍽️</span>
+                <span class="timeline-text">夕食</span>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-time">21:00</div>
+              <div class="timeline-content">
+                <span class="timeline-icon">🌙</span>
+                <span class="timeline-text">就寝準備</span>
+              </div>
+            </div>
+          </div>
+          <div class="care-promise__cta">
+            <a href="#contact" class="btn btn--white">安心のケアを体験する</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Staff Profiles -->
+    <section class="staff" id="staff">
+      <div class="container">
+        <div class="staff__header animate-on-scroll">
+          <span class="section-label">Our Team</span>
+          <h2 class="section-title" data-type="text">スタッフ紹介</h2>
+          <p class="section-subtitle" data-type="text">
+            動物が大好きな、経験豊富なスタッフたち
+          </p>
+        </div>
+        <div class="staff__grid" data-repeat="staff-members">
+          <div class="staff-card animate-on-scroll" data-repeat-item>
+            <div class="staff-card__image">
+              <img src="images/staff-1.jpg" alt="佐藤美咲" data-type="image">
+              <div class="staff-badges">
+                <span class="badge badge--gold">代表</span>
+                <span class="badge badge--blue">獣医師</span>
+              </div>
+            </div>
+            <div class="staff-card__info">
+              <h3 class="staff-name" data-type="text">佐藤 美咲</h3>
+              <p class="staff-role" data-type="text">代表取締役 / 獣医師</p>
+              <p class="staff-bio" data-type="text">
+                獣医師として15年の経験。動物福祉の向上を目指し、Pawsome Stayを設立。
+              </p>
+              <div class="staff-specialty">
+                <span>専門: 内科・行動学</span>
+              </div>
+            </div>
+          </div>
+          <div class="staff-card animate-on-scroll" data-repeat-item>
+            <div class="staff-card__image">
+              <img src="images/staff-2.jpg" alt="田中健太" data-type="image">
+              <div class="staff-badges">
+                <span class="badge badge--green">トリマー</span>
+                <span class="badge badge--purple">JKC A級</span>
+              </div>
+            </div>
+            <div class="staff-card__info">
+              <h3 class="staff-name" data-type="text">田中 健太</h3>
+              <p class="staff-role" data-type="text">チーフトリマー</p>
+              <p class="staff-bio" data-type="text">
+                JKC公認A級トリマー。全国大会入賞経験あり。丁寧で美しい仕上がりが自慢。
+              </p>
+              <div class="staff-specialty">
+                <span>専門: プードル・シュナウザー</span>
+              </div>
+            </div>
+          </div>
+          <div class="staff-card animate-on-scroll" data-repeat-item>
+            <div class="staff-card__image">
+              <img src="images/staff-3.jpg" alt="山田花子" data-type="image">
+              <div class="staff-badges">
+                <span class="badge badge--pink">キャットスペシャリスト</span>
+              </div>
+            </div>
+            <div class="staff-card__info">
+              <h3 class="staff-name" data-type="text">山田 花子</h3>
+              <p class="staff-role" data-type="text">キャットケアマネージャー</p>
+              <p class="staff-bio" data-type="text">
+                猫専門のケアスタッフ。猫の行動心理に詳しく、繊細な猫ちゃんのケアが得意。
+              </p>
+              <div class="staff-specialty">
+                <span>専門: 猫の行動学</span>
+              </div>
+            </div>
+          </div>
+          <div class="staff-card animate-on-scroll" data-repeat-item>
+            <div class="staff-card__image">
+              <img src="images/staff-4.jpg" alt="鈴木大輔" data-type="image">
+              <div class="staff-badges">
+                <span class="badge badge--orange">ドッグトレーナー</span>
+              </div>
+            </div>
+            <div class="staff-card__info">
+              <h3 class="staff-name" data-type="text">鈴木 大輔</h3>
+              <p class="staff-role" data-type="text">ドッグケアマネージャー</p>
+              <p class="staff-bio" data-type="text">
+                ドッグトレーナー歴10年。お散歩やプレイタイムを通じて、ペットの心身をケア。
+              </p>
+              <div class="staff-specialty">
+                <span>専門: 大型犬・シニア犬</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Testimonials -->
+    <section class="testimonials" id="testimonials">
+      <div class="container">
+        <div class="testimonials__header animate-on-scroll">
+          <span class="section-label">Testimonials</span>
+          <h2 class="section-title" data-type="text">お客様の声</h2>
+        </div>
+        <div class="testimonials__slider">
+          <div class="testimonial-track" data-repeat="testimonials">
+            <div class="testimonial-card" data-repeat-item>
+              <div class="testimonial-card__rating">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote class="testimonial-card__text" data-type="text">
+                「初めてのペットホテルで不安でしたが、スタッフの方々の温かい対応に感動しました。ライブカメラで様子を見られるのも安心です。帰ってきた愛犬がとても元気で、また利用したいと思います。」
+              </blockquote>
+              <div class="testimonial-card__author">
+                <img src="images/customer-1.jpg" alt="M.K様" data-type="image">
+                <div class="author-info">
+                  <span class="author-name" data-type="text">M.K 様</span>
+                  <span class="author-pet" data-type="text">トイプードル（3歳）</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card" data-repeat-item>
+              <div class="testimonial-card__rating">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote class="testimonial-card__text" data-type="text">
+                「うちの猫は神経質で他のホテルでは預けられませんでしたが、ここは猫専用ルームがあり、スタッフの方も猫の扱いに慣れていて安心。1週間の旅行も心配なく楽しめました。」
+              </blockquote>
+              <div class="testimonial-card__author">
+                <img src="images/customer-2.jpg" alt="S.T様" data-type="image">
+                <div class="author-info">
+                  <span class="author-name" data-type="text">S.T 様</span>
+                  <span class="author-pet" data-type="text">スコティッシュフォールド（5歳）</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card" data-repeat-item>
+              <div class="testimonial-card__rating">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote class="testimonial-card__text" data-type="text">
+                「ロイヤルルームを利用しました。専属スタッフの方が付いてくださり、まるでVIP待遇。プライベートガーデンでのお散歩も気に入ったようで、帰りたがらないほどでした（笑）」
+              </blockquote>
+              <div class="testimonial-card__author">
+                <img src="images/customer-3.jpg" alt="Y.H様" data-type="image">
+                <div class="author-info">
+                  <span class="author-name" data-type="text">Y.H 様</span>
+                  <span class="author-pet" data-type="text">ゴールデンレトリバー（7歳）</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card" data-repeat-item>
+              <div class="testimonial-card__rating">
+                <span>⭐⭐⭐⭐⭐</span>
+              </div>
+              <blockquote class="testimonial-card__text" data-type="text">
+                「トリミングの腕が本当に素晴らしい！田中さんにお願いすると、いつも最高に可愛く仕上げてもらえます。シャンプーの香りも良くて、うちの子もお気に入りのようです。」
+              </blockquote>
+              <div class="testimonial-card__author">
+                <img src="images/customer-4.jpg" alt="A.M様" data-type="image">
+                <div class="author-info">
+                  <span class="author-name" data-type="text">A.M 様</span>
+                  <span class="author-pet" data-type="text">ポメラニアン（2歳）</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="testimonials__nav">
+            <button class="testimonial-prev" aria-label="前へ">←</button>
+            <div class="testimonial-dots"></div>
+            <button class="testimonial-next" aria-label="次へ">→</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Live Camera Demo -->
+    <section class="live-camera" id="live-camera">
+      <div class="container">
+        <div class="live-camera__content animate-on-scroll">
+          <div class="live-camera__info">
+            <span class="section-label">Live Camera</span>
+            <h2 class="section-title" data-type="text">
+              いつでも会える、<br>ライブカメラ
+            </h2>
+            <p class="live-camera__text" data-type="text">
+              スマートフォンやパソコンから、24時間いつでもペットの様子をリアルタイムで確認できます。出張先や旅行先からでも、大切な家族の姿を見守れる安心感。
+            </p>
+            <ul class="live-camera__features">
+              <li><span class="check">✓</span>HD画質でクリアな映像</li>
+              <li><span class="check">✓</span>専用アプリで簡単アクセス</li>
+              <li><span class="check">✓</span>録画機能で思い出も残せる</li>
+              <li><span class="check">✓</span>複数デバイスで同時視聴OK</li>
+            </ul>
+            <a href="#contact" class="btn btn--primary">ライブカメラを体験する</a>
+          </div>
+          <div class="live-camera__demo">
+            <div class="camera-frame">
+              <div class="camera-header">
+                <span class="live-badge">
+                  <span class="live-dot"></span>
+                  LIVE
+                </span>
+                <span class="camera-name">スタンダードルーム #3</span>
+              </div>
+              <div class="camera-screen">
+                <img src="images/live-demo.jpg" alt="ライブカメラデモ" data-type="image">
+                <div class="camera-overlay">
+                  <button class="play-btn">
+                    <span>▶</span>
+                  </button>
+                </div>
+              </div>
+              <div class="camera-controls">
+                <button class="control-btn"><span>🔊</span></button>
+                <button class="control-btn"><span>📷</span></button>
+                <button class="control-btn"><span>⛶</span></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Grooming Showcase -->
+    <section class="grooming" id="grooming-detail">
+      <div class="container">
+        <div class="grooming__header animate-on-scroll">
+          <span class="section-label">Grooming</span>
+          <h2 class="section-title" data-type="text">トリミングギャラリー</h2>
+          <p class="section-subtitle" data-type="text">
+            JKC公認トリマーによる、プロの技術
+          </p>
+        </div>
+        <div class="grooming__showcase">
+          <div class="before-after-slider animate-on-scroll" data-repeat="grooming-gallery">
+            <div class="ba-slide" data-repeat-item>
+              <div class="ba-container">
+                <div class="ba-image ba-before">
+                  <img src="images/grooming-before-1.jpg" alt="Before" data-type="image">
+                  <span class="ba-label">Before</span>
+                </div>
+                <div class="ba-image ba-after">
+                  <img src="images/grooming-after-1.jpg" alt="After" data-type="image">
+                  <span class="ba-label">After</span>
+                </div>
+                <input type="range" class="ba-slider" min="0" max="100" value="50">
+                <div class="ba-handle">
+                  <span class="handle-icon">↔</span>
+                </div>
+              </div>
+              <div class="ba-info">
+                <span class="pet-name" data-type="text">ココちゃん</span>
+                <span class="pet-breed" data-type="text">トイプードル</span>
+                <span class="style-name" data-type="text">テディベアカット</span>
+              </div>
+            </div>
+          </div>
+          <div class="grooming__gallery" data-repeat="grooming-styles">
+            <div class="gallery-item animate-on-scroll" data-repeat-item>
+              <img src="images/grooming-style-1.jpg" alt="スタイル1" data-type="image">
+              <div class="gallery-overlay">
+                <span class="style-tag" data-type="text">テディベアカット</span>
+              </div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-repeat-item>
+              <img src="images/grooming-style-2.jpg" alt="スタイル2" data-type="image">
+              <div class="gallery-overlay">
+                <span class="style-tag" data-type="text">サマーカット</span>
+              </div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-repeat-item>
+              <img src="images/grooming-style-3.jpg" alt="スタイル3" data-type="image">
+              <div class="gallery-overlay">
+                <span class="style-tag" data-type="text">ライオンカット</span>
+              </div>
+            </div>
+            <div class="gallery-item animate-on-scroll" data-repeat-item>
+              <img src="images/grooming-style-4.jpg" alt="スタイル4" data-type="image">
+              <div class="gallery-overlay">
+                <span class="style-tag" data-type="text">柴カット</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: Membership Benefits -->
+    <section class="membership" id="membership">
+      <div class="container">
+        <div class="membership__header animate-on-scroll">
+          <span class="section-label">Membership</span>
+          <h2 class="section-title" data-type="text">会員特典</h2>
+          <p class="section-subtitle" data-type="text">
+            Pawsome会員になると、もっとお得に
+          </p>
+        </div>
+        <div class="membership__cards">
+          <div class="member-card animate-on-scroll">
+            <div class="member-card__badge">
+              <span class="badge-icon">🥉</span>
+            </div>
+            <h3 class="member-card__title" data-type="text">ブロンズ会員</h3>
+            <p class="member-card__condition" data-type="text">年間利用3回以上</p>
+            <ul class="member-card__benefits">
+              <li><span class="check">✓</span>宿泊料金5%OFF</li>
+              <li><span class="check">✓</span>トリミング5%OFF</li>
+              <li><span class="check">✓</span>バースデー特典</li>
+              <li><span class="check">✓</span>会員限定ニュースレター</li>
+            </ul>
+          </div>
+          <div class="member-card featured animate-on-scroll">
+            <div class="member-card__badge">
+              <span class="badge-icon">🥈</span>
+            </div>
+            <div class="member-card__ribbon">人気</div>
+            <h3 class="member-card__title" data-type="text">シルバー会員</h3>
+            <p class="member-card__condition" data-type="text">年間利用6回以上</p>
+            <ul class="member-card__benefits">
+              <li><span class="check">✓</span>宿泊料金10%OFF</li>
+              <li><span class="check">✓</span>トリミング10%OFF</li>
+              <li><span class="check">✓</span>バースデー特典</li>
+              <li><span class="check">✓</span>優先予約権</li>
+              <li><span class="check">✓</span>送迎サービス半額</li>
+            </ul>
+          </div>
+          <div class="member-card premium animate-on-scroll">
+            <div class="member-card__badge">
+              <span class="badge-icon">🥇</span>
+            </div>
+            <h3 class="member-card__title" data-type="text">ゴールド会員</h3>
+            <p class="member-card__condition" data-type="text">年間利用12回以上</p>
+            <ul class="member-card__benefits">
+              <li><span class="check">✓</span>宿泊料金15%OFF</li>
+              <li><span class="check">✓</span>トリミング15%OFF</li>
+              <li><span class="check">✓</span>バースデー豪華特典</li>
+              <li><span class="check">✓</span>最優先予約権</li>
+              <li><span class="check">✓</span>送迎サービス無料</li>
+              <li><span class="check">✓</span>スパ1回無料/年</li>
+              <li><span class="check">✓</span>専用ホットライン</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 12: Pricing -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <div class="pricing__header animate-on-scroll">
+          <span class="section-label">Pricing</span>
+          <h2 class="section-title" data-type="text">料金プラン</h2>
+          <p class="section-subtitle" data-type="text">
+            わかりやすい料金体系
+          </p>
+        </div>
+        <div class="pricing__tabs">
+          <button class="pricing-tab active" data-price-tab="dog">
+            <span class="tab-icon">🐕</span>
+            <span>わんちゃん</span>
+          </button>
+          <button class="pricing-tab" data-price-tab="cat">
+            <span class="tab-icon">🐱</span>
+            <span>ねこちゃん</span>
+          </button>
+        </div>
+        <div class="pricing__tables">
+          <div class="pricing-table active" id="price-dog">
+            <table class="price-table animate-on-scroll">
+              <thead>
+                <tr>
+                  <th>お部屋タイプ</th>
+                  <th>小型犬<br><small>〜5kg</small></th>
+                  <th>中型犬<br><small>5〜15kg</small></th>
+                  <th>大型犬<br><small>15kg〜</small></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-type="text">スタンダード</td>
+                  <td>¥5,500</td>
+                  <td>¥6,600</td>
+                  <td>-</td>
+                </tr>
+                <tr>
+                  <td data-type="text">コンフォート</td>
+                  <td>¥7,700</td>
+                  <td>¥8,800</td>
+                  <td>¥9,900</td>
+                </tr>
+                <tr>
+                  <td data-type="text">デラックス</td>
+                  <td>¥9,900</td>
+                  <td>¥11,000</td>
+                  <td>¥13,200</td>
+                </tr>
+                <tr>
+                  <td data-type="text">スイート</td>
+                  <td colspan="3">¥13,200〜</td>
+                </tr>
+                <tr>
+                  <td data-type="text">ロイヤル</td>
+                  <td colspan="3">¥16,500〜</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="price-note">※すべて税込価格です。繁忙期は料金が異なる場合があります。</p>
+          </div>
+          <div class="pricing-table" id="price-cat">
+            <table class="price-table animate-on-scroll">
+              <thead>
+                <tr>
+                  <th>お部屋タイプ</th>
+                  <th>1匹</th>
+                  <th>2匹（同室）</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td data-type="text">キャットルーム スタンダード</td>
+                  <td>¥6,600</td>
+                  <td>¥9,900</td>
+                </tr>
+                <tr>
+                  <td data-type="text">キャットルーム デラックス</td>
+                  <td>¥8,800</td>
+                  <td>¥13,200</td>
+                </tr>
+                <tr>
+                  <td data-type="text">キャットスイート</td>
+                  <td>¥11,000</td>
+                  <td>¥16,500</td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="price-note">※すべて税込価格です。繁忙期は料金が異なる場合があります。</p>
+          </div>
+        </div>
+        <div class="pricing__options animate-on-scroll">
+          <h3>オプションサービス</h3>
+          <div class="options-grid">
+            <div class="option-item">
+              <span class="option-name" data-type="text">追加お散歩（1回30分）</span>
+              <span class="option-price">¥550</span>
+            </div>
+            <div class="option-item">
+              <span class="option-name" data-type="text">投薬管理</span>
+              <span class="option-price">¥330/回</span>
+            </div>
+            <div class="option-item">
+              <span class="option-name" data-type="text">送迎サービス</span>
+              <span class="option-price">¥1,100〜</span>
+            </div>
+            <div class="option-item">
+              <span class="option-name" data-type="text">早朝/深夜チェックイン・アウト</span>
+              <span class="option-price">¥1,100</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 13: FAQ -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <div class="faq__header animate-on-scroll">
+          <span class="section-label">FAQ</span>
+          <h2 class="section-title" data-type="text">よくあるご質問</h2>
+        </div>
+        <div class="faq__list" data-repeat="faq-items">
+          <div class="faq-item animate-on-scroll" data-repeat-item>
+            <button class="faq-question">
+              <span class="question-icon">🐾</span>
+              <span class="question-text" data-type="text">予約はどのくらい前から可能ですか？</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-type="text">
+                ご予約は3ヶ月前から承っております。繁忙期（年末年始、GW、お盆）は早めのご予約をおすすめします。シルバー・ゴールド会員様は優先予約が可能です。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-repeat-item>
+            <button class="faq-question">
+              <span class="question-icon">🐾</span>
+              <span class="question-text" data-type="text">ワクチン接種は必要ですか？</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-type="text">
+                はい、わんちゃんは狂犬病予防接種と混合ワクチン（5種以上推奨）、ねこちゃんは3種以上の混合ワクチン接種が必要です。接種後2週間以上経過していることをご確認ください。証明書のご提示をお願いしております。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-repeat-item>
+            <button class="faq-question">
+              <span class="question-icon">🐾</span>
+              <span class="question-text" data-type="text">持ち物は何が必要ですか？</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-type="text">
+                基本的なアメニティはご用意しておりますが、普段お使いのフード、おやつ、お気に入りのおもちゃやブランケットをお持ちいただくと、ペットも安心してお過ごしいただけます。常備薬がある場合は必ずお持ちください。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-repeat-item>
+            <button class="faq-question">
+              <span class="question-icon">🐾</span>
+              <span class="question-text" data-type="text">シニアペットでも預けられますか？</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-type="text">
+                はい、シニアペットも大歓迎です。事前カウンセリングで健康状態を詳しくお伺いし、必要なケアプランをご提案します。獣医師との連携体制も整っておりますので、ご安心ください。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-repeat-item>
+            <button class="faq-question">
+              <span class="question-icon">🐾</span>
+              <span class="question-text" data-type="text">キャンセル料はかかりますか？</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-type="text">
+                7日前まで：無料<br>
+                3〜6日前：料金の30%<br>
+                前日〜2日前：料金の50%<br>
+                当日：料金の100%<br>
+                ※繁忙期は異なる場合があります。
+              </p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-repeat-item>
+            <button class="faq-question">
+              <span class="question-icon">🐾</span>
+              <span class="question-text" data-type="text">見学はできますか？</span>
+              <span class="toggle-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p data-type="text">
+                はい、無料見学を随時受け付けております。施設の雰囲気を実際にご覧いただき、スタッフとお話しいただいた上でご検討ください。ご予約制となっておりますので、お電話またはWebフォームからお申し込みください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 14: Final CTA -->
+    <section class="final-cta" id="contact">
+      <div class="final-cta__bg">
+        <div class="final-cta__particles"></div>
+      </div>
+      <div class="container">
+        <div class="final-cta__content animate-on-scroll">
+          <div class="mascot-large">
+            <svg class="mascot-svg-large" viewBox="0 0 120 120" width="150" height="150">
+              <ellipse cx="60" cy="65" rx="45" ry="40" fill="#F5DEB3"/>
+              <ellipse cx="60" cy="70" rx="38" ry="32" fill="#FFF8DC"/>
+              <ellipse cx="25" cy="40" rx="18" ry="28" fill="#D2691E" transform="rotate(-20 25 40)"/>
+              <ellipse cx="95" cy="40" rx="18" ry="28" fill="#D2691E" transform="rotate(20 95 40)"/>
+              <circle cx="42" cy="58" r="8" fill="#4A4A4A"/>
+              <circle cx="78" cy="58" r="8" fill="#4A4A4A"/>
+              <circle cx="44" cy="56" r="3" fill="#FFFFFF"/>
+              <circle cx="80" cy="56" r="3" fill="#FFFFFF"/>
+              <ellipse cx="60" cy="72" rx="8" ry="6" fill="#4A4A4A"/>
+              <path d="M52 80 Q60 88 68 80" stroke="#4A4A4A" stroke-width="2" fill="none"/>
+              <ellipse cx="30" cy="68" rx="8" ry="5" fill="#FFB5C5" opacity="0.6"/>
+              <ellipse cx="90" cy="68" rx="8" ry="5" fill="#FFB5C5" opacity="0.6"/>
+            </svg>
+          </div>
+          <h2 class="final-cta__title" data-type="text">
+            大切な家族を、<br>最高のおもてなしで。
+          </h2>
+          <p class="final-cta__text" data-type="text">
+            まずは無料見学から。<br>
+            スタッフ一同、皆様のお越しをお待ちしております。
+          </p>
+          <div class="final-cta__buttons">
+            <a href="tel:045-XXX-XXXX" class="btn btn--white btn--large">
+              <span class="btn-icon">📞</span>
+              <span>045-XXX-XXXX</span>
+            </a>
+            <a href="#reservation-form" class="btn btn--accent btn--large" id="final-cta-btn">
+              <span>無料見学を予約する</span>
+              <span class="btn-sparkle">✨</span>
+            </a>
+          </div>
+          <div class="final-cta__info">
+            <div class="info-item">
+              <span class="info-icon">📍</span>
+              <span data-type="text">神奈川県横浜市中区XX-XX-XX</span>
+            </div>
+            <div class="info-item">
+              <span class="info-icon">🕐</span>
+              <span data-type="text">営業時間 8:00〜20:00（年中無休）</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservation Form Modal -->
+    <div class="modal" id="reservation-modal">
+      <div class="modal__overlay"></div>
+      <div class="modal__content">
+        <button class="modal__close" aria-label="閉じる">&times;</button>
+        <h3 class="modal__title">無料見学予約</h3>
+        <form class="reservation-form" id="reservation-form">
+          <div class="form-group">
+            <label for="name">お名前 <span class="required">*</span></label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">メールアドレス <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">電話番号 <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+            <label for="pet-type">ペットの種類 <span class="required">*</span></label>
+            <select id="pet-type" name="pet-type" required>
+              <option value="">選択してください</option>
+              <option value="dog-small">小型犬</option>
+              <option value="dog-medium">中型犬</option>
+              <option value="dog-large">大型犬</option>
+              <option value="cat">猫</option>
+              <option value="other">その他</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="visit-date">ご希望日</label>
+            <input type="date" id="visit-date" name="visit-date">
+          </div>
+          <div class="form-group">
+            <label for="message">ご質問・ご要望</label>
+            <textarea id="message" name="message" rows="4"></textarea>
+          </div>
+          <button type="submit" class="btn btn--primary btn--full">
+            <span>送信する</span>
+            <span class="btn-icon">💕</span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a href="#" class="footer__logo">
+            <span class="logo-icon">🐾</span>
+            <span class="logo-text">Pawsome Stay</span>
+          </a>
+          <p class="footer__tagline" data-type="text">大切な家族を、最高のおもてなしで。</p>
+          <div class="footer__social">
+            <a href="#" class="social-link" aria-label="Instagram">📷</a>
+            <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+            <a href="#" class="social-link" aria-label="LINE">💬</a>
+            <a href="#" class="social-link" aria-label="Facebook">📘</a>
+          </div>
+        </div>
+        <div class="footer__nav">
+          <h4>サービス</h4>
+          <ul>
+            <li><a href="#services">ペットホテル</a></li>
+            <li><a href="#services">トリミング</a></li>
+            <li><a href="#services">デイケア</a></li>
+            <li><a href="#services">スパ</a></li>
+          </ul>
+        </div>
+        <div class="footer__nav">
+          <h4>ご案内</h4>
+          <ul>
+            <li><a href="#rooms">お部屋タイプ</a></li>
+            <li><a href="#pricing">料金プラン</a></li>
+            <li><a href="#faq">よくある質問</a></li>
+            <li><a href="#contact">アクセス</a></li>
+          </ul>
+        </div>
+        <div class="footer__contact">
+          <h4>お問い合わせ</h4>
+          <p>
+            <span class="contact-icon">📞</span>
+            <a href="tel:045-XXX-XXXX">045-XXX-XXXX</a>
+          </p>
+          <p>
+            <span class="contact-icon">📍</span>
+            <span data-type="text">神奈川県横浜市中区XX-XX-XX</span>
+          </p>
+          <p>
+            <span class="contact-icon">🕐</span>
+            <span>8:00〜20:00（年中無休）</span>
+          </p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p>&copy; 2026 Pawsome Stay. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <defs>
+    <linearGradient id="m3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b9d"/>
+      <stop offset="100%" style="stop-color:#c9506b"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="400" fill="#0a0a12"/>
+  <circle cx="200" cy="180" r="80" fill="none" stroke="url(#m3)" stroke-width="4"/>
+  <text x="200" y="290" font-family="Arial" font-size="20" fill="#ff6b9d" text-anchor="middle">最後のアリア</text>
+  <text x="200" y="320" font-family="Arial" font-size="14" fill="#888" text-anchor="middle">花澤香菜</text>
+  <text x="200" y="360" font-family="Arial" font-size="12" fill="#666" text-anchor="middle">INSERT SONG</text>
+</svg>

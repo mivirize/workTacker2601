@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>山岳麦酒 | SANGAKU BEER - 北アルプスの恵み、一杯に込めて</title>
+  <meta name="description" content="長野県松本市で北アルプスの清らかな水と厳選素材で醸すクラフトビール。醸造家 佐藤純一がドイツ仕込みの技術で丁寧に造る至高の一杯。">
+  <meta name="keywords" content="クラフトビール, 長野, 松本, 北アルプス, 地ビール, SANGAKU BEER, 山岳麦酒">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+  <!-- ========================================
+       AGE GATE
+  ======================================== -->
+  <div id="age-gate" class="age-gate" data-section="age-gate">
+    <div class="age-gate__overlay"></div>
+    <div class="age-gate__content">
+      <div class="age-gate__logo">
+        <img src="images/logo-white.png" alt="SANGAKU BEER" data-type="image" data-field="logo">
+        <span class="age-gate__logo-text">山岳麦酒</span>
+      </div>
+      <h1 class="age-gate__title" data-type="text" data-field="age-gate-title">年齢確認</h1>
+      <p class="age-gate__text" data-type="text" data-field="age-gate-text">
+        このサイトはアルコールに関する情報を含んでいます。<br>
+        あなたは20歳以上ですか？
+      </p>
+      <div class="age-gate__buttons">
+        <button class="btn btn--primary age-gate__btn" id="age-yes">
+          <span>はい、20歳以上です</span>
+        </button>
+        <button class="btn btn--outline age-gate__btn" id="age-no">
+          <span>いいえ</span>
+        </button>
+      </div>
+      <p class="age-gate__notice" data-type="text" data-field="age-gate-notice">
+        未成年者の飲酒は法律で禁止されています
+      </p>
+    </div>
+  </div>
+
+  <!-- ========================================
+       HEADER
+  ======================================== -->
+  <header class="header" id="header">
+    <div class="header__container">
+      <a href="#hero" class="header__logo">
+        <img src="images/logo.png" alt="SANGAKU BEER" data-type="image" data-field="header-logo">
+        <span>山岳麦酒</span>
+      </a>
+      <nav class="header__nav" id="nav">
+        <ul class="header__nav-list">
+          <li><a href="#story">ストーリー</a></li>
+          <li><a href="#philosophy">こだわり</a></li>
+          <li><a href="#process">醸造工程</a></li>
+          <li><a href="#products">商品</a></li>
+          <li><a href="#brewer">醸造家</a></li>
+          <li><a href="#tour">醸造所見学</a></li>
+          <li><a href="#shop" class="btn btn--nav">オンラインショップ</a></li>
+        </ul>
+      </nav>
+      <button class="header__hamburger" id="hamburger" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ========================================
+       HERO SECTION
+  ======================================== -->
+  <section id="hero" class="hero" data-section="hero">
+    <div class="hero__parallax-container">
+      <div class="hero__bg hero__bg--back" data-parallax="0.3">
+        <img src="images/hero-mountains.jpg" alt="北アルプスの山々" data-type="image" data-field="hero-bg-mountains">
+      </div>
+      <div class="hero__bg hero__bg--mid" data-parallax="0.5">
+        <img src="images/hero-forest.png" alt="森林" data-type="image" data-field="hero-bg-forest">
+      </div>
+      <div class="hero__bg hero__bg--front" data-parallax="0.7">
+        <img src="images/hero-beer.png" alt="ビールグラス" data-type="image" data-field="hero-bg-beer">
+      </div>
+    </div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <p class="hero__subtitle animate-on-scroll fade-up" data-type="text" data-field="hero-subtitle">
+        CRAFT BEER FROM THE JAPANESE ALPS
+      </p>
+      <h1 class="hero__title animate-on-scroll fade-up delay-1" data-type="text" data-field="hero-title">
+        北アルプスの恵み、<br>一杯に込めて。
+      </h1>
+      <p class="hero__description animate-on-scroll fade-up delay-2" data-type="text" data-field="hero-description">
+        標高3,000メートルを超える北アルプスの清らかな雪解け水と<br>
+        厳選された素材が織りなす、至高のクラフトビール。
+      </p>
+      <div class="hero__cta animate-on-scroll fade-up delay-3">
+        <a href="#products" class="btn btn--primary btn--large">
+          <span>商品を見る</span>
+        </a>
+        <a href="#story" class="btn btn--outline btn--large">
+          <span>ストーリーを読む</span>
+        </a>
+      </div>
+    </div>
+    <div class="hero__scroll-indicator">
+      <span>Scroll</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       BRAND STORY SECTION
+  ======================================== -->
+  <section id="story" class="story" data-section="brand-story">
+    <div class="story__bg-texture"></div>
+    <div class="container">
+      <header class="section-header animate-on-scroll fade-up">
+        <span class="section-header__label">OUR STORY</span>
+        <h2 class="section-header__title" data-type="text" data-field="story-title">山岳麦酒の物語</h2>
+        <p class="section-header__subtitle" data-type="text" data-field="story-subtitle">
+          北アルプスの麓で始まった、一人の醸造家の挑戦
+        </p>
+      </header>
+
+      <div class="timeline">
+        <div class="timeline__line"></div>
+
+        <div class="timeline__item animate-on-scroll slide-right" data-repeat="timeline" data-repeat-item>
+          <div class="timeline__year" data-type="text" data-field="timeline-year-1">2010</div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/story-2010.jpg" alt="ドイツでの修行" data-type="image" data-field="story-image-1">
+            </div>
+            <h3 class="timeline__title" data-type="text" data-field="timeline-title-1">ドイツでの出会い</h3>
+            <p class="timeline__text" data-type="text" data-field="timeline-text-1">
+              創業者・佐藤純一がドイツ・バイエルン州の醸造所で修行を開始。
+              伝統的なドイツビールの製法と、職人の精神を学ぶ。
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item animate-on-scroll slide-left" data-repeat-item>
+          <div class="timeline__year" data-type="text" data-field="timeline-year-2">2015</div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/story-2015.jpg" alt="松本への帰郷" data-type="image" data-field="story-image-2">
+            </div>
+            <h3 class="timeline__title" data-type="text" data-field="timeline-title-2">故郷への帰還</h3>
+            <p class="timeline__text" data-type="text" data-field="timeline-text-2">
+              5年の修行を終え、故郷・長野県松本市へ帰郷。
+              北アルプスの麓に小さな醸造所を開設することを決意。
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item animate-on-scroll slide-right" data-repeat-item>
+          <div class="timeline__year" data-type="text" data-field="timeline-year-3">2016</div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/story-2016.jpg" alt="醸造所開設" data-type="image" data-field="story-image-3">
+            </div>
+            <h3 class="timeline__title" data-type="text" data-field="timeline-title-3">山岳麦酒、誕生</h3>
+            <p class="timeline__text" data-type="text" data-field="timeline-text-3">
+              北アルプスの伏流水と出会い、「山岳麦酒」として醸造を開始。
+              最初の1本を仕込んだ日の感動は、今も忘れられない。
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item animate-on-scroll slide-left" data-repeat-item>
+          <div class="timeline__year" data-type="text" data-field="timeline-year-4">2020</div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/story-2020.jpg" alt="受賞" data-type="image" data-field="story-image-4">
+            </div>
+            <h3 class="timeline__title" data-type="text" data-field="timeline-title-4">世界が認めた味</h3>
+            <p class="timeline__text" data-type="text" data-field="timeline-text-4">
+              Japan Brewers Cup 金賞、World Beer Awards 銅賞を受賞。
+              小さな醸造所のビールが、世界に認められた瞬間。
+            </p>
+          </div>
+        </div>
+
+        <div class="timeline__item animate-on-scroll slide-right" data-repeat-item>
+          <div class="timeline__year" data-type="text" data-field="timeline-year-5">現在</div>
+          <div class="timeline__content">
+            <div class="timeline__image">
+              <img src="images/story-now.jpg" alt="現在の醸造所" data-type="image" data-field="story-image-5">
+            </div>
+            <h3 class="timeline__title" data-type="text" data-field="timeline-title-5">変わらぬ想い</h3>
+            <p class="timeline__text" data-type="text" data-field="timeline-text-5">
+              創業から変わらぬ想いで、一杯一杯を丁寧に醸す。
+              北アルプスの恵みを、あなたの元へ届けるために。
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       PHILOSOPHY SECTION
+  ======================================== -->
+  <section id="philosophy" class="philosophy" data-section="philosophy">
+    <div class="philosophy__parallax-bg" data-parallax="0.2">
+      <img src="images/philosophy-bg.jpg" alt="醸造所の風景" data-type="image" data-field="philosophy-bg">
+    </div>
+    <div class="philosophy__overlay"></div>
+    <div class="container">
+      <header class="section-header section-header--light animate-on-scroll fade-up">
+        <span class="section-header__label">PHILOSOPHY</span>
+        <h2 class="section-header__title" data-type="text" data-field="philosophy-title">三つのこだわり</h2>
+        <p class="section-header__subtitle" data-type="text" data-field="philosophy-subtitle">
+          妥協なき品質への追求
+        </p>
+      </header>
+
+      <div class="philosophy__grid">
+        <article class="philosophy-card animate-on-scroll fade-up" data-repeat="philosophy" data-repeat-item>
+          <div class="philosophy-card__icon">
+            <img src="images/icon-water.svg" alt="水" data-type="image" data-field="philosophy-icon-1">
+          </div>
+          <h3 class="philosophy-card__title" data-type="text" data-field="philosophy-card-title-1">北アルプスの水</h3>
+          <p class="philosophy-card__text" data-type="text" data-field="philosophy-card-text-1">
+            標高3,000mを超える北アルプスの雪解け水が、長い年月をかけて地中を通り、
+            自然にろ過された清らかな伏流水。ミネラルバランスに優れ、
+            ビールの味わいを最大限に引き出します。
+          </p>
+        </article>
+
+        <article class="philosophy-card animate-on-scroll fade-up delay-1" data-repeat-item>
+          <div class="philosophy-card__icon">
+            <img src="images/icon-malt.svg" alt="麦芽" data-type="image" data-field="philosophy-icon-2">
+          </div>
+          <h3 class="philosophy-card__title" data-type="text" data-field="philosophy-card-title-2">厳選された素材</h3>
+          <p class="philosophy-card__text" data-type="text" data-field="philosophy-card-text-2">
+            ドイツ・チェコ産の最高級麦芽と、世界各地から厳選したホップを使用。
+            長野県産の素材も積極的に取り入れ、地域に根ざしたビール造りを目指しています。
+          </p>
+        </article>
+
+        <article class="philosophy-card animate-on-scroll fade-up delay-2" data-repeat-item>
+          <div class="philosophy-card__icon">
+            <img src="images/icon-craft.svg" alt="職人技" data-type="image" data-field="philosophy-icon-3">
+          </div>
+          <h3 class="philosophy-card__title" data-type="text" data-field="philosophy-card-title-3">職人の技</h3>
+          <p class="philosophy-card__text" data-type="text" data-field="philosophy-card-text-3">
+            ドイツで5年間修行した醸造家が、伝統的な製法と革新的なアイデアを融合。
+            温度管理から瓶詰めまで、すべての工程に職人の目と手が行き届いています。
+          </p>
+        </article>
+      </div>
+
+      <div class="philosophy__quote animate-on-scroll fade-up">
+        <blockquote>
+          <p data-type="text" data-field="philosophy-quote">
+            「良いビールは、良い水から始まる。<br>
+            北アルプスの自然が与えてくれるこの水こそ、<br>
+            私たちの最大の財産です。」
+          </p>
+          <cite data-type="text" data-field="philosophy-quote-author">— 醸造家 佐藤純一</cite>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       BREWING PROCESS SECTION
+  ======================================== -->
+  <section id="process" class="process" data-section="brewing-process">
+    <div class="container">
+      <header class="section-header animate-on-scroll fade-up">
+        <span class="section-header__label">BREWING PROCESS</span>
+        <h2 class="section-header__title" data-type="text" data-field="process-title">醸造工程</h2>
+        <p class="section-header__subtitle" data-type="text" data-field="process-subtitle">
+          一杯のビールが生まれるまで
+        </p>
+      </header>
+
+      <div class="process__steps">
+        <div class="process__progress">
+          <div class="process__progress-bar" id="process-progress"></div>
+        </div>
+
+        <article class="process-step animate-on-scroll fade-up" data-step="1" data-repeat="process" data-repeat-item>
+          <div class="process-step__number">01</div>
+          <div class="process-step__image">
+            <img src="images/process-1.jpg" alt="仕込み" data-type="image" data-field="process-image-1">
+          </div>
+          <div class="process-step__content">
+            <h3 class="process-step__title" data-type="text" data-field="process-title-1">仕込み</h3>
+            <p class="process-step__text" data-type="text" data-field="process-text-1">
+              厳選された麦芽を粉砕し、北アルプスの伏流水と混ぜ合わせて「マッシュ」を作ります。
+              温度を段階的に上げながら、麦芽の酵素が澱粉を糖に変えていく大切な工程です。
+            </p>
+            <div class="process-step__detail">
+              <span class="process-step__time">約6時間</span>
+              <span class="process-step__temp">62-72°C</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step animate-on-scroll fade-up" data-step="2" data-repeat-item>
+          <div class="process-step__number">02</div>
+          <div class="process-step__image">
+            <img src="images/process-2.jpg" alt="発酵" data-type="image" data-field="process-image-2">
+          </div>
+          <div class="process-step__content">
+            <h3 class="process-step__title" data-type="text" data-field="process-title-2">発酵</h3>
+            <p class="process-step__text" data-type="text" data-field="process-text-2">
+              煮沸した麦汁を冷却し、酵母を加えて発酵タンクへ。酵母が糖をアルコールと炭酸ガスに変え、
+              ビールの基本的な風味が生まれます。温度管理が味の決め手となります。
+            </p>
+            <div class="process-step__detail">
+              <span class="process-step__time">約7日間</span>
+              <span class="process-step__temp">8-15°C</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step animate-on-scroll fade-up" data-step="3" data-repeat-item>
+          <div class="process-step__number">03</div>
+          <div class="process-step__image">
+            <img src="images/process-3.jpg" alt="熟成" data-type="image" data-field="process-image-3">
+          </div>
+          <div class="process-step__content">
+            <h3 class="process-step__title" data-type="text" data-field="process-title-3">熟成</h3>
+            <p class="process-step__text" data-type="text" data-field="process-text-3">
+              発酵を終えた若いビールを低温でゆっくりと熟成させます。
+              この間に余分な成分が沈殿し、味がまろやかになり、深みのある風味が生まれます。
+            </p>
+            <div class="process-step__detail">
+              <span class="process-step__time">約4週間</span>
+              <span class="process-step__temp">0-2°C</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step animate-on-scroll fade-up" data-step="4" data-repeat-item>
+          <div class="process-step__number">04</div>
+          <div class="process-step__image">
+            <img src="images/process-4.jpg" alt="ろ過" data-type="image" data-field="process-image-4">
+          </div>
+          <div class="process-step__content">
+            <h3 class="process-step__title" data-type="text" data-field="process-title-4">ろ過</h3>
+            <p class="process-step__text" data-type="text" data-field="process-text-4">
+              熟成を終えたビールから酵母や不純物を取り除き、透明度の高いビールに仕上げます。
+              一部の商品は無ろ過で、酵母の風味を残した自然な味わいを楽しめます。
+            </p>
+            <div class="process-step__detail">
+              <span class="process-step__time">約2時間</span>
+              <span class="process-step__temp">0°C</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="process-step animate-on-scroll fade-up" data-step="5" data-repeat-item>
+          <div class="process-step__number">05</div>
+          <div class="process-step__image">
+            <img src="images/process-5.jpg" alt="瓶詰め" data-type="image" data-field="process-image-5">
+          </div>
+          <div class="process-step__content">
+            <h3 class="process-step__title" data-type="text" data-field="process-title-5">瓶詰め</h3>
+            <p class="process-step__text" data-type="text" data-field="process-text-5">
+              酸化を防ぐため、瓶内の空気を炭酸ガスで置換してから充填。
+              一本一本、品質チェックを行い、ラベルを貼って完成。あなたの元へ届く準備が整います。
+            </p>
+            <div class="process-step__detail">
+              <span class="process-step__time">丁寧に一本ずつ</span>
+              <span class="process-step__temp">品質検査済</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       PRODUCTS SECTION
+  ======================================== -->
+  <section id="products" class="products" data-section="products">
+    <div class="products__bg-pattern"></div>
+    <div class="container">
+      <header class="section-header animate-on-scroll fade-up">
+        <span class="section-header__label">PRODUCTS</span>
+        <h2 class="section-header__title" data-type="text" data-field="products-title">商品ラインナップ</h2>
+        <p class="section-header__subtitle" data-type="text" data-field="products-subtitle">
+          個性豊かな6つの味わい
+        </p>
+      </header>
+
+      <div class="products__grid" data-repeat="products">
+        <article class="product-card animate-on-scroll fade-up" data-repeat-item>
+          <div class="product-card__image">
+            <img src="images/product-1.png" alt="山嶺ピルスナー" data-type="image" data-field="product-image-1">
+            <div class="product-card__badge product-card__badge--gold">金賞受賞</div>
+          </div>
+          <div class="product-card__content">
+            <span class="product-card__style" data-type="text" data-field="product-style-1">Pilsner</span>
+            <h3 class="product-card__name" data-type="text" data-field="product-name-1">山嶺ピルスナー</h3>
+            <p class="product-card__description" data-type="text" data-field="product-description-1">
+              北アルプスの清涼感をそのままグラスに。キレのある爽快な喉ごしと、
+              繊細なホップの香りが特徴のフラッグシップビール。
+            </p>
+            <div class="product-card__specs">
+              <span>ABV: 5.0%</span>
+              <span>IBU: 35</span>
+            </div>
+            <div class="product-card__price" data-type="text" data-field="product-price-1">¥550（税込）</div>
+          </div>
+          <div class="product-card__hover">
+            <a href="#shop" class="btn btn--primary">購入する</a>
+          </div>
+        </article>
+
+        <article class="product-card animate-on-scroll fade-up delay-1" data-repeat-item>
+          <div class="product-card__image">
+            <img src="images/product-2.png" alt="深森ヴァイツェン" data-type="image" data-field="product-image-2">
+          </div>
+          <div class="product-card__content">
+            <span class="product-card__style" data-type="text" data-field="product-style-2">Weizen</span>
+            <h3 class="product-card__name" data-type="text" data-field="product-name-2">深森ヴァイツェン</h3>
+            <p class="product-card__description" data-type="text" data-field="product-description-2">
+              小麦の柔らかな甘みとバナナ・クローブの香り。
+              森の中で感じる穏やかな風のような、優しい味わいの白ビール。
+            </p>
+            <div class="product-card__specs">
+              <span>ABV: 5.2%</span>
+              <span>IBU: 15</span>
+            </div>
+            <div class="product-card__price" data-type="text" data-field="product-price-2">¥580（税込）</div>
+          </div>
+          <div class="product-card__hover">
+            <a href="#shop" class="btn btn--primary">購入する</a>
+          </div>
+        </article>
+
+        <article class="product-card animate-on-scroll fade-up delay-2" data-repeat-item>
+          <div class="product-card__image">
+            <img src="images/product-3.png" alt="琥珀の峰IPA" data-type="image" data-field="product-image-3">
+            <div class="product-card__badge product-card__badge--bronze">WBA銅賞</div>
+          </div>
+          <div class="product-card__content">
+            <span class="product-card__style" data-type="text" data-field="product-style-3">IPA</span>
+            <h3 class="product-card__name" data-type="text" data-field="product-name-3">琥珀の峰 IPA</h3>
+            <p class="product-card__description" data-type="text" data-field="product-description-3">
+              アメリカンホップの華やかなシトラス香と、しっかりとした苦み。
+              山の夕焼けを思わせる琥珀色が美しいインディア・ペールエール。
+            </p>
+            <div class="product-card__specs">
+              <span>ABV: 6.5%</span>
+              <span>IBU: 60</span>
+            </div>
+            <div class="product-card__price" data-type="text" data-field="product-price-3">¥650（税込）</div>
+          </div>
+          <div class="product-card__hover">
+            <a href="#shop" class="btn btn--primary">購入する</a>
+          </div>
+        </article>
+
+        <article class="product-card animate-on-scroll fade-up" data-repeat-item>
+          <div class="product-card__image">
+            <img src="images/product-4.png" alt="黒岳スタウト" data-type="image" data-field="product-image-4">
+          </div>
+          <div class="product-card__content">
+            <span class="product-card__style" data-type="text" data-field="product-style-4">Stout</span>
+            <h3 class="product-card__name" data-type="text" data-field="product-name-4">黒岳スタウト</h3>
+            <p class="product-card__description" data-type="text" data-field="product-description-4">
+              焙煎麦芽の深いコクとコーヒーのような香り。
+              北アルプスの夜空のように深い漆黒が、贅沢なひとときを演出します。
+            </p>
+            <div class="product-card__specs">
+              <span>ABV: 5.5%</span>
+              <span>IBU: 40</span>
+            </div>
+            <div class="product-card__price" data-type="text" data-field="product-price-4">¥600（税込）</div>
+          </div>
+          <div class="product-card__hover">
+            <a href="#shop" class="btn btn--primary">購入する</a>
+          </div>
+        </article>
+
+        <article class="product-card animate-on-scroll fade-up delay-1" data-repeat-item>
+          <div class="product-card__image">
+            <img src="images/product-5.png" alt="信濃セゾン" data-type="image" data-field="product-image-5">
+          </div>
+          <div class="product-card__content">
+            <span class="product-card__style" data-type="text" data-field="product-style-5">Saison</span>
+            <h3 class="product-card__name" data-type="text" data-field="product-name-5">信濃セゾン</h3>
+            <p class="product-card__description" data-type="text" data-field="product-description-5">
+              長野県産そばハチミツを使用した季節限定醸造。
+              フルーティーでスパイシー、ドライな後味が特徴のファームハウスエール。
+            </p>
+            <div class="product-card__specs">
+              <span>ABV: 6.0%</span>
+              <span>IBU: 25</span>
+            </div>
+            <div class="product-card__price" data-type="text" data-field="product-price-5">¥680（税込）</div>
+          </div>
+          <div class="product-card__hover">
+            <a href="#shop" class="btn btn--primary">購入する</a>
+          </div>
+        </article>
+
+        <article class="product-card animate-on-scroll fade-up delay-2" data-repeat-item>
+          <div class="product-card__image">
+            <img src="images/product-6.png" alt="白馬ペールエール" data-type="image" data-field="product-image-6">
+          </div>
+          <div class="product-card__content">
+            <span class="product-card__style" data-type="text" data-field="product-style-6">Pale Ale</span>
+            <h3 class="product-card__name" data-type="text" data-field="product-name-6">白馬ペールエール</h3>
+            <p class="product-card__description" data-type="text" data-field="product-description-6">
+              モルトの甘みとホップの苦みが絶妙なバランス。
+              クラフトビール初心者にもおすすめの、飲みやすいアメリカンペールエール。
+            </p>
+            <div class="product-card__specs">
+              <span>ABV: 5.0%</span>
+              <span>IBU: 40</span>
+            </div>
+            <div class="product-card__price" data-type="text" data-field="product-price-6">¥550（税込）</div>
+          </div>
+          <div class="product-card__hover">
+            <a href="#shop" class="btn btn--primary">購入する</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       AWARDS SECTION
+  ======================================== -->
+  <section id="awards" class="awards" data-section="awards">
+    <div class="awards__bg"></div>
+    <div class="container">
+      <header class="section-header section-header--light animate-on-scroll fade-up">
+        <span class="section-header__label">AWARDS</span>
+        <h2 class="section-header__title" data-type="text" data-field="awards-title">受賞歴</h2>
+        <p class="section-header__subtitle" data-type="text" data-field="awards-subtitle">
+          国内外で認められた品質
+        </p>
+      </header>
+
+      <div class="awards__grid" data-repeat="awards">
+        <div class="award-card animate-on-scroll scale-in" data-repeat-item>
+          <div class="award-card__medal award-card__medal--gold">
+            <img src="images/medal-gold.svg" alt="金賞" data-type="image" data-field="award-medal-1">
+          </div>
+          <h3 class="award-card__title" data-type="text" data-field="award-title-1">Japan Brewers Cup 2020</h3>
+          <p class="award-card__category" data-type="text" data-field="award-category-1">ピルスナー部門 金賞</p>
+          <p class="award-card__product" data-type="text" data-field="award-product-1">山嶺ピルスナー</p>
+        </div>
+
+        <div class="award-card animate-on-scroll scale-in delay-1" data-repeat-item>
+          <div class="award-card__medal award-card__medal--bronze">
+            <img src="images/medal-bronze.svg" alt="銅賞" data-type="image" data-field="award-medal-2">
+          </div>
+          <h3 class="award-card__title" data-type="text" data-field="award-title-2">World Beer Awards 2021</h3>
+          <p class="award-card__category" data-type="text" data-field="award-category-2">Asia's Best IPA 銅賞</p>
+          <p class="award-card__product" data-type="text" data-field="award-product-2">琥珀の峰 IPA</p>
+        </div>
+
+        <div class="award-card animate-on-scroll scale-in delay-2" data-repeat-item>
+          <div class="award-card__medal award-card__medal--silver">
+            <img src="images/medal-silver.svg" alt="銀賞" data-type="image" data-field="award-medal-3">
+          </div>
+          <h3 class="award-card__title" data-type="text" data-field="award-title-3">International Beer Cup 2022</h3>
+          <p class="award-card__category" data-type="text" data-field="award-category-3">ヴァイツェン部門 銀賞</p>
+          <p class="award-card__product" data-type="text" data-field="award-product-3">深森ヴァイツェン</p>
+        </div>
+
+        <div class="award-card animate-on-scroll scale-in delay-3" data-repeat-item>
+          <div class="award-card__medal award-card__medal--gold">
+            <img src="images/medal-gold.svg" alt="金賞" data-type="image" data-field="award-medal-4">
+          </div>
+          <h3 class="award-card__title" data-type="text" data-field="award-title-4">Japan Great Beer Awards 2023</h3>
+          <p class="award-card__category" data-type="text" data-field="award-category-4">スタウト部門 金賞</p>
+          <p class="award-card__product" data-type="text" data-field="award-product-4">黒岳スタウト</p>
+        </div>
+      </div>
+
+      <div class="awards__numbers animate-on-scroll fade-up">
+        <div class="awards__number-item">
+          <span class="awards__number" data-count="12">0</span>
+          <span class="awards__label" data-type="text" data-field="awards-label-1">受賞総数</span>
+        </div>
+        <div class="awards__number-item">
+          <span class="awards__number" data-count="4">0</span>
+          <span class="awards__label" data-type="text" data-field="awards-label-2">金賞</span>
+        </div>
+        <div class="awards__number-item">
+          <span class="awards__number" data-count="5">0</span>
+          <span class="awards__label" data-type="text" data-field="awards-label-3">銀賞</span>
+        </div>
+        <div class="awards__number-item">
+          <span class="awards__number" data-count="3">0</span>
+          <span class="awards__label" data-type="text" data-field="awards-label-4">銅賞</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       BREWER PROFILE SECTION
+  ======================================== -->
+  <section id="brewer" class="brewer" data-section="brewer-profile">
+    <div class="container">
+      <div class="brewer__wrapper">
+        <div class="brewer__image animate-on-scroll slide-right">
+          <img src="images/brewer.jpg" alt="醸造家 佐藤純一" data-type="image" data-field="brewer-image">
+          <div class="brewer__image-frame"></div>
+        </div>
+        <div class="brewer__content animate-on-scroll slide-left">
+          <header class="section-header section-header--left">
+            <span class="section-header__label">BREWER</span>
+            <h2 class="section-header__title" data-type="text" data-field="brewer-title">醸造家紹介</h2>
+          </header>
+          <h3 class="brewer__name" data-type="text" data-field="brewer-name">佐藤 純一</h3>
+          <p class="brewer__role" data-type="text" data-field="brewer-role">Head Brewer / 創業者</p>
+          <div class="brewer__bio" data-type="text" data-field="brewer-bio">
+            <p>
+              1982年、長野県松本市生まれ。大学で発酵化学を専攻後、
+              本場のビール造りを学ぶためドイツ・バイエルン州へ渡る。
+            </p>
+            <p>
+              ミュンヘン近郊の老舗醸造所「Klosterbrauerei Andechs」で5年間修行し、
+              伝統的なドイツビールの製法と、職人としての精神を叩き込まれる。
+            </p>
+            <p>
+              2015年に帰国後、故郷の北アルプスの伏流水に惚れ込み、
+              2016年に「山岳麦酒」を創業。「水がビールを作る」という信念のもと、
+              北アルプスの恵みを最大限に活かしたビール造りを続けている。
+            </p>
+          </div>
+          <div class="brewer__qualifications">
+            <div class="brewer__qualification" data-type="text" data-field="brewer-qual-1">
+              <span class="brewer__qualification-icon">🎓</span>
+              ドイツ醸造マイスター資格
+            </div>
+            <div class="brewer__qualification" data-type="text" data-field="brewer-qual-2">
+              <span class="brewer__qualification-icon">🍺</span>
+              ビアテイスター認定
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       BREWERY TOUR SECTION
+  ======================================== -->
+  <section id="tour" class="tour" data-section="brewery-tour">
+    <div class="tour__parallax-bg" data-parallax="0.15">
+      <img src="images/tour-bg.jpg" alt="醸造所外観" data-type="image" data-field="tour-bg">
+    </div>
+    <div class="tour__overlay"></div>
+    <div class="container">
+      <header class="section-header section-header--light animate-on-scroll fade-up">
+        <span class="section-header__label">BREWERY TOUR</span>
+        <h2 class="section-header__title" data-type="text" data-field="tour-title">醸造所見学</h2>
+        <p class="section-header__subtitle" data-type="text" data-field="tour-subtitle">
+          ビールが生まれる現場を体験
+        </p>
+      </header>
+
+      <div class="tour__content">
+        <div class="tour__info animate-on-scroll fade-up">
+          <div class="tour__info-card">
+            <h3 class="tour__info-title" data-type="text" data-field="tour-info-title">見学ツアー概要</h3>
+            <ul class="tour__info-list">
+              <li data-type="text" data-field="tour-info-1">
+                <strong>所要時間：</strong>約60分（試飲含む）
+              </li>
+              <li data-type="text" data-field="tour-info-2">
+                <strong>開催日：</strong>土・日・祝日（要予約）
+              </li>
+              <li data-type="text" data-field="tour-info-3">
+                <strong>開始時間：</strong>11:00 / 14:00 / 16:00
+              </li>
+              <li data-type="text" data-field="tour-info-4">
+                <strong>定員：</strong>各回10名まで
+              </li>
+              <li data-type="text" data-field="tour-info-5">
+                <strong>参加費：</strong>1,500円（税込・試飲3杯付き）
+              </li>
+              <li data-type="text" data-field="tour-info-6">
+                <strong>対象：</strong>20歳以上の方
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tour__features animate-on-scroll fade-up delay-1">
+          <div class="tour__feature" data-repeat="tour-features" data-repeat-item>
+            <div class="tour__feature-icon">
+              <img src="images/icon-tour-1.svg" alt="醸造設備見学" data-type="image" data-field="tour-feature-icon-1">
+            </div>
+            <h4 class="tour__feature-title" data-type="text" data-field="tour-feature-title-1">醸造設備見学</h4>
+            <p class="tour__feature-text" data-type="text" data-field="tour-feature-text-1">
+              実際に使用している醸造タンクや設備を間近でご覧いただけます。
+            </p>
+          </div>
+          <div class="tour__feature" data-repeat-item>
+            <div class="tour__feature-icon">
+              <img src="images/icon-tour-2.svg" alt="テイスティング" data-type="image" data-field="tour-feature-icon-2">
+            </div>
+            <h4 class="tour__feature-title" data-type="text" data-field="tour-feature-title-2">テイスティング</h4>
+            <p class="tour__feature-text" data-type="text" data-field="tour-feature-text-2">
+              限定醸造を含む3種類のビールを、醸造家の解説とともにお楽しみください。
+            </p>
+          </div>
+          <div class="tour__feature" data-repeat-item>
+            <div class="tour__feature-icon">
+              <img src="images/icon-tour-3.svg" alt="直売所" data-type="image" data-field="tour-feature-icon-3">
+            </div>
+            <h4 class="tour__feature-title" data-type="text" data-field="tour-feature-title-3">直売所</h4>
+            <p class="tour__feature-text" data-type="text" data-field="tour-feature-text-3">
+              醸造所限定商品やオリジナルグッズをお買い求めいただけます。
+            </p>
+          </div>
+        </div>
+
+        <div class="tour__cta animate-on-scroll fade-up delay-2">
+          <a href="#" class="btn btn--primary btn--large" id="tour-reserve">
+            <span>見学を予約する</span>
+          </a>
+          <p class="tour__cta-note" data-type="text" data-field="tour-cta-note">
+            ※お車でお越しの方は試飲をお控えいただくか、<br>
+            ハンドルキーパーの同伴をお願いいたします。
+          </p>
+        </div>
+
+        <div class="tour__access animate-on-scroll fade-up delay-3">
+          <h3 class="tour__access-title" data-type="text" data-field="tour-access-title">アクセス</h3>
+          <div class="tour__access-content">
+            <div class="tour__access-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3220.8!2d137.97!3d36.23!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzbCsDEzJzQ4LjAiTiAxMzfCsDU4JzEyLjAiRQ!5e0!3m2!1sja!2sjp!4v1600000000000!5m2!1sja!2sjp"
+                allowfullscreen=""
+                loading="lazy">
+              </iframe>
+            </div>
+            <div class="tour__access-info">
+              <p data-type="text" data-field="tour-address">
+                <strong>住所</strong><br>
+                〒390-0000<br>
+                長野県松本市XX町XX-XX
+              </p>
+              <p data-type="text" data-field="tour-transport">
+                <strong>アクセス</strong><br>
+                JR松本駅より車で約20分<br>
+                長野自動車道 松本ICより約15分<br>
+                駐車場：10台完備
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       ONLINE SHOP SECTION
+  ======================================== -->
+  <section id="shop" class="shop" data-section="online-shop">
+    <div class="container">
+      <header class="section-header animate-on-scroll fade-up">
+        <span class="section-header__label">ONLINE SHOP</span>
+        <h2 class="section-header__title" data-type="text" data-field="shop-title">オンラインショップ</h2>
+        <p class="section-header__subtitle" data-type="text" data-field="shop-subtitle">
+          北アルプスの味わいを、ご自宅で
+        </p>
+      </header>
+
+      <div class="shop__featured animate-on-scroll fade-up">
+        <div class="shop__featured-image">
+          <img src="images/shop-set.png" alt="おすすめセット" data-type="image" data-field="shop-featured-image">
+        </div>
+        <div class="shop__featured-content">
+          <span class="shop__featured-badge" data-type="text" data-field="shop-featured-badge">人気No.1</span>
+          <h3 class="shop__featured-title" data-type="text" data-field="shop-featured-title">
+            山岳麦酒 定番6本セット
+          </h3>
+          <p class="shop__featured-description" data-type="text" data-field="shop-featured-description">
+            山岳麦酒の定番6種類を一度に楽しめるお得なセット。
+            初めての方にもおすすめです。ギフトにも最適。
+          </p>
+          <ul class="shop__featured-includes">
+            <li>山嶺ピルスナー × 1本</li>
+            <li>深森ヴァイツェン × 1本</li>
+            <li>琥珀の峰 IPA × 1本</li>
+            <li>黒岳スタウト × 1本</li>
+            <li>信濃セゾン × 1本</li>
+            <li>白馬ペールエール × 1本</li>
+          </ul>
+          <div class="shop__featured-price">
+            <span class="shop__featured-price-original" data-type="text" data-field="shop-price-original">¥3,560</span>
+            <span class="shop__featured-price-sale" data-type="text" data-field="shop-price-sale">¥3,200</span>
+            <span class="shop__featured-price-note">（税込・送料別）</span>
+          </div>
+          <a href="#" class="btn btn--primary btn--large shop__featured-btn" id="shop-cta">
+            <span>ショップで購入する</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="shop__benefits animate-on-scroll fade-up">
+        <div class="shop__benefit" data-repeat="shop-benefits" data-repeat-item>
+          <div class="shop__benefit-icon">📦</div>
+          <div class="shop__benefit-content">
+            <h4 class="shop__benefit-title" data-type="text" data-field="shop-benefit-title-1">全国配送対応</h4>
+            <p class="shop__benefit-text" data-type="text" data-field="shop-benefit-text-1">
+              クール便で鮮度を保ってお届け
+            </p>
+          </div>
+        </div>
+        <div class="shop__benefit" data-repeat-item>
+          <div class="shop__benefit-icon">🎁</div>
+          <div class="shop__benefit-content">
+            <h4 class="shop__benefit-title" data-type="text" data-field="shop-benefit-title-2">ギフト対応</h4>
+            <p class="shop__benefit-text" data-type="text" data-field="shop-benefit-text-2">
+              のし・メッセージカード無料
+            </p>
+          </div>
+        </div>
+        <div class="shop__benefit" data-repeat-item>
+          <div class="shop__benefit-icon">🔄</div>
+          <div class="shop__benefit-content">
+            <h4 class="shop__benefit-title" data-type="text" data-field="shop-benefit-title-3">定期便あり</h4>
+            <p class="shop__benefit-text" data-type="text" data-field="shop-benefit-text-3">
+              毎月届くお得な定期便プラン
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       INSTAGRAM GALLERY SECTION
+  ======================================== -->
+  <section id="gallery" class="gallery" data-section="instagram-gallery">
+    <div class="container">
+      <header class="section-header animate-on-scroll fade-up">
+        <span class="section-header__label">GALLERY</span>
+        <h2 class="section-header__title" data-type="text" data-field="gallery-title">Instagram</h2>
+        <p class="section-header__subtitle">
+          <a href="https://instagram.com/sangaku_beer" target="_blank" rel="noopener" data-type="text" data-field="gallery-handle">
+            @sangaku_beer
+          </a>
+        </p>
+      </header>
+
+      <div class="gallery__grid" data-repeat="gallery">
+        <div class="gallery__item animate-on-scroll fade-up" data-repeat-item>
+          <img src="images/gallery-1.jpg" alt="ギャラリー画像1" data-type="image" data-field="gallery-image-1">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-icon">🔍</span>
+          </div>
+        </div>
+        <div class="gallery__item animate-on-scroll fade-up delay-1" data-repeat-item>
+          <img src="images/gallery-2.jpg" alt="ギャラリー画像2" data-type="image" data-field="gallery-image-2">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-icon">🔍</span>
+          </div>
+        </div>
+        <div class="gallery__item animate-on-scroll fade-up delay-2" data-repeat-item>
+          <img src="images/gallery-3.jpg" alt="ギャラリー画像3" data-type="image" data-field="gallery-image-3">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-icon">🔍</span>
+          </div>
+        </div>
+        <div class="gallery__item animate-on-scroll fade-up" data-repeat-item>
+          <img src="images/gallery-4.jpg" alt="ギャラリー画像4" data-type="image" data-field="gallery-image-4">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-icon">🔍</span>
+          </div>
+        </div>
+        <div class="gallery__item animate-on-scroll fade-up delay-1" data-repeat-item>
+          <img src="images/gallery-5.jpg" alt="ギャラリー画像5" data-type="image" data-field="gallery-image-5">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-icon">🔍</span>
+          </div>
+        </div>
+        <div class="gallery__item animate-on-scroll fade-up delay-2" data-repeat-item>
+          <img src="images/gallery-6.jpg" alt="ギャラリー画像6" data-type="image" data-field="gallery-image-6">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-icon">🔍</span>
+          </div>
+        </div>
+        <div class="gallery__item animate-on-scroll fade-up" data-repeat-item>
+          <img src="images/gallery-7.jpg" alt="ギャラリー画像7" data-type="image" data-field="gallery-image-7">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-icon">🔍</span>
+          </div>
+        </div>
+        <div class="gallery__item animate-on-scroll fade-up delay-1" data-repeat-item>
+          <img src="images/gallery-8.jpg" alt="ギャラリー画像8" data-type="image" data-field="gallery-image-8">
+          <div class="gallery__item-overlay">
+            <span class="gallery__item-icon">🔍</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="gallery__cta animate-on-scroll fade-up">
+        <a href="https://instagram.com/sangaku_beer" target="_blank" rel="noopener" class="btn btn--outline">
+          <span>Instagramをフォロー</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox">
+      <button class="lightbox__close" id="lightbox-close" aria-label="閉じる">&times;</button>
+      <button class="lightbox__prev" id="lightbox-prev" aria-label="前へ">&#10094;</button>
+      <button class="lightbox__next" id="lightbox-next" aria-label="次へ">&#10095;</button>
+      <div class="lightbox__content">
+        <img src="" alt="" id="lightbox-image">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================
+       FOOTER
+  ======================================== -->
+  <footer class="footer" data-section="footer">
+    <div class="footer__top">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <a href="#hero" class="footer__logo">
+              <img src="images/logo-white.png" alt="SANGAKU BEER" data-type="image" data-field="footer-logo">
+              <span>山岳麦酒</span>
+            </a>
+            <p class="footer__tagline" data-type="text" data-field="footer-tagline">
+              北アルプスの恵み、一杯に込めて。
+            </p>
+            <div class="footer__social">
+              <a href="https://instagram.com/sangaku_beer" target="_blank" rel="noopener" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="https://twitter.com/sangaku_beer" target="_blank" rel="noopener" aria-label="Twitter">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="https://facebook.com/sangakubeer" target="_blank" rel="noopener" aria-label="Facebook">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="footer__nav">
+            <h4 class="footer__nav-title">メニュー</h4>
+            <ul class="footer__nav-list">
+              <li><a href="#story">ストーリー</a></li>
+              <li><a href="#philosophy">こだわり</a></li>
+              <li><a href="#process">醸造工程</a></li>
+              <li><a href="#products">商品</a></li>
+              <li><a href="#brewer">醸造家</a></li>
+              <li><a href="#tour">醸造所見学</a></li>
+              <li><a href="#shop">オンラインショップ</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__nav">
+            <h4 class="footer__nav-title">サポート</h4>
+            <ul class="footer__nav-list">
+              <li><a href="#">お問い合わせ</a></li>
+              <li><a href="#">よくある質問</a></li>
+              <li><a href="#">配送について</a></li>
+              <li><a href="#">返品・交換</a></li>
+              <li><a href="#">特定商取引法に基づく表記</a></li>
+              <li><a href="#">プライバシーポリシー</a></li>
+            </ul>
+          </div>
+
+          <div class="footer__contact">
+            <h4 class="footer__nav-title">お問い合わせ</h4>
+            <address class="footer__address" data-type="text" data-field="footer-address">
+              〒390-0000<br>
+              長野県松本市XX町XX-XX<br>
+              山岳麦酒株式会社
+            </address>
+            <p class="footer__tel">
+              <a href="tel:0263-XX-XXXX" data-type="text" data-field="footer-tel">TEL: 0263-XX-XXXX</a>
+            </p>
+            <p class="footer__email">
+              <a href="mailto:info@sangaku-beer.jp" data-type="text" data-field="footer-email">info@sangaku-beer.jp</a>
+            </p>
+            <p class="footer__hours" data-type="text" data-field="footer-hours">
+              営業時間: 10:00-18:00（土日祝休）
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <div class="container">
+        <p class="footer__warning" data-type="text" data-field="footer-warning">
+          ⚠️ お酒は20歳になってから。飲酒運転は法律で禁止されています。妊娠中や授乳期の飲酒は、胎児・乳児の発育に悪影響を与えるおそれがあります。
+        </p>
+        <p class="footer__copyright" data-type="text" data-field="footer-copyright">
+          &copy; 2024 SANGAKU BEER Co., Ltd. All Rights Reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script src="js/gallery.js"></script>
+</body>
+</html>

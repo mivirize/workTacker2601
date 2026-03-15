@@ -1,0 +1,73 @@
+{
+  "originalUrl": "https://www.cho-kaguyahime.com/",
+  "generatedPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime",
+  "timestamp": "2026-02-04T23:58:21.486Z",
+  "overallScore": 69.41,
+  "pixelMatchScore": 88.83,
+  "structureScore": 50,
+  "animationScore": 50,
+  "details": [
+    {
+      "viewport": "desktop",
+      "matchedPixels": 19898975,
+      "totalPixels": 21757440,
+      "diffPixels": 1858465,
+      "structureDiff": {
+        "missingElements": [],
+        "extraElements": [],
+        "modifiedElements": []
+      }
+    },
+    {
+      "viewport": "tablet",
+      "matchedPixels": 11773581,
+      "totalPixels": 13363200,
+      "diffPixels": 1589619,
+      "structureDiff": {
+        "missingElements": [],
+        "extraElements": [],
+        "modifiedElements": []
+      }
+    },
+    {
+      "viewport": "mobile",
+      "matchedPixels": 2973331,
+      "totalPixels": 3420375,
+      "diffPixels": 447044,
+      "structureDiff": {
+        "missingElements": [],
+        "extraElements": [],
+        "modifiedElements": []
+      }
+    }
+  ],
+  "diffImages": [
+    {
+      "viewport": "desktop",
+      "originalPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\desktop\\original.png",
+      "generatedPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\desktop\\generated.png",
+      "diffPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\desktop\\diff.png",
+      "diffPixels": 1858465,
+      "totalPixels": 21757440,
+      "matchPercentage": 91.45825519914108
+    },
+    {
+      "viewport": "tablet",
+      "originalPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\tablet\\original.png",
+      "generatedPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\tablet\\generated.png",
+      "diffPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\tablet\\diff.png",
+      "diffPixels": 1589619,
+      "totalPixels": 13363200,
+      "matchPercentage": 88.10450341235632
+    },
+    {
+      "viewport": "mobile",
+      "originalPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\mobile\\original.png",
+      "generatedPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\mobile\\generated.png",
+      "diffPath": "c:\\Users\\owner\\Dev\\tools\\lp-projects\\cho-kaguyahime\\.lp-editor\\comparison\\diff\\mobile\\diff.png",
+      "diffPixels": 447044,
+      "totalPixels": 3420375,
+      "matchPercentage": 86.92997112889668
+    }
+  ]
+}

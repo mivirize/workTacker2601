@@ -1,0 +1,59 @@
+{
+  "name": "超かぐや姫！公式サイト",
+  "client": "Netflix",
+  "version": "1.0.0",
+  "entry": "src/index.html",
+  "output": {
+    "appName": "cho-kaguyahime",
+    "fileName": "cho-kaguyahime"
+  },
+  "groups": {
+    "01-Header": { "label": "ヘッダー", "order": 1 },
+    "02-Hero": { "label": "ヒーロー", "order": 2 },
+    "03-News": { "label": "NEWS", "order": 3 },
+    "04-Movie": { "label": "MOVIE", "order": 4 },
+    "05-Introduction": { "label": "INTRODUCTION", "order": 5 },
+    "06-Story": { "label": "STORY", "order": 6 },
+    "07-Music": { "label": "MUSIC", "order": 7 },
+    "08-Character": { "label": "CHARACTER", "order": 8 },
+    "09-StaffCast": { "label": "STAFF/CAST", "order": 9 },
+    "99-Footer": { "label": "フッター", "order": 10 }
+  },
+  "colors": {
+    "color-yellow": { "value": "#ffe48f", "label": "イエロー" },
+    "color-purple": { "value": "#cbc4f8", "label": "パープル" },
+    "color-pink": { "value": "#f5babf", "label": "ピンク" },
+    "color-cyan": { "value": "#6ccfee", "label": "シアン" },
+    "color-dark": { "value": "rgba(0,0,0,1)", "label": "ダーク" }
+  },
+  "repeatBlocks": {
+    "characters": {
+      "label": "キャラクター",
+      "min": 1,
+      "max": 20,
+      "fields": {
+        "thumbnail": { "type": "image", "label": "サムネイル" },
+        "name": { "type": "text", "label": "キャラクター名" },
+        "profile": { "type": "image", "label": "プロフィール画像" }
+      }
+    },
+    "news": {
+      "label": "ニュース記事",
+      "min": 1,
+      "max": 50,
+      "fields": {
+        "date": { "type": "text", "label": "日付" },
+        "title": { "type": "link", "label": "タイトル" }
+      }
+    },
+    "staffcast": {
+      "label": "スタッフ/キャスト",
+      "min": 1,
+      "max": 30,
+      "fields": {
+        "role": { "type": "text", "label": "役職" },
+        "name": { "type": "text", "label": "名前" }
+      }
+    }
+  }
+}

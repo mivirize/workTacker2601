@@ -560,7 +560,19 @@ ipcMain.handle('export-html', async (_event: IpcMainInvokeEvent, htmlContent: st
   await mkdir(outputDir, { recursive: true })
 
   // Remove data-editable attributes from HTML
-  const cleanHtml = removeMarkers(htmlContent)
+  let cleanHtml = removeMarkers(htmlContent)
+
+  // Inject tracking tags (GAP-2)
+  const trackingConfig = await loadTrackingConfigForExport(basePath)
+  if (trackingConfig) {
+    cleanHtml = injectTrackingTagsFromConfig(cleanHtml, trackingConfig as Parameters<typeof injectTrackingTagsFromConfig>[1])
+  }
+
+  // Apply form backend config (GAP-3)
+  const formConfigs = await loadFormConfigForExport(basePath)
+  if (formConfigs) {
+    cleanHtml = applyFormConfigToHtml(cleanHtml, formConfigs as Parameters<typeof applyFormConfigToHtml>[1])
+  }
 
   // Write HTML
   await writeFile(join(outputDir, 'index.html'), cleanHtml, 'utf-8')
@@ -601,6 +613,264 @@ ipcMain.handle('show-output-folder', async (_event: IpcMainInvokeEvent, outputDi
 
   shell.openPath(outputDir)
 })
+
+// ========================================
+// Tracking Config IPC Handlers (GAP-2)
+// ========================================
+
+ipcMain.handle('load-tracking-config', async () => {
+  const basePath = getAppBasePath()
+  const configPath = join(basePath, 'data', 'tracking-config.json')
+
+  if (!existsSync(configPath)) return null
+
+  try {
+    const content = await readFile(configPath, 'utf-8')
+    return JSON.parse(content)
+  } catch {
+    return null
+  }
+})
+
+ipcMain.handle('save-tracking-config', async (_event: IpcMainInvokeEvent, config: object) => {
+  const basePath = getAppBasePath()
+  const dataDir = join(basePath, 'data')
+
+  if (!existsSync(dataDir)) {
+    await mkdir(dataDir, { recursive: true })
+  }
+
+  const configPath = join(dataDir, 'tracking-config.json')
+  await writeFile(configPath, JSON.stringify(config, null, 2), 'utf-8')
+  return true
+})
+
+// ========================================
+// Form Config IPC Handlers (GAP-3)
+// ========================================
+
+ipcMain.handle('load-form-config', async () => {
+  const basePath = getAppBasePath()
+  const configPath = join(basePath, 'data', 'form-config.json')
+
+  if (!existsSync(configPath)) return null
+
+  try {
+    const content = await readFile(configPath, 'utf-8')
+    return JSON.parse(content)
+  } catch {
+    return null
+  }
+})
+
+ipcMain.handle('save-form-config', async (_event: IpcMainInvokeEvent, configs: object) => {
+  const basePath = getAppBasePath()
+  const dataDir = join(basePath, 'data')
+
+  if (!existsSync(dataDir)) {
+    await mkdir(dataDir, { recursive: true })
+  }
+
+  const configPath = join(dataDir, 'form-config.json')
+  await writeFile(configPath, JSON.stringify(configs, null, 2), 'utf-8')
+  return true
+})
+
+ipcMain.handle('test-form-submit', async (_event: IpcMainInvokeEvent, _formId: string, config: { provider: string; formspree?: { formId: string }; custom?: { actionUrl: string; method: string }; webhook?: { url: string; headers?: Record<string, string> } }) => {
+  try {
+    let testUrl = ''
+    let method = 'POST'
+    const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+
+    switch (config.provider) {
+      case 'formspree':
+        testUrl = `https://formspree.io/f/${config.formspree?.formId}`
+        break
+      case 'custom':
+        testUrl = config.custom?.actionUrl || ''
+        method = config.custom?.method || 'POST'
+        break
+      case 'webhook':
+        testUrl = config.webhook?.url || ''
+        Object.assign(headers, config.webhook?.headers || {})
+        break
+      default:
+        return { success: false, error: 'Unsupported provider for testing' }
+    }
+
+    if (!testUrl) {
+      return { success: false, error: 'No URL configured' }
+    }
+
+    const { net } = require('electron')
+    const request = net.request({ url: testUrl, method })
+    request.setHeader('Content-Type', headers['Content-Type'])
+
+    return new Promise<{ success: boolean; error?: string }>((resolve) => {
+      request.on('response', (response: { statusCode: number }) => {
+        resolve({
+          success: response.statusCode >= 200 && response.statusCode < 400,
+          error: response.statusCode >= 400 ? `HTTP ${response.statusCode}` : undefined,
+        })
+      })
+      request.on('error', (err: Error) => {
+        resolve({ success: false, error: err.message })
+      })
+      request.write(JSON.stringify({ _test: true, _timestamp: new Date().toISOString() }))
+      request.end()
+    })
+  } catch (err) {
+    return { success: false, error: err instanceof Error ? err.message : 'Unknown error' }
+  }
+})
+
+// ========================================
+// Helper: Inject tracking tags into HTML
+// ========================================
+
+function injectTrackingTagsFromConfig(html: string, trackingConfig: {
+  ga4?: { enabled: boolean; measurementId: string }
+  gtm?: { enabled: boolean; containerId: string }
+  facebookPixel?: { enabled: boolean; pixelId: string }
+  googleAds?: { enabled: boolean; conversionId: string; conversionLabel?: string }
+}): string {
+  const headSnippets: string[] = []
+  const bodySnippets: string[] = []
+
+  if (trackingConfig.ga4?.enabled && trackingConfig.ga4.measurementId) {
+    const id = trackingConfig.ga4.measurementId
+    headSnippets.push(`<!-- Google Analytics (GA4) -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=${id}"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', '${id}');\n</script>`)
+  }
+
+  if (trackingConfig.gtm?.enabled && trackingConfig.gtm.containerId) {
+    const id = trackingConfig.gtm.containerId
+    headSnippets.push(`<!-- Google Tag Manager -->\n<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':\nnew Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],\nj=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=\n'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);\n})(window,document,'script','dataLayer','${id}');</script>\n<!-- End Google Tag Manager -->`)
+    bodySnippets.push(`<!-- Google Tag Manager (noscript) -->\n<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=${id}"\nheight="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>\n<!-- End Google Tag Manager (noscript) -->`)
+  }
+
+  if (trackingConfig.facebookPixel?.enabled && trackingConfig.facebookPixel.pixelId) {
+    const id = trackingConfig.facebookPixel.pixelId
+    headSnippets.push(`<!-- Facebook Pixel -->\n<script>\n!function(f,b,e,v,n,t,s)\n{if(f.fbq)return;n=f.fbq=function(){n.callMethod?\nn.callMethod.apply(n,arguments):n.queue.push(arguments)};\nif(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';\nn.queue=[];t=b.createElement(e);t.async=!0;\nt.src=v;s=b.getElementsByTagName(e)[0];\ns.parentNode.insertBefore(t,s)}(window, document,'script',\n'https://connect.facebook.net/en_US/fbevents.js');\nfbq('init', '${id}');\nfbq('track', 'PageView');\n</script>\n<noscript><img height="1" width="1" style="display:none"\nsrc="https://www.facebook.com/tr?id=${id}&ev=PageView&noscript=1"\n/></noscript>\n<!-- End Facebook Pixel -->`)
+  }
+
+  if (trackingConfig.googleAds?.enabled && trackingConfig.googleAds.conversionId) {
+    const cid = trackingConfig.googleAds.conversionId
+    const label = trackingConfig.googleAds.conversionLabel
+    let snippet = `<!-- Google Ads -->\n<script async src="https://www.googletagmanager.com/gtag/js?id=${cid}"></script>\n<script>\n  window.dataLayer = window.dataLayer || [];\n  function gtag(){dataLayer.push(arguments);}\n  gtag('js', new Date());\n  gtag('config', '${cid}');`
+    if (label) {
+      snippet += `\n  gtag('event', 'conversion', {'send_to': '${cid}/${label}'});`
+    }
+    snippet += `\n</script>\n<!-- End Google Ads -->`
+    headSnippets.push(snippet)
+  }
+
+  let result = html
+
+  if (headSnippets.length > 0) {
+    result = result.replace('</head>', `${headSnippets.join('\n')}\n</head>`)
+  }
+
+  if (bodySnippets.length > 0) {
+    result = result.replace(/(<body[^>]*>)/, `$1\n${bodySnippets.join('\n')}`)
+  }
+
+  return result
+}
+
+// ========================================
+// Helper: Apply form config to HTML
+// ========================================
+
+function escapeRegExp(str: string): string {
+  return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+}
+
+function escapeHtmlAttr(str: string): string {
+  return str.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+}
+
+function applyFormConfigToHtml(html: string, formConfigs: Record<string, {
+  formSelector: string
+  provider: string
+  formspree?: { formId: string }
+  custom?: { actionUrl: string; method: string }
+  googleForms?: { formUrl: string; entryMappings?: Record<string, string> }
+  webhook?: { url: string; headers?: Record<string, string> }
+  hiddenFields?: Array<{ name: string; value: string }>
+  successAction?: string
+  successUrl?: string
+  successMessage?: string
+}>): string {
+  let result = html
+
+  for (const [formId, config] of Object.entries(formConfigs)) {
+    const selector = config.formSelector || `id="${formId}"`
+    const escapedSelector = escapeRegExp(selector)
+
+    switch (config.provider) {
+      case 'formspree':
+        if (config.formspree?.formId) {
+          const formspreeUrl = `https://formspree.io/f/${escapeHtmlAttr(config.formspree.formId)}`
+          result = result.replace(
+            new RegExp(`(<form[^>]*${escapedSelector}[^>]*)action="[^"]*"`, 'g'),
+            `$1action="${formspreeUrl}"`
+          )
+          if (!result.includes(`action="${formspreeUrl}"`)) {
+            result = result.replace(
+              new RegExp(`(<form[^>]*${escapedSelector})`, 'g'),
+              `$1 action="${formspreeUrl}" method="POST"`
+            )
+          }
+        }
+        break
+      case 'custom':
+        if (config.custom?.actionUrl) {
+          const escapedUrl = escapeHtmlAttr(config.custom.actionUrl)
+          result = result.replace(
+            new RegExp(`(<form[^>]*${escapedSelector}[^>]*)action="[^"]*"`, 'g'),
+            `$1action="${escapedUrl}"`
+          )
+        }
+        break
+    }
+
+    // Add hidden fields
+    if (config.hiddenFields) {
+      for (const hidden of config.hiddenFields) {
+        if (hidden.name && hidden.value) {
+          const hiddenInput = `<input type="hidden" name="${escapeHtmlAttr(hidden.name)}" value="${escapeHtmlAttr(hidden.value)}" />`
+          result = result.replace(
+            new RegExp(`(<form[^>]*${escapedSelector}[^>]*>)`, 'g'),
+            `$1\n${hiddenInput}`
+          )
+        }
+      }
+    }
+  }
+
+  return result
+}
+
+// Helper: Load tracking and form configs for export
+async function loadTrackingConfigForExport(basePath: string): Promise<object | null> {
+  const configPath = join(basePath, 'data', 'tracking-config.json')
+  if (!existsSync(configPath)) return null
+  try {
+    return JSON.parse(await readFile(configPath, 'utf-8'))
+  } catch {
+    return null
+  }
+}
+
+async function loadFormConfigForExport(basePath: string): Promise<Record<string, object> | null> {
+  const configPath = join(basePath, 'data', 'form-config.json')
+  if (!existsSync(configPath)) return null
+  try {
+    return JSON.parse(await readFile(configPath, 'utf-8'))
+  } catch {
+    return null
+  }
+}
 
 // Helper: Remove markers from HTML
 function removeMarkers(html: string): string {
@@ -894,7 +1164,7 @@ ipcMain.handle('load-thumbnail', async (_event: IpcMainInvokeEvent, thumbnailPat
     const ext = thumbnailPath.toLowerCase().split('.').pop()
     const mimeType = ext === 'png' ? 'image/png'
       : ext === 'webp' ? 'image/webp'
-      : 'image/jpeg'
+        : 'image/jpeg'
     return `data:${mimeType};base64,${buffer.toString('base64')}`
   } catch {
     return null
@@ -923,10 +1193,21 @@ ipcMain.handle('select-projects-dir', async () => {
   return dir
 })
 
-// Get last projects directory
+// Get last projects directory (with fallback to default lp-projects dir)
 ipcMain.handle('get-last-projects-dir', async () => {
   const settings = await loadSettings()
-  return settings.lastProjectsDir || null
+  if (settings.lastProjectsDir && existsSync(settings.lastProjectsDir)) {
+    return settings.lastProjectsDir
+  }
+
+  // Fallback: try to find lp-projects directory relative to app
+  const defaultDir = join(app.getAppPath(), '..', 'lp-projects')
+  if (existsSync(defaultDir)) {
+    await saveSettings({ lastProjectsDir: defaultDir })
+    return defaultDir
+  }
+
+  return null
 })
 
 // Generate screenshot for a project
@@ -1233,7 +1514,19 @@ ipcMain.handle('export-project', async (_event: IpcMainInvokeEvent, projectPath:
   await mkdir(outputDir, { recursive: true })
 
   // Remove markers from HTML
-  const cleanHtml = removeMarkers(html)
+  let cleanHtml = removeMarkers(html)
+
+  // Inject tracking tags (GAP-2)
+  const trackingConfig = await loadTrackingConfigForExport(projectPath)
+  if (trackingConfig) {
+    cleanHtml = injectTrackingTagsFromConfig(cleanHtml, trackingConfig as Parameters<typeof injectTrackingTagsFromConfig>[1])
+  }
+
+  // Apply form backend config (GAP-3)
+  const formConfigs = await loadFormConfigForExport(projectPath)
+  if (formConfigs) {
+    cleanHtml = applyFormConfigToHtml(cleanHtml, formConfigs as Parameters<typeof applyFormConfigToHtml>[1])
+  }
 
   // Write HTML
   // Use index.html as default output filename (ignore config.output.fileName which is for packaged app name)
@@ -1265,9 +1558,10 @@ ipcMain.handle('export-project', async (_event: IpcMainInvokeEvent, projectPath:
   }
 
   // Determine LP-Editor source directory
-  // When includeEditor is true, use the release directory
-  // Otherwise, check if LP-Editor exists in the project directory
-  const releaseDir = join(dirname(app.getAppPath()), '..', 'release', 'win-unpacked')
+  // When includeEditor is true, find where LP-Editor.exe lives:
+  //   - Packaged app: process.execPath IS LP-Editor.exe, so use its directory
+  //   - Dev mode: use the release/win-unpacked directory built by electron-builder
+  const exeDir = dirname(process.execPath)
   const devReleaseDir = join(__dirname, '..', '..', 'release', 'win-unpacked')
   const projectLpEditorExe = join(projectPath, 'LP-Editor.exe')
 
@@ -1275,11 +1569,18 @@ ipcMain.handle('export-project', async (_event: IpcMainInvokeEvent, projectPath:
   let lpEditorSourceDir: string | null = null
 
   if (includeEditor) {
-    // Check release directory (production) or dev release directory
-    if (existsSync(join(releaseDir, 'LP-Editor.exe'))) {
-      lpEditorSourceDir = releaseDir
+    // Priority 1: Packaged app - the running exe IS LP-Editor.exe
+    if (basename(process.execPath).toLowerCase() === 'lp-editor.exe' && existsSync(join(exeDir, 'resources', 'app'))) {
+      lpEditorSourceDir = exeDir
+      // Priority 2: Dev mode - use release/win-unpacked built by electron-builder
     } else if (existsSync(join(devReleaseDir, 'LP-Editor.exe'))) {
       lpEditorSourceDir = devReleaseDir
+    }
+
+    if (lpEditorSourceDir) {
+      console.log(`[export] LP-Editor source: ${lpEditorSourceDir}`)
+    } else {
+      console.warn('[export] LP-Editor source not found! includeEditor will be skipped.')
     }
   } else if (existsSync(projectLpEditorExe)) {
     // Legacy behavior: copy from project directory if LP-Editor exists there

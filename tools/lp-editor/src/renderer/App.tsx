@@ -18,6 +18,7 @@ import {
   applyEditablesToHtml,
   applyColorsToHtml,
   applyRepeatBlocksToHtml,
+  type ParsedMarker,
 } from './services/html-service'
 
 export function App() {
@@ -109,7 +110,7 @@ export function App() {
     const markers = parseHtmlMarkers(html)
     const editablesMap: Record<string, {
       id: string
-      type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
+      type: ParsedMarker['type']
       value: string | null
       label?: string
       group?: string
@@ -160,7 +161,7 @@ export function App() {
         index: number
         fields: Record<string, {
           id: string
-          type: 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon'
+          type: ParsedMarker['type']
           label?: string
           value: string | null
           href?: string
@@ -236,7 +237,7 @@ export function App() {
                   }
                   return [fieldKey, {
                     id: `${blockId}.${idx}.${fieldKey}`,
-                    type: (fd.type || 'text') as 'text' | 'richtext' | 'image' | 'link' | 'background-image' | 'number' | 'icon',
+                    type: (fd.type || 'text') as ParsedMarker['type'],
                     label: fd.label,
                     value: fd.value ?? null,
                     href: fd.href,

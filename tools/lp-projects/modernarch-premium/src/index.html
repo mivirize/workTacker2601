@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-type="text" data-field="page-title">MODERN ARCH | 一級建築士事務所</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <div class="loading" id="loading"><div class="loading__logo">MODERN ARCH</div><div class="loading__line"></div></div>
+  <div class="cursor"></div>
+  <div class="scroll-progress"></div>
+  
+  <header class="header">
+    <div class="header__inner">
+      <a href="#" class="header__logo" data-type="text" data-field="logo">MODERN ARCH</a>
+      <nav class="header__nav">
+        <ul class="header__menu">
+          <li><a href="#manifesto">Manifesto</a></li>
+          <li><a href="#awards">Awards</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" id="hero">
+    <div class="hero__video"><video autoplay muted loop playsinline><source src="videos/hero.mp4" type="video/mp4"></video></div>
+    <div class="hero__overlay"></div>
+    <div class="hero__content">
+      <h1 class="hero__title split-text" data-type="text" data-field="hero-title">住まいに、物語を。</h1>
+      <p class="hero__subtitle" data-type="text" data-field="hero-subtitle">光と風が織りなす、唯一無二の空間設計</p>
+      <a href="#contact" class="hero__cta magnetic-btn">無料相談を予約</a>
+    </div>
+    <div class="hero__scroll"><span>Scroll</span><div class="hero__scroll-line"></div></div>
+  </section>
+
+  <section class="manifesto" id="manifesto">
+    <div class="container">
+      <div class="manifesto__content">
+        <span class="section-label">Manifesto</span>
+        <h2 class="manifesto__title reveal-text" data-type="text" data-field="manifesto-title">建築は、人生を変える力を持っている。</h2>
+        <p class="manifesto__text reveal-text" data-type="text" data-field="manifesto-text">私たちは、住まう人の物語を形にする建築を目指しています。敷地の持つ可能性を最大限に引き出し、光と風、緑と空を取り込む。素材の持つ本来の美しさを活かし、時とともに深みを増す建築。</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="awards" id="awards">
+    <div class="container">
+      <div class="section-header"><span class="section-header__label">Awards</span><h2 class="section-header__title" data-type="text" data-field="awards-title">受賞歴</h2></div>
+      <div class="awards__timeline" data-repeat="awards">
+        <div class="award-item" data-repeat-item="1"><span class="award-item__year" data-type="text" data-field="award-1-year">2025</span><div class="award-item__content"><h3 data-type="text" data-field="award-1-title">グッドデザイン賞</h3><p data-type="text" data-field="award-1-project">葉山の家</p></div></div>
+        <div class="award-item" data-repeat-item="2"><span class="award-item__year" data-type="text" data-field="award-2-year">2024</span><div class="award-item__content"><h3 data-type="text" data-field="award-2-title">住宅建築賞</h3><p data-type="text" data-field="award-2-project">世田谷の家</p></div></div>
+        <div class="award-item" data-repeat-item="3"><span class="award-item__year" data-type="text" data-field="award-3-year">2023</span><div class="award-item__content"><h3 data-type="text" data-field="award-3-title">JIA新人賞</h3><p data-type="text" data-field="award-3-project">代官山レジデンス</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="projects" id="projects">
+    <div class="projects__horizontal" data-repeat="projects">
+      <div class="project-slide" data-repeat-item="1">
+        <div class="project-slide__image"><img src="images/project-1.jpg" data-type="image" data-field="project-1-image"></div>
+        <div class="project-slide__content"><span data-type="text" data-field="project-1-category">住宅</span><h3 data-type="text" data-field="project-1-title">葉山の家</h3></div>
+      </div>
+      <div class="project-slide" data-repeat-item="2">
+        <div class="project-slide__image"><img src="images/project-2.jpg" data-type="image" data-field="project-2-image"></div>
+        <div class="project-slide__content"><span data-type="text" data-field="project-2-category">集合住宅</span><h3 data-type="text" data-field="project-2-title">代官山レジデンス</h3></div>
+      </div>
+      <div class="project-slide" data-repeat-item="3">
+        <div class="project-slide__image"><img src="images/project-3.jpg" data-type="image" data-field="project-3-image"></div>
+        <div class="project-slide__content"><span data-type="text" data-field="project-3-category">店舗</span><h3 data-type="text" data-field="project-3-title">目黒のカフェ</h3></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section-header"><span class="section-header__label">Team</span><h2 class="section-header__title" data-type="text" data-field="team-title">チーム</h2></div>
+      <div class="team__grid" data-repeat="team">
+        <div class="team-card tilt-card" data-repeat-item="1"><div class="team-card__image"><img src="images/team-1.jpg" data-type="image" data-field="team-1-image"></div><div class="team-card__info"><h3 data-type="text" data-field="team-1-name">山田 太郎</h3><p data-type="text" data-field="team-1-role">代表建築家</p></div></div>
+        <div class="team-card tilt-card" data-repeat-item="2"><div class="team-card__image"><img src="images/team-2.jpg" data-type="image" data-field="team-2-image"></div><div class="team-card__info"><h3 data-type="text" data-field="team-2-name">佐藤 花子</h3><p data-type="text" data-field="team-2-role">設計ディレクター</p></div></div>
+        <div class="team-card tilt-card" data-repeat-item="3"><div class="team-card__image"><img src="images/team-3.jpg" data-type="image" data-field="team-3-image"></div><div class="team-card__info"><h3 data-type="text" data-field="team-3-name">田中 一郎</h3><p data-type="text" data-field="team-3-role">プロジェクトマネージャー</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header section-header--center"><span class="section-header__label">Contact</span><h2 class="section-header__title" data-type="text" data-field="contact-title">お問い合わせ</h2></div>
+      <form class="contact__form" id="contact-form">
+        <div class="form-group floating"><input type="text" name="name" required><label>お名前</label></div>
+        <div class="form-group floating"><input type="email" name="email" required><label>メールアドレス</label></div>
+        <div class="form-group floating"><textarea name="message" rows="5" required></textarea><label>ご相談内容</label></div>
+        <button type="submit" class="btn magnetic-btn">送信する</button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container"><p class="footer__logo" data-type="text" data-field="footer-logo">MODERN ARCH</p><p>2026 MODERN ARCH. All rights reserved.</p></div>
+  </footer>
+  <script src="js/main.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/cursor.js"></script>
+</body>
+</html>

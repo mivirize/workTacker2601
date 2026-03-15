@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POWER FIT | AIパーソナルトレーニング渋谷</title>
+  <meta name="description" content="渋谷駅徒歩5分。AIが導く完全個室パーソナルトレーニングジム。理想の体を最短ルートで実現します。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="header__container">
+      <div class="header__logo">
+        <span class="header__logo-text">POWER<span class="header__logo-accent">FIT</span></span>
+      </div>
+      <nav class="header__nav">
+        <a href="#features" class="header__nav-link">特徴</a>
+        <a href="#pricing" class="header__nav-link">料金</a>
+        <a href="#faq" class="header__nav-link">FAQ</a>
+        <a href="#contact" class="header__nav-cta">無料カウンセリング</a>
+      </nav>
+      <button class="header__menu-btn" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="hero__bg">
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <h1 class="hero__title animate-on-scroll" data-editable="hero-catch" data-type="text">理想の体を、最短ルートで。</h1>
+      <p class="hero__subtitle animate-on-scroll" data-editable="hero-sub" data-type="text">AIが導く完全個室パーソナルトレーニング</p>
+      <div class="hero__stats animate-on-scroll">
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="98">0</span><span class="hero__stat-unit">%</span>
+          <span class="hero__stat-label">目標達成率</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="3000">0</span><span class="hero__stat-unit">名+</span>
+          <span class="hero__stat-label">累計会員数</span>
+        </div>
+        <div class="hero__stat">
+          <span class="hero__stat-number" data-count="5">0</span><span class="hero__stat-unit">分</span>
+          <span class="hero__stat-label">渋谷駅から</span>
+        </div>
+      </div>
+      <a href="#contact" class="hero__cta btn btn--primary" data-editable="hero-cta" data-type="text">無料カウンセリングを予約する</a>
+      <p class="hero__microcopy">今なら入会金50%OFF</p>
+    </div>
+    <div class="hero__scroll-indicator">
+      <span>SCROLL</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- Problems Section -->
+  <section class="problems" id="problems">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-editable="problem-title" data-type="text">こんなお悩み、ありませんか？</h2>
+      <div class="problems__grid">
+        <div class="problem-card animate-on-scroll">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4M12 16h.01"/>
+            </svg>
+          </div>
+          <h3 class="problem-card__title" data-editable="problem-1-title" data-type="text">ジムに通っても続かない</h3>
+          <p class="problem-card__text" data-editable="problem-1-text" data-type="text">モチベーションが続かず、入会金だけ払って幽霊会員に。一人でのトレーニングは孤独で挫折しがち。</p>
+        </div>
+        <div class="problem-card animate-on-scroll">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+            </svg>
+          </div>
+          <h3 class="problem-card__title" data-editable="problem-2-title" data-type="text">正しいフォームがわからない</h3>
+          <p class="problem-card__text" data-editable="problem-2-text" data-type="text">自己流のトレーニングで効果が出ない。間違ったフォームでケガのリスクも心配。</p>
+        </div>
+        <div class="problem-card animate-on-scroll">
+          <div class="problem-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+              <line x1="16" y1="2" x2="16" y2="6"/>
+              <line x1="8" y1="2" x2="8" y2="6"/>
+              <line x1="3" y1="10" x2="21" y2="10"/>
+            </svg>
+          </div>
+          <h3 class="problem-card__title" data-editable="problem-3-title" data-type="text">忙しくて時間がない</h3>
+          <p class="problem-card__text" data-editable="problem-3-text" data-type="text">仕事が忙しく、ジムに行く時間を確保できない。早朝や深夜しか空いていない。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Solution Section -->
+  <section class="solution" id="solution">
+    <div class="container">
+      <div class="solution__grid">
+        <div class="solution__content animate-on-scroll">
+          <span class="solution__label">SOLUTION</span>
+          <h2 class="solution__title" data-editable="solution-title" data-type="text">POWER FITが、すべて解決します。</h2>
+          <p class="solution__text" data-editable="solution-text" data-type="text">AIによる科学的なプログラム設計と、経験豊富なトレーナーによるマンツーマン指導。完全個室だから周りの目を気にせず集中できます。早朝5時から深夜24時まで営業で、忙しいあなたのスケジュールにフィット。理想の体への最短ルートを、私たちがナビゲートします。</p>
+          <ul class="solution__list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              AI×トレーナーの最適プログラム
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              完全個室でプライバシー確保
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              早朝5時〜深夜24時まで営業
+            </li>
+          </ul>
+        </div>
+        <div class="solution__image animate-on-scroll">
+          <img src="images/solution-image.jpg" alt="POWER FIT トレーニング風景" data-editable="solution-image" data-type="image">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features" id="features">
+    <div class="container">
+      <h2 class="section-title section-title--light animate-on-scroll" data-editable="features-title" data-type="text">選ばれる4つの理由</h2>
+      <div class="features__grid">
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card__number">01</div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-editable="feature-1-title" data-type="text">AIパーソナライズ</h3>
+          <p class="feature-card__text" data-editable="feature-1-text" data-type="text">体組成データ、生活習慣、目標をAIが分析。あなただけの最適なトレーニングプログラムを自動生成します。</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card__number">02</div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+              <circle cx="9" cy="7" r="4"/>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-editable="feature-2-title" data-type="text">エリートトレーナー</h3>
+          <p class="feature-card__text" data-editable="feature-2-text" data-type="text">採用率3%の厳選されたトレーナー陣。全員が資格保有者で、アスリート指導経験も豊富です。</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card__number">03</div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="3" width="18" height="18" rx="2"/>
+              <path d="M3 9h18M9 21V9"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-editable="feature-3-title" data-type="text">完全個室空間</h3>
+          <p class="feature-card__text" data-editable="feature-3-text" data-type="text">他の会員と顔を合わせない完全プライベート空間。シャワー・アメニティ完備で手ぶら来店OK。</p>
+        </div>
+        <div class="feature-card animate-on-scroll">
+          <div class="feature-card__number">04</div>
+          <div class="feature-card__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+              <polyline points="10 9 9 9 8 9"/>
+            </svg>
+          </div>
+          <h3 class="feature-card__title" data-editable="feature-4-title" data-type="text">食事管理サポート</h3>
+          <p class="feature-card__text" data-editable="feature-4-text" data-type="text">LINEで気軽に食事相談。管理栄養士監修のメニュー提案で、トレーニング効果を最大化します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <h2 class="section-title animate-on-scroll" data-editable="pricing-title" data-type="text">料金プラン</h2>
+      <p class="pricing__subtitle animate-on-scroll">あなたのライフスタイルに合わせて選べる3つのプラン</p>
+      <div class="pricing__grid">
+        <div class="pricing-card animate-on-scroll">
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name" data-editable="plan-1-name" data-type="text">ベーシック</h3>
+            <p class="pricing-card__sessions" data-editable="plan-1-sessions" data-type="text">月4回（週1回ペース）</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__currency">¥</span>
+            <span class="pricing-card__amount" data-editable="plan-1-price" data-type="text">29,800</span>
+            <span class="pricing-card__period">/月</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>50分/回のパーソナルトレーニング</li>
+            <li>AIプログラム作成</li>
+            <li>体組成測定（月1回）</li>
+            <li>ウェア・タオル無料レンタル</li>
+            <li>シャワー・アメニティ完備</li>
+          </ul>
+          <a href="#contact" class="pricing-card__cta btn btn--outline">このプランで始める</a>
+        </div>
+        <div class="pricing-card pricing-card--featured animate-on-scroll">
+          <div class="pricing-card__badge">人気No.1</div>
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name" data-editable="plan-2-name" data-type="text">スタンダード</h3>
+            <p class="pricing-card__sessions" data-editable="plan-2-sessions" data-type="text">月8回（週2回ペース）</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__currency">¥</span>
+            <span class="pricing-card__amount" data-editable="plan-2-price" data-type="text">49,800</span>
+            <span class="pricing-card__period">/月</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>50分/回のパーソナルトレーニング</li>
+            <li>AIプログラム作成</li>
+            <li>体組成測定（月2回）</li>
+            <li>ウェア・タオル無料レンタル</li>
+            <li>シャワー・アメニティ完備</li>
+            <li class="pricing-card__feature--highlight">LINE食事サポート</li>
+            <li class="pricing-card__feature--highlight">プロテイン1杯無料</li>
+          </ul>
+          <a href="#contact" class="pricing-card__cta btn btn--primary">このプランで始める</a>
+        </div>
+        <div class="pricing-card animate-on-scroll">
+          <div class="pricing-card__header">
+            <h3 class="pricing-card__name" data-editable="plan-3-name" data-type="text">プレミアム</h3>
+            <p class="pricing-card__sessions" data-editable="plan-3-sessions" data-type="text">月12回（週3回ペース）</p>
+          </div>
+          <div class="pricing-card__price">
+            <span class="pricing-card__currency">¥</span>
+            <span class="pricing-card__amount" data-editable="plan-3-price" data-type="text">69,800</span>
+            <span class="pricing-card__period">/月</span>
+          </div>
+          <ul class="pricing-card__features">
+            <li>50分/回のパーソナルトレーニング</li>
+            <li>AIプログラム作成</li>
+            <li>体組成測定（無制限）</li>
+            <li>ウェア・タオル無料レンタル</li>
+            <li>シャワー・アメニティ完備</li>
+            <li class="pricing-card__feature--highlight">LINE食事サポート</li>
+            <li class="pricing-card__feature--highlight">プロテイン飲み放題</li>
+            <li class="pricing-card__feature--highlight">指名トレーナー無料</li>
+          </ul>
+          <a href="#contact" class="pricing-card__cta btn btn--outline">このプランで始める</a>
+        </div>
+      </div>
+      <p class="pricing__note animate-on-scroll">※ 税込価格です。入会金33,000円が別途必要です（今なら50%OFF → 16,500円）</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq" id="faq">
+    <div class="container">
+      <h2 class="section-title section-title--light animate-on-scroll" data-editable="faq-title" data-type="text">よくある質問</h2>
+      <div class="faq__list">
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-item__question" aria-expanded="false">
+            <span data-editable="faq-1-q" data-type="text">運動経験がなくても大丈夫ですか？</span>
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-1-a" data-type="text">もちろん大丈夫です。会員様の約60%は運動初心者からスタートされています。経験豊富なトレーナーが、お客様の体力レベルに合わせて丁寧に指導いたします。</p>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-item__question" aria-expanded="false">
+            <span data-editable="faq-2-q" data-type="text">予約は取りやすいですか？</span>
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-2-a" data-type="text">専用アプリから24時間いつでもご予約いただけます。早朝5時から深夜24時まで営業しているため、お仕事前後でも通いやすい環境です。</p>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-item__question" aria-expanded="false">
+            <span data-editable="faq-3-q" data-type="text">食事制限は厳しいですか？</span>
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-3-a" data-type="text">極端な食事制限は行いません。管理栄養士監修のもと、無理なく続けられる食事プランをご提案します。お酒や外食も上手に取り入れながら、ストレスなく目標達成を目指します。</p>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-item__question" aria-expanded="false">
+            <span data-editable="faq-4-q" data-type="text">どのくらいで効果が出ますか？</span>
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-4-a" data-type="text">個人差はありますが、多くの会員様が2ヶ月程度で体の変化を実感されています。体重だけでなく、姿勢改善や体力向上など、さまざまな効果を感じていただけます。</p>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-item__question" aria-expanded="false">
+            <span data-editable="faq-5-q" data-type="text">途中でプラン変更はできますか？</span>
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-5-a" data-type="text">はい、月単位でプランの変更が可能です。ライフスタイルの変化に合わせて、柔軟に対応いたします。</p>
+          </div>
+        </div>
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-item__question" aria-expanded="false">
+            <span data-editable="faq-6-q" data-type="text">解約に違約金はかかりますか？</span>
+            <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <polyline points="6 9 12 15 18 9"/>
+            </svg>
+          </button>
+          <div class="faq-item__answer">
+            <p data-editable="faq-6-a" data-type="text">違約金は一切かかりません。最低契約期間もございませんので、いつでも安心してご解約いただけます。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta" id="contact">
+    <div class="container">
+      <div class="cta__content animate-on-scroll">
+        <h2 class="cta__title" data-editable="cta-title" data-type="text">まずは無料カウンセリングから</h2>
+        <p class="cta__subtitle" data-editable="cta-sub" data-type="text">あなたの目標やライフスタイルをお聞きし、最適なプランをご提案します。<br>無理な勧誘は一切ありません。</p>
+      </div>
+      <form class="cta__form animate-on-scroll" id="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">お名前 <span class="required">必須</span></label>
+            <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+          </div>
+          <div class="form-group">
+            <label for="email">メールアドレス <span class="required">必須</span></label>
+            <input type="email" id="email" name="email" placeholder="example@email.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="phone">電話番号 <span class="required">必須</span></label>
+            <input type="tel" id="phone" name="phone" placeholder="090-1234-5678" required>
+          </div>
+          <div class="form-group">
+            <label for="preferred-date">ご希望日時</label>
+            <input type="text" id="preferred-date" name="preferred-date" placeholder="例: 2/15 19:00〜">
+          </div>
+        </div>
+        <div class="form-group form-group--full">
+          <label for="message">ご質問・ご要望</label>
+          <textarea id="message" name="message" rows="4" placeholder="気になることがあればお気軽にご記入ください"></textarea>
+        </div>
+        <div class="form-group form-group--full form-group--checkbox">
+          <label class="checkbox-label">
+            <input type="checkbox" name="privacy" required>
+            <span class="checkbox-custom"></span>
+            <a href="#" class="privacy-link">プライバシーポリシー</a>に同意する
+          </label>
+        </div>
+        <button type="submit" class="cta__submit btn btn--primary" data-editable="cta-button" data-type="text">無料カウンセリングを予約する</button>
+        <p class="cta__microcopy">24時間以内にご連絡いたします</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__content">
+        <div class="footer__brand">
+          <div class="footer__logo">POWER<span>FIT</span></div>
+          <p class="footer__address">
+            〒150-0002<br>
+            東京都渋谷区渋谷1-1-1<br>
+            渋谷スクエアビル 5F
+          </p>
+        </div>
+        <div class="footer__hours">
+          <h4>営業時間</h4>
+          <p>5:00 - 24:00（年中無休）</p>
+          <p class="footer__access">渋谷駅 B2出口より徒歩5分</p>
+        </div>
+        <div class="footer__contact">
+          <h4>お問い合わせ</h4>
+          <p class="footer__tel">03-1234-5678</p>
+          <p class="footer__email">info@powerfit.jp</p>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p class="footer__copyright">&copy; 2026 POWER FIT. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

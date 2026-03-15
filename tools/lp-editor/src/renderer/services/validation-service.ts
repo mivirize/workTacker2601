@@ -195,7 +195,7 @@ function validateLinks(
 function validateImages(
   html: string,
   editables: Record<string, EditableField>,
-  repeatBlocks: Record<string, RepeatBlock>
+  _repeatBlocks: Record<string, RepeatBlock>
 ): ValidationIssue[] {
   const issues: ValidationIssue[] = []
   const $ = cheerio.load(html)

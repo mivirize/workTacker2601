@@ -1,0 +1,88 @@
+{
+  "url": "https://www.cho-kaguyahime.com/",
+  "title": "Netflix映画『超かぐや姫！』公式サイト",
+  "description": "Netflixアニメーション映画『超かぐや姫！』2026年1月22日(木)Netflixにて世界独占配信！監督：山下清悟。制作：スタジオコロリド/スタジオクロマト。出演：夏吉ゆうこ、永瀬アンナ、早見沙織など。",
+  "viewport": {
+    "name": "desktop",
+    "width": 1920,
+    "height": 1080
+  },
+  "capturedAt": "2026-02-04T23:50:03.949Z",
+  "scrollHeight": 8800,
+  "scripts": [
+    {
+      "src": "https://www.googletagmanager.com/gtag/js?id=G-8YP5M69FRH&cx=c&gtm=4e6231",
+      "inline": false
+    },
+    {
+      "src": "https://use.typekit.net/zbs0tzu.js",
+      "inline": false
+    },
+    {
+      "src": "https://www.googletagmanager.com/gtm.js?id=GTM-NGRBF3FR",
+      "inline": false
+    },
+    {
+      "src": null,
+      "inline": true
+    },
+    {
+      "src": null,
+      "inline": true
+    },
+    {
+      "src": "https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js",
+      "inline": false
+    },
+    {
+      "src": null,
+      "inline": true
+    },
+    {
+      "src": "//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js",
+      "inline": false
+    },
+    {
+      "src": null,
+      "inline": true
+    },
+    {
+      "src": "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js",
+      "inline": false
+    },
+    {
+      "src": null,
+      "inline": true
+    },
+    {
+      "src": "./assets/js/incparts.js",
+      "inline": false
+    },
+    {
+      "src": "./assets/js/jquery.common.js?1105",
+      "inline": false
+    },
+    {
+      "src": "./assets/js/jquery.top.js?0108",
+      "inline": false
+    }
+  ],
+  "stylesheets": [
+    {
+      "href": "https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css",
+      "inline": false
+    },
+    {
+      "href": "./assets/css/common.css",
+      "inline": false
+    },
+    {
+      "href": "./assets/css/top.css?1202",
+      "inline": false
+    },
+    {
+      "href": null,
+      "inline": true
+    }
+  ]
+}

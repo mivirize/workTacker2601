@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Netflix映画『星降る夜のアリア』公式サイト。2026年4月よりNetflixにて世界独占配信。">
+  <title>映画『星降る夜のアリア』公式サイト | Netflix 2026年4月配信</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+
+  <style>
+    :root {
+      --color-primary: #FFD700;
+      --color-primary-rgb: 255, 215, 0;
+      --color-primary-dark: #B8860B;
+      --color-secondary: #0a0a1a;
+      --color-accent: #a8c8ff;
+      --color-accent-pink: #ff6b9d;
+      --color-bg-dark: #0a0a12;
+      --color-bg-section: #0d0d18;
+      --color-bg-card: rgba(255, 255, 255, 0.03);
+      --color-text: #f0f0f0;
+      --color-text-muted: #888888;
+      --color-border: rgba(255, 215, 0, 0.15);
+      --color-glow: rgba(255, 215, 0, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <!-- Loading Screen -->
+  <div id="loading" class="loading-screen">
+    <div class="loading-screen__content">
+      <div class="loading-screen__logo">ARIA</div>
+      <div class="loading-screen__bar"><div class="loading-screen__progress"></div></div>
+    </div>
+  </div>
+
+  <!-- Star Particles -->
+  <div id="starfield" class="starfield" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header__inner">
+      <div class="header__badge"><span class="header__badge-text" data-type="text" data-field="header-badge">OFFICIAL</span></div>
+      <a href="#top" class="header__logo">
+        <span class="header__logo-main" data-type="text" data-field="header-logo">星降る夜のアリア</span>
+        <span class="header__logo-sub">ARIA of STARFALL</span>
+      </a>
+      <div class="header__hot-news">
+        <span class="header__hot-news-label">HOT NEWS</span>
+        <a href="#news" class="header__hot-news-text" data-type="text" data-field="hot-news">2026年4月1日Netflix世界独占配信決定！</a>
+      </div>
+      <button class="header__menu-btn" id="menuBtn" aria-label="メニュー" aria-expanded="false">
+        <span class="header__menu-text">MENU</span>
+        <span class="header__menu-icon"><span></span><span></span><span></span></span>
+      </button>
+    </div>
+    <nav class="global-nav" id="globalNav">
+      <div class="global-nav__inner">
+        <ul class="global-nav__list">
+          <li><a href="#news" class="global-nav__link">NEWS</a></li>
+          <li><a href="#movie" class="global-nav__link">MOVIE</a></li>
+          <li><a href="#introduction" class="global-nav__link">INTRODUCTION</a></li>
+          <li><a href="#story" class="global-nav__link">STORY</a></li>
+          <li><a href="#music" class="global-nav__link">MUSIC</a></li>
+          <li><a href="#character" class="global-nav__link">CHARACTER</a></li>
+          <li><a href="#staff" class="global-nav__link">STAFF / CAST</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+      <div class="hero__bg"><div class="hero__bg-gradient"></div></div>
+      <div class="hero__content">
+        <div class="hero__title-block">
+          <p class="hero__streaming animate-fade-in" data-type="text" data-field="hero-streaming">2026年4月1日（火）より<br class="sp-only">Netflixにて世界独占配信</p>
+          <h1 class="hero__title animate-fade-in">
+            <span class="hero__title-jp" data-type="text" data-field="hero-title">星降る夜のアリア</span>
+            <span class="hero__title-en">ARIA of STARFALL</span>
+          </h1>
+          <p class="hero__catchcopy animate-fade-in" data-type="text" data-field="hero-catchcopy">星が降る夜、彼女の歌声が世界を変える。</p>
+        </div>
+      </div>
+      <div class="hero__scroll"><span class="hero__scroll-text">SCROLL</span><div class="hero__scroll-line"></div></div>
+    </section>
+
+    <!-- NEWS Section -->
+    <section class="section section--news" id="news">
+      <div class="container">
+        <h2 class="section__title"><span class="section__title-en">NEWS</span></h2>
+        <ul class="news-list" data-repeat="news-items">
+          <li class="news-list__item animate-fade-up" data-repeat-item>
+            <a href="#" class="news-list__link">
+              <time class="news-list__date" data-type="text" data-field="news-date-1">2026.03.15</time>
+              <span class="news-list__category news-list__category--info" data-type="text" data-field="news-cat-1">INFO</span>
+              <span class="news-list__text" data-type="text" data-field="news-text-1">Netflix配信日が2026年4月1日に決定！</span>
+            </a>
+          </li>
+          <li class="news-list__item animate-fade-up" data-repeat-item>
+            <a href="#" class="news-list__link">
+              <time class="news-list__date" data-type="text" data-field="news-date-2">2026.03.01</time>
+              <span class="news-list__category news-list__category--music" data-type="text" data-field="news-cat-2">MUSIC</span>
+              <span class="news-list__text" data-type="text" data-field="news-text-2">LiSAが歌うOP「STARFALL」MV公開</span>
+            </a>
+          </li>
+          <li class="news-list__item animate-fade-up" data-repeat-item>
+            <a href="#" class="news-list__link">
+              <time class="news-list__date" data-type="text" data-field="news-date-3">2026.02.20</time>
+              <span class="news-list__category news-list__category--event" data-type="text" data-field="news-cat-3">EVENT</span>
+              <span class="news-list__text" data-type="text" data-field="news-text-3">AnimeJapan 2026 出演決定！</span>
+            </a>
+          </li>
+        </ul>
+        <div class="section__more"><a href="#" class="btn-more"><span data-type="text" data-field="news-more">MORE</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg></a></div>
+      </div>
+    </section>
+
+    <!-- MOVIE Section -->
+    <section class="section section--movie" id="movie">
+      <div class="container">
+        <h2 class="section__title"><span class="section__title-en">MOVIE</span></h2>
+        <div class="movie-slider">
+          <div class="movie-slider__track" id="movieTrack">
+            <div class="movie-slider__item active">
+              <div class="movie-card">
+                <div class="movie-card__visual">
+                  <div class="movie-card__placeholder"><span>本編PV 第1弾</span><button class="movie-card__play" aria-label="再生"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></div>
+                </div>
+                <p class="movie-card__title" data-type="text" data-field="movie-title-1">本編PV 第1弾</p>
+              </div>
+            </div>
+            <div class="movie-slider__item">
+              <div class="movie-card">
+                <div class="movie-card__visual">
+                  <div class="movie-card__placeholder movie-card__placeholder--blue"><span>本編PV 第2弾</span><button class="movie-card__play" aria-label="再生"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></div>
+                </div>
+                <p class="movie-card__title" data-type="text" data-field="movie-title-2">本編PV 第2弾</p>
+              </div>
+            </div>
+            <div class="movie-slider__item">
+              <div class="movie-card">
+                <div class="movie-card__visual">
+                  <div class="movie-card__placeholder movie-card__placeholder--pink"><span>ティザーPV</span><button class="movie-card__play" aria-label="再生"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></button></div>
+                </div>
+                <p class="movie-card__title" data-type="text" data-field="movie-title-3">ティザーPV</p>
+              </div>
+            </div>
+          </div>
+          <div class="movie-slider__controls">
+            <button class="movie-slider__nav movie-slider__nav--prev" id="moviePrev"><span>PREV</span></button>
+            <div class="movie-slider__dots" id="movieDots"></div>
+            <button class="movie-slider__nav movie-slider__nav--next" id="movieNext"><span>NEXT</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTRODUCTION Section -->
+    <section class="section section--introduction" id="introduction">
+      <div class="container">
+        <h2 class="section__title"><span class="section__title-en">INTRODUCTION</span></h2>
+        <div class="introduction">
+          <div class="introduction__lead animate-fade-up">
+            <p class="introduction__catchcopy" data-type="text" data-field="intro-catchcopy">歌が禁じられた世界で、<br>少女たちは歌い続けることを選んだ。</p>
+          </div>
+          <div class="introduction__content animate-fade-up">
+            <div class="introduction__text">
+              <p data-type="text" data-field="intro-text-1">「呪術廻戦」「チェンソーマン」など数々の話題作で映像演出を手がけてきた<span class="highlight">山下清悟</span>が初めて監督を務める長編オリジナルアニメーション。</p>
+              <p data-type="text" data-field="intro-text-2">音楽制作には、<span class="highlight">ryo（supercell）</span>、<span class="highlight">kz（livetune）</span>、<span class="highlight">40mP</span>、<span class="highlight">HoneyWorks</span>など、日本を代表するボカロP・アーティストが集結。</p>
+              <p data-type="text" data-field="intro-text-3"><span class="highlight">スタジオCELESTIA</span> × <span class="highlight">スタジオクロマト</span>のタッグで贈る、歌で繋がる少女たちの絆と希望の物語。</p>
+            </div>
+          </div>
+          <div class="introduction__credits animate-fade-up">
+            <div class="introduction__credit-item"><span class="introduction__credit-role">監督</span><span class="introduction__credit-name" data-type="text" data-field="intro-director">山下清悟</span></div>
+            <div class="introduction__credit-item"><span class="introduction__credit-role">音楽</span><span class="introduction__credit-name" data-type="text" data-field="intro-music">ryo / kz / 40mP / HoneyWorks</span></div>
+            <div class="introduction__credit-item"><span class="introduction__credit-role">制作</span><span class="introduction__credit-name" data-type="text" data-field="intro-studio">Studio CELESTIA × スタジオクロマト</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STORY Section -->
+    <section class="section section--story" id="story">
+      <div class="container">
+        <h2 class="section__title"><span class="section__title-en">STORY</span></h2>
+        <div class="story animate-fade-up">
+          <div class="story__content">
+            <div class="story__text">
+              <p data-type="text" data-field="story-text-1">西暦2089年、東京——。<br>「大静寂条例」により、すべての音楽が禁止された世界。</p>
+              <p data-type="text" data-field="story-text-2">17歳の少女・<span class="highlight">星宮アリア</span>は、かつて伝説と呼ばれた歌姫だった母の遺したAI「ノヴァ」と共に、ひっそりと暮らしていた。</p>
+              <p data-type="text" data-field="story-text-3">ある日、謎のハッカー・蒼月レイに導かれ、アリアは地下に広がる仮想空間<span class="highlight">「ハルモニア」</span>の存在を知る。</p>
+              <p data-type="text" data-field="story-text-4">個性豊かな仲間たちと出会い、アリアは「最後のコンサート」を目指して歌い始める。</p>
+              <p class="story__quote" data-type="text" data-field="story-quote">「この世界に、もう一度音楽を取り戻す」</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MUSIC Section -->
+    <section class="section section--music" id="music">
+      <div class="container">
+        <h2 class="section__title"><span class="section__title-en">MUSIC</span></h2>
+        <div class="music-slider">
+          <div class="music-slider__track" id="musicTrack">
+            <div class="music-slider__item active">
+              <div class="music-card">
+                <div class="music-card__visual"><div class="music-card__placeholder music-card__placeholder--gold"><span>OP</span></div></div>
+                <div class="music-card__info">
+                  <span class="music-card__type" data-type="text" data-field="music-type-1">OPENING THEME</span>
+                  <h3 class="music-card__title" data-type="text" data-field="music-title-1">STARFALL</h3>
+                  <p class="music-card__artist" data-type="text" data-field="music-artist-1">LiSA</p>
+                  <p class="music-card__composer" data-type="text" data-field="music-composer-1">作詞・作曲：ryo（supercell）</p>
+                </div>
+              </div>
+            </div>
+            <div class="music-slider__item">
+              <div class="music-card">
+                <div class="music-card__visual"><div class="music-card__placeholder music-card__placeholder--blue"><span>ED</span></div></div>
+                <div class="music-card__info">
+                  <span class="music-card__type" data-type="text" data-field="music-type-2">ENDING THEME</span>
+                  <h3 class="music-card__title" data-type="text" data-field="music-title-2">夜明けの調べ</h3>
+                  <p class="music-card__artist" data-type="text" data-field="music-artist-2">Aimer</p>
+                  <p class="music-card__composer" data-type="text" data-field="music-composer-2">作詞・作曲：kz（livetune）</p>
+                </div>
+              </div>
+            </div>
+            <div class="music-slider__item">
+              <div class="music-card">
+                <div class="music-card__visual"><div class="music-card__placeholder music-card__placeholder--pink"><span>IN</span></div></div>
+                <div class="music-card__info">
+                  <span class="music-card__type" data-type="text" data-field="music-type-3">INSERT SONG</span>
+                  <h3 class="music-card__title" data-type="text" data-field="music-title-3">最後のアリア</h3>
+                  <p class="music-card__artist" data-type="text" data-field="music-artist-3">花澤香菜（星宮アリア役）</p>
+                  <p class="music-card__composer" data-type="text" data-field="music-composer-3">作詞・作曲：40mP</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="music-slider__controls">
+            <button class="music-slider__nav music-slider__nav--prev" id="musicPrev"><span>PREV</span></button>
+            <div class="music-slider__dots" id="musicDots"></div>
+            <button class="music-slider__nav music-slider__nav--next" id="musicNext"><span>NEXT</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHARACTER Section -->
+    <section class="section section--character" id="character">
+      <div class="container">
+        <h2 class="section__title"><span class="section__title-en">CHARACTER</span></h2>
+        <div class="character">
+          <div class="character__thumbs">
+            <button class="character__thumb active" data-index="0"><span>アリア</span></button>
+            <button class="character__thumb" data-index="1"><span>レイ</span></button>
+            <button class="character__thumb" data-index="2"><span>カグラ</span></button>
+            <button class="character__thumb" data-index="3"><span>ソラ</span></button>
+            <button class="character__thumb" data-index="4"><span>ノヴァ</span></button>
+            <button class="character__thumb" data-index="5"><span>ユキ</span></button>
+            <button class="character__thumb" data-index="6"><span>カイト</span></button>
+            <button class="character__thumb" data-index="7"><span>ミコト</span></button>
+            <button class="character__thumb" data-index="8"><span>紫苑</span></button>
+            <button class="character__thumb" data-index="9"><span>アカネ</span></button>
+            <button class="character__thumb" data-index="10"><span>ゼロ</span></button>
+            <button class="character__thumb" data-index="11"><span>ルナ</span></button>
+          </div>
+          <div class="character__details" id="characterDetails">
+            <article class="character__detail active" data-index="0">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--gold"><span>ARIA</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-1">星宮アリア</span><span class="character__name-en">Aria Hoshimiya</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-1">CV: 花澤香菜</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-1">本作の主人公。伝説の歌姫と呼ばれた母を持つ17歳の少女。透き通るような歌声を持つ。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="1">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--blue"><span>REI</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-2">蒼月レイ</span><span class="character__name-en">Rei Aotsuki</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-2">CV: 内田雄馬</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-2">天才ハッカー。地下都市「ハルモニア」への道を開く。音楽への情熱は人一倍熱い。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="2">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--red"><span>KAGURA</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-3">紅蓮カグラ</span><span class="character__name-en">Kagura Guren</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-3">CV: 早見沙織</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-3">元治安維持隊員。剣術の達人で、仲間を守る盾となる。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="3">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--silver"><span>SORA</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-4">銀河ソラ</span><span class="character__name-en">Sora Ginga</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-4">CV: 石川界人</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-4">盲目の天才作曲家。誰よりも「音」を見ることができる。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="4">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--cyan"><span>NOVA</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-5">ノヴァ</span><span class="character__name-en">NOVA</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-5">CV: 悠木碧</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-5">アリアの母が遺したAIアシスタント。ホログラムの少女の姿をしている。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="5">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--pink"><span>YUKI</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-6">白夜ユキ</span><span class="character__name-en">Yuki Byakuya</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-6">CV: 水瀬いのり</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-6">政府公認の「無音のディーヴァ」。アリアのライバル。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="6">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--orange"><span>KAITO</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-7">天城カイト</span><span class="character__name-en">Kaito Amagi</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-7">CV: 松岡禎丞</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-7">ハルモニアのDJ。明るく陽気なムードメーカー。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="7">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--purple"><span>MIKOTO</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-8">神楽ミコト</span><span class="character__name-en">Mikoto Kagura</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-8">CV: 小原好美</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-8">ハルモニアで暮らす謎の少女。不思議な予知能力を持つ。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="8">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--violet"><span>SHION</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-9">紫苑</span><span class="character__name-en">SHION</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-9">CV: 釘宮理恵</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-9">ハルモニアの長老的存在のAI。音楽黄金時代を知る。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="9">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--crimson"><span>AKANE</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-10">朱雀アカネ</span><span class="character__name-en">Akane Suzaku</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-10">CV: ファイルーズあい</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-10">治安維持隊のエリート隊員。ユキの護衛を務める。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="10">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--dark"><span>ZERO</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-11">ゼロ</span><span class="character__name-en">ZERO</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-11">CV: 花江夏樹</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-11">謎の仮面をつけた人物。その正体は誰も知らない。</p>
+              </div>
+            </article>
+            <article class="character__detail" data-index="11">
+              <div class="character__visual"><div class="character__placeholder character__placeholder--moon"><span>LUNA</span></div></div>
+              <div class="character__info">
+                <div class="character__name"><span class="character__name-jp" data-type="text" data-field="char-name-12">月影ルナ</span><span class="character__name-en">Luna Tsukikage</span></div>
+                <p class="character__cv" data-type="text" data-field="char-cv-12">CV: 夏吉ゆうこ</p>
+                <p class="character__desc" data-type="text" data-field="char-desc-12">アリアの母の親友。音楽業界を知る生き証人。</p>
+              </div>
+            </article>
+          </div>
+          <div class="character__nav">
+            <button class="character__nav-btn" id="charPrev"><span>PREV</span></button>
+            <button class="character__nav-btn" id="charNext"><span>NEXT</span></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAFF / CAST Section -->
+    <section class="section section--staff" id="staff">
+      <div class="container">
+        <h2 class="section__title"><span class="section__title-en">STAFF / CAST</span></h2>
+        <div class="staff-cast">
+          <div class="staff-cast__column animate-fade-up">
+            <h3 class="staff-cast__heading">STAFF</h3>
+            <dl class="staff-cast__list">
+              <div class="staff-cast__item"><dt data-type="text" data-field="staff-role-1">原作</dt><dd data-type="text" data-field="staff-name-1">星野創一郎</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="staff-role-2">監督</dt><dd data-type="text" data-field="staff-name-2">山下清悟</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="staff-role-3">脚本</dt><dd data-type="text" data-field="staff-name-3">夏生さえり / 山下清悟</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="staff-role-4">キャラクターデザイン</dt><dd data-type="text" data-field="staff-name-4">田中将賀</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="staff-role-5">音楽</dt><dd data-type="text" data-field="staff-name-5">澤野弘之</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="staff-role-6">楽曲提供</dt><dd data-type="text" data-field="staff-name-6">ryo / kz / 40mP / HoneyWorks</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="staff-role-7">アニメーション制作</dt><dd data-type="text" data-field="staff-name-7">Studio CELESTIA / スタジオクロマト</dd></div>
+            </dl>
+          </div>
+          <div class="staff-cast__column animate-fade-up">
+            <h3 class="staff-cast__heading">CAST</h3>
+            <dl class="staff-cast__list">
+              <div class="staff-cast__item"><dt data-type="text" data-field="cast-role-1">星宮アリア</dt><dd data-type="text" data-field="cast-name-1">花澤香菜</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="cast-role-2">蒼月レイ</dt><dd data-type="text" data-field="cast-name-2">内田雄馬</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="cast-role-3">紅蓮カグラ</dt><dd data-type="text" data-field="cast-name-3">早見沙織</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="cast-role-4">銀河ソラ</dt><dd data-type="text" data-field="cast-name-4">石川界人</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="cast-role-5">ノヴァ</dt><dd data-type="text" data-field="cast-name-5">悠木碧</dd></div>
+              <div class="staff-cast__item"><dt data-type="text" data-field="cast-role-6">白夜ユキ</dt><dd data-type="text" data-field="cast-name-6">水瀬いのり</dd></div>
+            </dl>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__logo"><span class="footer__logo-text" data-type="text" data-field="footer-logo">星降る夜のアリア</span></div>
+        <div class="footer__social">
+          <a href="#" class="footer__social-link" aria-label="X"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a href="#" class="footer__social-link" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+        </div>
+        <p class="footer__copyright" data-type="text" data-field="footer-copyright">&copy;Studio CELESTIA・ツインエンジンパートナーズ</p>
+        <p class="footer__disclaimer" data-type="text" data-field="footer-disclaimer">※本サイトはデモ用です</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

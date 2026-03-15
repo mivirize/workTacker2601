@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAISON LUMIÈRE - L'Art de Vivre</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #c9a962;
+            --gold-light: #e8d5a3;
+            --black: #0a0a0a;
+            --white: #ffffff;
+            --cream: #f8f6f1;
+            --gray: #6b6b6b;
+        }
+
+        body {
+            font-family: 'Didot', 'Times New Roman', serif;
+            color: var(--black);
+            background: var(--white);
+            line-height: 1.8;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 0 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: transparent;
+            z-index: 1000;
+            transition: all 0.5s;
+        }
+
+        nav.scrolled {
+            background: var(--white);
+            box-shadow: 0 1px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            letter-spacing: 0.3em;
+            color: var(--white);
+            transition: color 0.5s;
+        }
+
+        nav.scrolled .logo {
+            color: var(--black);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--white);
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: color 0.5s;
+        }
+
+        nav.scrolled .nav-links a {
+            color: var(--black);
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-icons a {
+            color: var(--white);
+            font-size: 1rem;
+            transition: color 0.5s;
+        }
+
+        nav.scrolled .nav-icons a {
+            color: var(--black);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%),
+                        linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: var(--white);
+            padding: 0 24px;
+        }
+
+        .hero-overline {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.4em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .hero p {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            opacity: 0.9;
+            margin-bottom: 48px;
+            animation: fadeIn 1.5s ease-out 0.3s both;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            padding: 16px 48px;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            text-decoration: none;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            transition: all 0.5s;
+            animation: fadeIn 1.5s ease-out 0.6s both;
+        }
+
+        .hero-btn:hover {
+            background: var(--gold);
+            color: var(--black);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--white);
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            writing-mode: vertical-rl;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Collection Section */
+        .collection {
+            padding: 120px 80px;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header .overline {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            font-style: italic;
+            letter-spacing: 0.05em;
+        }
+
+        .collection-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .collection-item {
+            position: relative;
+            aspect-ratio: 3/4;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .collection-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            transition: opacity 0.5s;
+        }
+
+        .collection-item:nth-child(1)::before { background: linear-gradient(180deg, transparent 50%, rgba(201, 169, 98, 0.9) 100%), linear-gradient(135deg, #d4a574 0%, #c9a962 100%); }
+        .collection-item:nth-child(2)::before { background: linear-gradient(180deg, transparent 50%, rgba(10, 10, 10, 0.9) 100%), linear-gradient(135deg, #2c3e50 0%, #1a1a2e 100%); }
+        .collection-item:nth-child(3)::before { background: linear-gradient(180deg, transparent 50%, rgba(201, 169, 98, 0.9) 100%), linear-gradient(135deg, #f8f6f1 0%, #e8d5a3 100%); }
+        .collection-item:nth-child(4)::before { background: linear-gradient(180deg, transparent 50%, rgba(10, 10, 10, 0.9) 100%), linear-gradient(135deg, #4a4a4a 0%, #2a2a2a 100%); }
+
+        .collection-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 32px;
+            color: var(--white);
+            z-index: 2;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.5s;
+        }
+
+        .collection-item:hover .collection-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .collection-content h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 8px;
+        }
+
+        .collection-content p {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            opacity: 0.9;
+        }
+
+        /* Feature Section */
+        .feature {
+            padding: 0;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .feature-image {
+            min-height: 700px;
+            position: relative;
+        }
+
+        .feature-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+        }
+
+        .feature-text-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 8rem;
+            font-style: italic;
+            color: rgba(255, 255, 255, 0.05);
+        }
+
+        .feature-content {
+            padding: 100px 80px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: var(--cream);
+        }
+
+        .feature-content .overline {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .feature-content h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .feature-content p {
+            color: var(--gray);
+            margin-bottom: 40px;
+            font-size: 1rem;
+            line-height: 2;
+        }
+
+        .feature-link {
+            display: inline-block;
+            color: var(--black);
+            text-decoration: none;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--black);
+            transition: all 0.3s;
+        }
+
+        .feature-link:hover {
+            color: var(--gold);
+            border-color: var(--gold);
+        }
+
+        /* Craftsmanship Section */
+        .craftsmanship {
+            padding: 120px 80px;
+            background: var(--black);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .craftsmanship .overline {
+            color: var(--gold);
+        }
+
+        .craftsmanship h2 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 60px;
+        }
+
+        .craftsmanship-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .craft-item {
+            text-align: center;
+        }
+
+        .craft-icon {
+            width: 80px;
+            height: 80px;
+            border: 1px solid var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 2rem;
+        }
+
+        .craft-item h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            margin-bottom: 16px;
+            letter-spacing: 0.1em;
+        }
+
+        .craft-item p {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.875rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.8;
+        }
+
+        /* Store Locator */
+        .stores {
+            padding: 120px 80px;
+            background: var(--cream);
+        }
+
+        .stores-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .stores-content .overline {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .stores-content h2 {
+            font-size: clamp(2rem, 4vw, 2.5rem);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 24px;
+        }
+
+        .stores-content p {
+            color: var(--gray);
+            margin-bottom: 40px;
+            line-height: 2;
+        }
+
+        .store-list {
+            list-style: none;
+        }
+
+        .store-list li {
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .store-list .city {
+            font-size: 1.125rem;
+            font-style: italic;
+        }
+
+        .store-list .address {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.8125rem;
+            color: var(--gray);
+        }
+
+        .stores-visual {
+            height: 500px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f3460 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .stores-visual::before {
+            content: '✦';
+            font-size: 6rem;
+            color: var(--gold);
+            opacity: 0.3;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            padding: 120px 80px;
+            background: var(--white);
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            font-weight: 400;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .newsletter p {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.875rem;
+            color: var(--gray);
+            margin-bottom: 40px;
+        }
+
+        .newsletter-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 16px;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 16px 24px;
+            border: 1px solid #ddd;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.875rem;
+        }
+
+        .newsletter-form input:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .newsletter-form button {
+            padding: 16px 32px;
+            background: var(--black);
+            color: var(--white);
+            border: none;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--gold);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--black);
+            padding: 80px;
+            color: var(--white);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .footer-brand .logo {
+            color: var(--white);
+            margin-bottom: 24px;
+        }
+
+        .footer-brand p {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.8125rem;
+            color: rgba(255, 255, 255, 0.6);
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            color: var(--gold);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            font-family: 'Helvetica Neue', sans-serif;
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.8125rem;
+            transition: color 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 60px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-family: 'Helvetica Neue', sans-serif;
+            font-size: 0.6875rem;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-social a {
+            color: var(--white);
+            font-size: 1rem;
+            transition: color 0.3s;
+        }
+
+        .footer-social a:hover {
+            color: var(--gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .collection-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-image {
+                min-height: 400px;
+            }
+
+            .stores-container {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .collection,
+            .craftsmanship,
+            .stores,
+            .newsletter,
+            footer {
+                padding: 80px 24px;
+            }
+
+            .feature-content {
+                padding: 60px 24px;
+            }
+
+            .collection-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .craftsmanship-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">MAISON LUMIÈRE</div>
+        <ul class="nav-links">
+            <li><a href="#">コレクション</a></li>
+            <li><a href="#">メゾン</a></li>
+            <li><a href="#">サービス</a></li>
+            <li><a href="#">ブティック</a></li>
+        </ul>
+        <div class="nav-icons">
+            <a href="#"></a>
+            <a href="#"></a>
+            <a href="#"></a>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-content">
+            <div class="hero-overline">Collection Printemps 2026</div>
+            <h1>L'Art de Vivre</h1>
+            <p>時を超える美しさ、永遠のエレガンス</p>
+            <a href="#" class="hero-btn">コレクションを見る</a>
+        </div>
+        <div class="scroll-indicator">SCROLL</div>
+    </section>
+
+    <section class="collection">
+        <div class="section-header">
+            <span class="overline">Latest Collection</span>
+            <h2>新作コレクション</h2>
+        </div>
+        <div class="collection-grid">
+            <div class="collection-item">
+                <div class="collection-content">
+                    <h3>Éclat d'Or</h3>
+                    <p>ジュエリーコレクション</p>
+                </div>
+            </div>
+            <div class="collection-item">
+                <div class="collection-content">
+                    <h3>Nuit Étoilée</h3>
+                    <p>イブニングウェア</p>
+                </div>
+            </div>
+            <div class="collection-item">
+                <div class="collection-content">
+                    <h3>Élégance Pure</h3>
+                    <p>レザーグッズ</p>
+                </div>
+            </div>
+            <div class="collection-item">
+                <div class="collection-content">
+                    <h3>Essence Rare</h3>
+                    <p>フレグランス</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="feature">
+        <div class="feature-image">
+            <span class="feature-text-overlay">Lumière</span>
+        </div>
+        <div class="feature-content">
+            <span class="overline">Savoir-Faire</span>
+            <h2>150年の伝統と革新</h2>
+            <p>1876年、パリの小さなアトリエから始まったメゾン・ルミエール。以来、最高の素材と卓越した職人技によって、世代を超えて愛される作品を生み出し続けています。</p>
+            <p>一つひとつの作品に宿る魂は、メゾンの哲学そのもの。伝統を守りながらも、常に新しい美を追求し続けています。</p>
+            <a href="#" class="feature-link">メゾンについて →</a>
+        </div>
+    </section>
+
+    <section class="craftsmanship">
+        <div class="section-header">
+            <span class="overline">Our Commitment</span>
+            <h2>卓越した職人技</h2>
+        </div>
+        <div class="craftsmanship-grid">
+            <div class="craft-item">
+                <div class="craft-icon">✦</div>
+                <h3>最高級の素材</h3>
+                <p>世界中から厳選された最高品質の素材のみを使用。革、金、ダイヤモンド、すべてにおいて妥協を許しません。</p>
+            </div>
+            <div class="craft-item">
+                <div class="craft-icon">✧</div>
+                <h3>熟練の職人</h3>
+                <p>数十年の経験を持つマスターアルチザンたちが、一つひとつの作品に命を吹き込みます。</p>
+            </div>
+            <div class="craft-item">
+                <div class="craft-icon">◇</div>
+                <h3>永遠のデザイン</h3>
+                <p>流行に左右されない、時を超えるデザイン。世代から世代へと受け継がれる価値を創造します。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="stores">
+        <div class="stores-container">
+            <div class="stores-content">
+                <span class="overline">Visit Us</span>
+                <h2>ブティック</h2>
+                <p>世界各地のブティックで、メゾン・ルミエールの世界観をご体験ください。専任のアドバイザーが、お客様一人ひとりに寄り添ったサービスをご提供いたします。</p>
+                <ul class="store-list">
+                    <li>
+                        <span class="city">東京・銀座</span>
+                        <span class="address">銀座4丁目 GINZA SIX</span>
+                    </li>
+                    <li>
+                        <span class="city">パリ・シャンゼリゼ</span>
+                        <span class="address">Avenue des Champs-Élysées</span>
+                    </li>
+                    <li>
+                        <span class="city">ニューヨーク・5番街</span>
+                        <span class="address">Fifth Avenue</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="stores-visual"></div>
+        </div>
+    </section>
+
+    <section class="newsletter">
+        <h2>メゾンからのお知らせ</h2>
+        <p>新作コレクション、限定イベントの情報をお届けします</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="メールアドレス">
+            <button type="submit">登録</button>
+        </form>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">MAISON LUMIÈRE</div>
+                <p>1876年創業。時を超える美しさと永遠のエレガンスを追求するラグジュアリーメゾン。</p>
+            </div>
+            <div class="footer-col">
+                <h4>コレクション</h4>
+                <ul>
+                    <li><a href="#">ジュエリー</a></li>
+                    <li><a href="#">レザーグッズ</a></li>
+                    <li><a href="#">ウェア</a></li>
+                    <li><a href="#">フレグランス</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>サービス</h4>
+                <ul>
+                    <li><a href="#">パーソナライズ</a></li>
+                    <li><a href="#">ギフトサービス</a></li>
+                    <li><a href="#">修理・メンテナンス</a></li>
+                    <li><a href="#">予約制サロン</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>お問い合わせ</h4>
+                <ul>
+                    <li><a href="#">カスタマーサービス</a></li>
+                    <li><a href="#">ブティック検索</a></li>
+                    <li><a href="#">よくある質問</a></li>
+                    <li><a href="#">採用情報</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 MAISON LUMIÈRE. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#"></a>
+                <a href="#"></a>
+                <a href="#"></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

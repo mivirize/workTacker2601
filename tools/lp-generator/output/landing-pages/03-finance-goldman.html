@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZENITH CAPITAL - 確かな未来への投資</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --navy: #0a1628;
+            --navy-light: #1a2d4a;
+            --gold: #c9a962;
+            --gold-light: #e8d5a3;
+            --white: #ffffff;
+            --gray-light: #f8f9fa;
+            --gray: #6c757d;
+            --text-dark: #1a1a1a;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            color: var(--text-dark);
+            background: var(--white);
+            line-height: 1.7;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 0 60px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--white);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            transition: all 0.3s;
+        }
+
+        nav.scrolled {
+            height: 70px;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--navy);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .logo-text {
+            font-size: 1.25rem;
+            font-weight: 400;
+            letter-spacing: 0.15em;
+            color: var(--navy);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 48px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-cta {
+            background: var(--navy);
+            color: var(--white);
+            padding: 14px 32px;
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+        }
+
+        .nav-cta:hover {
+            background: var(--navy-light);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 60px 80px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(180deg, rgba(201, 169, 98, 0.1) 0%, transparent 100%);
+        }
+
+        .hero-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image:
+                linear-gradient(rgba(201, 169, 98, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(201, 169, 98, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-content {
+            color: var(--white);
+        }
+
+        .hero-badge {
+            display: inline-block;
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            padding: 8px 20px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 32px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.125rem;
+            opacity: 0.85;
+            margin-bottom: 48px;
+            max-width: 500px;
+            line-height: 1.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            background: var(--gold-light);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 18px 40px;
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--white);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .stat-value {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 8px;
+        }
+
+        .stat-label {
+            color: rgba(255, 255, 255, 0.7);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 120px 60px;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-header .overline {
+            display: block;
+            color: var(--gold);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .section-header p {
+            color: var(--gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .service-card {
+            padding: 48px 40px;
+            border: 1px solid #eee;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 3px;
+            background: var(--gold);
+            transition: width 0.3s;
+        }
+
+        .service-card:hover::before {
+            width: 100%;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gray-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 16px;
+        }
+
+        .service-card p {
+            color: var(--gray);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.9375rem;
+            line-height: 1.8;
+        }
+
+        .service-link {
+            display: inline-block;
+            margin-top: 24px;
+            color: var(--gold);
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+        }
+
+        .service-link:hover {
+            color: var(--navy);
+        }
+
+        /* About Section */
+        .about {
+            padding: 120px 60px;
+            background: var(--gray-light);
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+            align-items: center;
+        }
+
+        .about-image {
+            height: 600px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--gold);
+        }
+
+        .about-image-text {
+            color: rgba(255, 255, 255, 0.1);
+            font-size: 6rem;
+            font-weight: bold;
+        }
+
+        .about-content .overline {
+            display: block;
+            color: var(--gold);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .about-content h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 24px;
+        }
+
+        .about-content p {
+            color: var(--gray);
+            margin-bottom: 24px;
+            line-height: 1.9;
+        }
+
+        .about-list {
+            list-style: none;
+            margin-top: 32px;
+        }
+
+        .about-list li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+            color: var(--navy);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.9375rem;
+        }
+
+        .about-list li::before {
+            content: '◆';
+            color: var(--gold);
+            font-size: 0.5rem;
+        }
+
+        /* Insights Section */
+        .insights {
+            padding: 120px 60px;
+            background: var(--white);
+        }
+
+        .insights-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+
+        .insight-card {
+            border: 1px solid #eee;
+            transition: all 0.3s;
+        }
+
+        .insight-card:hover {
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+        }
+
+        .insight-image {
+            height: 200px;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .insight-category {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            background: var(--gold);
+            color: var(--navy);
+            padding: 6px 12px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+
+        .insight-content {
+            padding: 32px;
+        }
+
+        .insight-date {
+            color: var(--gray);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.8125rem;
+            margin-bottom: 12px;
+        }
+
+        .insight-content h3 {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--navy);
+            margin-bottom: 16px;
+            line-height: 1.5;
+        }
+
+        .insight-content p {
+            color: var(--gray);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 120px 60px;
+            background: var(--navy);
+            color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 100px;
+        }
+
+        .contact-content .overline {
+            display: block;
+            color: var(--gold);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .contact-content h2 {
+            font-size: 2.5rem;
+            font-weight: 400;
+            margin-bottom: 24px;
+        }
+
+        .contact-content p {
+            opacity: 0.8;
+            margin-bottom: 40px;
+            line-height: 1.9;
+        }
+
+        .contact-info {
+            list-style: none;
+        }
+
+        .contact-info li {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 16px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.9375rem;
+        }
+
+        .contact-info li span {
+            color: var(--gold);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-group label {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            opacity: 0.7;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 16px;
+            color: var(--white);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--gold);
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            background: var(--gold);
+            color: var(--navy);
+            padding: 18px 40px;
+            border: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            transition: all 0.3s;
+            align-self: flex-start;
+        }
+
+        .form-submit:hover {
+            background: var(--gold-light);
+        }
+
+        /* Footer */
+        footer {
+            background: #060d17;
+            padding: 60px;
+            color: var(--white);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 60px;
+        }
+
+        .footer-brand .logo {
+            margin-bottom: 24px;
+        }
+
+        .footer-brand .logo-icon {
+            background: var(--gold);
+            color: var(--navy);
+        }
+
+        .footer-brand .logo-text {
+            color: var(--white);
+        }
+
+        .footer-brand p {
+            opacity: 0.6;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            line-height: 1.8;
+        }
+
+        .footer-col h4 {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.6875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+            opacity: 0.5;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: var(--white);
+            text-decoration: none;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.875rem;
+            opacity: 0.7;
+            transition: opacity 0.3s;
+        }
+
+        .footer-col ul li a:hover {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            display: flex;
+            justify-content: space-between;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            font-size: 0.75rem;
+            opacity: 0.5;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container,
+            .about-container,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+
+            .services-grid,
+            .insights-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                padding: 0 24px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero,
+            .services,
+            .about,
+            .insights,
+            .contact {
+                padding: 80px 24px;
+            }
+
+            .hero-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <div class="logo-icon">ZC</div>
+            <div class="logo-text">ZENITH CAPITAL</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#services">サービス</a></li>
+            <li><a href="#about">企業情報</a></li>
+            <li><a href="#insights">インサイト</a></li>
+            <li><a href="#contact">お問い合わせ</a></li>
+        </ul>
+        <a href="#contact" class="nav-cta">無料相談</a>
+    </nav>
+
+    <section class="hero">
+        <div class="hero-pattern"></div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-badge">創業150年の信頼</span>
+                <h1>確かな未来への<br><span>投資</span></h1>
+                <p>グローバルな視点と深い専門知識で、お客様の資産形成と事業成長をサポートします。一世紀半にわたる実績が、その信頼の証です。</p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn-gold">無料相談を予約</a>
+                    <a href="#services" class="btn-outline">サービスを見る</a>
+                </div>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card">
+                    <div class="stat-value">¥42兆</div>
+                    <div class="stat-label">運用資産残高</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">150年</div>
+                    <div class="stat-label">創業からの歴史</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">35カ国</div>
+                    <div class="stat-label">グローバル拠点</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-value">12,000+</div>
+                    <div class="stat-label">専門家チーム</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <div class="section-header">
+            <span class="overline">Our Services</span>
+            <h2>総合的な金融ソリューション</h2>
+            <p>お客様一人ひとりのニーズに合わせた、オーダーメイドのサービスを提供します</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M17 7h4v4"/></svg></div>
+                <h3>資産運用</h3>
+                <p>世界トップクラスの運用チームが、長期的な視点でお客様の資産を成長させます。リスク管理を徹底しながら、最適なポートフォリオを構築します。</p>
+                <a href="#" class="service-link">詳しく見る →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 9l9-6 9 6"/><path d="M9 21v-6h6v6"/></svg></div>
+                <h3>投資銀行業務</h3>
+                <p>M&A、資金調達、上場支援など、企業の成長戦略を総合的にサポート。豊富な実績と専門知識で、最適なソリューションを提供します。</p>
+                <a href="#" class="service-link">詳しく見る →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2"><path d="M6 3h12l4 6-10 13L2 9l4-6z"/><path d="M2 9h20"/><path d="M12 22L6 9l6-6 6 6-6 13z"/></svg></div>
+                <h3>プライベートバンキング</h3>
+                <p>富裕層のお客様に、資産保全から次世代への承継まで、包括的なウェルスマネジメントサービスを提供します。</p>
+                <a href="#" class="service-link">詳しく見る →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
+                <h3>グローバル市場</h3>
+                <p>世界中の市場へのアクセスを提供。外国為替、債券、株式など、多様な金融商品の取引をサポートします。</p>
+                <a href="#" class="service-link">詳しく見る →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2"><path d="M9 2v6l-2 9h10l-2-9V2"/><path d="M8 2h8"/><circle cx="12" cy="14" r="1.5"/></svg></div>
+                <h3>リサーチ</h3>
+                <p>300名以上のアナリストによる、深い洞察と先見性のあるリサーチレポートで、投資判断をサポートします。</p>
+                <a href="#" class="service-link">詳しく見る →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#c9a962" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M9 7v10"/><path d="M15 7v10"/><path d="M7 12h10"/></svg></div>
+                <h3>不動産投資</h3>
+                <p>国内外の優良不動産への投資機会を提供。安定したインカムゲインと資産価値の向上を目指します。</p>
+                <a href="#" class="service-link">詳しく見る →</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <div class="about-container">
+            <div class="about-image">
+                <span class="about-image-text">1876</span>
+            </div>
+            <div class="about-content">
+                <span class="overline">About Us</span>
+                <h2>信頼と実績の150年</h2>
+                <p>ZENITH CAPITALは、1876年の創業以来、お客様の資産形成と企業の成長を支援してまいりました。時代の変化に適応しながらも、誠実さと専門性という創業の理念を守り続けています。</p>
+                <p>グローバルなネットワークと深い専門知識を活かし、お客様一人ひとりに最適なソリューションを提供することが、私たちの使命です。</p>
+                <ul class="about-list">
+                    <li>東京証券取引所プライム市場上場</li>
+                    <li>格付け: AA+ (S&P) / Aa1 (Moody's)</li>
+                    <li>35カ国・100以上のオフィス</li>
+                    <li>運用資産残高42兆円</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="insights" id="insights">
+        <div class="section-header">
+            <span class="overline">Insights</span>
+            <h2>マーケットインサイト</h2>
+            <p>私たちの専門家による最新の市場分析とレポート</p>
+        </div>
+        <div class="insights-grid">
+            <article class="insight-card">
+                <div class="insight-image">
+                    <span class="insight-category">マーケット分析</span>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-date">2026年1月25日</div>
+                    <h3>2026年のグローバル経済見通し：成長と課題</h3>
+                    <p>世界経済の回復が続く中、各地域の成長率と潜在的なリスク要因を分析します。</p>
+                </div>
+            </article>
+            <article class="insight-card">
+                <div class="insight-image">
+                    <span class="insight-category">投資戦略</span>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-date">2026年1月20日</div>
+                    <h3>ESG投資の新潮流：サステナブルな価値創造</h3>
+                    <p>環境・社会・ガバナンスを考慮した投資が、長期的なリターンにどう影響するか解説します。</p>
+                </div>
+            </article>
+            <article class="insight-card">
+                <div class="insight-image">
+                    <span class="insight-category">テクノロジー</span>
+                </div>
+                <div class="insight-content">
+                    <div class="insight-date">2026年1月15日</div>
+                    <h3>AI革命が金融業界にもたらす変革</h3>
+                    <p>人工知能の進化が投資判断、リスク管理、顧客サービスにもたらす影響を考察します。</p>
+                </div>
+            </article>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-content">
+                <span class="overline">Contact Us</span>
+                <h2>お気軽にご相談ください</h2>
+                <p>資産運用から事業戦略まで、お客様のあらゆるご要望にお応えします。まずは無料相談から始めてみませんか。</p>
+                <ul class="contact-info">
+                    <li><span></span> 東京都千代田区丸の内1-1-1 ZENITHタワー</li>
+                    <li><span></span> 03-1234-5678（代表）</li>
+                    <li><span></span> contact@zenithcapital.jp</li>
+                    <li><span></span> 平日 9:00 - 18:00</li>
+                </ul>
+            </div>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label>お名前</label>
+                    <input type="text" placeholder="山田 太郎">
+                </div>
+                <div class="form-group">
+                    <label>メールアドレス</label>
+                    <input type="email" placeholder="email@example.com">
+                </div>
+                <div class="form-group">
+                    <label>お問い合わせ内容</label>
+                    <textarea placeholder="ご相談内容をお書きください"></textarea>
+                </div>
+                <button type="submit" class="form-submit">送信する</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="logo">
+                    <div class="logo-icon">ZC</div>
+                    <div class="logo-text">ZENITH CAPITAL</div>
+                </div>
+                <p>確かな未来への投資。<br>150年の信頼と実績で、お客様の資産形成をサポートします。</p>
+            </div>
+            <div class="footer-col">
+                <h4>サービス</h4>
+                <ul>
+                    <li><a href="#">資産運用</a></li>
+                    <li><a href="#">投資銀行業務</a></li>
+                    <li><a href="#">プライベートバンキング</a></li>
+                    <li><a href="#">リサーチ</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>企業情報</h4>
+                <ul>
+                    <li><a href="#">会社概要</a></li>
+                    <li><a href="#">経営陣</a></li>
+                    <li><a href="#">採用情報</a></li>
+                    <li><a href="#">ニュースルーム</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>法的情報</h4>
+                <ul>
+                    <li><a href="#">利用規約</a></li>
+                    <li><a href="#">プライバシーポリシー</a></li>
+                    <li><a href="#">金融商品取引法に基づく表示</a></li>
+                    <li><a href="#">反社会的勢力への対応</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 ZENITH CAPITAL Inc. All rights reserved.</p>
+            <p>金融商品取引業者 関東財務局長（金商）第XXX号</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll effect for navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+    </script>
+</body>
+</html>

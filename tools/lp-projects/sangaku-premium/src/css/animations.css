@@ -1,0 +1,768 @@
+/* ========================================
+   SANGAKU BEER - Animations
+   ======================================== */
+
+/* ----------------------------------------
+   Keyframe Animations
+   ---------------------------------------- */
+
+/* Fade In */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Fade In Up */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Down */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade In Left */
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade In Right */
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Scale In */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Scroll Bounce */
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
+}
+
+/* Slide Right */
+@keyframes slideRight {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+}
+
+/* Foam Bubble */
+@keyframes foamBubble {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* Rising Bubble */
+@keyframes risingBubble {
+  0% {
+    transform: translateY(100%) translateX(0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.8;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-100vh) translateX(var(--drift, 20px)) scale(0.5);
+    opacity: 0;
+  }
+}
+
+/* Floating Hop */
+@keyframes floatingHop {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.4;
+  }
+  100% {
+    transform: translateY(-100px) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Pulse Glow */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(212, 168, 83, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(212, 168, 83, 0.6);
+  }
+}
+
+/* Hotspot Pulse */
+@keyframes hotspotPulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+/* Rotate Slow */
+@keyframes rotateSlow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Float */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+/* Shimmer */
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+/* Pour Beer */
+@keyframes pourBeer {
+  0% {
+    height: 0%;
+  }
+  100% {
+    height: var(--fill-level, 80%);
+  }
+}
+
+/* Foam Rise */
+@keyframes foamRise {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Counter Up */
+@keyframes counterUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Wheel Spin */
+@keyframes wheelSpin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Flavor Point Pulse */
+@keyframes flavorPointPulse {
+  0%, 100% {
+    r: 8;
+    opacity: 1;
+  }
+  50% {
+    r: 12;
+    opacity: 0.7;
+  }
+}
+
+/* Medal Shine */
+@keyframes medalShine {
+  0% {
+    background-position: -100% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Map Pin Bounce */
+@keyframes mapPinBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Parallax Float */
+@keyframes parallaxFloat {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(0) translateX(10px);
+  }
+  75% {
+    transform: translateY(10px) translateX(5px);
+  }
+}
+
+/* Text Reveal */
+@keyframes textReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Line Draw */
+@keyframes lineDraw {
+  from {
+    stroke-dashoffset: 1000;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Stagger Children */
+@keyframes staggerIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ----------------------------------------
+   Animation Classes
+   ---------------------------------------- */
+
+/* Base Animation State */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Stagger delays for child elements */
+.animate-on-scroll.animated:nth-child(1) { transition-delay: 0s; }
+.animate-on-scroll.animated:nth-child(2) { transition-delay: 0.1s; }
+.animate-on-scroll.animated:nth-child(3) { transition-delay: 0.2s; }
+.animate-on-scroll.animated:nth-child(4) { transition-delay: 0.3s; }
+.animate-on-scroll.animated:nth-child(5) { transition-delay: 0.4s; }
+.animate-on-scroll.animated:nth-child(6) { transition-delay: 0.5s; }
+
+/* Animation Variations */
+.animate-fade-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-down {
+  animation: fadeInDown 0.8s ease forwards;
+}
+
+.animate-fade-left {
+  animation: fadeInLeft 0.8s ease forwards;
+}
+
+.animate-fade-right {
+  animation: fadeInRight 0.8s ease forwards;
+}
+
+.animate-scale {
+  animation: scaleIn 0.8s ease forwards;
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotateSlow 20s linear infinite;
+}
+
+/* ----------------------------------------
+   Hover Transitions
+   ---------------------------------------- */
+
+.hover-lift {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-md);
+}
+
+.hover-scale {
+  transition: transform var(--transition-base);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: box-shadow var(--transition-base);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+/* ----------------------------------------
+   Loading Animations
+   ---------------------------------------- */
+
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.1) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ----------------------------------------
+   Page Transition
+   ---------------------------------------- */
+
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+/* ----------------------------------------
+   Scroll-Driven Animations (Modern Browsers)
+   ---------------------------------------- */
+
+@supports (animation-timeline: view()) {
+  .scroll-animate {
+    animation: fadeInUp linear;
+    animation-timeline: view();
+    animation-range: entry 0% entry 50%;
+  }
+}
+
+/* ----------------------------------------
+   Reduced Motion
+   ---------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .parallax-layer {
+    transform: none !important;
+  }
+}
+
+/* ----------------------------------------
+   GPU Acceleration
+   ---------------------------------------- */
+
+.gpu-accelerated {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* ----------------------------------------
+   Particle Animations
+   ---------------------------------------- */
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.4), rgba(212, 168, 83, 0.2));
+  pointer-events: none;
+  animation: risingBubble var(--duration, 8s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  --drift: var(--random-drift, 20px);
+}
+
+.hop-particle {
+  position: absolute;
+  width: var(--size, 20px);
+  height: var(--size, 20px);
+  background: url('../images/hop-small.png') center/contain no-repeat;
+  pointer-events: none;
+  animation: floatingHop var(--duration, 15s) linear infinite;
+  animation-delay: var(--delay, 0s);
+  opacity: 0.4;
+}
+
+/* ----------------------------------------
+   Interactive Element Animations
+   ---------------------------------------- */
+
+/* Button Press */
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Card Tilt */
+.tilt-card {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+/* Input Focus */
+input:focus,
+textarea:focus {
+  animation: pulseGlow 0.5s ease;
+}
+
+/* Nav Link Underline */
+.nav__menu a:not(.btn)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-primary);
+  transition: width var(--transition-base);
+}
+
+.nav__menu a:not(.btn):hover::after {
+  width: 100%;
+}
+
+/* ----------------------------------------
+   Timeline Animations
+   ---------------------------------------- */
+
+.timeline__marker {
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.timeline__item:hover .timeline__marker {
+  transform: translateX(-50%) scale(1.3);
+  box-shadow: 0 0 20px var(--color-primary);
+}
+
+.timeline__line {
+  animation: lineDraw 2s ease forwards;
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+}
+
+/* ----------------------------------------
+   Flavor Wheel Animations
+   ---------------------------------------- */
+
+.wheel__polygon {
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.wheel__point {
+  transition: r 0.3s ease, fill 0.3s ease;
+}
+
+.wheel__point:hover {
+  r: 12;
+  fill: var(--color-primary);
+}
+
+.wheel__label {
+  transition: color var(--transition-base), transform var(--transition-base);
+}
+
+.wheel__label:hover {
+  color: var(--color-primary);
+  transform: scale(1.1);
+}
+
+/* ----------------------------------------
+   Counter Animation
+   ---------------------------------------- */
+
+.stat-number {
+  display: inline-block;
+}
+
+.stat-number.counting {
+  animation: counterUp 0.5s ease;
+}
+
+/* ----------------------------------------
+   Tour Hotspot Animations
+   ---------------------------------------- */
+
+.tour__hotspot {
+  transition: transform var(--transition-base);
+}
+
+.tour__hotspot:hover {
+  transform: scale(1.2);
+}
+
+.hotspot-pulse {
+  position: absolute;
+  inset: -10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 50%;
+  animation: hotspotPulse 2s ease-out infinite;
+}
+
+/* ----------------------------------------
+   Map Pin Animations
+   ---------------------------------------- */
+
+.map__pin {
+  transition: transform var(--transition-base);
+}
+
+.map__pin:hover {
+  animation: mapPinBounce 0.5s ease;
+}
+
+.pin__popup {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all var(--transition-base);
+}
+
+.map__pin:hover .pin__popup {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* ----------------------------------------
+   Award Medal Animations
+   ---------------------------------------- */
+
+.medal-svg {
+  animation: float 3s ease-in-out infinite;
+}
+
+.medal__bg {
+  fill: var(--color-primary);
+  opacity: 0.2;
+}
+
+.medal__inner {
+  fill: var(--color-primary);
+}
+
+.award-card--featured .medal-svg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  animation: medalShine 3s ease-in-out infinite;
+}
+
+/* ----------------------------------------
+   Brewing Step Transitions
+   ---------------------------------------- */
+
+.brewing__step {
+  opacity: 0;
+  transform: translateX(20px);
+}
+
+.brewing__step.active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.brewing__step.exit {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* ----------------------------------------
+   Product Card 3D Effect
+   ---------------------------------------- */
+
+.product-card__inner {
+  transform-style: preserve-3d;
+}
+
+.product-card__image img {
+  transform: translateZ(30px);
+}
+
+.product-card__content {
+  transform: translateZ(20px);
+}
+
+/* ----------------------------------------
+   Smooth Scroll Behavior
+   ---------------------------------------- */
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ----------------------------------------
+   Image Loading Animation
+   ---------------------------------------- */
+
+img {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+img.loaded {
+  opacity: 1;
+}
+
+/* ----------------------------------------
+   Text Animation Utilities
+   ---------------------------------------- */
+
+.text-reveal {
+  overflow: hidden;
+}
+
+.text-reveal span {
+  display: inline-block;
+  animation: textReveal 0.8s ease forwards;
+}
+
+.char-animate {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.char-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

@@ -1,0 +1,61 @@
+{
+  "name": "大阪0円アパート",
+  "version": "1.0.0",
+  "client": "株式会社ゼロスタート不動産",
+  "description": "初期費用0円で大阪の賃貸物件を紹介するサービスのLP",
+  "entry": "src/index.html",
+  "output": {
+    "appName": "大阪0円アパート LP Editor",
+    "fileName": "osaka-0yen-apartment"
+  },
+  "pages": [
+    {
+      "id": "index",
+      "path": "src/index.html",
+      "label": "メインLP"
+    }
+  ],
+  "colors": {
+    "primary": {
+      "value": "#FF6B35",
+      "label": "プライマリカラー",
+      "description": "CTAボタン・アクセント"
+    },
+    "secondary": {
+      "value": "#1A365D",
+      "label": "セカンダリカラー",
+      "description": "ダーク背景・ヘッダー"
+    },
+    "accent": {
+      "value": "#F6AD55",
+      "label": "アクセントカラー",
+      "description": "ゴールド・ハイライト"
+    },
+    "success": {
+      "value": "#38A169",
+      "label": "成功カラー",
+      "description": "チェックマーク・確認"
+    },
+    "line": {
+      "value": "#06C755",
+      "label": "LINEカラー",
+      "description": "LINE CTAボタン"
+    }
+  },
+  "groups": {
+    "hero": { "label": "ヒーローセクション", "order": 1 },
+    "problem": { "label": "問題提起", "order": 2 },
+    "features": { "label": "特徴セクション", "order": 3 },
+    "comparison": { "label": "費用比較", "order": 4 },
+    "testimonials": { "label": "お客様の声", "order": 5 },
+    "flow": { "label": "ご利用の流れ", "order": 6 },
+    "faq": { "label": "FAQ", "order": 7 },
+    "cta": { "label": "CTAセクション", "order": 8 }
+  },
+  "meta": {
+    "industry": "不動産",
+    "target": "20-35歳の大阪へ引っ越しを検討中の若者",
+    "goal": "LINE友だち追加・来店予約の獲得",
+    "style": "モダン・信頼感・親しみやすさ"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@lp-generator/lp-blocks",
+  "version": "0.1.0",
+  "private": true,
+  "main": "./index.ts",
+  "types": "./index.ts",
+  "exports": {
+    ".": "./index.ts",
+    "./components/*": "./components/*",
+    "./utils/*": "./utils/*"
+  },
+  "dependencies": {
+    "@lp-generator/sanity-schemas": "workspace:*",
+    "react": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "next": "^15.1.0",
+    "typescript": "^5.7.0"
+  },
+  "peerDependencies": {
+    "next": "^15.0.0",
+    "react": "^19.0.0"
+  }
+}

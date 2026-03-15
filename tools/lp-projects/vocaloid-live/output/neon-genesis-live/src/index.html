@@ -1,0 +1,878 @@
+<!--
+================================================================================
+LP制作フローガイド - VOCALOID LIVE 特設ページ
+================================================================================
+
+【アーティスト情報】
+- 名前: 星宮ネオン / Hoshimiya NEON
+- ジャンル: ボカロP兼歌い手、エレクトロニック・サイバーパンク
+- ライブ: NEON GENESIS LIVE 2026
+- 日時: 2026年3月15日（日）17:00開演
+- 会場: Zepp DiverCity Tokyo
+
+【物販商品】
+1. 公式Tシャツ - ¥4,500
+2. 限定ペンライト - ¥3,500
+3. アクリルスタンド - ¥1,800
+4. マフラータオル - ¥2,500
+5. 限定CD「NEON TRACKS」- ¥3,000
+6. 缶バッジセット - ¥1,200
+7. クリアファイルセット - ¥800
+8. VIP限定グッズBOX - ¥15,000
+
+【インタラクティブ要素】
+- パーティクルエフェクト（サイバー風）
+- グリッチエフェクト（テキスト）
+- ネオングローアニメーション
+- 3Dカードホバー
+- カウントダウンタイマー
+- スクロールトリガーアニメーション
+- マウス追従エフェクト
+- 商品詳細モーダル
+
+================================================================================
+-->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="星宮ネオン NEON GENESIS LIVE 2026 特設サイト - チケット・物販情報">
+
+  <title
+    data-editable="010-page-title"
+    data-type="text"
+    data-label="010: ページタイトル"
+    data-group="01-SEO"
+    data-order="010"
+  >NEON GENESIS LIVE 2026 | 星宮ネオン</title>
+
+  <style>
+    :root {
+      /* ネオンカラーパレット */
+      --color-primary: #00f0ff;
+      --color-primary-dark: #00a8b3;
+      --color-secondary: #ff00ff;
+      --color-accent: #ffff00;
+      --color-accent-alt: #ff3366;
+
+      /* テキストカラー */
+      --color-text: #ffffff;
+      --color-text-muted: #a0a0a0;
+
+      /* 背景カラー */
+      --color-bg-dark: #0a0a0f;
+      --color-bg-card: rgba(20, 20, 35, 0.8);
+      --color-bg-glass: rgba(255, 255, 255, 0.05);
+
+      /* グローエフェクト */
+      --glow-primary: 0 0 20px rgba(0, 240, 255, 0.5);
+      --glow-secondary: 0 0 20px rgba(255, 0, 255, 0.5);
+      --glow-accent: 0 0 20px rgba(255, 255, 0, 0.5);
+    }
+  </style>
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- カスタムカーソル -->
+  <div class="cursor-glow" id="cursorGlow"></div>
+
+  <!-- パーティクル背景 -->
+  <div class="particles-container" id="particles"></div>
+
+  <!-- グリッドライン背景 -->
+  <div class="grid-background"></div>
+
+  <!-- ヘッダー -->
+  <header class="header">
+    <div class="container">
+      <div class="header__inner">
+        <a href="#" class="header__logo glitch-hover">
+          <span class="logo-text"
+            data-editable="020-logo-text"
+            data-type="text"
+            data-label="020: ロゴテキスト"
+            data-group="02-Header"
+            data-order="020"
+          >NEON</span>
+        </a>
+        <nav class="header__nav">
+          <a href="#about" class="nav-link">ABOUT</a>
+          <a href="#countdown" class="nav-link">LIVE INFO</a>
+          <a href="#goods" class="nav-link">GOODS</a>
+          <a href="#ticket" class="nav-link">TICKET</a>
+        </nav>
+        <a href="#ticket" class="btn btn--neon btn--small">GET TICKET</a>
+        <button class="hamburger" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- モバイルメニュー -->
+  <div class="mobile-menu">
+    <nav class="mobile-menu__nav">
+      <a href="#about">ABOUT</a>
+      <a href="#countdown">LIVE INFO</a>
+      <a href="#goods">GOODS</a>
+      <a href="#ticket">TICKET</a>
+    </nav>
+  </div>
+
+  <!-- ヒーローセクション -->
+  <section class="hero">
+    <div class="hero__background">
+      <div class="hero__gradient"></div>
+      <div class="hero__scanlines"></div>
+    </div>
+
+    <div class="container hero__container">
+      <div class="hero__content">
+        <div class="hero__badge animate-on-scroll" data-animation="glitch-in">
+          <span class="badge badge--cyber"
+            data-editable="030-hero-badge"
+            data-type="text"
+            data-label="030: バッジテキスト"
+            data-group="03-Hero"
+            data-order="030"
+          >2026.03.15 SUN</span>
+        </div>
+
+        <h1 class="hero__title glitch" data-text="NEON GENESIS">
+          <span class="hero__title-line"
+            data-editable="031-hero-title-1"
+            data-type="text"
+            data-label="031: タイトル1行目"
+            data-group="03-Hero"
+            data-order="031"
+          >NEON</span>
+          <span class="hero__title-line hero__title-line--accent"
+            data-editable="032-hero-title-2"
+            data-type="text"
+            data-label="032: タイトル2行目"
+            data-group="03-Hero"
+            data-order="032"
+          >GENESIS</span>
+          <span class="hero__title-line hero__title-line--sub"
+            data-editable="033-hero-title-3"
+            data-type="text"
+            data-label="033: タイトル3行目"
+            data-group="03-Hero"
+            data-order="033"
+          >LIVE 2026</span>
+        </h1>
+
+        <p class="hero__artist animate-on-scroll" data-animation="fade-up"
+          data-editable="034-hero-artist"
+          data-type="text"
+          data-label="034: アーティスト名"
+          data-group="03-Hero"
+          data-order="034"
+        >星宮ネオン / Hoshimiya NEON</p>
+
+        <div class="hero__venue animate-on-scroll" data-animation="fade-up" data-delay="100">
+          <span class="venue-icon">&#9679;</span>
+          <span
+            data-editable="035-hero-venue"
+            data-type="text"
+            data-label="035: 会場名"
+            data-group="03-Hero"
+            data-order="035"
+          >Zepp DiverCity Tokyo</span>
+        </div>
+
+        <div class="hero__actions animate-on-scroll" data-animation="fade-up" data-delay="200">
+          <a href="#ticket" class="btn btn--neon btn--large btn--pulse"
+            data-editable="036-hero-cta"
+            data-type="link"
+            data-label="036: CTAボタン"
+            data-group="03-Hero"
+            data-order="036"
+          >TICKET INFO</a>
+          <a href="#goods" class="btn btn--outline btn--large"
+            data-editable="037-hero-cta2"
+            data-type="link"
+            data-label="037: CTAボタン2"
+            data-group="03-Hero"
+            data-order="037"
+          >VIEW GOODS</a>
+        </div>
+      </div>
+
+      <div class="hero__visual animate-on-scroll" data-animation="float-in">
+        <div class="hero__image-frame">
+          <div class="frame-corner frame-corner--tl"></div>
+          <div class="frame-corner frame-corner--tr"></div>
+          <div class="frame-corner frame-corner--bl"></div>
+          <div class="frame-corner frame-corner--br"></div>
+          <div class="hero__image-placeholder">
+            <div class="equalizer">
+              <span></span><span></span><span></span><span></span><span></span>
+              <span></span><span></span><span></span><span></span><span></span>
+            </div>
+            <p class="hero__image-text">ARTIST IMAGE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero__scroll-indicator">
+      <div class="scroll-line"></div>
+      <span>SCROLL</span>
+    </div>
+  </section>
+
+  <!-- カウントダウンセクション -->
+  <section id="countdown" class="countdown-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-up">
+        <span class="section-tag">COUNTDOWN</span>
+        <h2 class="section-title neon-text"
+          data-editable="040-countdown-title"
+          data-type="text"
+          data-label="040: カウントダウンタイトル"
+          data-group="04-Countdown"
+          data-order="040"
+        >開演まであと</h2>
+      </div>
+
+      <div class="countdown" id="countdown" data-target="2026-03-15T17:00:00+09:00">
+        <div class="countdown__item">
+          <div class="countdown__number" id="days">00</div>
+          <div class="countdown__label">DAYS</div>
+        </div>
+        <div class="countdown__separator">:</div>
+        <div class="countdown__item">
+          <div class="countdown__number" id="hours">00</div>
+          <div class="countdown__label">HOURS</div>
+        </div>
+        <div class="countdown__separator">:</div>
+        <div class="countdown__item">
+          <div class="countdown__number" id="minutes">00</div>
+          <div class="countdown__label">MINS</div>
+        </div>
+        <div class="countdown__separator">:</div>
+        <div class="countdown__item">
+          <div class="countdown__number" id="seconds">00</div>
+          <div class="countdown__label">SECS</div>
+        </div>
+      </div>
+
+      <div class="live-info animate-on-scroll" data-animation="fade-up">
+        <div class="live-info__card">
+          <div class="live-info__icon">&#128197;</div>
+          <div class="live-info__content">
+            <div class="live-info__label">DATE</div>
+            <div class="live-info__value"
+              data-editable="041-live-date"
+              data-type="text"
+              data-label="041: 開催日"
+              data-group="04-Countdown"
+              data-order="041"
+            >2026年3月15日（日）</div>
+          </div>
+        </div>
+        <div class="live-info__card">
+          <div class="live-info__icon">&#128336;</div>
+          <div class="live-info__content">
+            <div class="live-info__label">TIME</div>
+            <div class="live-info__value"
+              data-editable="042-live-time"
+              data-type="text"
+              data-label="042: 開演時間"
+              data-group="04-Countdown"
+              data-order="042"
+            >OPEN 16:00 / START 17:00</div>
+          </div>
+        </div>
+        <div class="live-info__card">
+          <div class="live-info__icon">&#128205;</div>
+          <div class="live-info__content">
+            <div class="live-info__label">VENUE</div>
+            <div class="live-info__value"
+              data-editable="043-live-venue"
+              data-type="text"
+              data-label="043: 会場詳細"
+              data-group="04-Countdown"
+              data-order="043"
+            >Zepp DiverCity Tokyo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 物販セクション -->
+  <section id="goods" class="goods-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-up">
+        <span class="section-tag">MERCHANDISE</span>
+        <h2 class="section-title neon-text"
+          data-editable="050-goods-title"
+          data-type="text"
+          data-label="050: 物販タイトル"
+          data-group="05-Goods"
+          data-order="050"
+        >OFFICIAL GOODS</h2>
+        <p class="section-subtitle"
+          data-editable="051-goods-subtitle"
+          data-type="text"
+          data-label="051: 物販サブタイトル"
+          data-group="05-Goods"
+          data-order="051"
+        >会場限定グッズを先行公開</p>
+      </div>
+
+      <div class="goods-grid" data-repeat="goods" data-repeat-min="1" data-repeat-max="12">
+        <!-- 商品1: Tシャツ -->
+        <div class="goods-card animate-on-scroll" data-animation="zoom-in" data-delay="0" data-repeat-item="1">
+          <div class="goods-card__image">
+            <div class="goods-card__badge">NEW</div>
+            <div class="goods-card__placeholder">
+              <span class="goods-icon">&#128085;</span>
+            </div>
+            <div class="goods-card__overlay">
+              <button class="btn btn--small btn--neon goods-detail-btn" data-product="1">DETAIL</button>
+            </div>
+          </div>
+          <div class="goods-card__info">
+            <h3 class="goods-card__name"
+              data-editable="052-goods-1-name"
+              data-type="text"
+              data-label="052: 商品1名"
+              data-group="05-Goods"
+              data-order="052"
+            >NEON GENESIS Tシャツ</h3>
+            <p class="goods-card__desc"
+              data-editable="053-goods-1-desc"
+              data-type="text"
+              data-label="053: 商品1説明"
+              data-group="05-Goods"
+              data-order="053"
+            >サイバーパンクデザインの公式Tシャツ</p>
+            <div class="goods-card__price"
+              data-editable="054-goods-1-price"
+              data-type="text"
+              data-label="054: 商品1価格"
+              data-group="05-Goods"
+              data-order="054"
+            >¥4,500</div>
+          </div>
+        </div>
+
+        <!-- 商品2: ペンライト -->
+        <div class="goods-card animate-on-scroll" data-animation="zoom-in" data-delay="50" data-repeat-item="2">
+          <div class="goods-card__image">
+            <div class="goods-card__badge">LIMITED</div>
+            <div class="goods-card__placeholder">
+              <span class="goods-icon">&#128294;</span>
+            </div>
+            <div class="goods-card__overlay">
+              <button class="btn btn--small btn--neon goods-detail-btn" data-product="2">DETAIL</button>
+            </div>
+          </div>
+          <div class="goods-card__info">
+            <h3 class="goods-card__name"
+              data-editable="055-goods-2-name"
+              data-type="text"
+              data-label="055: 商品2名"
+              data-group="05-Goods"
+              data-order="055"
+            >限定ペンライト</h3>
+            <p class="goods-card__desc"
+              data-editable="056-goods-2-desc"
+              data-type="text"
+              data-label="056: 商品2説明"
+              data-group="05-Goods"
+              data-order="056"
+            >24色切替・ライブ連動機能付き</p>
+            <div class="goods-card__price"
+              data-editable="057-goods-2-price"
+              data-type="text"
+              data-label="057: 商品2価格"
+              data-group="05-Goods"
+              data-order="057"
+            >¥3,500</div>
+          </div>
+        </div>
+
+        <!-- 商品3: アクリルスタンド -->
+        <div class="goods-card animate-on-scroll" data-animation="zoom-in" data-delay="100" data-repeat-item="3">
+          <div class="goods-card__image">
+            <div class="goods-card__placeholder">
+              <span class="goods-icon">&#127942;</span>
+            </div>
+            <div class="goods-card__overlay">
+              <button class="btn btn--small btn--neon goods-detail-btn" data-product="3">DETAIL</button>
+            </div>
+          </div>
+          <div class="goods-card__info">
+            <h3 class="goods-card__name"
+              data-editable="058-goods-3-name"
+              data-type="text"
+              data-label="058: 商品3名"
+              data-group="05-Goods"
+              data-order="058"
+            >アクリルスタンド</h3>
+            <p class="goods-card__desc"
+              data-editable="059-goods-3-desc"
+              data-type="text"
+              data-label="059: 商品3説明"
+              data-group="05-Goods"
+              data-order="059"
+            >全高約15cm・LEDベース付き</p>
+            <div class="goods-card__price"
+              data-editable="060-goods-3-price"
+              data-type="text"
+              data-label="060: 商品3価格"
+              data-group="05-Goods"
+              data-order="060"
+            >¥1,800</div>
+          </div>
+        </div>
+
+        <!-- 商品4: マフラータオル -->
+        <div class="goods-card animate-on-scroll" data-animation="zoom-in" data-delay="150" data-repeat-item="4">
+          <div class="goods-card__image">
+            <div class="goods-card__placeholder">
+              <span class="goods-icon">&#129507;</span>
+            </div>
+            <div class="goods-card__overlay">
+              <button class="btn btn--small btn--neon goods-detail-btn" data-product="4">DETAIL</button>
+            </div>
+          </div>
+          <div class="goods-card__info">
+            <h3 class="goods-card__name"
+              data-editable="061-goods-4-name"
+              data-type="text"
+              data-label="061: 商品4名"
+              data-group="05-Goods"
+              data-order="061"
+            >マフラータオル</h3>
+            <p class="goods-card__desc"
+              data-editable="062-goods-4-desc"
+              data-type="text"
+              data-label="062: 商品4説明"
+              data-group="05-Goods"
+              data-order="062"
+            >今治産・ネオンカラー刺繍</p>
+            <div class="goods-card__price"
+              data-editable="063-goods-4-price"
+              data-type="text"
+              data-label="063: 商品4価格"
+              data-group="05-Goods"
+              data-order="063"
+            >¥2,500</div>
+          </div>
+        </div>
+
+        <!-- 商品5: 限定CD -->
+        <div class="goods-card animate-on-scroll" data-animation="zoom-in" data-delay="200" data-repeat-item="5">
+          <div class="goods-card__image">
+            <div class="goods-card__badge">EXCLUSIVE</div>
+            <div class="goods-card__placeholder">
+              <span class="goods-icon">&#128191;</span>
+            </div>
+            <div class="goods-card__overlay">
+              <button class="btn btn--small btn--neon goods-detail-btn" data-product="5">DETAIL</button>
+            </div>
+          </div>
+          <div class="goods-card__info">
+            <h3 class="goods-card__name"
+              data-editable="064-goods-5-name"
+              data-type="text"
+              data-label="064: 商品5名"
+              data-group="05-Goods"
+              data-order="064"
+            >限定CD「NEON TRACKS」</h3>
+            <p class="goods-card__desc"
+              data-editable="065-goods-5-desc"
+              data-type="text"
+              data-label="065: 商品5説明"
+              data-group="05-Goods"
+              data-order="065"
+            >会場限定リミックス収録</p>
+            <div class="goods-card__price"
+              data-editable="066-goods-5-price"
+              data-type="text"
+              data-label="066: 商品5価格"
+              data-group="05-Goods"
+              data-order="066"
+            >¥3,000</div>
+          </div>
+        </div>
+
+        <!-- 商品6: 缶バッジセット -->
+        <div class="goods-card animate-on-scroll" data-animation="zoom-in" data-delay="250" data-repeat-item="6">
+          <div class="goods-card__image">
+            <div class="goods-card__placeholder">
+              <span class="goods-icon">&#128308;</span>
+            </div>
+            <div class="goods-card__overlay">
+              <button class="btn btn--small btn--neon goods-detail-btn" data-product="6">DETAIL</button>
+            </div>
+          </div>
+          <div class="goods-card__info">
+            <h3 class="goods-card__name"
+              data-editable="067-goods-6-name"
+              data-type="text"
+              data-label="067: 商品6名"
+              data-group="05-Goods"
+              data-order="067"
+            >缶バッジセット</h3>
+            <p class="goods-card__desc"
+              data-editable="068-goods-6-desc"
+              data-type="text"
+              data-label="068: 商品6説明"
+              data-group="05-Goods"
+              data-order="068"
+            >5種セット・ランダムシークレット1種</p>
+            <div class="goods-card__price"
+              data-editable="069-goods-6-price"
+              data-type="text"
+              data-label="069: 商品6価格"
+              data-group="05-Goods"
+              data-order="069"
+            >¥1,200</div>
+          </div>
+        </div>
+
+        <!-- 商品7: クリアファイル -->
+        <div class="goods-card animate-on-scroll" data-animation="zoom-in" data-delay="300" data-repeat-item="7">
+          <div class="goods-card__image">
+            <div class="goods-card__placeholder">
+              <span class="goods-icon">&#128196;</span>
+            </div>
+            <div class="goods-card__overlay">
+              <button class="btn btn--small btn--neon goods-detail-btn" data-product="7">DETAIL</button>
+            </div>
+          </div>
+          <div class="goods-card__info">
+            <h3 class="goods-card__name"
+              data-editable="070-goods-7-name"
+              data-type="text"
+              data-label="070: 商品7名"
+              data-group="05-Goods"
+              data-order="070"
+            >クリアファイルセット</h3>
+            <p class="goods-card__desc"
+              data-editable="071-goods-7-desc"
+              data-type="text"
+              data-label="071: 商品7説明"
+              data-group="05-Goods"
+              data-order="071"
+            >A4サイズ・3枚セット</p>
+            <div class="goods-card__price"
+              data-editable="072-goods-7-price"
+              data-type="text"
+              data-label="072: 商品7価格"
+              data-group="05-Goods"
+              data-order="072"
+            >¥800</div>
+          </div>
+        </div>
+
+        <!-- 商品8: VIP BOX -->
+        <div class="goods-card goods-card--featured animate-on-scroll" data-animation="zoom-in" data-delay="350" data-repeat-item="8">
+          <div class="goods-card__image">
+            <div class="goods-card__badge goods-card__badge--gold">VIP</div>
+            <div class="goods-card__placeholder goods-card__placeholder--gold">
+              <span class="goods-icon">&#127873;</span>
+            </div>
+            <div class="goods-card__overlay">
+              <button class="btn btn--small btn--neon goods-detail-btn" data-product="8">DETAIL</button>
+            </div>
+          </div>
+          <div class="goods-card__info">
+            <h3 class="goods-card__name"
+              data-editable="073-goods-8-name"
+              data-type="text"
+              data-label="073: 商品8名"
+              data-group="05-Goods"
+              data-order="073"
+            >VIP限定グッズBOX</h3>
+            <p class="goods-card__desc"
+              data-editable="074-goods-8-desc"
+              data-type="text"
+              data-label="074: 商品8説明"
+              data-group="05-Goods"
+              data-order="074"
+            >限定100セット・シリアルナンバー入り</p>
+            <div class="goods-card__price"
+              data-editable="075-goods-8-price"
+              data-type="text"
+              data-label="075: 商品8価格"
+              data-group="05-Goods"
+              data-order="075"
+            >¥15,000</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="goods-notice animate-on-scroll" data-animation="fade-up">
+        <p
+          data-editable="076-goods-notice"
+          data-type="richtext"
+          data-label="076: 物販注意事項"
+          data-group="05-Goods"
+          data-order="076"
+        >※物販は会場にて販売予定です。一部商品は数量限定のため、売り切れの際はご了承ください。<br>※通販での販売予定はございません。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- チケットセクション -->
+  <section id="ticket" class="ticket-section">
+    <div class="container">
+      <div class="section-header animate-on-scroll" data-animation="fade-up">
+        <span class="section-tag">TICKET</span>
+        <h2 class="section-title neon-text"
+          data-editable="080-ticket-title"
+          data-type="text"
+          data-label="080: チケットタイトル"
+          data-group="06-Ticket"
+          data-order="080"
+        >TICKET INFO</h2>
+      </div>
+
+      <div class="ticket-grid" data-repeat="tickets" data-repeat-min="1" data-repeat-max="4">
+        <!-- 一般チケット -->
+        <div class="ticket-card animate-on-scroll" data-animation="fade-up" data-delay="0" data-repeat-item="1">
+          <div class="ticket-card__header">
+            <h3 class="ticket-card__name"
+              data-editable="081-ticket-1-name"
+              data-type="text"
+              data-label="081: チケット1名"
+              data-group="06-Ticket"
+              data-order="081"
+            >一般チケット</h3>
+          </div>
+          <div class="ticket-card__price">
+            <span class="ticket-card__currency">¥</span>
+            <span class="ticket-card__amount"
+              data-editable="082-ticket-1-price"
+              data-type="text"
+              data-label="082: チケット1価格"
+              data-group="06-Ticket"
+              data-order="082"
+            >8,800</span>
+          </div>
+          <ul class="ticket-card__features">
+            <li>スタンディングエリア</li>
+            <li>ドリンク代別途¥600</li>
+          </ul>
+          <a href="#" class="btn btn--outline btn--full"
+            data-editable="083-ticket-1-btn"
+            data-type="link"
+            data-label="083: チケット1ボタン"
+            data-group="06-Ticket"
+            data-order="083"
+          >購入する</a>
+        </div>
+
+        <!-- プレミアムチケット -->
+        <div class="ticket-card ticket-card--featured animate-on-scroll" data-animation="fade-up" data-delay="100" data-repeat-item="2">
+          <div class="ticket-card__badge">RECOMMEND</div>
+          <div class="ticket-card__header">
+            <h3 class="ticket-card__name"
+              data-editable="084-ticket-2-name"
+              data-type="text"
+              data-label="084: チケット2名"
+              data-group="06-Ticket"
+              data-order="084"
+            >プレミアムチケット</h3>
+          </div>
+          <div class="ticket-card__price">
+            <span class="ticket-card__currency">¥</span>
+            <span class="ticket-card__amount"
+              data-editable="085-ticket-2-price"
+              data-type="text"
+              data-label="085: チケット2価格"
+              data-group="06-Ticket"
+              data-order="085"
+            >12,800</span>
+          </div>
+          <ul class="ticket-card__features">
+            <li>最前列優先エリア</li>
+            <li>限定グッズ付き</li>
+            <li>ドリンク1杯無料</li>
+          </ul>
+          <a href="#" class="btn btn--neon btn--full btn--pulse"
+            data-editable="086-ticket-2-btn"
+            data-type="link"
+            data-label="086: チケット2ボタン"
+            data-group="06-Ticket"
+            data-order="086"
+          >購入する</a>
+        </div>
+
+        <!-- VIPチケット -->
+        <div class="ticket-card ticket-card--vip animate-on-scroll" data-animation="fade-up" data-delay="200" data-repeat-item="3">
+          <div class="ticket-card__badge ticket-card__badge--gold">VIP</div>
+          <div class="ticket-card__header">
+            <h3 class="ticket-card__name"
+              data-editable="087-ticket-3-name"
+              data-type="text"
+              data-label="087: チケット3名"
+              data-group="06-Ticket"
+              data-order="087"
+            >VIPチケット</h3>
+          </div>
+          <div class="ticket-card__price">
+            <span class="ticket-card__currency">¥</span>
+            <span class="ticket-card__amount"
+              data-editable="088-ticket-3-price"
+              data-type="text"
+              data-label="088: チケット3価格"
+              data-group="06-Ticket"
+              data-order="088"
+            >25,000</span>
+          </div>
+          <ul class="ticket-card__features">
+            <li>専用VIPエリア</li>
+            <li>限定VIP BOX付き</li>
+            <li>終演後サイン会参加権</li>
+            <li>記念フォトカード</li>
+          </ul>
+          <a href="#" class="btn btn--gold btn--full"
+            data-editable="089-ticket-3-btn"
+            data-type="link"
+            data-label="089: チケット3ボタン"
+            data-group="06-Ticket"
+            data-order="089"
+          >購入する</a>
+        </div>
+      </div>
+
+      <div class="ticket-notice animate-on-scroll" data-animation="fade-up">
+        <p
+          data-editable="090-ticket-notice"
+          data-type="richtext"
+          data-label="090: チケット注意事項"
+          data-group="06-Ticket"
+          data-order="090"
+        >※チケットは先着順での販売となります。定員に達し次第、販売を終了いたします。<br>※転売目的での購入は固くお断りいたします。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTAセクション -->
+  <section class="cta-section">
+    <div class="cta__background">
+      <div class="cta__gradient"></div>
+      <div class="cta__grid"></div>
+    </div>
+    <div class="container">
+      <div class="cta__content animate-on-scroll" data-animation="zoom-in">
+        <h2 class="cta__title glitch" data-text="JOIN THE NEON WORLD"
+          data-editable="100-cta-title"
+          data-type="text"
+          data-label="100: CTAタイトル"
+          data-group="07-CTA"
+          data-order="100"
+        >JOIN THE NEON WORLD</h2>
+        <p class="cta__text"
+          data-editable="101-cta-text"
+          data-type="text"
+          data-label="101: CTAテキスト"
+          data-group="07-CTA"
+          data-order="101"
+        >一夜限りの電脳世界へ、ようこそ。</p>
+        <a href="#ticket" class="btn btn--neon btn--large btn--pulse"
+          data-editable="102-cta-button"
+          data-type="link"
+          data-label="102: CTAボタン"
+          data-group="07-CTA"
+          data-order="102"
+        >GET YOUR TICKET</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- フッター -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__logo"
+            data-editable="110-footer-logo"
+            data-type="text"
+            data-label="110: フッターロゴ"
+            data-group="08-Footer"
+            data-order="110"
+          >NEON GENESIS LIVE 2026</span>
+          <p class="footer__artist"
+            data-editable="111-footer-artist"
+            data-type="text"
+            data-label="111: フッターアーティスト名"
+            data-group="08-Footer"
+            data-order="111"
+          >星宮ネオン Official</p>
+        </div>
+        <div class="footer__social">
+          <a href="#" class="social-link" aria-label="Twitter"
+            data-editable="112-social-x"
+            data-type="link"
+            data-label="112: X(Twitter)"
+            data-group="08-Footer"
+            data-order="112"
+          >X</a>
+          <a href="#" class="social-link" aria-label="YouTube"
+            data-editable="113-social-yt"
+            data-type="link"
+            data-label="113: YouTube"
+            data-group="08-Footer"
+            data-order="113"
+          >YT</a>
+          <a href="#" class="social-link" aria-label="niconico"
+            data-editable="114-social-nico"
+            data-type="link"
+            data-label="114: niconico"
+            data-group="08-Footer"
+            data-order="114"
+          >nico</a>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <p
+          data-editable="115-copyright"
+          data-type="text"
+          data-label="115: コピーライト"
+          data-group="08-Footer"
+          data-order="115"
+        >&copy; 2026 Hoshimiya NEON. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 商品詳細モーダル -->
+  <div class="modal" id="productModal">
+    <div class="modal__backdrop"></div>
+    <div class="modal__content">
+      <button class="modal__close">&times;</button>
+      <div class="modal__body">
+        <div class="modal__image">
+          <div class="modal__image-placeholder">
+            <span class="goods-icon" id="modalIcon">&#128085;</span>
+          </div>
+        </div>
+        <div class="modal__info">
+          <h3 class="modal__title" id="modalTitle">商品名</h3>
+          <p class="modal__desc" id="modalDesc">商品説明</p>
+          <div class="modal__price" id="modalPrice">¥0,000</div>
+          <div class="modal__details" id="modalDetails">
+            <p>サイズ: S / M / L / XL</p>
+            <p>カラー: ブラック / ホワイト</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

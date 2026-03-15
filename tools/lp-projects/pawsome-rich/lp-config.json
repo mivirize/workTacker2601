@@ -1,0 +1,103 @@
+{
+  "name": "Pawsome Stay",
+  "version": "1.0.0",
+  "description": "Luxury Pet Hotel & Grooming - Yokohama, Kanagawa",
+  "tier": "rich",
+  "client": "株式会社ペットライフ",
+  "industry": "pet-hotel",
+  "colors": {
+    "primary": "#FFB5C5",
+    "secondary": "#98D4BB",
+    "accent": "#FF8FAB",
+    "background": "#FFF9FA",
+    "backgroundDark": "#2D2D3A",
+    "text": "#4A4A5A",
+    "textLight": "#7A7A8A",
+    "white": "#FFFFFF",
+    "gold": "#D4A574"
+  },
+  "fonts": {
+    "heading": "'M PLUS Rounded 1c', 'Hiragino Kaku Gothic ProN', sans-serif",
+    "body": "'Noto Sans JP', 'Hiragino Kaku Gothic ProN', sans-serif"
+  },
+  "sections": [
+    {
+      "id": "hero",
+      "name": "Hero Section",
+      "description": "Main visual with animated paw prints"
+    },
+    {
+      "id": "trust",
+      "name": "Trust Badges",
+      "description": "24h vet, private rooms, live cam, organic food"
+    },
+    {
+      "id": "services",
+      "name": "Services Detail",
+      "description": "4 main services offered"
+    },
+    {
+      "id": "facility",
+      "name": "Facility Tour",
+      "description": "6 room types with photo gallery"
+    },
+    {
+      "id": "safety",
+      "name": "Safety & Health",
+      "description": "5 key safety points"
+    },
+    {
+      "id": "staff",
+      "name": "Staff Introduction",
+      "description": "4 professional staff members"
+    },
+    {
+      "id": "testimonials",
+      "name": "Testimonials",
+      "description": "4 customer reviews with pet photos"
+    },
+    {
+      "id": "grooming",
+      "name": "Before/After Grooming",
+      "description": "Grooming transformation gallery"
+    },
+    {
+      "id": "pricing",
+      "name": "Pricing Comparison",
+      "description": "Room types and pricing table"
+    },
+    {
+      "id": "faq",
+      "name": "FAQ",
+      "description": "Frequently asked questions"
+    },
+    {
+      "id": "access",
+      "name": "Access & Pickup",
+      "description": "Location and pickup service info"
+    },
+    {
+      "id": "cta",
+      "name": "Booking CTA",
+      "description": "Final call to action for booking"
+    }
+  ],
+  "features": {
+    "animations": true,
+    "slider": true,
+    "parallax": true,
+    "scrollAnimations": true,
+    "floatingElements": true,
+    "pawPrints": true
+  },
+  "contact": {
+    "phone": "045-XXX-XXXX",
+    "email": "info@pawsome-stay.jp",
+    "address": "横浜市中区XXX 1-2-3",
+    "hours": "24時間対応"
+  },
+  "social": {
+    "instagram": "https://instagram.com/pawsome_stay",
+    "line": "https://line.me/pawsome_stay"
+  }
+}

@@ -63,7 +63,13 @@ export function ProjectStats({ stats, projectName, projectPath, onOpenProject }:
 
     try {
       const result = await window.electronAPI.validateLpContent(projectPath)
-      setValidationResult(result)
+      setValidationResult({
+        valid: result.valid,
+        warnings: result.warnings.map(w => ({
+          ...w,
+          type: w.type as 'error' | 'warning' | 'info',
+        })),
+      })
     } catch (error) {
       setExportResult({ success: false, message: `バリデーションエラー: ${error}` })
     } finally {

@@ -1,0 +1,30 @@
+{
+  "name": "Global Talk - Online English School",
+  "version": "1.0.0",
+  "tier": "standard",
+  "client": "グローバルトーク株式会社",
+  "entry": "src/index.html",
+  "assets": {
+    "css": ["src/css/styles.css"],
+    "js": ["src/js/main.js"],
+    "images": "src/images"
+  },
+  "colors": {
+    "primary": "#1E3A5F",
+    "primaryDark": "#152C4A",
+    "secondary": "#FF6B35",
+    "background": "#FFFFFF",
+    "backgroundAlt": "#F8FAFC",
+    "text": "#1F2937",
+    "textLight": "#6B7280"
+  },
+  "sections": [
+    "hero",
+    "pain-points",
+    "solution",
+    "features",
+    "pricing",
+    "faq",
+    "cta"
+  ]
+}

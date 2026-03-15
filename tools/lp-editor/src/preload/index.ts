@@ -47,6 +47,16 @@ contextBridge.exposeInMainWorld('electronAPI', {
   exportHtml: (htmlContent: string, outputDir?: string) => ipcRenderer.invoke('export-html', htmlContent, outputDir),
   showOutputFolder: (outputDir?: string) => ipcRenderer.invoke('show-output-folder', outputDir),
 
+  // Tracking operations
+  loadTrackingConfig: () => ipcRenderer.invoke('load-tracking-config'),
+  saveTrackingConfig: (config: object) => ipcRenderer.invoke('save-tracking-config', config),
+
+  // Form operations
+  loadFormConfig: () => ipcRenderer.invoke('load-form-config'),
+  saveFormConfig: (configs: object) => ipcRenderer.invoke('save-form-config', configs),
+  testFormSubmit: (formId: string, config: object) =>
+    ipcRenderer.invoke('test-form-submit', formId, config),
+
   // Admin mode operations
   isAdminMode: () => ipcRenderer.invoke('is-admin-mode'),
   listProjects: (baseDir: string) => ipcRenderer.invoke('list-projects', baseDir),
@@ -138,6 +148,15 @@ export interface ElectronAPI {
   selectExportFolder: () => Promise<string | null>
   exportHtml: (htmlContent: string, outputDir?: string) => Promise<string | null>
   showOutputFolder: (outputDir?: string) => Promise<void>
+
+  // Tracking operations
+  loadTrackingConfig: () => Promise<object | null>
+  saveTrackingConfig: (config: object) => Promise<boolean>
+
+  // Form operations
+  loadFormConfig: () => Promise<Record<string, object> | null>
+  saveFormConfig: (configs: object) => Promise<boolean>
+  testFormSubmit: (formId: string, config: object) => Promise<{ success: boolean; error?: string }>
 
   // Admin mode operations
   isAdminMode: () => Promise<boolean>

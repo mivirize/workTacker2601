@@ -1,0 +1,61 @@
+{
+  "name": "Pawsome Stay",
+  "version": "1.0.0",
+  "tier": "premium",
+  "client": "株式会社ペットライフ",
+  "industry": "Pet Hotel & Grooming",
+  "location": "Yokohama, Kanagawa",
+  "colors": {
+    "primary": "#FFB5C5",
+    "secondary": "#98D8C8",
+    "accent": "#FF6B9D",
+    "background": "#FFF8FA",
+    "text": "#4A4A4A",
+    "textLight": "#8A8A8A",
+    "white": "#FFFFFF",
+    "gold": "#D4AF37"
+  },
+  "fonts": {
+    "heading": "'Noto Sans JP', sans-serif",
+    "body": "'Noto Sans JP', sans-serif",
+    "accent": "'Zen Maru Gothic', sans-serif"
+  },
+  "target": {
+    "age": "30-50",
+    "demographic": "affluent pet owners",
+    "language": "ja"
+  },
+  "pages": [
+    {
+      "name": "index",
+      "path": "src/index.html",
+      "sections": 15
+    }
+  ],
+  "features": {
+    "particles": true,
+    "videoBackground": true,
+    "interactiveRoomExplorer": true,
+    "liveCamera": true,
+    "beforeAfterSlider": true,
+    "animatedMascot": true,
+    "smoothTransitions": true
+  },
+  "assets": {
+    "css": [
+      "src/css/styles.css",
+      "src/css/animations.css",
+      "src/css/components.css"
+    ],
+    "js": [
+      "src/js/main.js",
+      "src/js/animations.js",
+      "src/js/particles.js"
+    ]
+  },
+  "seo": {
+    "title": "Pawsome Stay - 横浜の高級ペットホテル",
+    "description": "大切な家族を、最高のおもてなしで。横浜の高級ペットホテル Pawsome Stay。24時間ケア、トリミング、ライブカメラ完備。",
+    "keywords": ["ペットホテル", "横浜", "高級", "トリミング", "24時間", "ライブカメラ"]
+  }
+}

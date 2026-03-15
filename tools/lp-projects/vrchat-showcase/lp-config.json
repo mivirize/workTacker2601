@@ -1,0 +1,60 @@
+{
+  "name": "VIRTUAL DIMENSION",
+  "version": "1.0.0",
+  "description": "VRChat Avatar Showcase - UN-DIMENSION Style",
+  "author": "Virtual Dimension Team",
+  "entry": "src/index.html",
+  "theme": {
+    "primaryColor": "#4457af",
+    "accentColor": "#FFB4E2",
+    "backgroundColor": "#0a0a1a"
+  },
+  "groups": [
+    {
+      "id": "01-Navigation",
+      "label": "ナビゲーション"
+    },
+    {
+      "id": "02-Hero",
+      "label": "ヒーローセクション"
+    },
+    {
+      "id": "03-About",
+      "label": "About"
+    },
+    {
+      "id": "04-Members",
+      "label": "メンバー"
+    },
+    {
+      "id": "05-Gallery",
+      "label": "ギャラリー"
+    },
+    {
+      "id": "06-SNS",
+      "label": "SNS・配信"
+    },
+    {
+      "id": "07-Contact",
+      "label": "お問い合わせ"
+    },
+    {
+      "id": "08-Footer",
+      "label": "フッター"
+    }
+  ],
+  "repeatBlocks": [
+    {
+      "id": "members",
+      "label": "メンバー一覧",
+      "min": 1,
+      "max": 8
+    },
+    {
+      "id": "gallery",
+      "label": "ギャラリー画像",
+      "min": 3,
+      "max": 12
+    }
+  ]
+}

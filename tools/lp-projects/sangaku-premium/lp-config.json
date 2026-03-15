@@ -1,0 +1,74 @@
+{
+  "name": "SANGAKU BEER",
+  "version": "1.0.0",
+  "tier": "premium",
+  "description": "山岳麦酒 - 北アルプスの恵みを一杯に込めたクラフトビール",
+  "client": "山岳麦酒醸造所",
+  "theme": {
+    "mode": "dark",
+    "colors": {
+      "primary": "#D4A853",
+      "secondary": "#1B4D3E",
+      "accent": "#C9A962",
+      "background": "#0D0D0D",
+      "backgroundAlt": "#1A1A1A",
+      "text": "#F5F5F5",
+      "textMuted": "#A0A0A0",
+      "amber": "#D4A853",
+      "darkGreen": "#1B4D3E",
+      "forestGreen": "#2D5A4A",
+      "cream": "#FDF8E8",
+      "foam": "#FFFEF0",
+      "copper": "#B87333"
+    },
+    "fonts": {
+      "heading": "'Noto Serif JP', 'Georgia', serif",
+      "body": "'Noto Sans JP', 'Hiragino Sans', sans-serif",
+      "accent": "'Cormorant Garamond', 'Noto Serif JP', serif"
+    }
+  },
+  "sections": [
+    "age-gate",
+    "loading",
+    "hero",
+    "manifesto",
+    "origin",
+    "philosophy",
+    "brewing-process",
+    "products",
+    "tasting-notes",
+    "awards",
+    "master-brewer",
+    "virtual-tour",
+    "ingredients-map",
+    "shop",
+    "footer"
+  ],
+  "features": {
+    "ageGate": true,
+    "loadingAnimation": "beer-foam",
+    "videoBackground": true,
+    "parallax": "multi-layer",
+    "particles": ["bubbles", "hops"],
+    "horizontalScroll": true,
+    "interactiveFlavorWheel": true,
+    "3dShowcase": true,
+    "virtualTour": true,
+    "ingredientMap": true
+  },
+  "seo": {
+    "title": "山岳麦酒 SANGAKU BEER | 北アルプスの恵み、一杯に込めて。",
+    "description": "長野県松本市のクラフトビール醸造所。北アルプスの天然水と厳選素材で造る、山の恵みを感じる一杯。",
+    "keywords": "クラフトビール,長野,松本,山岳麦酒,SANGAKU BEER,北アルプス,地ビール"
+  },
+  "social": {
+    "instagram": "https://instagram.com/sangaku_beer",
+    "twitter": "https://twitter.com/sangaku_beer",
+    "facebook": "https://facebook.com/sangakubeer"
+  },
+  "contact": {
+    "email": "info@sangaku-beer.jp",
+    "phone": "0263-XX-XXXX",
+    "address": "〒390-XXXX 長野県松本市XX町X-X-X"
+  }
+}

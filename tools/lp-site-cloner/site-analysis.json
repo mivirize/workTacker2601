@@ -1,0 +1,1400 @@
+{
+  "sections": [
+    {
+      "id": "top",
+      "tag": "BODY",
+      "classes": [
+        "is-fv"
+      ],
+      "position": {
+        "top": 0,
+        "height": 11215.609375
+      }
+    },
+    {
+      "id": "fullWrap",
+      "tag": "DIV",
+      "classes": [],
+      "position": {
+        "top": 0,
+        "height": 11215.609375
+      }
+    },
+    {
+      "id": "js-gnavMenuLabel",
+      "tag": "SPAN",
+      "classes": [
+        "gnav__menuLabel"
+      ],
+      "position": {
+        "top": 0,
+        "height": 0
+      }
+    },
+    {
+      "id": "js-gnav",
+      "tag": "UL",
+      "classes": [
+        "gnav__lists"
+      ],
+      "position": {
+        "top": 0,
+        "height": 0
+      }
+    },
+    {
+      "id": "js-gsns",
+      "tag": "DL",
+      "classes": [
+        "gnav__officialLists"
+      ],
+      "position": {
+        "top": 0,
+        "height": 0
+      }
+    },
+    {
+      "id": "js-gnavCharacter",
+      "tag": "DIV",
+      "classes": [
+        "gnav__character"
+      ],
+      "position": {
+        "top": 0,
+        "height": 0
+      }
+    },
+    {
+      "id": "js-hotnews",
+      "tag": "DD",
+      "classes": [
+        "gnav__hotTopicsItem"
+      ],
+      "position": {
+        "top": 0,
+        "height": 0
+      }
+    },
+    {
+      "id": "kv",
+      "tag": "DIV",
+      "classes": [
+        "kv"
+      ],
+      "position": {
+        "top": 0,
+        "height": 1080
+      }
+    },
+    {
+      "id": "js-kvSwiper",
+      "tag": "DIV",
+      "classes": [
+        "kv__imgContentin",
+        "swiper",
+        "swiper-fade",
+        "swiper-initialized",
+        "swiper-horizontal"
+      ],
+      "position": {
+        "top": 0,
+        "height": 1080
+      }
+    },
+    {
+      "id": "swiper-wrapper-c335b70a6102ef8c1",
+      "tag": "UL",
+      "classes": [
+        "kv__imgs",
+        "swiper-wrapper"
+      ],
+      "position": {
+        "top": 0,
+        "height": 1080
+      }
+    },
+    {
+      "id": "fv",
+      "tag": "DIV",
+      "classes": [
+        "fv",
+        "sections",
+        "ani2"
+      ],
+      "position": {
+        "top": 0,
+        "height": 1080
+      }
+    },
+    {
+      "id": "nav",
+      "tag": "NAV",
+      "classes": [
+        "nav"
+      ],
+      "position": {
+        "top": 40,
+        "height": 164.609375
+      }
+    },
+    {
+      "id": "js-nav",
+      "tag": "UL",
+      "classes": [
+        "nav__lists"
+      ],
+      "position": {
+        "top": 41,
+        "height": 163.609375
+      }
+    },
+    {
+      "id": "js-sns",
+      "tag": "DL",
+      "classes": [
+        "fv__snsLists"
+      ],
+      "position": {
+        "top": 414.984375,
+        "height": 250.015625
+      }
+    },
+    {
+      "id": "js-kvSwiperSwitchers",
+      "tag": "UL",
+      "classes": [
+        "fv__kvSwitcherLists"
+      ],
+      "position": {
+        "top": 480,
+        "height": 120
+      }
+    },
+    {
+      "id": "js-bnr",
+      "tag": "DIV",
+      "classes": [
+        "fv__bnr"
+      ],
+      "position": {
+        "top": 960,
+        "height": 120
+      }
+    },
+    {
+      "id": "js-bnrSwiper",
+      "tag": "DIV",
+      "classes": [
+        "fv__bnrSwiper",
+        "swiper"
+      ],
+      "position": {
+        "top": 960,
+        "height": 120
+      }
+    },
+    {
+      "id": "js-bnrSwiperWrapper",
+      "tag": "UL",
+      "classes": [
+        "fv__bnrSwiper-wrapper",
+        "swiper-wrapper"
+      ],
+      "position": {
+        "top": 960,
+        "height": 64
+      }
+    },
+    {
+      "id": "news",
+      "tag": "SECTION",
+      "classes": [
+        "news",
+        "sections"
+      ],
+      "position": {
+        "top": 1080,
+        "height": 701
+      }
+    },
+    {
+      "id": "js-newsLists",
+      "tag": "UL",
+      "classes": [
+        "news__lists"
+      ],
+      "position": {
+        "top": 1359.5,
+        "height": 266
+      }
+    }
+  ],
+  "cssAnimations": [
+    {
+      "name": "mirrorball",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "background-position: 0px 0px;"
+        },
+        {
+          "keyText": "100%",
+          "style": "background-position: 100% 0px;"
+        }
+      ]
+    },
+    {
+      "name": "scrollLine",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "height: 0px; bottom: 0px;"
+        },
+        {
+          "keyText": "20%, 40%",
+          "style": "height: 100%; bottom: 0px;"
+        },
+        {
+          "keyText": "60%, 100%",
+          "style": "height: 0px; bottom: 100%;"
+        }
+      ]
+    },
+    {
+      "name": "c0",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "background-position: 0px 0px;"
+        },
+        {
+          "keyText": "100%",
+          "style": "background-position: max(calc(-511 / var(--vw-min) * 100vw),-511px) 0;"
+        }
+      ]
+    },
+    {
+      "name": "c1",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "background-position: 0px 0px;"
+        },
+        {
+          "keyText": "100%",
+          "style": "background-position: max(calc(-988 / var(--vw-min) * 100vw),-988px) 0;"
+        }
+      ]
+    },
+    {
+      "name": "c2",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "background-position: 0px 0px;"
+        },
+        {
+          "keyText": "100%",
+          "style": "background-position: max(calc(-994 / var(--vw-min) * 100vw),-994px) 0;"
+        }
+      ]
+    },
+    {
+      "name": "c3",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "background-position: 0px 0px;"
+        },
+        {
+          "keyText": "100%",
+          "style": "background-position: max(calc(-556 / var(--vw-min) * 100vw),-556px) 0;"
+        }
+      ]
+    },
+    {
+      "name": "c2s",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "mask-size: 100% 100%,\r\n\t\tvar(--kv-circle-width)\r\n\t\tvar(--kv-circle-width); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70.5%, rgba(0, 0, 0, 0"
+        },
+        {
+          "keyText": "50%",
+          "style": "mask-size: 100% 100%,\r\n\t\t0\r\n\t\tcalc(var(--kv-circle-width) * 0.5625); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));"
+        },
+        {
+          "keyText": "100%",
+          "style": "mask-size: 100% 100%,\r\n\t\tvar(--kv-circle-width)\r\n\t\tcalc(var(--kv-circle-width) * 0.5625); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));"
+        }
+      ]
+    },
+    {
+      "name": "s2c",
+      "keyframes": [
+        {
+          "keyText": "100%",
+          "style": "mask-size: 100% 100%,\r\n\t\tvar(--kv-circle-width)\r\n\t\tvar(--kv-circle-width); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70.5%, rgba(0, 0, 0, 0"
+        },
+        {
+          "keyText": "50%",
+          "style": "mask-size: 100% 100%,\r\n\t\t0\r\n\t\tcalc(var(--kv-circle-width) * 0.5625); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));"
+        },
+        {
+          "keyText": "0%",
+          "style": "mask-size: 100% 100%,\r\n\t\tvar(--kv-circle-width)\r\n\t\tcalc(var(--kv-circle-width) * 0.5625); mask-image: linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0));"
+        }
+      ]
+    },
+    {
+      "name": "floating-y",
+      "keyframes": [
+        {
+          "keyText": "0%, 100%",
+          "style": "transform: translateY(0px);"
+        },
+        {
+          "keyText": "50%",
+          "style": "transform: translateY(min(calc(15 / var(--vw-min) * 100vw),15px));"
+        }
+      ]
+    },
+    {
+      "name": "floating-x",
+      "keyframes": [
+        {
+          "keyText": "0%, 100%",
+          "style": "transform: translateY(0px);"
+        },
+        {
+          "keyText": "50%",
+          "style": "transform: translateX(min(calc(15 / var(--vw-min) * 100vw),15px));"
+        }
+      ]
+    },
+    {
+      "name": "spotlightL",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "transform: rotate(0deg);"
+        },
+        {
+          "keyText": "50%",
+          "style": "transform: rotate(-5deg);"
+        },
+        {
+          "keyText": "100%",
+          "style": "transform: rotate(0deg);"
+        }
+      ]
+    },
+    {
+      "name": "spotlightR",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "transform: rotate(0deg);"
+        },
+        {
+          "keyText": "50%",
+          "style": "transform: rotate(5deg);"
+        },
+        {
+          "keyText": "100%",
+          "style": "transform: rotate(0deg);"
+        }
+      ]
+    },
+    {
+      "name": "fog",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "background-position: 0px 0px;"
+        },
+        {
+          "keyText": "100%",
+          "style": "background-position: min(calc(2360 / var(--vw-min) * 100vw),2360px) 0;"
+        }
+      ]
+    },
+    {
+      "name": "datedeco",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "background-position: 0px 0px;"
+        },
+        {
+          "keyText": "100%",
+          "style": "background-position: min(calc(12 / var(--vw-min) * 100vw),12px) 0;"
+        }
+      ]
+    },
+    {
+      "name": "swiperNavCircle",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "stroke-dasharray: 0, 72;"
+        },
+        {
+          "keyText": "100%",
+          "style": "stroke-dasharray: 72, 72;"
+        }
+      ]
+    },
+    {
+      "name": "coinrotate",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "transform: rotateY(0deg);"
+        },
+        {
+          "keyText": "100%",
+          "style": "transform: rotateY(720deg);"
+        }
+      ]
+    },
+    {
+      "name": "commentL",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "opacity: 0; transform: translateX(100%);"
+        },
+        {
+          "keyText": "8%",
+          "style": "opacity: 1; transform: translateX(5%);"
+        },
+        {
+          "keyText": "50%",
+          "style": "opacity: 1; transform: translateX(-5%);"
+        },
+        {
+          "keyText": "58%, 100%",
+          "style": "opacity: 0; transform: translateX(-100%);"
+        }
+      ]
+    },
+    {
+      "name": "commentR",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "opacity: 0; transform: translateX(-100%);"
+        },
+        {
+          "keyText": "8%",
+          "style": "opacity: 1; transform: translateX(-5%);"
+        },
+        {
+          "keyText": "50%",
+          "style": "opacity: 1; transform: translateX(5%);"
+        },
+        {
+          "keyText": "58%, 100%",
+          "style": "opacity: 0; transform: translateX(100%);"
+        }
+      ]
+    },
+    {
+      "name": "umbrella",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "transform: rotate(0deg);"
+        },
+        {
+          "keyText": "100%",
+          "style": "transform: rotate(720deg);"
+        }
+      ]
+    },
+    {
+      "name": "pancake-flash",
+      "keyframes": [
+        {
+          "keyText": "0%",
+          "style": "transform: rotate(0deg);"
+        },
+        {
+          "keyText": "50%, 100%",
+          "style": "transform: rotate(180deg);"
+        }
+      ]
+    },
+    {
+      "name": "lantern1",
+      "keyframes": [
+        {
+          "keyText": "0%, 30%, 100%",
+          "style": "opacity: 0;"
+        },
+        {
+          "keyText": "50%, 80%",
+          "style": "opacity: 1;"
+        }
+      ]
+    },
+    {
+      "name": "lantern2",
+      "keyframes": [
+        {
+          "keyText": "0%, 30%, 100%",
+          "style": "opacity: 1;"
+        },
+        {
+          "keyText": "50%, 80%",
+          "style": "opacity: 0;"
+        }
+      ]
+    }
+  ],
+  "animatedElements": [
+    {
+      "selector": "HTML.",
+      "transition": "all"
+    },
+    {
+      "selector": "HEAD",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "TITLE",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "META",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "LINK",
+      "transition": "all"
+    },
+    {
+      "selector": "LINK",
+      "transition": "all"
+    },
+    {
+      "selector": "LINK",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "SCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "LINK",
+      "transition": "all"
+    },
+    {
+      "selector": "NOSCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "STYLE",
+      "transition": "all"
+    },
+    {
+      "selector": "BODY#top.is-fv",
+      "transition": "all"
+    },
+    {
+      "selector": "NOSCRIPT",
+      "transition": "all"
+    },
+    {
+      "selector": "DIV#fullWrap",
+      "transition": "all"
+    },
+    {
+      "selector": "DIV.gnav",
+      "transition": "0.6s"
+    },
+    {
+      "selector": "DIV.gnav__inner",
+      "transition": "all"
+    },
+    {
+      "selector": "P.gnav__logo",
+      "transition": "all"
+    },
+    {
+      "selector": "A.gnav__logoLink",
+      "transition": "all"
+    },
+    {
+      "selector": "SPAN.hd",
+      "transition": "all"
+    },
+    {
+      "selector": "DIV.gnav__menuBtn",
+      "transition": "all"
+    },
+    {
+      "selector": "A.gnav__menuBtnLink",
+      "transition": "all"
+    },
+    {
+      "selector": "SPAN.gnav__menuBtnBox",
+      "transition": "all"
+    },
+    {
+      "selector": "SPAN.gnav__menuLine",
+      "transition": "0.3s"
+    },
+    {
+      "selector": "SPAN.gnav__menuLine",
+      "transition": "0.3s"
+    }
+  ],
+  "scrollTriggers": [],
+  "hoverEffects": [
+    {
+      "element": "A.gnav__logoLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.gnav__menuBtnLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.gnav__itemLink",
+      "transition": "0.3s",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.gnav__officialLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "IMG",
+      "transition": "all",
+      "cursor": "auto"
+    },
+    {
+      "element": "A.js-navCharacter",
+      "transition": "0.3s",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.gnav__hotTopicsLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.nav__itemLink",
+      "transition": "0.3s",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.fv__snsLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.fv__kvSwitcherLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.fv__toNextLink",
+      "transition": "0.3s",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.news__itemLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.news__moreLink",
+      "transition": "transform 0.8s",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.movie__swiper-slideLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.movie__swiperSwitcherLink",
+      "transition": "all",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.music__moreLink",
+      "transition": "transform 0.8s",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.music__itemLink",
+      "transition": "0.3s",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.character__navBtnLink",
+      "transition": "0.3s",
+      "cursor": "pointer"
+    },
+    {
+      "element": "A.character__thumbItemLink",
+      "transition": "0.8s",
+      "cursor": "pointer"
+    }
+  ],
+  "parallax": [],
+  "sliders": [
+    {
+      "selector": "DIV.kv__imgContentin.swiper.swiper-fade",
+      "slideCount": 5,
+      "hasNavigation": false,
+      "hasPagination": false,
+      "autoplay": "unknown"
+    },
+    {
+      "selector": "DIV.fv__bnrSwiper.swiper",
+      "slideCount": 1,
+      "hasNavigation": false,
+      "hasPagination": false,
+      "autoplay": "unknown"
+    },
+    {
+      "selector": "DIV.movie__swiper.swiper.swiper-coverflow",
+      "slideCount": 30,
+      "hasNavigation": false,
+      "hasPagination": false,
+      "autoplay": "unknown"
+    },
+    {
+      "selector": "DIV.music__contentWrap.swiper.swiper-initialized",
+      "slideCount": 30,
+      "hasNavigation": false,
+      "hasPagination": false,
+      "autoplay": "unknown"
+    },
+    {
+      "selector": "DIV.character__swiper.swiper.swiper-initialized",
+      "slideCount": 14,
+      "hasNavigation": false,
+      "hasPagination": false,
+      "autoplay": "unknown"
+    }
+  ],
+  "modals": [
+    {
+      "selector": "DIV.modal",
+      "trigger": null
+    },
+    {
+      "selector": "DIV.modal",
+      "trigger": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.movie__swiper-slideLink.js-movieThumb.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    },
+    {
+      "type": "video-modal",
+      "selector": "A.music__itemLink.js-moviePlay",
+      "videoId": null
+    }
+  ],
+  "backgroundEffects": [
+    {
+      "type": "backdrop-filter",
+      "selector": "SPAN.gnav__menuBtnBox",
+      "backdropFilter": "blur(4px)"
+    },
+    {
+      "type": "gradient",
+      "selector": "DIV.gnav__content",
+      "gradient": "url(\"https://www.cho-kaguyahime.com/assets/img/common/bg_light.png\"), linear-gradient(rgb(203, 196, 248) 0%, rgb(245, 186, 191) 100%)"
+    },
+    {
+      "type": "mask",
+      "selector": "DIV.kv__fixedInner",
+      "mask": "linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70.5%, rg"
+    },
+    {
+      "type": "gradient",
+      "selector": "DIV.kv__fixedInner2",
+      "gradient": "url(\"https://www.cho-kaguyahime.com/assets/img/common/bg_light.png\"), linear-gradient(rgb(203, 196, 248) 0%, rgb(245, 186, 191) 100%)"
+    },
+    {
+      "type": "mask",
+      "selector": "DIV.kv__fixedInner2",
+      "mask": "linear-gradient(rgb(0, 0, 0), rgb(0, 0, 0)), radial-gradient(rgb(0, 0, 0) 0%, rgb(0, 0, 0) 70.5%, rg"
+    },
+    {
+      "type": "gradient",
+      "selector": "DIV.modal",
+      "gradient": "url(\"https://www.cho-kaguyahime.com/assets/img/common/bg_light.png\"), linear-gradient(rgb(203, 196, 248) 0%, rgb(245, 186, 191) 100%)"
+    },
+    {
+      "type": "gradient",
+      "selector": "DIV.modal",
+      "gradient": "url(\"https://www.cho-kaguyahime.com/assets/img/common/bg_light.png\"), linear-gradient(rgb(203, 196, 248) 0%, rgb(245, 186, 191) 100%)"
+    }
+  ],
+  "specialVisuals": [],
+  "navigation": {
+    "global": {
+      "type": "header-nav",
+      "items": [
+        {
+          "text": "超かぐや姫！",
+          "href": "#top"
+        },
+        {
+          "text": "MENU",
+          "href": "javascript:;"
+        },
+        {
+          "text": "最新情報",
+          "href": "#news"
+        },
+        {
+          "text": "映像",
+          "href": "#movie"
+        },
+        {
+          "text": "イントロダクション",
+          "href": "#introduction"
+        },
+        {
+          "text": "あらすじ",
+          "href": "#story"
+        },
+        {
+          "text": "音楽",
+          "href": "#music"
+        },
+        {
+          "text": "登場人物",
+          "href": "#character"
+        },
+        {
+          "text": "スタッフ・キャスト",
+          "href": "#staffcast"
+        },
+        {
+          "text": "関連商品",
+          "href": "./goods"
+        },
+        {
+          "text": "スペシャル",
+          "href": "./special"
+        },
+        {
+          "text": "X",
+          "href": "https://x.com/Cho_KaguyaHime"
+        },
+        {
+          "text": "TikTok",
+          "href": "https://www.tiktok.com/@cho_kaguyahime_pr"
+        },
+        {
+          "text": "YouTube",
+          "href": "https://www.youtube.com/@Cho-KaguyaHime-PR"
+        },
+        {
+          "text": "Instagram",
+          "href": "https://www.instagram.com/cho_kaguyahime_pr/"
+        }
+      ],
+      "isSticky": true
+    },
+    "hamburgerMenu": {
+      "exists": true,
+      "selector": "DIV.gnav__menuBtn"
+    },
+    "smoothScroll": {
+      "count": 26,
+      "targets": [
+        "#top",
+        "#news",
+        "#movie",
+        "#introduction",
+        "#story",
+        "#music",
+        "#character",
+        "#staffcast",
+        "#character",
+        "#news"
+      ]
+    }
+  },
+  "forms": [],
+  "libraries": [
+    "jQuery 3.6.0",
+    "Swiper"
+  ],
+  "colors": [
+    "rgb(0, 0, 0)",
+    "rgb(40, 40, 40)",
+    "rgb(255, 255, 255)",
+    "rgb(34, 34, 34)",
+    "rgb(0, 192, 195)",
+    "rgb(255, 99, 93)",
+    "rgb(255, 228, 143)",
+    "rgb(104, 204, 220)",
+    "rgb(162, 134, 231)",
+    "rgb(255, 135, 124)"
+  ],
+  "typography": {
+    "fonts": [
+      "vdl-logog"
+    ],
+    "sizes": {
+      "P": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "0.8px"
+      },
+      "A": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "0.8px"
+      },
+      "SPAN": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "0.8px"
+      },
+      "H1": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "0.8px"
+      },
+      "H2": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "0.8px"
+      },
+      "H3": {
+        "fontSize": "16px",
+        "fontWeight": "400",
+        "lineHeight": "32px",
+        "letterSpacing": "0.8px"
+      },
+      "H4": {
+        "fontSize": "12px",
+        "fontWeight": "400",
+        "lineHeight": "24px",
+        "letterSpacing": "0.8px"
+      }
+    }
+  }
+}

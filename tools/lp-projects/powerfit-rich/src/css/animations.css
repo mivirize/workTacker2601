@@ -1,0 +1,673 @@
+/* ==========================================================================
+   POWER FIT - Animation Styles
+   Scroll-triggered animations, parallax, hover effects
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Scroll-Triggered Animations
+   -------------------------------------------------------------------------- */
+
+/* Base state for animated elements */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Animated state */
+.animate-on-scroll.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Fade variations */
+.animate-fade-up {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.animate-fade-up.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-down {
+  opacity: 0;
+  transform: translateY(-40px);
+}
+
+.animate-fade-down.animated {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.animate-fade-left {
+  opacity: 0;
+  transform: translateX(40px);
+}
+
+.animate-fade-left.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-fade-right {
+  opacity: 0;
+  transform: translateX(-40px);
+}
+
+.animate-fade-right.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Scale animation */
+.animate-scale {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.animate-scale.animated {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Stagger delays for children */
+.stagger-children > *:nth-child(1) { transition-delay: 0.1s; }
+.stagger-children > *:nth-child(2) { transition-delay: 0.2s; }
+.stagger-children > *:nth-child(3) { transition-delay: 0.3s; }
+.stagger-children > *:nth-child(4) { transition-delay: 0.4s; }
+.stagger-children > *:nth-child(5) { transition-delay: 0.5s; }
+.stagger-children > *:nth-child(6) { transition-delay: 0.6s; }
+
+/* --------------------------------------------------------------------------
+   2. Hero Animations
+   -------------------------------------------------------------------------- */
+
+/* Hero title entrance */
+.hero__title-line {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: heroTitleEntrance 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.hero__title-line:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.hero__title-line:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+@keyframes heroTitleEntrance {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Hero text shimmer effect */
+.hero__title-line--accent {
+  background: linear-gradient(
+    90deg,
+    var(--color-primary) 0%,
+    var(--color-accent) 50%,
+    var(--color-primary) 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+}
+
+/* Hero particles */
+.hero__particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particleFloat 8s ease-in-out infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    opacity: 0;
+    transform: translateY(100vh) rotate(0deg);
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-100vh) rotate(720deg);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   3. Parallax Effects
+   -------------------------------------------------------------------------- */
+
+.parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
+
+/* Parallax overlay gradient */
+.parallax-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(13, 13, 13, 0.3) 0%,
+    rgba(13, 13, 13, 0.7) 100%
+  );
+  pointer-events: none;
+}
+
+/* --------------------------------------------------------------------------
+   4. Count-up Animation (Stats)
+   -------------------------------------------------------------------------- */
+
+.stat-card__count {
+  display: inline-block;
+  font-variant-numeric: tabular-nums;
+}
+
+.stat-card__bar-fill {
+  transform-origin: left;
+}
+
+.stat-card.animated .stat-card__bar-fill {
+  animation: barFill 1.5s ease-out forwards;
+}
+
+@keyframes barFill {
+  from {
+    width: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   5. Feature Card Animations
+   -------------------------------------------------------------------------- */
+
+.feature-card__icon-wrapper {
+  position: relative;
+}
+
+.feature-card__icon-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--color-primary), transparent);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover .feature-card__icon-wrapper::before {
+  opacity: 0.3;
+  transform: scale(1.2);
+}
+
+/* Icon pulse animation */
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.feature-card:hover .feature-card__icon {
+  animation: iconPulse 0.6s ease-in-out;
+}
+
+/* --------------------------------------------------------------------------
+   6. Card Hover Effects
+   -------------------------------------------------------------------------- */
+
+/* Glow effect on hover */
+.glow-on-hover {
+  position: relative;
+}
+
+.glow-on-hover::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  background: linear-gradient(
+    135deg,
+    var(--color-primary) 0%,
+    transparent 50%,
+    var(--color-primary) 100%
+  );
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.3s ease;
+}
+
+.glow-on-hover:hover::before {
+  opacity: 0.5;
+}
+
+/* Image zoom effect */
+.image-zoom {
+  overflow: hidden;
+}
+
+.image-zoom img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.image-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* Card lift effect */
+.card-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* --------------------------------------------------------------------------
+   7. Button Animations
+   -------------------------------------------------------------------------- */
+
+/* Ripple effect */
+.btn-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.3) 0%, transparent 60%);
+  transform: scale(0);
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.btn-ripple:active::after {
+  transform: scale(2);
+  opacity: 1;
+  transition: transform 0s, opacity 0s;
+}
+
+/* Arrow bounce on hover */
+.btn-arrow svg {
+  transition: transform 0.3s ease;
+}
+
+.btn-arrow:hover svg {
+  animation: arrowBounce 0.6s ease infinite;
+}
+
+@keyframes arrowBounce {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(4px);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   8. Process Timeline Animation
+   -------------------------------------------------------------------------- */
+
+.process__line {
+  background: linear-gradient(to bottom, var(--color-primary), transparent);
+  transform-origin: top;
+  transform: scaleY(0);
+  transition: transform 1.5s ease-out;
+}
+
+.process__line.animated {
+  transform: scaleY(1);
+}
+
+.process__step-number {
+  transform: scale(0);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.process__step.animated .process__step-number {
+  transform: scale(1);
+}
+
+/* Step content slide in */
+.process__step-content {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 0.5s ease;
+}
+
+.process__step:nth-child(even) .process__step-content {
+  transform: translateX(20px);
+}
+
+.process__step.animated .process__step-content {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* --------------------------------------------------------------------------
+   9. Testimonial Slider Animations
+   -------------------------------------------------------------------------- */
+
+.testimonials__track {
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testimonial-card {
+  opacity: 0.5;
+  transform: scale(0.95);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.testimonial-card.active {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Dot indicator animation */
+.testimonials__dot {
+  transition: all 0.3s ease;
+}
+
+.testimonials__dot.active {
+  background: var(--color-primary);
+  transform: scale(1.25);
+}
+
+/* --------------------------------------------------------------------------
+   10. FAQ Accordion Animation
+   -------------------------------------------------------------------------- */
+
+.faq__answer {
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq__icon {
+  transition: transform 0.3s ease;
+}
+
+.faq__item.active .faq__icon {
+  transform: rotate(45deg);
+}
+
+/* --------------------------------------------------------------------------
+   11. Form Input Animations
+   -------------------------------------------------------------------------- */
+
+.contact-form__input,
+.contact-form__textarea {
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form__input:focus,
+.contact-form__textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 4px rgba(212, 175, 55, 0.1);
+}
+
+/* Floating label animation */
+.form-floating {
+  position: relative;
+}
+
+.form-floating label {
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+  font-size: 1rem;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.form-floating input:focus + label,
+.form-floating input:not(:placeholder-shown) + label {
+  top: 0;
+  font-size: 0.75rem;
+  background: var(--color-background-card);
+  padding: 0 0.25rem;
+}
+
+/* --------------------------------------------------------------------------
+   12. Loading & Skeleton States
+   -------------------------------------------------------------------------- */
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-background-alt) 25%,
+    var(--color-background-card) 50%,
+    var(--color-background-alt) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton 1.5s ease-in-out infinite;
+}
+
+@keyframes skeleton {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   13. Scroll Indicator Animation
+   -------------------------------------------------------------------------- */
+
+.hero__scroll-indicator {
+  animation: scrollIndicatorFade 1s ease-out 1.5s forwards;
+  opacity: 0;
+}
+
+@keyframes scrollIndicatorFade {
+  to {
+    opacity: 1;
+  }
+}
+
+.hero__scroll-line {
+  animation: scrollLineMove 2s ease-in-out infinite;
+}
+
+@keyframes scrollLineMove {
+  0% {
+    transform: scaleY(0);
+    transform-origin: top;
+    opacity: 0;
+  }
+  50% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+    opacity: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   14. Header Scroll Animation
+   -------------------------------------------------------------------------- */
+
+.header {
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header--scrolled {
+  background-color: rgba(13, 13, 13, 0.98);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* --------------------------------------------------------------------------
+   15. Fixed CTA Animation
+   -------------------------------------------------------------------------- */
+
+.fixed-cta {
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fixed-cta.visible {
+  transform: translateY(0);
+}
+
+/* --------------------------------------------------------------------------
+   16. Trainer Card Hover
+   -------------------------------------------------------------------------- */
+
+.trainer-card__overlay {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.trainer-card:hover .trainer-card__overlay {
+  opacity: 1;
+}
+
+.trainer-card__image img {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.trainer-card:hover .trainer-card__image img {
+  transform: scale(1.05);
+}
+
+/* --------------------------------------------------------------------------
+   17. Pricing Card Animation
+   -------------------------------------------------------------------------- */
+
+.pricing-card {
+  transition: transform 0.4s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pricing-card:hover {
+  border-color: var(--color-primary);
+}
+
+.pricing-card--featured {
+  animation: pricingPulse 3s ease-in-out infinite;
+}
+
+@keyframes pricingPulse {
+  0%, 100% {
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 30px rgba(212, 175, 55, 0.4);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   18. Text Reveal Animation
+   -------------------------------------------------------------------------- */
+
+.text-reveal {
+  position: relative;
+  overflow: hidden;
+}
+
+.text-reveal::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-primary);
+  transform: translateX(-101%);
+}
+
+.text-reveal.animated::after {
+  animation: textReveal 0.8s ease forwards;
+}
+
+@keyframes textReveal {
+  0% {
+    transform: translateX(-101%);
+  }
+  50% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(101%);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   19. Number Counter Animation
+   -------------------------------------------------------------------------- */
+
+.counter-animate {
+  display: inline-block;
+  min-width: 3ch;
+  text-align: right;
+}
+
+/* --------------------------------------------------------------------------
+   20. Reduced Motion Preferences
+   -------------------------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+  }
+
+  .hero__title-line {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+
+  .parallax-bg {
+    transform: none !important;
+  }
+}

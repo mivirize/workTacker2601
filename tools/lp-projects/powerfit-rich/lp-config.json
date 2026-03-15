@@ -1,0 +1,61 @@
+{
+  "name": "POWER FIT",
+  "version": "1.0.0",
+  "tier": "rich",
+  "description": "Personal Training Gym Landing Page - Rich Tier",
+  "client": "株式会社パワーフィット",
+  "design": {
+    "colors": {
+      "primary": "#D4AF37",
+      "primaryDark": "#B8960C",
+      "secondary": "#1A1A1A",
+      "accent": "#FFD700",
+      "background": "#0D0D0D",
+      "backgroundAlt": "#151515",
+      "text": "#FFFFFF",
+      "textMuted": "#A0A0A0"
+    },
+    "fonts": {
+      "heading": "'Montserrat', sans-serif",
+      "body": "'Noto Sans JP', sans-serif"
+    },
+    "features": [
+      "scroll-animations",
+      "parallax",
+      "count-up",
+      "testimonial-slider",
+      "accordion-faq",
+      "hover-effects"
+    ]
+  },
+  "sections": [
+    "hero",
+    "problem",
+    "solution",
+    "service-details",
+    "features",
+    "stats",
+    "testimonials",
+    "process",
+    "trainers",
+    "pricing",
+    "faq",
+    "cta-form"
+  ],
+  "files": {
+    "html": "src/index.html",
+    "css": [
+      "src/css/styles.css",
+      "src/css/animations.css"
+    ],
+    "js": [
+      "src/js/main.js",
+      "src/js/slider.js"
+    ]
+  },
+  "seo": {
+    "title": "POWER FIT | パーソナルトレーニングジム 渋谷",
+    "description": "理想の体を、最短ルートで。渋谷のパーソナルトレーニングジムPOWER FIT。累計5000名以上の実績、継続率98%、満足度4.9の確かな成果。",
+    "keywords": ["パーソナルトレーニング", "渋谷", "ジム", "ダイエット", "筋トレ", "ボディメイク"]
+  }
+}

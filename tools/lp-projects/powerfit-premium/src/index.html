@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POWER FIT | プレミアムパーソナルトレーニングジム | 渋谷</title>
+  <meta name="description" content="渋谷のプレミアムパーソナルトレーニングジム。AI技術と一流トレーナーによる完全オーダーメイドプログラムで、あなたの理想のボディを実現。">
+  <meta name="keywords" content="パーソナルジム, 渋谷, パーソナルトレーニング, ダイエット, ボディメイク, AI">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="POWER FIT | プレミアムパーソナルトレーニングジム">
+  <meta property="og:description" content="AI技術×一流トレーナーで理想のボディを実現">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="ja_JP">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Noto+Sans+JP:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor">
+    <div class="cursor__inner"></div>
+  </div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <!-- Progress Indicator -->
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- Loading Screen -->
+  <div class="loading-screen" id="loadingScreen">
+    <div class="loading-content">
+      <div class="loading-logo">
+        <span class="loading-logo__text" data-type="text">POWER</span>
+        <span class="loading-logo__accent" data-type="text">FIT</span>
+      </div>
+      <div class="loading-bar">
+        <div class="loading-bar__fill" id="loadingProgress"></div>
+      </div>
+      <div class="loading-percentage" id="loadingPercentage">0%</div>
+    </div>
+    <div class="loading-particles" id="loadingParticles"></div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__container">
+      <a href="#hero" class="nav__logo">
+        <span class="nav__logo-text" data-type="text">POWER</span>
+        <span class="nav__logo-accent" data-type="text">FIT</span>
+      </a>
+      <ul class="nav__menu" id="navMenu">
+        <li><a href="#about" class="nav__link magnetic-btn" data-type="link">About</a></li>
+        <li><a href="#features" class="nav__link magnetic-btn" data-type="link">Features</a></li>
+        <li><a href="#trainers" class="nav__link magnetic-btn" data-type="link">Trainers</a></li>
+        <li><a href="#pricing" class="nav__link magnetic-btn" data-type="link">Pricing</a></li>
+        <li><a href="#contact" class="nav__cta btn btn--gold magnetic-btn" data-type="link">無料カウンセリング</a></li>
+      </ul>
+      <button class="nav__toggle" id="navToggle" aria-label="メニューを開く">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Section 1: Hero -->
+    <section class="hero" id="hero">
+      <div class="hero__video-container">
+        <div class="hero__video-overlay"></div>
+        <!-- Video placeholder - replace src with actual video -->
+        <video class="hero__video" autoplay muted loop playsinline poster="images/hero-poster.jpg">
+          <source src="videos/hero-bg.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="hero__particles" id="heroParticles"></div>
+      <div class="hero__content">
+        <div class="hero__badge animate-on-scroll" data-type="text">
+          <span class="hero__badge-icon">★</span>
+          <span>PREMIUM PERSONAL TRAINING</span>
+        </div>
+        <h1 class="hero__title">
+          <span class="hero__title-line animate-on-scroll" data-delay="0.1" data-type="text">限界を超えろ。</span>
+          <span class="hero__title-line hero__title-line--accent animate-on-scroll" data-delay="0.2" data-type="text">理想を超えろ。</span>
+        </h1>
+        <p class="hero__subtitle animate-on-scroll" data-delay="0.3" data-type="text">
+          AI×一流トレーナーが導く、あなただけの<br>プレミアムボディメイク体験
+        </p>
+        <div class="hero__cta-group animate-on-scroll" data-delay="0.4">
+          <a href="#contact" class="btn btn--gold btn--large magnetic-btn" data-type="link">
+            <span class="btn__text">無料カウンセリング予約</span>
+            <span class="btn__icon">→</span>
+          </a>
+          <a href="#about" class="btn btn--outline btn--large magnetic-btn" data-type="link">
+            <span class="btn__text">詳しく見る</span>
+          </a>
+        </div>
+        <div class="hero__scroll-indicator">
+          <div class="hero__scroll-mouse">
+            <div class="hero__scroll-wheel"></div>
+          </div>
+          <span class="hero__scroll-text" data-type="text">SCROLL</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 2: Brand Story -->
+    <section class="section brand-story" id="about">
+      <div class="brand-story__bg-text" aria-hidden="true">POWER FIT</div>
+      <div class="container">
+        <div class="brand-story__grid">
+          <div class="brand-story__content">
+            <span class="section-label animate-on-scroll" data-type="text">BRAND STORY</span>
+            <h2 class="section-title animate-on-scroll" data-type="text">
+              本物を知る人のための、<br>
+              <span class="text-gradient">本物のジム。</span>
+            </h2>
+            <div class="brand-story__text animate-on-scroll">
+              <p data-type="text">POWER FITは、妥協を許さないビジネスパーソンのために生まれました。</p>
+              <p data-type="text">私たちは「結果」だけを追求します。最先端のAIテクノロジーと、厳選された一流トレーナー陣。この2つの融合が、従来のパーソナルトレーニングの常識を覆します。</p>
+              <p data-type="text">あなたの時間は、あなたの人生で最も貴重な資源。だからこそ、最短距離で最高の結果を。</p>
+            </div>
+            <div class="brand-story__signature animate-on-scroll">
+              <img src="images/signature.png" alt="CEO Signature" class="brand-story__signature-img" data-type="image">
+              <div class="brand-story__signature-info">
+                <span class="brand-story__signature-name" data-type="text">山田 太郎</span>
+                <span class="brand-story__signature-title" data-type="text">POWER FIT CEO / 元オリンピックトレーナー</span>
+              </div>
+            </div>
+          </div>
+          <div class="brand-story__visual animate-on-scroll">
+            <div class="brand-story__image-container">
+              <img src="images/brand-story.jpg" alt="POWER FIT Gym Interior" class="brand-story__image" data-type="image">
+              <div class="brand-story__image-frame"></div>
+            </div>
+            <div class="brand-story__stats">
+              <div class="stat-card">
+                <span class="stat-card__number" data-count="15" data-type="text">0</span>
+                <span class="stat-card__label" data-type="text">年の実績</span>
+              </div>
+              <div class="stat-card">
+                <span class="stat-card__number" data-count="5000" data-type="text">0</span>
+                <span class="stat-card__suffix" data-type="text">+</span>
+                <span class="stat-card__label" data-type="text">変革したボディ</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Problem -->
+    <section class="section problem" id="problem">
+      <div class="container">
+        <span class="section-label section-label--center animate-on-scroll" data-type="text">THE PROBLEM</span>
+        <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+          こんな経験、ありませんか？
+        </h2>
+        <div class="problem__grid">
+          <div class="problem-card animate-on-scroll" data-delay="0.1">
+            <div class="problem-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M12 6v6l4 2"/>
+              </svg>
+            </div>
+            <h3 class="problem-card__title" data-type="text">時間がない</h3>
+            <p class="problem-card__text" data-type="text">仕事が忙しくて、ジムに通う時間が確保できない。結局、入会金だけ払って幽霊会員に...</p>
+            <div class="problem-card__reveal">
+              <span class="problem-card__solution" data-type="text">→ 1回45分、週2回で結果を出す</span>
+            </div>
+          </div>
+          <div class="problem-card animate-on-scroll" data-delay="0.2">
+            <div class="problem-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                <path d="M2 17l10 5 10-5"/>
+                <path d="M2 12l10 5 10-5"/>
+              </svg>
+            </div>
+            <h3 class="problem-card__title" data-type="text">効果が出ない</h3>
+            <p class="problem-card__text" data-type="text">自己流でトレーニングしても、思うような結果が出ない。モチベーションも続かない...</p>
+            <div class="problem-card__reveal">
+              <span class="problem-card__solution" data-type="text">→ AIが最適化した科学的プログラム</span>
+            </div>
+          </div>
+          <div class="problem-card animate-on-scroll" data-delay="0.3">
+            <div class="problem-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+                <line x1="16" y1="8" x2="2" y2="22"/>
+                <line x1="17.5" y1="15" x2="9" y2="15"/>
+              </svg>
+            </div>
+            <h3 class="problem-card__title" data-type="text">リバウンド</h3>
+            <p class="problem-card__text" data-type="text">過度な食事制限で痩せても、すぐにリバウンド。一生ダイエットを繰り返す人生...</p>
+            <div class="problem-card__reveal">
+              <span class="problem-card__solution" data-type="text">→ 一生モノの食事習慣を獲得</span>
+            </div>
+          </div>
+          <div class="problem-card animate-on-scroll" data-delay="0.4">
+            <div class="problem-card__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10"/>
+                <line x1="12" y1="8" x2="12" y2="12"/>
+                <line x1="12" y1="16" x2="12.01" y2="16"/>
+              </svg>
+            </div>
+            <h3 class="problem-card__title" data-type="text">何が正解かわからない</h3>
+            <p class="problem-card__text" data-type="text">情報が多すぎて、何が自分に合っているのかわからない。結局、何もできずに終わる...</p>
+            <div class="problem-card__reveal">
+              <span class="problem-card__solution" data-type="text">→ あなた専用のプログラムを設計</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 4: Solution -->
+    <section class="section solution" id="solution">
+      <div class="solution__particles" id="solutionParticles"></div>
+      <div class="container">
+        <div class="solution__header">
+          <span class="section-label section-label--center animate-on-scroll" data-type="text">THE SOLUTION</span>
+          <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+            POWER FITが、<br>
+            <span class="text-gradient">すべてを解決します。</span>
+          </h2>
+        </div>
+        <div class="solution__showcase">
+          <div class="solution__visual animate-on-scroll">
+            <div class="solution__circle">
+              <div class="solution__circle-inner">
+                <img src="images/solution-main.jpg" alt="POWER FIT Training" class="solution__image" data-type="image">
+              </div>
+              <div class="solution__circle-ring"></div>
+              <div class="solution__circle-ring solution__circle-ring--2"></div>
+              <div class="solution__orbit-item solution__orbit-item--1">
+                <span data-type="text">AI分析</span>
+              </div>
+              <div class="solution__orbit-item solution__orbit-item--2">
+                <span data-type="text">専属トレーナー</span>
+              </div>
+              <div class="solution__orbit-item solution__orbit-item--3">
+                <span data-type="text">栄養管理</span>
+              </div>
+              <div class="solution__orbit-item solution__orbit-item--4">
+                <span data-type="text">24h サポート</span>
+              </div>
+            </div>
+          </div>
+          <div class="solution__content">
+            <div class="solution__item animate-on-scroll" data-delay="0.1">
+              <div class="solution__item-number" data-type="text">01</div>
+              <div class="solution__item-content">
+                <h3 class="solution__item-title" data-type="text">完全オーダーメイド</h3>
+                <p class="solution__item-text" data-type="text">あなたの体質、目標、ライフスタイルに合わせた世界に一つだけのプログラム。</p>
+              </div>
+            </div>
+            <div class="solution__item animate-on-scroll" data-delay="0.2">
+              <div class="solution__item-number" data-type="text">02</div>
+              <div class="solution__item-content">
+                <h3 class="solution__item-title" data-type="text">最短45分で最大効果</h3>
+                <p class="solution__item-text" data-type="text">科学的根拠に基づいた高効率トレーニング。忙しいあなたの時間を無駄にしません。</p>
+              </div>
+            </div>
+            <div class="solution__item animate-on-scroll" data-delay="0.3">
+              <div class="solution__item-number" data-type="text">03</div>
+              <div class="solution__item-content">
+                <h3 class="solution__item-title" data-type="text">リバウンドゼロ保証</h3>
+                <p class="solution__item-text" data-type="text">卒業後6ヶ月以内にリバウンドした場合、無料でサポートを継続します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: AI Technology -->
+    <section class="section ai-tech" id="ai-technology">
+      <div class="container">
+        <div class="ai-tech__grid">
+          <div class="ai-tech__content">
+            <span class="section-label animate-on-scroll" data-type="text">AI TECHNOLOGY</span>
+            <h2 class="section-title animate-on-scroll" data-type="text">
+              最先端AIが、<br>
+              <span class="text-gradient">あなたを分析。</span>
+            </h2>
+            <p class="ai-tech__description animate-on-scroll" data-type="text">
+              POWER FIT独自のAIシステムが、あなたの身体データを徹底分析。遺伝子レベルでの体質理解から、毎日のコンディション変化まで。すべてを数値化し、最適なトレーニングプランをリアルタイムで提案します。
+            </p>
+            <ul class="ai-tech__features">
+              <li class="ai-tech__feature animate-on-scroll" data-delay="0.1">
+                <div class="ai-tech__feature-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                    <path d="M2 17l10 5 10-5"/>
+                    <path d="M2 12l10 5 10-5"/>
+                  </svg>
+                </div>
+                <div class="ai-tech__feature-content">
+                  <h4 data-type="text">3Dボディスキャン</h4>
+                  <p data-type="text">0.1mm単位で体型を計測。変化を可視化。</p>
+                </div>
+              </li>
+              <li class="ai-tech__feature animate-on-scroll" data-delay="0.2">
+                <div class="ai-tech__feature-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="18" height="18" rx="2"/>
+                    <path d="M3 9h18"/>
+                    <path d="M9 21V9"/>
+                  </svg>
+                </div>
+                <div class="ai-tech__feature-content">
+                  <h4 data-type="text">遺伝子解析</h4>
+                  <p data-type="text">筋肉タイプ、代謝傾向を遺伝子レベルで把握。</p>
+                </div>
+              </li>
+              <li class="ai-tech__feature animate-on-scroll" data-delay="0.3">
+                <div class="ai-tech__feature-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"/>
+                  </svg>
+                </div>
+                <div class="ai-tech__feature-content">
+                  <h4 data-type="text">リアルタイム最適化</h4>
+                  <p data-type="text">心拍数、疲労度からプランを自動調整。</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="ai-tech__visual animate-on-scroll">
+            <div class="ai-tech__screen">
+              <div class="ai-tech__screen-header">
+                <span class="ai-tech__screen-dot"></span>
+                <span class="ai-tech__screen-dot"></span>
+                <span class="ai-tech__screen-dot"></span>
+              </div>
+              <div class="ai-tech__screen-content">
+                <div class="ai-tech__chart">
+                  <div class="ai-tech__chart-bar" style="--height: 65%" data-label="筋力"></div>
+                  <div class="ai-tech__chart-bar" style="--height: 80%" data-label="持久力"></div>
+                  <div class="ai-tech__chart-bar" style="--height: 45%" data-label="柔軟性"></div>
+                  <div class="ai-tech__chart-bar" style="--height: 70%" data-label="体脂肪"></div>
+                  <div class="ai-tech__chart-bar" style="--height: 90%" data-label="回復力"></div>
+                </div>
+                <div class="ai-tech__metrics">
+                  <div class="ai-tech__metric">
+                    <span class="ai-tech__metric-value" data-type="text">92%</span>
+                    <span class="ai-tech__metric-label" data-type="text">目標達成予測</span>
+                  </div>
+                  <div class="ai-tech__metric">
+                    <span class="ai-tech__metric-value" data-type="text">3ヶ月</span>
+                    <span class="ai-tech__metric-label" data-type="text">推定達成期間</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="ai-tech__glow"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Features -->
+    <section class="section features" id="features">
+      <div class="container">
+        <span class="section-label section-label--center animate-on-scroll" data-type="text">FEATURES</span>
+        <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+          選ばれる理由
+        </h2>
+        <div class="features__grid">
+          <div class="feature-card animate-on-scroll" data-delay="0.1">
+            <div class="feature-card__icon-wrap">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                  <path d="M2 17l10 5 10-5"/>
+                  <path d="M2 12l10 5 10-5"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="feature-card__title" data-type="text">完全個室</h3>
+            <p class="feature-card__text" data-type="text">プライバシーを完全に保護。周りの目を気にせず、トレーニングに集中できます。</p>
+          </div>
+          <div class="feature-card animate-on-scroll" data-delay="0.2">
+            <div class="feature-card__icon-wrap">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <path d="M12 6v6l4 2"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="feature-card__title" data-type="text">手ぶらでOK</h3>
+            <p class="feature-card__text" data-type="text">ウェア、シューズ、タオル、アメニティすべて完備。仕事帰りに手ぶらで通えます。</p>
+          </div>
+          <div class="feature-card animate-on-scroll" data-delay="0.3">
+            <div class="feature-card__icon-wrap">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                  <circle cx="9" cy="7" r="4"/>
+                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="feature-card__title" data-type="text">専属トレーナー</h3>
+            <p class="feature-card__text" data-type="text">担当制で一貫したサポート。あなたのことを誰よりも理解するパートナーに。</p>
+          </div>
+          <div class="feature-card animate-on-scroll" data-delay="0.4">
+            <div class="feature-card__icon-wrap">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                  <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="feature-card__title" data-type="text">24h LINEサポート</h3>
+            <p class="feature-card__text" data-type="text">食事の写真を送るだけでAIがカロリー計算。いつでも相談できる安心感。</p>
+          </div>
+          <div class="feature-card animate-on-scroll" data-delay="0.5">
+            <div class="feature-card__icon-wrap">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                  <line x1="16" y1="2" x2="16" y2="6"/>
+                  <line x1="8" y1="2" x2="8" y2="6"/>
+                  <line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="feature-card__title" data-type="text">柔軟な予約</h3>
+            <p class="feature-card__text" data-type="text">7:00〜23:00まで営業。当日予約もOK。あなたのスケジュールに合わせます。</p>
+          </div>
+          <div class="feature-card animate-on-scroll" data-delay="0.6">
+            <div class="feature-card__icon-wrap">
+              <div class="feature-card__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                </svg>
+              </div>
+            </div>
+            <h3 class="feature-card__title" data-type="text">全額返金保証</h3>
+            <p class="feature-card__text" data-type="text">30日間で効果を実感できなければ全額返金。リスクゼロで始められます。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 7: Facility Tour -->
+    <section class="section facility" id="facility">
+      <div class="container">
+        <span class="section-label section-label--center animate-on-scroll" data-type="text">FACILITY</span>
+        <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+          洗練された空間
+        </h2>
+        <p class="section-subtitle animate-on-scroll" data-type="text">
+          渋谷駅徒歩5分。都会の喧騒を忘れる、ラグジュアリーな空間。
+        </p>
+        <div class="facility__gallery">
+          <div class="facility__item facility__item--large animate-on-scroll" data-delay="0.1">
+            <img src="images/facility-1.jpg" alt="トレーニングルーム" class="facility__image" data-type="image">
+            <div class="facility__overlay">
+              <span class="facility__label" data-type="text">Training Room</span>
+            </div>
+          </div>
+          <div class="facility__item animate-on-scroll" data-delay="0.2">
+            <img src="images/facility-2.jpg" alt="ロッカールーム" class="facility__image" data-type="image">
+            <div class="facility__overlay">
+              <span class="facility__label" data-type="text">Locker Room</span>
+            </div>
+          </div>
+          <div class="facility__item animate-on-scroll" data-delay="0.3">
+            <img src="images/facility-3.jpg" alt="シャワールーム" class="facility__image" data-type="image">
+            <div class="facility__overlay">
+              <span class="facility__label" data-type="text">Shower Room</span>
+            </div>
+          </div>
+          <div class="facility__item animate-on-scroll" data-delay="0.4">
+            <img src="images/facility-4.jpg" alt="リラクゼーションエリア" class="facility__image" data-type="image">
+            <div class="facility__overlay">
+              <span class="facility__label" data-type="text">Relaxation</span>
+            </div>
+          </div>
+          <div class="facility__item animate-on-scroll" data-delay="0.5">
+            <img src="images/facility-5.jpg" alt="カウンセリングルーム" class="facility__image" data-type="image">
+            <div class="facility__overlay">
+              <span class="facility__label" data-type="text">Counseling</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 8: Stats -->
+    <section class="section stats" id="stats">
+      <div class="stats__particles" id="statsParticles"></div>
+      <div class="stats__bg-gradient"></div>
+      <div class="container">
+        <div class="stats__grid">
+          <div class="stat-item animate-on-scroll" data-delay="0.1">
+            <div class="stat-item__number">
+              <span class="stat-item__value" data-count="98.5" data-decimals="1" data-type="text">0</span>
+              <span class="stat-item__suffix" data-type="text">%</span>
+            </div>
+            <div class="stat-item__label" data-type="text">顧客満足度</div>
+            <div class="stat-item__bar">
+              <div class="stat-item__bar-fill" style="--width: 98.5%"></div>
+            </div>
+          </div>
+          <div class="stat-item animate-on-scroll" data-delay="0.2">
+            <div class="stat-item__number">
+              <span class="stat-item__value" data-count="5000" data-type="text">0</span>
+              <span class="stat-item__suffix" data-type="text">名+</span>
+            </div>
+            <div class="stat-item__label" data-type="text">累計会員数</div>
+            <div class="stat-item__bar">
+              <div class="stat-item__bar-fill" style="--width: 100%"></div>
+            </div>
+          </div>
+          <div class="stat-item animate-on-scroll" data-delay="0.3">
+            <div class="stat-item__number">
+              <span class="stat-item__value" data-count="95" data-type="text">0</span>
+              <span class="stat-item__suffix" data-type="text">%</span>
+            </div>
+            <div class="stat-item__label" data-type="text">目標達成率</div>
+            <div class="stat-item__bar">
+              <div class="stat-item__bar-fill" style="--width: 95%"></div>
+            </div>
+          </div>
+          <div class="stat-item animate-on-scroll" data-delay="0.4">
+            <div class="stat-item__number">
+              <span class="stat-item__value" data-count="2.8" data-decimals="1" data-type="text">0</span>
+              <span class="stat-item__suffix" data-type="text">ヶ月</span>
+            </div>
+            <div class="stat-item__label" data-type="text">平均目標達成期間</div>
+            <div class="stat-item__bar">
+              <div class="stat-item__bar-fill" style="--width: 70%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 9: Success Stories -->
+    <section class="section success-stories" id="success-stories">
+      <div class="container">
+        <span class="section-label section-label--center animate-on-scroll" data-type="text">SUCCESS STORIES</span>
+        <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+          お客様の<span class="text-gradient">成功事例</span>
+        </h2>
+        <div class="slider" id="successSlider" data-repeat="success-stories">
+          <div class="slider__track">
+            <div class="slider__slide" data-repeat-item="success-story">
+              <div class="story-card">
+                <div class="story-card__before-after">
+                  <div class="story-card__image-wrap">
+                    <img src="images/before-1.jpg" alt="Before" class="story-card__image" data-type="image">
+                    <span class="story-card__badge" data-type="text">BEFORE</span>
+                  </div>
+                  <div class="story-card__arrow">→</div>
+                  <div class="story-card__image-wrap">
+                    <img src="images/after-1.jpg" alt="After" class="story-card__image" data-type="image">
+                    <span class="story-card__badge story-card__badge--after" data-type="text">AFTER</span>
+                  </div>
+                </div>
+                <div class="story-card__content">
+                  <div class="story-card__stats">
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">-12kg</span>
+                      <span class="story-card__stat-label" data-type="text">体重</span>
+                    </div>
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">-8%</span>
+                      <span class="story-card__stat-label" data-type="text">体脂肪</span>
+                    </div>
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">3ヶ月</span>
+                      <span class="story-card__stat-label" data-type="text">期間</span>
+                    </div>
+                  </div>
+                  <blockquote class="story-card__quote">
+                    <p data-type="text">「忙しい仕事の合間でも通えて、3ヶ月で見違えるように変われました。トレーナーの方が常に寄り添ってくれて、食事管理も無理なく続けられました。」</p>
+                  </blockquote>
+                  <div class="story-card__author">
+                    <span class="story-card__name" data-type="text">田中 健太 様</span>
+                    <span class="story-card__info" data-type="text">35歳・経営者</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider__slide" data-repeat-item="success-story">
+              <div class="story-card">
+                <div class="story-card__before-after">
+                  <div class="story-card__image-wrap">
+                    <img src="images/before-2.jpg" alt="Before" class="story-card__image" data-type="image">
+                    <span class="story-card__badge" data-type="text">BEFORE</span>
+                  </div>
+                  <div class="story-card__arrow">→</div>
+                  <div class="story-card__image-wrap">
+                    <img src="images/after-2.jpg" alt="After" class="story-card__image" data-type="image">
+                    <span class="story-card__badge story-card__badge--after" data-type="text">AFTER</span>
+                  </div>
+                </div>
+                <div class="story-card__content">
+                  <div class="story-card__stats">
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">-8kg</span>
+                      <span class="story-card__stat-label" data-type="text">体重</span>
+                    </div>
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">-10%</span>
+                      <span class="story-card__stat-label" data-type="text">体脂肪</span>
+                    </div>
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">2ヶ月</span>
+                      <span class="story-card__stat-label" data-type="text">期間</span>
+                    </div>
+                  </div>
+                  <blockquote class="story-card__quote">
+                    <p data-type="text">「産後のダイエットで悩んでいましたが、子育ての合間に通えるスケジュールを組んでもらえて助かりました。自分史上最高のボディになれて本当に嬉しいです！」</p>
+                  </blockquote>
+                  <div class="story-card__author">
+                    <span class="story-card__name" data-type="text">佐藤 美咲 様</span>
+                    <span class="story-card__info" data-type="text">32歳・会社員</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="slider__slide" data-repeat-item="success-story">
+              <div class="story-card">
+                <div class="story-card__before-after">
+                  <div class="story-card__image-wrap">
+                    <img src="images/before-3.jpg" alt="Before" class="story-card__image" data-type="image">
+                    <span class="story-card__badge" data-type="text">BEFORE</span>
+                  </div>
+                  <div class="story-card__arrow">→</div>
+                  <div class="story-card__image-wrap">
+                    <img src="images/after-3.jpg" alt="After" class="story-card__image" data-type="image">
+                    <span class="story-card__badge story-card__badge--after" data-type="text">AFTER</span>
+                  </div>
+                </div>
+                <div class="story-card__content">
+                  <div class="story-card__stats">
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">+8kg</span>
+                      <span class="story-card__stat-label" data-type="text">筋肉量</span>
+                    </div>
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">-5%</span>
+                      <span class="story-card__stat-label" data-type="text">体脂肪</span>
+                    </div>
+                    <div class="story-card__stat">
+                      <span class="story-card__stat-value" data-type="text">4ヶ月</span>
+                      <span class="story-card__stat-label" data-type="text">期間</span>
+                    </div>
+                  </div>
+                  <blockquote class="story-card__quote">
+                    <p data-type="text">「ガリガリ体型がコンプレックスでしたが、科学的なプログラムで効率よく筋肉をつけられました。見た目だけでなく、自信も手に入りました。」</p>
+                  </blockquote>
+                  <div class="story-card__author">
+                    <span class="story-card__name" data-type="text">鈴木 翔太 様</span>
+                    <span class="story-card__info" data-type="text">28歳・エンジニア</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="slider__controls">
+            <button class="slider__btn slider__btn--prev magnetic-btn" aria-label="前へ">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M15 18l-6-6 6-6"/>
+              </svg>
+            </button>
+            <div class="slider__dots" id="sliderDots"></div>
+            <button class="slider__btn slider__btn--next magnetic-btn" aria-label="次へ">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M9 18l6-6-6-6"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 10: Trainers -->
+    <section class="section trainers" id="trainers">
+      <div class="container">
+        <span class="section-label section-label--center animate-on-scroll" data-type="text">TRAINERS</span>
+        <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+          一流のトレーナー陣
+        </h2>
+        <p class="section-subtitle animate-on-scroll" data-type="text">
+          全員が有資格者。平均指導歴10年以上のエキスパート集団。
+        </p>
+        <div class="trainers__grid" data-repeat="trainers">
+          <div class="trainer-card animate-on-scroll" data-delay="0.1" data-repeat-item="trainer">
+            <div class="trainer-card__image-wrap">
+              <img src="images/trainer-1.jpg" alt="山田 太郎" class="trainer-card__image" data-type="image">
+              <div class="trainer-card__overlay">
+                <div class="trainer-card__socials">
+                  <a href="#" class="trainer-card__social" data-type="link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </a>
+                  <a href="#" class="trainer-card__social" data-type="link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="trainer-card__content">
+              <h3 class="trainer-card__name" data-type="text">山田 太郎</h3>
+              <span class="trainer-card__role" data-type="text">チーフトレーナー</span>
+              <p class="trainer-card__bio" data-type="text">元オリンピック強化指定選手。NSCA-CSCS認定。15年の指導歴で5000人以上のボディメイクを成功に導く。</p>
+              <div class="trainer-card__certs">
+                <span class="trainer-card__cert" data-type="text">NSCA-CSCS</span>
+                <span class="trainer-card__cert" data-type="text">NASM-PES</span>
+              </div>
+            </div>
+          </div>
+          <div class="trainer-card animate-on-scroll" data-delay="0.2" data-repeat-item="trainer">
+            <div class="trainer-card__image-wrap">
+              <img src="images/trainer-2.jpg" alt="鈴木 花子" class="trainer-card__image" data-type="image">
+              <div class="trainer-card__overlay">
+                <div class="trainer-card__socials">
+                  <a href="#" class="trainer-card__social" data-type="link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </a>
+                  <a href="#" class="trainer-card__social" data-type="link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="trainer-card__content">
+              <h3 class="trainer-card__name" data-type="text">鈴木 花子</h3>
+              <span class="trainer-card__role" data-type="text">女性専門トレーナー</span>
+              <p class="trainer-card__bio" data-type="text">元ビキニフィットネス日本代表。女性特有の悩みに寄り添い、美しいボディラインを実現。栄養学の知識も豊富。</p>
+              <div class="trainer-card__certs">
+                <span class="trainer-card__cert" data-type="text">NSCA-CPT</span>
+                <span class="trainer-card__cert" data-type="text">管理栄養士</span>
+              </div>
+            </div>
+          </div>
+          <div class="trainer-card animate-on-scroll" data-delay="0.3" data-repeat-item="trainer">
+            <div class="trainer-card__image-wrap">
+              <img src="images/trainer-3.jpg" alt="佐藤 健一" class="trainer-card__image" data-type="image">
+              <div class="trainer-card__overlay">
+                <div class="trainer-card__socials">
+                  <a href="#" class="trainer-card__social" data-type="link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                  </a>
+                  <a href="#" class="trainer-card__social" data-type="link">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="trainer-card__content">
+              <h3 class="trainer-card__name" data-type="text">佐藤 健一</h3>
+              <span class="trainer-card__role" data-type="text">リハビリ専門トレーナー</span>
+              <p class="trainer-card__bio" data-type="text">理学療法士の資格を持つトレーナー。怪我からの復帰や、身体に不安がある方の安全なトレーニングをサポート。</p>
+              <div class="trainer-card__certs">
+                <span class="trainer-card__cert" data-type="text">理学療法士</span>
+                <span class="trainer-card__cert" data-type="text">NSCA-CPT</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 11: Process -->
+    <section class="section process" id="process">
+      <div class="container">
+        <span class="section-label section-label--center animate-on-scroll" data-type="text">PROCESS</span>
+        <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+          ご利用の流れ
+        </h2>
+        <div class="process__timeline">
+          <div class="process__line">
+            <div class="process__line-fill" id="processLineFill"></div>
+          </div>
+          <div class="process__steps">
+            <div class="process__step animate-on-scroll" data-delay="0.1">
+              <div class="process__step-marker">
+                <span class="process__step-number" data-type="text">01</span>
+              </div>
+              <div class="process__step-content">
+                <h3 class="process__step-title" data-type="text">無料カウンセリング</h3>
+                <p class="process__step-text" data-type="text">まずはお気軽にご相談ください。目標やお悩みをヒアリングし、最適なプランをご提案します。所要時間約60分。</p>
+              </div>
+            </div>
+            <div class="process__step animate-on-scroll" data-delay="0.2">
+              <div class="process__step-marker">
+                <span class="process__step-number" data-type="text">02</span>
+              </div>
+              <div class="process__step-content">
+                <h3 class="process__step-title" data-type="text">AI分析 & プラン作成</h3>
+                <p class="process__step-text" data-type="text">3Dボディスキャンと遺伝子検査で、あなたの身体を徹底分析。オーダーメイドのプログラムを作成します。</p>
+              </div>
+            </div>
+            <div class="process__step animate-on-scroll" data-delay="0.3">
+              <div class="process__step-marker">
+                <span class="process__step-number" data-type="text">03</span>
+              </div>
+              <div class="process__step-content">
+                <h3 class="process__step-title" data-type="text">トレーニング開始</h3>
+                <p class="process__step-text" data-type="text">専属トレーナーとマンツーマンでトレーニング開始。AIがリアルタイムで進捗を分析し、プログラムを最適化。</p>
+              </div>
+            </div>
+            <div class="process__step animate-on-scroll" data-delay="0.4">
+              <div class="process__step-marker">
+                <span class="process__step-number" data-type="text">04</span>
+              </div>
+              <div class="process__step-content">
+                <h3 class="process__step-title" data-type="text">目標達成 & 卒業</h3>
+                <p class="process__step-text" data-type="text">目標を達成したら卒業。卒業後も6ヶ月間の無料サポートで、リバウンドを防止します。</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 12: Pricing -->
+    <section class="section pricing" id="pricing">
+      <div class="container">
+        <span class="section-label section-label--center animate-on-scroll" data-type="text">PRICING</span>
+        <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+          料金プラン
+        </h2>
+        <div class="pricing__tabs animate-on-scroll">
+          <button class="pricing__tab pricing__tab--active" data-tab="2months" data-type="text">2ヶ月</button>
+          <button class="pricing__tab" data-tab="3months" data-type="text">3ヶ月</button>
+          <button class="pricing__tab" data-tab="6months" data-type="text">6ヶ月</button>
+        </div>
+        <div class="pricing__content" data-repeat="pricing-plans">
+          <div class="pricing__panel pricing__panel--active" id="panel-2months">
+            <div class="pricing__grid">
+              <div class="pricing-card animate-on-scroll" data-delay="0.1" data-repeat-item="pricing-plan">
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">BASIC</h3>
+                  <p class="pricing-card__desc" data-type="text">はじめての方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">198,000</span>
+                  <span class="pricing-card__period" data-type="text">/2ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週2回（計16回）のトレーニング</li>
+                  <li data-type="text">3Dボディスキャン</li>
+                  <li data-type="text">食事アドバイス</li>
+                  <li data-type="text">ウェア・タオルレンタル</li>
+                </ul>
+                <a href="#contact" class="btn btn--outline btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">詳細を見る</span>
+                </a>
+              </div>
+              <div class="pricing-card pricing-card--featured animate-on-scroll" data-delay="0.2" data-repeat-item="pricing-plan">
+                <div class="pricing-card__badge" data-type="text">MOST POPULAR</div>
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">PREMIUM</h3>
+                  <p class="pricing-card__desc" data-type="text">本気で変わりたい方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">298,000</span>
+                  <span class="pricing-card__period" data-type="text">/2ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週2回（計16回）のトレーニング</li>
+                  <li data-type="text">3Dボディスキャン + 遺伝子検査</li>
+                  <li data-type="text">AIパーソナライズ食事管理</li>
+                  <li data-type="text">24時間LINEサポート</li>
+                  <li data-type="text">プロテイン提供</li>
+                  <li data-type="text">リバウンド保証</li>
+                </ul>
+                <a href="#contact" class="btn btn--gold btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">今すぐ申し込む</span>
+                </a>
+              </div>
+              <div class="pricing-card animate-on-scroll" data-delay="0.3" data-repeat-item="pricing-plan">
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">VIP</h3>
+                  <p class="pricing-card__desc" data-type="text">最高の結果を求める方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">498,000</span>
+                  <span class="pricing-card__period" data-type="text">/2ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週3回（計24回）のトレーニング</li>
+                  <li data-type="text">PREMIUMの全特典</li>
+                  <li data-type="text">整体・ストレッチ付き</li>
+                  <li data-type="text">専用ロッカー</li>
+                  <li data-type="text">卒業後1年間サポート</li>
+                  <li data-type="text">優先予約権</li>
+                </ul>
+                <a href="#contact" class="btn btn--outline btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">詳細を見る</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pricing__panel" id="panel-3months">
+            <div class="pricing__grid">
+              <div class="pricing-card" data-repeat-item="pricing-plan">
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">BASIC</h3>
+                  <p class="pricing-card__desc" data-type="text">はじめての方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">278,000</span>
+                  <span class="pricing-card__period" data-type="text">/3ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週2回（計24回）のトレーニング</li>
+                  <li data-type="text">3Dボディスキャン</li>
+                  <li data-type="text">食事アドバイス</li>
+                  <li data-type="text">ウェア・タオルレンタル</li>
+                </ul>
+                <a href="#contact" class="btn btn--outline btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">詳細を見る</span>
+                </a>
+              </div>
+              <div class="pricing-card pricing-card--featured" data-repeat-item="pricing-plan">
+                <div class="pricing-card__badge" data-type="text">MOST POPULAR</div>
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">PREMIUM</h3>
+                  <p class="pricing-card__desc" data-type="text">本気で変わりたい方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">398,000</span>
+                  <span class="pricing-card__period" data-type="text">/3ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週2回（計24回）のトレーニング</li>
+                  <li data-type="text">3Dボディスキャン + 遺伝子検査</li>
+                  <li data-type="text">AIパーソナライズ食事管理</li>
+                  <li data-type="text">24時間LINEサポート</li>
+                  <li data-type="text">プロテイン提供</li>
+                  <li data-type="text">リバウンド保証</li>
+                </ul>
+                <a href="#contact" class="btn btn--gold btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">今すぐ申し込む</span>
+                </a>
+              </div>
+              <div class="pricing-card" data-repeat-item="pricing-plan">
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">VIP</h3>
+                  <p class="pricing-card__desc" data-type="text">最高の結果を求める方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">698,000</span>
+                  <span class="pricing-card__period" data-type="text">/3ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週3回（計36回）のトレーニング</li>
+                  <li data-type="text">PREMIUMの全特典</li>
+                  <li data-type="text">整体・ストレッチ付き</li>
+                  <li data-type="text">専用ロッカー</li>
+                  <li data-type="text">卒業後1年間サポート</li>
+                  <li data-type="text">優先予約権</li>
+                </ul>
+                <a href="#contact" class="btn btn--outline btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">詳細を見る</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="pricing__panel" id="panel-6months">
+            <div class="pricing__grid">
+              <div class="pricing-card" data-repeat-item="pricing-plan">
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">BASIC</h3>
+                  <p class="pricing-card__desc" data-type="text">はじめての方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">498,000</span>
+                  <span class="pricing-card__period" data-type="text">/6ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週2回（計48回）のトレーニング</li>
+                  <li data-type="text">3Dボディスキャン</li>
+                  <li data-type="text">食事アドバイス</li>
+                  <li data-type="text">ウェア・タオルレンタル</li>
+                </ul>
+                <a href="#contact" class="btn btn--outline btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">詳細を見る</span>
+                </a>
+              </div>
+              <div class="pricing-card pricing-card--featured" data-repeat-item="pricing-plan">
+                <div class="pricing-card__badge" data-type="text">BEST VALUE</div>
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">PREMIUM</h3>
+                  <p class="pricing-card__desc" data-type="text">本気で変わりたい方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">698,000</span>
+                  <span class="pricing-card__period" data-type="text">/6ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週2回（計48回）のトレーニング</li>
+                  <li data-type="text">3Dボディスキャン + 遺伝子検査</li>
+                  <li data-type="text">AIパーソナライズ食事管理</li>
+                  <li data-type="text">24時間LINEサポート</li>
+                  <li data-type="text">プロテイン提供</li>
+                  <li data-type="text">リバウンド保証</li>
+                </ul>
+                <a href="#contact" class="btn btn--gold btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">今すぐ申し込む</span>
+                </a>
+              </div>
+              <div class="pricing-card" data-repeat-item="pricing-plan">
+                <div class="pricing-card__header">
+                  <h3 class="pricing-card__name" data-type="text">VIP</h3>
+                  <p class="pricing-card__desc" data-type="text">最高の結果を求める方に</p>
+                </div>
+                <div class="pricing-card__price">
+                  <span class="pricing-card__currency" data-type="text">¥</span>
+                  <span class="pricing-card__amount" data-type="text">1,198,000</span>
+                  <span class="pricing-card__period" data-type="text">/6ヶ月</span>
+                </div>
+                <ul class="pricing-card__features">
+                  <li data-type="text">週3回（計72回）のトレーニング</li>
+                  <li data-type="text">PREMIUMの全特典</li>
+                  <li data-type="text">整体・ストレッチ付き</li>
+                  <li data-type="text">専用ロッカー</li>
+                  <li data-type="text">卒業後2年間サポート</li>
+                  <li data-type="text">優先予約権</li>
+                </ul>
+                <a href="#contact" class="btn btn--outline btn--block magnetic-btn" data-type="link">
+                  <span class="btn__text">詳細を見る</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="pricing__note animate-on-scroll" data-type="text">
+          ※ 価格は全て税込みです。入会金55,000円（税込）が別途かかります。<br>
+          ※ 分割払いもご利用いただけます。
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 13: FAQ -->
+    <section class="section faq" id="faq">
+      <div class="container">
+        <span class="section-label section-label--center animate-on-scroll" data-type="text">FAQ</span>
+        <h2 class="section-title section-title--center animate-on-scroll" data-type="text">
+          よくあるご質問
+        </h2>
+        <div class="faq__list" data-repeat="faq-items">
+          <div class="faq-item animate-on-scroll" data-delay="0.1" data-repeat-item="faq-item">
+            <button class="faq-item__question">
+              <span data-type="text">運動経験がなくても大丈夫ですか？</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p data-type="text">はい、全く問題ありません。当ジムの会員様の約40%は運動未経験からスタートされています。お一人おひとりの体力レベルに合わせたプログラムを作成しますので、ご安心ください。トレーナーが常にサポートしますので、正しいフォームで安全にトレーニングできます。</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-delay="0.2" data-repeat-item="faq-item">
+            <button class="faq-item__question">
+              <span data-type="text">食事制限はありますか？</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p data-type="text">極端な食事制限は行いません。AIが分析したあなたの体質や生活習慣に合わせて、無理なく続けられる食事プランをご提案します。「糖質ゼロ」のような過度な制限ではなく、栄養バランスの取れた食事習慣を身につけていただくことで、リバウンドしにくい体づくりを目指します。</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-delay="0.3" data-repeat-item="faq-item">
+            <button class="faq-item__question">
+              <span data-type="text">仕事が忙しくて通えるか不安です</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p data-type="text">当ジムは7:00〜23:00まで営業しており、予約も当日まで可能です。1回45分のセッションなので、出勤前や仕事帰りにも通いやすい設計です。また、急な予定変更にも柔軟に対応しますので、忙しいビジネスパーソンの方にも多くご利用いただいています。</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-delay="0.4" data-repeat-item="faq-item">
+            <button class="faq-item__question">
+              <span data-type="text">途中で解約はできますか？</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p data-type="text">はい、途中解約は可能です。やむを得ない事情（転勤、病気など）の場合は、残り期間分を日割りでご返金いたします。また、30日間の全額返金保証もございますので、まずはお気軽にお試しください。</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-delay="0.5" data-repeat-item="faq-item">
+            <button class="faq-item__question">
+              <span data-type="text">他のジムとの違いは何ですか？</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p data-type="text">最大の違いは「AI × 一流トレーナー」の組み合わせです。AIによる3Dボディスキャン、遺伝子解析、リアルタイムの進捗分析により、従来のパーソナルジムでは実現できなかった精度でプログラムを最適化。さらに、平均指導歴10年以上のトレーナー陣が、データだけでは見えない部分をサポートします。</p>
+            </div>
+          </div>
+          <div class="faq-item animate-on-scroll" data-delay="0.6" data-repeat-item="faq-item">
+            <button class="faq-item__question">
+              <span data-type="text">女性一人でも安心ですか？</span>
+              <span class="faq-item__icon">+</span>
+            </button>
+            <div class="faq-item__answer">
+              <p data-type="text">はい、女性専門のトレーナーも在籍しております。完全個室制ですので、周りの目を気にせずトレーニングに集中できます。女性会員様は全体の約60%を占めており、多くの女性にご支持いただいています。シャワールームやパウダールームも完備しておりますので、仕事帰りにもお気軽にお越しください。</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 14: Final CTA -->
+    <section class="section final-cta" id="contact">
+      <div class="final-cta__particles" id="finalCtaParticles"></div>
+      <div class="final-cta__bg-gradient"></div>
+      <div class="container">
+        <div class="final-cta__content">
+          <span class="section-label section-label--center animate-on-scroll" data-type="text">START YOUR JOURNEY</span>
+          <h2 class="final-cta__title animate-on-scroll" data-type="text">
+            今日から、新しい自分へ。
+          </h2>
+          <p class="final-cta__text animate-on-scroll" data-type="text">
+            まずは無料カウンセリングで、あなたの目標をお聞かせください。<br>
+            専門スタッフが最適なプランをご提案します。
+          </p>
+          <div class="final-cta__benefits animate-on-scroll">
+            <div class="final-cta__benefit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span data-type="text">無料カウンセリング（60分）</span>
+            </div>
+            <div class="final-cta__benefit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span data-type="text">3Dボディスキャン体験</span>
+            </div>
+            <div class="final-cta__benefit">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              <span data-type="text">無理な勧誘は一切なし</span>
+            </div>
+          </div>
+          <div class="final-cta__form animate-on-scroll">
+            <form class="contact-form" id="contactForm">
+              <div class="contact-form__row">
+                <div class="form-group">
+                  <label for="name" data-type="text">お名前</label>
+                  <input type="text" id="name" name="name" required placeholder="山田 太郎">
+                </div>
+                <div class="form-group">
+                  <label for="email" data-type="text">メールアドレス</label>
+                  <input type="email" id="email" name="email" required placeholder="example@email.com">
+                </div>
+              </div>
+              <div class="contact-form__row">
+                <div class="form-group">
+                  <label for="phone" data-type="text">電話番号</label>
+                  <input type="tel" id="phone" name="phone" placeholder="090-1234-5678">
+                </div>
+                <div class="form-group">
+                  <label for="preferred-date" data-type="text">ご希望日時</label>
+                  <input type="text" id="preferred-date" name="preferred-date" placeholder="2月中旬の午後希望">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="message" data-type="text">ご質問・ご要望</label>
+                <textarea id="message" name="message" rows="4" placeholder="目標や気になることなど、お気軽にご記入ください"></textarea>
+              </div>
+              <button type="submit" class="btn btn--gold btn--large btn--block magnetic-btn">
+                <span class="btn__text" data-type="text">無料カウンセリングを予約する</span>
+                <span class="btn__icon">→</span>
+              </button>
+            </form>
+          </div>
+          <div class="final-cta__trust animate-on-scroll">
+            <div class="final-cta__trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+              </svg>
+              <span data-type="text">30日間全額返金保証</span>
+            </div>
+            <div class="final-cta__trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+              </svg>
+              <span data-type="text">個人情報保護</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="footer__top">
+      <div class="container">
+        <div class="footer__grid">
+          <div class="footer__brand">
+            <a href="#hero" class="footer__logo">
+              <span class="footer__logo-text" data-type="text">POWER</span>
+              <span class="footer__logo-accent" data-type="text">FIT</span>
+            </a>
+            <p class="footer__tagline" data-type="text">限界を超えろ。理想を超えろ。</p>
+            <div class="footer__socials">
+              <a href="#" class="footer__social magnetic-btn" aria-label="Twitter" data-type="link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              </a>
+              <a href="#" class="footer__social magnetic-btn" aria-label="Instagram" data-type="link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+              </a>
+              <a href="#" class="footer__social magnetic-btn" aria-label="YouTube" data-type="link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+              </a>
+              <a href="#" class="footer__social magnetic-btn" aria-label="LINE" data-type="link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+              </a>
+            </div>
+          </div>
+          <div class="footer__links">
+            <h4 class="footer__links-title" data-type="text">メニュー</h4>
+            <ul class="footer__links-list">
+              <li><a href="#about" class="footer__link" data-type="link">POWER FITについて</a></li>
+              <li><a href="#features" class="footer__link" data-type="link">特徴</a></li>
+              <li><a href="#trainers" class="footer__link" data-type="link">トレーナー紹介</a></li>
+              <li><a href="#pricing" class="footer__link" data-type="link">料金プラン</a></li>
+              <li><a href="#faq" class="footer__link" data-type="link">よくあるご質問</a></li>
+            </ul>
+          </div>
+          <div class="footer__links">
+            <h4 class="footer__links-title" data-type="text">サポート</h4>
+            <ul class="footer__links-list">
+              <li><a href="#" class="footer__link" data-type="link">プライバシーポリシー</a></li>
+              <li><a href="#" class="footer__link" data-type="link">利用規約</a></li>
+              <li><a href="#" class="footer__link" data-type="link">特定商取引法に基づく表記</a></li>
+              <li><a href="#" class="footer__link" data-type="link">採用情報</a></li>
+            </ul>
+          </div>
+          <div class="footer__contact">
+            <h4 class="footer__links-title" data-type="text">お問い合わせ</h4>
+            <address class="footer__address">
+              <p data-type="text">〒150-0041<br>東京都渋谷区神南1-XX-XX<br>XXXビル 5F</p>
+              <p><a href="tel:03-XXXX-XXXX" class="footer__phone" data-type="link">03-XXXX-XXXX</a></p>
+              <p data-type="text">営業時間: 7:00〜23:00<br>定休日: 年中無休</p>
+            </address>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <div class="container">
+        <p class="footer__copyright" data-type="text">&copy; 2026 POWER FIT. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/particles.js"></script>
+  <script src="js/animations.js"></script>
+  <script src="js/slider.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

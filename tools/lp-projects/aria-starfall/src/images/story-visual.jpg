@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0a0a12"/>
+      <stop offset="100%" style="stop-color:#1a0a2e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="500" fill="url(#bg2)"/>
+  <rect x="100" y="150" width="600" height="200" fill="none" stroke="#FFD700" stroke-width="1" opacity="0.3"/>
+  <text x="400" y="260" font-family="Arial" font-size="28" fill="#FFD700" text-anchor="middle">地下都市 ハルモニア</text>
+  <text x="400" y="300" font-family="Arial" font-size="14" fill="#888" text-anchor="middle">STORY VISUAL - 800 x 500</text>
+</svg>

@@ -20,3 +20,24 @@ Thumbs.db
 # Environment
 .env
 .env.local
+
+# LP Editor build artifacts
+tools/lp-editor/build-log.txt
+tools/lp-editor/tsconfig.main.tsbuildinfo
+
+# LP Projects - Large archive files
+tools/lp-projects/**/*.zip
+
+# LP Projects - Electron build outputs (binaries, all projects)
+tools/lp-projects/**/*.exe
+tools/lp-projects/**/*.dll
+tools/lp-projects/**/*.pak
+tools/lp-projects/**/*.bin
+tools/lp-projects/**/*.dat
+tools/lp-projects/**/locales/
+tools/lp-projects/**/resources/app/
+tools/lp-projects/**/LICENSE*.txt
+tools/lp-projects/**/LICENSES.chromium.html
+
+# Test coverage reports
+coverage/

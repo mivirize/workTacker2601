@@ -1,0 +1,25 @@
+{
+  "name": "MODERN ARCH",
+  "client": "MODERN ARCH一級建築士事務所",
+  "version": "1.0.0",
+  "tier": "rich",
+  "entry": "src/index.html",
+  "output": { "appName": "MODERN ARCH LP", "fileName": "index.html" },
+  "colors": {
+    "primary": { "value": "#1A1A1A", "label": "ブラック" },
+    "secondary": { "value": "#8B7355", "label": "ウッド" },
+    "accent": { "value": "#C4A77D", "label": "アクセント" },
+    "background": { "value": "#FFFFFF", "label": "背景" },
+    "backgroundAlt": { "value": "#F5F5F5", "label": "背景Alt" },
+    "text": { "value": "#1A1A1A", "label": "テキスト" }
+  },
+  "groups": {
+    "hero": { "label": "01. ヒーロー", "order": 1 },
+    "philosophy": { "label": "02. 設計思想", "order": 2 },
+    "awards": { "label": "03. 受賞歴", "order": 3 },
+    "services": { "label": "04. サービス", "order": 4 },
+    "projects": { "label": "05. プロジェクト", "order": 5 },
+    "team": { "label": "06. チーム", "order": 6 },
+    "contact": { "label": "07. お問い合わせ", "order": 7 }
+  }
+}

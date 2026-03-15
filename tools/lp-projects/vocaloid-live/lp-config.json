@@ -1,0 +1,28 @@
+{
+  "name": "NEON GENESIS LIVE 2026",
+  "client": "VOCALOID Live Event",
+  "version": "1.0.0",
+  "entry": "src/index.html",
+  "colors": {
+    "primary": {
+      "label": "プライマリーカラー",
+      "description": "メインのアクセントカラー（シアン）"
+    },
+    "secondary": {
+      "label": "セカンダリーカラー",
+      "description": "サブのアクセントカラー（マゼンタ）"
+    },
+    "accent": {
+      "label": "アクセントカラー",
+      "description": "強調カラー（イエロー）"
+    },
+    "bg-dark": {
+      "label": "背景色（ダーク）",
+      "description": "メイン背景色"
+    },
+    "text": {
+      "label": "テキストカラー",
+      "description": "本文テキストの色"
+    }
+  }
+}

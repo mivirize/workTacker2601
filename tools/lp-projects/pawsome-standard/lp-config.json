@@ -1,0 +1,437 @@
+{
+  "name": "Pawsome Stay",
+  "version": "1.0.0",
+  "tier": "standard",
+  "client": "株式会社ペットライフ",
+  "industry": "pet-hotel",
+  "description": "大切な家族を、最高のおもてなしで。横浜のラグジュアリーペットホテル",
+  "entryPoint": "src/index.html",
+  "colors": {
+    "primary": "#FFB5C5",
+    "primaryDark": "#FF8FAA",
+    "secondary": "#98D8C8",
+    "background": "#FFFBFC",
+    "backgroundAlt": "#F8FFFE",
+    "text": "#4A4A4A",
+    "textMuted": "#7A7A7A"
+  },
+  "fonts": {
+    "heading": "'Noto Sans JP', sans-serif",
+    "body": "'Noto Sans JP', sans-serif"
+  },
+  "groups": [
+    {
+      "id": "hero",
+      "name": "Hero",
+      "description": "Main visual with CTA"
+    },
+    {
+      "id": "features",
+      "name": "Why Choose Us",
+      "description": "4 key benefits"
+    },
+    {
+      "id": "services",
+      "name": "Services",
+      "description": "Hotel, grooming, daycare"
+    },
+    {
+      "id": "rooms",
+      "name": "Room Types",
+      "description": "3 room categories"
+    },
+    {
+      "id": "pricing",
+      "name": "Pricing",
+      "description": "Price table"
+    },
+    {
+      "id": "faq",
+      "name": "FAQ",
+      "description": "6 questions and answers"
+    },
+    {
+      "id": "cta",
+      "name": "Contact CTA",
+      "description": "Booking call to action"
+    }
+  ],
+  "editables": [
+    {
+      "id": "hero-catch",
+      "type": "text",
+      "selector": "[data-editable='hero-catch']",
+      "group": "hero",
+      "label": "Main Catchphrase"
+    },
+    {
+      "id": "hero-sub",
+      "type": "text",
+      "selector": "[data-editable='hero-sub']",
+      "group": "hero",
+      "label": "Sub Catchphrase"
+    },
+    {
+      "id": "hero-cta",
+      "type": "text",
+      "selector": "[data-editable='hero-cta']",
+      "group": "hero",
+      "label": "CTA Button Text"
+    },
+    {
+      "id": "hero-image",
+      "type": "image",
+      "selector": "[data-editable='hero-image']",
+      "group": "hero",
+      "label": "Hero Image"
+    },
+    {
+      "id": "features-title",
+      "type": "text",
+      "selector": "[data-editable='features-title']",
+      "group": "features",
+      "label": "Section Title"
+    },
+    {
+      "id": "feature-1-title",
+      "type": "text",
+      "selector": "[data-editable='feature-1-title']",
+      "group": "features",
+      "label": "Feature 1 Title"
+    },
+    {
+      "id": "feature-1-text",
+      "type": "text",
+      "selector": "[data-editable='feature-1-text']",
+      "group": "features",
+      "label": "Feature 1 Description"
+    },
+    {
+      "id": "feature-2-title",
+      "type": "text",
+      "selector": "[data-editable='feature-2-title']",
+      "group": "features",
+      "label": "Feature 2 Title"
+    },
+    {
+      "id": "feature-2-text",
+      "type": "text",
+      "selector": "[data-editable='feature-2-text']",
+      "group": "features",
+      "label": "Feature 2 Description"
+    },
+    {
+      "id": "feature-3-title",
+      "type": "text",
+      "selector": "[data-editable='feature-3-title']",
+      "group": "features",
+      "label": "Feature 3 Title"
+    },
+    {
+      "id": "feature-3-text",
+      "type": "text",
+      "selector": "[data-editable='feature-3-text']",
+      "group": "features",
+      "label": "Feature 3 Description"
+    },
+    {
+      "id": "feature-4-title",
+      "type": "text",
+      "selector": "[data-editable='feature-4-title']",
+      "group": "features",
+      "label": "Feature 4 Title"
+    },
+    {
+      "id": "feature-4-text",
+      "type": "text",
+      "selector": "[data-editable='feature-4-text']",
+      "group": "features",
+      "label": "Feature 4 Description"
+    },
+    {
+      "id": "services-title",
+      "type": "text",
+      "selector": "[data-editable='services-title']",
+      "group": "services",
+      "label": "Section Title"
+    },
+    {
+      "id": "service-1-title",
+      "type": "text",
+      "selector": "[data-editable='service-1-title']",
+      "group": "services",
+      "label": "Hotel Service Title"
+    },
+    {
+      "id": "service-1-text",
+      "type": "text",
+      "selector": "[data-editable='service-1-text']",
+      "group": "services",
+      "label": "Hotel Service Description"
+    },
+    {
+      "id": "service-1-image",
+      "type": "image",
+      "selector": "[data-editable='service-1-image']",
+      "group": "services",
+      "label": "Hotel Service Image"
+    },
+    {
+      "id": "service-2-title",
+      "type": "text",
+      "selector": "[data-editable='service-2-title']",
+      "group": "services",
+      "label": "Grooming Service Title"
+    },
+    {
+      "id": "service-2-text",
+      "type": "text",
+      "selector": "[data-editable='service-2-text']",
+      "group": "services",
+      "label": "Grooming Service Description"
+    },
+    {
+      "id": "service-2-image",
+      "type": "image",
+      "selector": "[data-editable='service-2-image']",
+      "group": "services",
+      "label": "Grooming Service Image"
+    },
+    {
+      "id": "service-3-title",
+      "type": "text",
+      "selector": "[data-editable='service-3-title']",
+      "group": "services",
+      "label": "Daycare Service Title"
+    },
+    {
+      "id": "service-3-text",
+      "type": "text",
+      "selector": "[data-editable='service-3-text']",
+      "group": "services",
+      "label": "Daycare Service Description"
+    },
+    {
+      "id": "service-3-image",
+      "type": "image",
+      "selector": "[data-editable='service-3-image']",
+      "group": "services",
+      "label": "Daycare Service Image"
+    },
+    {
+      "id": "rooms-title",
+      "type": "text",
+      "selector": "[data-editable='rooms-title']",
+      "group": "rooms",
+      "label": "Section Title"
+    },
+    {
+      "id": "room-1-name",
+      "type": "text",
+      "selector": "[data-editable='room-1-name']",
+      "group": "rooms",
+      "label": "Standard Room Name"
+    },
+    {
+      "id": "room-1-target",
+      "type": "text",
+      "selector": "[data-editable='room-1-target']",
+      "group": "rooms",
+      "label": "Standard Room Target"
+    },
+    {
+      "id": "room-1-price",
+      "type": "text",
+      "selector": "[data-editable='room-1-price']",
+      "group": "rooms",
+      "label": "Standard Room Price"
+    },
+    {
+      "id": "room-1-image",
+      "type": "image",
+      "selector": "[data-editable='room-1-image']",
+      "group": "rooms",
+      "label": "Standard Room Image"
+    },
+    {
+      "id": "room-2-name",
+      "type": "text",
+      "selector": "[data-editable='room-2-name']",
+      "group": "rooms",
+      "label": "Deluxe Room Name"
+    },
+    {
+      "id": "room-2-target",
+      "type": "text",
+      "selector": "[data-editable='room-2-target']",
+      "group": "rooms",
+      "label": "Deluxe Room Target"
+    },
+    {
+      "id": "room-2-price",
+      "type": "text",
+      "selector": "[data-editable='room-2-price']",
+      "group": "rooms",
+      "label": "Deluxe Room Price"
+    },
+    {
+      "id": "room-2-image",
+      "type": "image",
+      "selector": "[data-editable='room-2-image']",
+      "group": "rooms",
+      "label": "Deluxe Room Image"
+    },
+    {
+      "id": "room-3-name",
+      "type": "text",
+      "selector": "[data-editable='room-3-name']",
+      "group": "rooms",
+      "label": "Premium Suite Name"
+    },
+    {
+      "id": "room-3-target",
+      "type": "text",
+      "selector": "[data-editable='room-3-target']",
+      "group": "rooms",
+      "label": "Premium Suite Target"
+    },
+    {
+      "id": "room-3-price",
+      "type": "text",
+      "selector": "[data-editable='room-3-price']",
+      "group": "rooms",
+      "label": "Premium Suite Price"
+    },
+    {
+      "id": "room-3-image",
+      "type": "image",
+      "selector": "[data-editable='room-3-image']",
+      "group": "rooms",
+      "label": "Premium Suite Image"
+    },
+    {
+      "id": "pricing-title",
+      "type": "text",
+      "selector": "[data-editable='pricing-title']",
+      "group": "pricing",
+      "label": "Section Title"
+    },
+    {
+      "id": "faq-title",
+      "type": "text",
+      "selector": "[data-editable='faq-title']",
+      "group": "faq",
+      "label": "Section Title"
+    },
+    {
+      "id": "faq-1-q",
+      "type": "text",
+      "selector": "[data-editable='faq-1-q']",
+      "group": "faq",
+      "label": "Question 1"
+    },
+    {
+      "id": "faq-1-a",
+      "type": "text",
+      "selector": "[data-editable='faq-1-a']",
+      "group": "faq",
+      "label": "Answer 1"
+    },
+    {
+      "id": "faq-2-q",
+      "type": "text",
+      "selector": "[data-editable='faq-2-q']",
+      "group": "faq",
+      "label": "Question 2"
+    },
+    {
+      "id": "faq-2-a",
+      "type": "text",
+      "selector": "[data-editable='faq-2-a']",
+      "group": "faq",
+      "label": "Answer 2"
+    },
+    {
+      "id": "faq-3-q",
+      "type": "text",
+      "selector": "[data-editable='faq-3-q']",
+      "group": "faq",
+      "label": "Question 3"
+    },
+    {
+      "id": "faq-3-a",
+      "type": "text",
+      "selector": "[data-editable='faq-3-a']",
+      "group": "faq",
+      "label": "Answer 3"
+    },
+    {
+      "id": "faq-4-q",
+      "type": "text",
+      "selector": "[data-editable='faq-4-q']",
+      "group": "faq",
+      "label": "Question 4"
+    },
+    {
+      "id": "faq-4-a",
+      "type": "text",
+      "selector": "[data-editable='faq-4-a']",
+      "group": "faq",
+      "label": "Answer 4"
+    },
+    {
+      "id": "faq-5-q",
+      "type": "text",
+      "selector": "[data-editable='faq-5-q']",
+      "group": "faq",
+      "label": "Question 5"
+    },
+    {
+      "id": "faq-5-a",
+      "type": "text",
+      "selector": "[data-editable='faq-5-a']",
+      "group": "faq",
+      "label": "Answer 5"
+    },
+    {
+      "id": "faq-6-q",
+      "type": "text",
+      "selector": "[data-editable='faq-6-q']",
+      "group": "faq",
+      "label": "Question 6"
+    },
+    {
+      "id": "faq-6-a",
+      "type": "text",
+      "selector": "[data-editable='faq-6-a']",
+      "group": "faq",
+      "label": "Answer 6"
+    },
+    {
+      "id": "cta-title",
+      "type": "text",
+      "selector": "[data-editable='cta-title']",
+      "group": "cta",
+      "label": "CTA Title"
+    },
+    {
+      "id": "cta-sub",
+      "type": "text",
+      "selector": "[data-editable='cta-sub']",
+      "group": "cta",
+      "label": "CTA Subtitle"
+    },
+    {
+      "id": "cta-button",
+      "type": "text",
+      "selector": "[data-editable='cta-button']",
+      "group": "cta",
+      "label": "CTA Button Text"
+    }
+  ],
+  "meta": {
+    "title": "Pawsome Stay | 横浜のラグジュアリーペットホテル",
+    "description": "24時間獣医師対応・完全個室・ライブカメラ完備。大切な家族を最高のおもてなしでお預かりします。横浜駅徒歩5分。",
+    "ogImage": "src/images/og-image.jpg"
+  }
+}

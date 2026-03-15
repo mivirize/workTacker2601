@@ -95,6 +95,15 @@ interface ElectronAPI {
   exportHtml: (htmlContent: string, outputDir?: string) => Promise<string | null>
   showOutputFolder: (outputDir?: string) => Promise<void>
 
+  // Tracking operations
+  loadTrackingConfig: () => Promise<import('../stores/tracking-store').TrackingConfig | null>
+  saveTrackingConfig: (config: import('../stores/tracking-store').TrackingConfig) => Promise<boolean>
+
+  // Form operations
+  loadFormConfig: () => Promise<Record<string, import('../stores/form-store').FormConfig> | null>
+  saveFormConfig: (configs: Record<string, import('../stores/form-store').FormConfig>) => Promise<boolean>
+  testFormSubmit: (formId: string, config: import('../stores/form-store').FormConfig) => Promise<{ success: boolean; error?: string }>
+
   // Admin mode operations
   isAdminMode: () => Promise<boolean>
   listProjects: (baseDir: string) => Promise<ProjectListItem[]>
@@ -103,7 +112,8 @@ interface ElectronAPI {
   selectProjectsDir: () => Promise<string | null>
   getLastProjectsDir: () => Promise<string | null>
   returnToAdmin: () => Promise<boolean>
-  exportProject: (projectPath: string) => Promise<string | null>
+  exportProject: (projectPath: string, options?: { includeEditor?: boolean }) => Promise<string | null>
+  validateLpContent: (projectPath: string) => Promise<{ valid: boolean; warnings: Array<{ type: string; code: string; message: string; element?: string }> }>
   generateScreenshot: (projectPath: string) => Promise<string | null>
 }
 

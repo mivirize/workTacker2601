@@ -1,0 +1,326 @@
+{
+  "_meta": {
+    "name": "CDJ Style LP",
+    "client": "Sample Client",
+    "version": "1.0.0",
+    "generatedAt": "2026-01-30T13:11:04.269Z"
+  },
+  "editables": {
+    "001-header-logo": {
+      "type": "text",
+      "value": "BRAND NAME",
+      "label": "ロゴ",
+      "group": "01-Header"
+    },
+    "010-hero-eyebrow": {
+      "type": "text",
+      "value": "NEW RELEASE",
+      "label": "アイキャッチ",
+      "group": "02-Hero"
+    },
+    "011-hero-title": {
+      "type": "text",
+      "value": "革新的なテクノロジーが、\n新たな体験を創造する",
+      "label": "メインタイトル",
+      "group": "02-Hero"
+    },
+    "012-hero-subtitle": {
+      "type": "text",
+      "value": "PRODUCT NAME - Next Generation Innovation",
+      "label": "サブタイトル",
+      "group": "02-Hero"
+    },
+    "013b-hero-product": {
+      "type": "image",
+      "value": "",
+      "label": "製品画像",
+      "group": "02-Hero",
+      "src": "images/product-hero.svg"
+    },
+    "014-hero-cta": {
+      "type": "text",
+      "value": "DISCOVER MORE",
+      "label": "CTAボタン",
+      "group": "02-Hero"
+    },
+    "015-hero-cta2": {
+      "type": "text",
+      "value": "ONLINE STORE",
+      "label": "CTAボタン2",
+      "group": "02-Hero"
+    },
+    "020-features-label": {
+      "type": "text",
+      "value": "FEATURES",
+      "label": "ラベル",
+      "group": "03-Features"
+    },
+    "021-features-title": {
+      "type": "text",
+      "value": "時代を超えて磨かれ続ける、\n実用性と造形美",
+      "label": "タイトル",
+      "group": "03-Features"
+    },
+    "040-specs-label": {
+      "type": "text",
+      "value": "SPECIFICATIONS",
+      "label": "ラベル",
+      "group": "04-Specs"
+    },
+    "041-specs-title": {
+      "type": "text",
+      "value": "仕様",
+      "label": "タイトル",
+      "group": "04-Specs"
+    },
+    "042-spec-1-title": {
+      "type": "text",
+      "value": "Display",
+      "label": "スペック1タイトル",
+      "group": "04-Specs"
+    },
+    "043-spec-1-value": {
+      "type": "text",
+      "value": "9インチ タッチスクリーン",
+      "label": "スペック1値",
+      "group": "04-Specs"
+    },
+    "044-spec-2-title": {
+      "type": "text",
+      "value": "Response",
+      "label": "スペック2タイトル",
+      "group": "04-Specs"
+    },
+    "045-spec-2-value": {
+      "type": "text",
+      "value": "0.5ms 超低遅延",
+      "label": "スペック2値",
+      "group": "04-Specs"
+    },
+    "046-spec-3-title": {
+      "type": "text",
+      "value": "Connectivity",
+      "label": "スペック3タイトル",
+      "group": "04-Specs"
+    },
+    "047-spec-3-value": {
+      "type": "text",
+      "value": "USB-C / Wi-Fi 6E",
+      "label": "スペック3値",
+      "group": "04-Specs"
+    },
+    "048-spec-4-title": {
+      "type": "text",
+      "value": "Battery",
+      "label": "スペック4タイトル",
+      "group": "04-Specs"
+    },
+    "049-spec-4-value": {
+      "type": "text",
+      "value": "12時間 連続使用",
+      "label": "スペック4値",
+      "group": "04-Specs"
+    },
+    "050-gallery-label": {
+      "type": "text",
+      "value": "GALLERY",
+      "label": "ラベル",
+      "group": "05-Gallery"
+    },
+    "051-gallery-title": {
+      "type": "text",
+      "value": "ギャラリー",
+      "label": "タイトル",
+      "group": "05-Gallery"
+    },
+    "060-support-label": {
+      "type": "text",
+      "value": "SUPPORT",
+      "label": "ラベル",
+      "group": "06-Support"
+    },
+    "061-support-title": {
+      "type": "text",
+      "value": "サポート",
+      "label": "タイトル",
+      "group": "06-Support"
+    },
+    "062-support-1-title": {
+      "type": "text",
+      "value": "Downloads",
+      "label": "サポート1",
+      "group": "06-Support"
+    },
+    "063-support-2-title": {
+      "type": "text",
+      "value": "FAQ",
+      "label": "サポート2",
+      "group": "06-Support"
+    },
+    "064-support-3-title": {
+      "type": "text",
+      "value": "Manuals",
+      "label": "サポート3",
+      "group": "06-Support"
+    },
+    "070-contact-label": {
+      "type": "text",
+      "value": "CONTACT",
+      "label": "ラベル",
+      "group": "07-Contact"
+    },
+    "071-contact-title": {
+      "type": "text",
+      "value": "お問い合わせ",
+      "label": "タイトル",
+      "group": "07-Contact"
+    },
+    "072-contact-lead": {
+      "type": "text",
+      "value": "製品に関するお問い合わせ・サポート",
+      "label": "リード文",
+      "group": "07-Contact"
+    },
+    "073-contact-email": {
+      "type": "text",
+      "value": "support@example.com",
+      "label": "メール",
+      "group": "07-Contact"
+    },
+    "080-footer-logo": {
+      "type": "text",
+      "value": "BRAND NAME",
+      "label": "フッターロゴ",
+      "group": "08-Footer"
+    },
+    "081-footer-copyright": {
+      "type": "text",
+      "value": "© 2026 BRAND NAME. All rights reserved.",
+      "label": "コピーライト",
+      "group": "08-Footer"
+    }
+  },
+  "repeatBlocks": {
+    "features": {
+      "min": 3,
+      "max": 9,
+      "items": [
+        {
+          "022b-feature-1-image": {
+            "type": "image",
+            "value": "",
+            "label": "機能1画像",
+            "group": "03-Features",
+            "src": "images/feature-1.svg"
+          },
+          "023-feature-1-title": {
+            "type": "text",
+            "value": "High Performance",
+            "label": "機能1タイトル",
+            "group": "03-Features"
+          },
+          "024-feature-1-desc": {
+            "type": "richtext",
+            "value": "最先端のテクノロジーを搭載し、かつてない高性能を実現。プロフェッショナルの要求に応える、圧倒的なパフォーマンス。",
+            "label": "機能1説明",
+            "group": "03-Features"
+          }
+        },
+        {
+          "025b-feature-2-image": {
+            "type": "image",
+            "value": "",
+            "label": "機能2画像",
+            "group": "03-Features",
+            "src": "images/feature-2.svg"
+          },
+          "026-feature-2-title": {
+            "type": "text",
+            "value": "Intuitive Design",
+            "label": "機能2タイトル",
+            "group": "03-Features"
+          },
+          "027-feature-2-desc": {
+            "type": "richtext",
+            "value": "直感的な操作性を追求した設計。初めて触れる人でも、すぐに使いこなせるユーザーインターフェース。",
+            "label": "機能2説明",
+            "group": "03-Features"
+          }
+        },
+        {
+          "028b-feature-3-image": {
+            "type": "image",
+            "value": "",
+            "label": "機能3画像",
+            "group": "03-Features",
+            "src": "images/feature-3.svg"
+          },
+          "029-feature-3-title": {
+            "type": "text",
+            "value": "Premium Quality",
+            "label": "機能3タイトル",
+            "group": "03-Features"
+          },
+          "030-feature-3-desc": {
+            "type": "richtext",
+            "value": "妥協のない素材選びと精密な製造工程。長年の使用に耐える堅牢性と、美しさを両立。",
+            "label": "機能3説明",
+            "group": "03-Features"
+          }
+        }
+      ]
+    },
+    "gallery": {
+      "min": 3,
+      "max": 9,
+      "items": [
+        {
+          "052b-gallery-1": {
+            "type": "image",
+            "value": "",
+            "label": "ギャラリー1",
+            "group": "05-Gallery",
+            "src": "images/gallery-1.svg"
+          }
+        },
+        {
+          "053b-gallery-2": {
+            "type": "image",
+            "value": "",
+            "label": "ギャラリー2",
+            "group": "05-Gallery",
+            "src": "images/gallery-2.svg"
+          }
+        },
+        {
+          "054b-gallery-3": {
+            "type": "image",
+            "value": "",
+            "label": "ギャラリー3",
+            "group": "05-Gallery",
+            "src": "images/gallery-3.svg"
+          }
+        },
+        {
+          "055b-gallery-4": {
+            "type": "image",
+            "value": "",
+            "label": "ギャラリー4",
+            "group": "05-Gallery",
+            "src": "images/gallery-4.svg"
+          }
+        },
+        {
+          "056b-gallery-5": {
+            "type": "image",
+            "value": "",
+            "label": "ギャラリー5",
+            "group": "05-Gallery",
+            "src": "images/gallery-5.svg"
+          }
+        }
+      ]
+    }
+  },
+  "colors": {}
+}

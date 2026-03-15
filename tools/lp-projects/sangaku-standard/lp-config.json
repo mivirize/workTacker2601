@@ -1,0 +1,102 @@
+{
+  "name": "山岳麦酒 SANGAKU BEER",
+  "version": "1.0.0",
+  "description": "北アルプス山麓のクラフトビール醸造所「山岳麦酒」のランディングページ",
+  "tier": "standard",
+  "client": "山岳麦酒醸造所",
+  "author": "LP-Editor",
+  "created": "2026-02-01",
+  "src": "./src",
+  "entry": "index.html",
+  "assets": {
+    "css": ["css/styles.css"],
+    "js": ["js/main.js"],
+    "images": "images/"
+  },
+  "colors": {
+    "primary": "#D4A574",
+    "primaryDark": "#B8894A",
+    "secondary": "#1B4332",
+    "background": "#FDF8F0",
+    "backgroundDark": "#1A1A1A",
+    "text": "#2D2D2D",
+    "accent": "#C9A227"
+  },
+  "sections": [
+    {
+      "id": "age-gate",
+      "name": "年齢確認",
+      "type": "modal"
+    },
+    {
+      "id": "hero",
+      "name": "ヒーロー",
+      "type": "hero"
+    },
+    {
+      "id": "story",
+      "name": "こだわり",
+      "type": "features"
+    },
+    {
+      "id": "products",
+      "name": "商品一覧",
+      "type": "products"
+    },
+    {
+      "id": "brewery",
+      "name": "醸造所案内",
+      "type": "info"
+    },
+    {
+      "id": "shop",
+      "name": "オンラインショップ",
+      "type": "cta"
+    },
+    {
+      "id": "footer",
+      "name": "フッター",
+      "type": "footer"
+    }
+  ],
+  "repeatBlocks": [
+    {
+      "name": "story-features",
+      "itemSelector": "[data-repeat-item]",
+      "fields": ["feature-title", "feature-text"]
+    },
+    {
+      "name": "products",
+      "itemSelector": "[data-repeat-item]",
+      "fields": ["product-image", "product-name", "product-style", "product-description"]
+    }
+  ],
+  "fonts": {
+    "google": [
+      "Noto Sans JP:400,500,700",
+      "Playfair Display:400,600,700"
+    ]
+  },
+  "features": {
+    "ageGate": true,
+    "ageGateMinAge": 20,
+    "scrollAnimations": true,
+    "parallax": true,
+    "mobileNav": true,
+    "smoothScroll": true
+  },
+  "placeholderImages": {
+    "hero-bg": "1920x1080 brewery landscape with mountains",
+    "story-image": "1600x900 brewing process",
+    "product-1-image": "800x600 pale ale bottle",
+    "product-2-image": "800x600 weizen bottle",
+    "product-3-image": "800x600 IPA bottle",
+    "product-4-image": "800x600 amber ale bottle",
+    "product-5-image": "800x600 stout bottle",
+    "product-6-image": "800x600 seasonal beer bottle",
+    "brewery-image-1": "1200x750 brewery exterior",
+    "brewery-image-2": "600x450 taproom interior",
+    "brewery-image-3": "600x450 terrace with mountain view",
+    "shop-bg": "1920x1080 beer glasses arrangement"
+  }
+}

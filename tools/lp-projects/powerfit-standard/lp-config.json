@@ -1,0 +1,401 @@
+{
+  "name": "POWER FIT",
+  "version": "1.0.0",
+  "tier": "standard",
+  "client": "株式会社パワーフィット",
+  "industry": "personal-training",
+  "description": "AIが導く完全個室パーソナルトレーニングジム",
+  "entryPoint": "src/index.html",
+  "colors": {
+    "primary": "#D4AF37",
+    "primaryDark": "#B8960C",
+    "secondary": "#1A1A1A",
+    "background": "#0D0D0D",
+    "text": "#FFFFFF",
+    "textMuted": "#A0A0A0"
+  },
+  "fonts": {
+    "heading": "'Noto Sans JP', sans-serif",
+    "body": "'Noto Sans JP', sans-serif"
+  },
+  "groups": [
+    {
+      "id": "hero",
+      "name": "ヒーロー",
+      "description": "ファーストビュー・メインキャッチ"
+    },
+    {
+      "id": "problems",
+      "name": "お悩み",
+      "description": "ターゲットの悩みポイント"
+    },
+    {
+      "id": "solution",
+      "name": "解決策",
+      "description": "サービス紹介"
+    },
+    {
+      "id": "features",
+      "name": "特徴",
+      "description": "4つの強み"
+    },
+    {
+      "id": "pricing",
+      "name": "料金プラン",
+      "description": "3つのプラン"
+    },
+    {
+      "id": "faq",
+      "name": "よくある質問",
+      "description": "FAQ 6項目"
+    },
+    {
+      "id": "cta",
+      "name": "お問い合わせ",
+      "description": "CTAとフォーム"
+    }
+  ],
+  "editables": [
+    {
+      "id": "hero-catch",
+      "type": "text",
+      "selector": "[data-editable='hero-catch']",
+      "group": "hero",
+      "label": "メインキャッチ"
+    },
+    {
+      "id": "hero-sub",
+      "type": "text",
+      "selector": "[data-editable='hero-sub']",
+      "group": "hero",
+      "label": "サブキャッチ"
+    },
+    {
+      "id": "hero-cta",
+      "type": "text",
+      "selector": "[data-editable='hero-cta']",
+      "group": "hero",
+      "label": "CTAボタン"
+    },
+    {
+      "id": "problem-title",
+      "type": "text",
+      "selector": "[data-editable='problem-title']",
+      "group": "problems",
+      "label": "セクションタイトル"
+    },
+    {
+      "id": "problem-1-title",
+      "type": "text",
+      "selector": "[data-editable='problem-1-title']",
+      "group": "problems",
+      "label": "悩み1タイトル"
+    },
+    {
+      "id": "problem-1-text",
+      "type": "text",
+      "selector": "[data-editable='problem-1-text']",
+      "group": "problems",
+      "label": "悩み1説明"
+    },
+    {
+      "id": "problem-2-title",
+      "type": "text",
+      "selector": "[data-editable='problem-2-title']",
+      "group": "problems",
+      "label": "悩み2タイトル"
+    },
+    {
+      "id": "problem-2-text",
+      "type": "text",
+      "selector": "[data-editable='problem-2-text']",
+      "group": "problems",
+      "label": "悩み2説明"
+    },
+    {
+      "id": "problem-3-title",
+      "type": "text",
+      "selector": "[data-editable='problem-3-title']",
+      "group": "problems",
+      "label": "悩み3タイトル"
+    },
+    {
+      "id": "problem-3-text",
+      "type": "text",
+      "selector": "[data-editable='problem-3-text']",
+      "group": "problems",
+      "label": "悩み3説明"
+    },
+    {
+      "id": "solution-title",
+      "type": "text",
+      "selector": "[data-editable='solution-title']",
+      "group": "solution",
+      "label": "セクションタイトル"
+    },
+    {
+      "id": "solution-text",
+      "type": "text",
+      "selector": "[data-editable='solution-text']",
+      "group": "solution",
+      "label": "説明文"
+    },
+    {
+      "id": "solution-image",
+      "type": "image",
+      "selector": "[data-editable='solution-image']",
+      "group": "solution",
+      "label": "メイン画像"
+    },
+    {
+      "id": "features-title",
+      "type": "text",
+      "selector": "[data-editable='features-title']",
+      "group": "features",
+      "label": "セクションタイトル"
+    },
+    {
+      "id": "feature-1-title",
+      "type": "text",
+      "selector": "[data-editable='feature-1-title']",
+      "group": "features",
+      "label": "特徴1タイトル"
+    },
+    {
+      "id": "feature-1-text",
+      "type": "text",
+      "selector": "[data-editable='feature-1-text']",
+      "group": "features",
+      "label": "特徴1説明"
+    },
+    {
+      "id": "feature-2-title",
+      "type": "text",
+      "selector": "[data-editable='feature-2-title']",
+      "group": "features",
+      "label": "特徴2タイトル"
+    },
+    {
+      "id": "feature-2-text",
+      "type": "text",
+      "selector": "[data-editable='feature-2-text']",
+      "group": "features",
+      "label": "特徴2説明"
+    },
+    {
+      "id": "feature-3-title",
+      "type": "text",
+      "selector": "[data-editable='feature-3-title']",
+      "group": "features",
+      "label": "特徴3タイトル"
+    },
+    {
+      "id": "feature-3-text",
+      "type": "text",
+      "selector": "[data-editable='feature-3-text']",
+      "group": "features",
+      "label": "特徴3説明"
+    },
+    {
+      "id": "feature-4-title",
+      "type": "text",
+      "selector": "[data-editable='feature-4-title']",
+      "group": "features",
+      "label": "特徴4タイトル"
+    },
+    {
+      "id": "feature-4-text",
+      "type": "text",
+      "selector": "[data-editable='feature-4-text']",
+      "group": "features",
+      "label": "特徴4説明"
+    },
+    {
+      "id": "pricing-title",
+      "type": "text",
+      "selector": "[data-editable='pricing-title']",
+      "group": "pricing",
+      "label": "セクションタイトル"
+    },
+    {
+      "id": "plan-1-name",
+      "type": "text",
+      "selector": "[data-editable='plan-1-name']",
+      "group": "pricing",
+      "label": "プラン1名"
+    },
+    {
+      "id": "plan-1-price",
+      "type": "text",
+      "selector": "[data-editable='plan-1-price']",
+      "group": "pricing",
+      "label": "プラン1価格"
+    },
+    {
+      "id": "plan-1-sessions",
+      "type": "text",
+      "selector": "[data-editable='plan-1-sessions']",
+      "group": "pricing",
+      "label": "プラン1回数"
+    },
+    {
+      "id": "plan-2-name",
+      "type": "text",
+      "selector": "[data-editable='plan-2-name']",
+      "group": "pricing",
+      "label": "プラン2名"
+    },
+    {
+      "id": "plan-2-price",
+      "type": "text",
+      "selector": "[data-editable='plan-2-price']",
+      "group": "pricing",
+      "label": "プラン2価格"
+    },
+    {
+      "id": "plan-2-sessions",
+      "type": "text",
+      "selector": "[data-editable='plan-2-sessions']",
+      "group": "pricing",
+      "label": "プラン2回数"
+    },
+    {
+      "id": "plan-3-name",
+      "type": "text",
+      "selector": "[data-editable='plan-3-name']",
+      "group": "pricing",
+      "label": "プラン3名"
+    },
+    {
+      "id": "plan-3-price",
+      "type": "text",
+      "selector": "[data-editable='plan-3-price']",
+      "group": "pricing",
+      "label": "プラン3価格"
+    },
+    {
+      "id": "plan-3-sessions",
+      "type": "text",
+      "selector": "[data-editable='plan-3-sessions']",
+      "group": "pricing",
+      "label": "プラン3回数"
+    },
+    {
+      "id": "faq-title",
+      "type": "text",
+      "selector": "[data-editable='faq-title']",
+      "group": "faq",
+      "label": "セクションタイトル"
+    },
+    {
+      "id": "faq-1-q",
+      "type": "text",
+      "selector": "[data-editable='faq-1-q']",
+      "group": "faq",
+      "label": "質問1"
+    },
+    {
+      "id": "faq-1-a",
+      "type": "text",
+      "selector": "[data-editable='faq-1-a']",
+      "group": "faq",
+      "label": "回答1"
+    },
+    {
+      "id": "faq-2-q",
+      "type": "text",
+      "selector": "[data-editable='faq-2-q']",
+      "group": "faq",
+      "label": "質問2"
+    },
+    {
+      "id": "faq-2-a",
+      "type": "text",
+      "selector": "[data-editable='faq-2-a']",
+      "group": "faq",
+      "label": "回答2"
+    },
+    {
+      "id": "faq-3-q",
+      "type": "text",
+      "selector": "[data-editable='faq-3-q']",
+      "group": "faq",
+      "label": "質問3"
+    },
+    {
+      "id": "faq-3-a",
+      "type": "text",
+      "selector": "[data-editable='faq-3-a']",
+      "group": "faq",
+      "label": "回答3"
+    },
+    {
+      "id": "faq-4-q",
+      "type": "text",
+      "selector": "[data-editable='faq-4-q']",
+      "group": "faq",
+      "label": "質問4"
+    },
+    {
+      "id": "faq-4-a",
+      "type": "text",
+      "selector": "[data-editable='faq-4-a']",
+      "group": "faq",
+      "label": "回答4"
+    },
+    {
+      "id": "faq-5-q",
+      "type": "text",
+      "selector": "[data-editable='faq-5-q']",
+      "group": "faq",
+      "label": "質問5"
+    },
+    {
+      "id": "faq-5-a",
+      "type": "text",
+      "selector": "[data-editable='faq-5-a']",
+      "group": "faq",
+      "label": "回答5"
+    },
+    {
+      "id": "faq-6-q",
+      "type": "text",
+      "selector": "[data-editable='faq-6-q']",
+      "group": "faq",
+      "label": "質問6"
+    },
+    {
+      "id": "faq-6-a",
+      "type": "text",
+      "selector": "[data-editable='faq-6-a']",
+      "group": "faq",
+      "label": "回答6"
+    },
+    {
+      "id": "cta-title",
+      "type": "text",
+      "selector": "[data-editable='cta-title']",
+      "group": "cta",
+      "label": "CTAタイトル"
+    },
+    {
+      "id": "cta-sub",
+      "type": "text",
+      "selector": "[data-editable='cta-sub']",
+      "group": "cta",
+      "label": "CTAサブテキスト"
+    },
+    {
+      "id": "cta-button",
+      "type": "text",
+      "selector": "[data-editable='cta-button']",
+      "group": "cta",
+      "label": "送信ボタン"
+    }
+  ],
+  "meta": {
+    "title": "POWER FIT | AIパーソナルトレーニング渋谷",
+    "description": "渋谷駅徒歩5分。AIが導く完全個室パーソナルトレーニングジム。理想の体を最短ルートで実現します。",
+    "ogImage": "src/images/og-image.jpg"
+  }
+}

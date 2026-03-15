@@ -1,0 +1,32 @@
+{
+  "name": "Web Design Trends 2026 Showcase",
+  "client": "Trend Showcase",
+  "version": "3.0.0",
+  "entry": "src/index.html",
+  "output": {
+    "appName": "Trends-2026",
+    "fileName": "trends-2026-showcase"
+  },
+  "course": "premium",
+  "features": [
+    "bento-grid",
+    "scroll-animations",
+    "particles",
+    "glassmorphism",
+    "dark-mode",
+    "variable-fonts",
+    "mouse-trail",
+    "parallax",
+    "sakura-effect",
+    "animation-showcase",
+    "effects-lab",
+    "color-palettes",
+    "counter-animation",
+    "layout-lab",
+    "kinetic-typography",
+    "micro-interactions",
+    "trend-map",
+    "gradient-gallery",
+    "font-pairing"
+  ]
+}
